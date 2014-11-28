@@ -15,10 +15,10 @@ class TegStarRating {
 
     var starLayers = [CALayer]()
 
-    for starNumber in (0...numberOfStars) {
+    for starNumber in (0..<numberOfStars) {
       filledStarsCount--
 
-      let isFilled = filledStarsCount > 0
+      let isFilled = filledStarsCount >= 0
       let starLayer = createStarLayer(isFilled, font: font, color: color)
       starLayers.append(starLayer)
     }
