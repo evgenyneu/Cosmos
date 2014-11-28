@@ -13,6 +13,8 @@
 		2B6D52BE1A281B7100DF85BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52BD1A281B7100DF85BF /* Images.xcassets */; };
 		2B6D52C11A281B7100DF85BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52BF1A281B7100DF85BF /* LaunchScreen.xib */; };
 		2B6D52CD1A281B7100DF85BF /* star_rating_viewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52CC1A281B7100DF85BF /* star_rating_viewTests.swift */; };
+		2B6D52D71A281B9700DF85BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */; };
+		2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		2B6D52C61A281B7100DF85BF /* star-rating-viewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "star-rating-viewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6D52CB1A281B7100DF85BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6D52CC1A281B7100DF85BF /* star_rating_viewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = star_rating_viewTests.swift; sourceTree = "<group>"; };
+		2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		2B6D52A81A281B7100DF85BF = {
 			isa = PBXGroup;
 			children = (
+				2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */,
 				2B6D52B31A281B7100DF85BF /* star-rating-view */,
 				2B6D52C91A281B7100DF85BF /* star-rating-viewTests */,
 				2B6D52B21A281B7100DF85BF /* Products */,
@@ -77,6 +82,7 @@
 		2B6D52B31A281B7100DF85BF /* star-rating-view */ = {
 			isa = PBXGroup;
 			children = (
+				2B6D52D81A281BC700DF85BF /* star-rating-view */,
 				2B6D52B61A281B7100DF85BF /* AppDelegate.swift */,
 				2B6D52B81A281B7100DF85BF /* ViewController.swift */,
 				2B6D52BA1A281B7100DF85BF /* Main.storyboard */,
@@ -110,6 +116,14 @@
 				2B6D52CB1A281B7100DF85BF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B6D52D81A281BC700DF85BF /* star-rating-view */ = {
+			isa = PBXGroup;
+			children = (
+				2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */,
+			);
+			name = "star-rating-view";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6D52BC1A281B7100DF85BF /* Main.storyboard in Resources */,
+				2B6D52D71A281B9700DF85BF /* Default-568h@2x.png in Resources */,
 				2B6D52C11A281B7100DF85BF /* LaunchScreen.xib in Resources */,
 				2B6D52BE1A281B7100DF85BF /* Images.xcassets in Resources */,
 			);
@@ -214,6 +229,7 @@
 			files = (
 				2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */,
 				2B6D52B71A281B7100DF85BF /* AppDelegate.swift in Sources */,
+				2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

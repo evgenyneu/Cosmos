@@ -9,17 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+  @IBOutlet weak var starRatingViewOne: TegStarRatingView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    starRatingViewOne.backgroundColor = nil
+
+    starRatingViewOne.setup()
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 
