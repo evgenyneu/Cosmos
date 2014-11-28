@@ -12,6 +12,7 @@ class TegStarRatingView: UIView {
 
   let numberOfStars = 5
 
+  var starFillMode = TegStarFillMode.Precise
   var marginBetweenStars:CGFloat = 3
   var starFont = UIFont.boldSystemFontOfSize(19)
   var starColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
@@ -21,7 +22,7 @@ class TegStarRatingView: UIView {
 
   func show(#raiting: Double, numberOfPeopleWhoRated: Int) {
     let starLayers = TegStarRating.createStarLayers(raiting, numberOfStars: numberOfStars,
-      font: starFont, color: starColor, marginBetweenStars: marginBetweenStars)
+      font: starFont, color: starColor, marginBetweenStars: marginBetweenStars, starFillMode: starFillMode)
 
     layer.sublayers = starLayers
   }

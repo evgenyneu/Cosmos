@@ -9,7 +9,8 @@
 import UIKit
 
 class TegStarRating {
-  class func createStarLayers(raiting: Double, numberOfStars: Int, font: UIFont, color: UIColor, marginBetweenStars: CGFloat) -> [CALayer] {
+  class func createStarLayers(raiting: Double, numberOfStars: Int,
+    font: UIFont, color: UIColor, marginBetweenStars: CGFloat, starFillMode: TegStarFillMode) -> [CALayer] {
 
     var ratingRemander = numberOfFilledStars(raiting)
 
@@ -18,8 +19,8 @@ class TegStarRating {
     for starNumber in (0..<numberOfStars) {
       ratingRemander--
 
-      let starType = TegStarRatingType.starType(ratingRemander)
-      let starLayer = createCompositeStarLayer(starType, font: font, color: color)
+      let fillLevel = starFillLevel(ratingRemander, starFillMode: starFillMode)
+      let starLayer = createCompositeStarLayer(fillLevel, font: font, color: color)
       starLayers.append(starLayer)
     }
 
@@ -27,26 +28,63 @@ class TegStarRating {
     return starLayers
   }
 
-  private class func createCompositeStarLayer(starType: TegStarRatingType,
+  private class func createCompositeStarLayer(starFillLevel: Double,
     font: UIFont, color: UIColor) -> CALayer {
 
-    switch starType {
-    case .Filled:
+    if starFillLevel >= 1 {
       return createStarLayer(true, font: font, color: color)
-    case .Empty:
-      return createStarLayer(false, font: font, color: color)
-    default:
+    }
+      
+    if starFillLevel == 0 {
       return createStarLayer(false, font: font, color: color)
     }
+
+      
+    return createHalfStar(starFillLevel, font: font, color: color)
   }
 
+  
+  private class func createHalfStar(starFillLevel: Double, font: UIFont, color: UIColor) -> CALayer {
+    let filledStar = createStarLayer(true, font: font, color: color)
+    let emptyStar = createStarLayer(false, font: font, color: color)
+
+    let parentLayer = CALayer()
+    parentLayer.bounds = CGRect(origin: CGPoint(), size: emptyStar.bounds.size)
+    parentLayer.anchorPoint = CGPoint()
+    parentLayer.addSublayer(filledStar)
+    parentLayer.addSublayer(emptyStar)
+    
+    // make filled layer width smaller according to fill level
+    filledStar.bounds.size.width *= CGFloat(starFillLevel)
+    
+    return parentLayer
+  }
+  
+  // Returns a number between 0 and 1 describing the star fill level.
+  // 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
+  private class func starFillLevel(ratingRemainder: Double, starFillMode: TegStarFillMode) -> Double {
+    var result = ratingRemainder + 1
+    if result > 1 { result = 1 }
+    if result < 0 { result = 0 }
+    
+    if starFillMode == TegStarFillMode.Full {
+      result = Double(round(result))
+    }
+    
+    if starFillMode == TegStarFillMode.Halve {
+      result = Double(round(result * 2) / 2)
+    }
+  
+    return result
+  }
+  
   private class func createStarLayer(isFilled: Bool, font: UIFont, color: UIColor) -> CALayer {
     let text = isFilled ? "★" : "☆"
     return createSublayer(text, font: font, color: color)
   }
 
   private class func numberOfFilledStars(rating: Double) -> Double {
-    var stars = round(rating * 2) / 2
+    var stars = rating
 
     if stars > 5 { stars = 5 }
     if stars < 0 { stars = 0 }

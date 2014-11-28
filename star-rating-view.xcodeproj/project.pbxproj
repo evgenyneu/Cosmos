@@ -16,7 +16,7 @@
 		2B6D52D71A281B9700DF85BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */; };
 		2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */; };
 		2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */; };
-		2B6D52DE1A282CB800DF85BF /* TegStarRatingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52DD1A282CB800DF85BF /* TegStarRatingType.swift */; };
+		2BCCCCF01A283633003F07E3 /* TegStarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingView.swift; sourceTree = "<group>"; };
 		2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRating.swift; sourceTree = "<group>"; };
-		2B6D52DD1A282CB800DF85BF /* TegStarRatingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingType.swift; sourceTree = "<group>"; };
+		2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarFillMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 			children = (
 				2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */,
 				2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */,
-				2B6D52DD1A282CB800DF85BF /* TegStarRatingType.swift */,
+				2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */,
 			);
 			name = "star-rating-view";
 			sourceTree = "<group>";
@@ -233,9 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B6D52DE1A282CB800DF85BF /* TegStarRatingType.swift in Sources */,
 				2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */,
 				2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */,
+				2BCCCCF01A283633003F07E3 /* TegStarFillMode.swift in Sources */,
 				2B6D52B71A281B7100DF85BF /* AppDelegate.swift in Sources */,
 				2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */,
 			);
@@ -431,6 +431,7 @@
 				2B6D52D21A281B7100DF85BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B6D52D31A281B7100DF85BF /* Build configuration list for PBXNativeTarget "star-rating-viewTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +440,7 @@
 				2B6D52D51A281B7100DF85BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
