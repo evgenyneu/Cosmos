@@ -11,12 +11,49 @@ import UIKit
 class ViewController: UIViewController {
   @IBOutlet weak var starRatingViewOne: TegStarRatingView!
 
+  @IBOutlet weak var starRatingViewHalf: TegStarRatingView!
+  
+  @IBOutlet weak var starRatingViewPrecise: TegStarRatingView!
+  
+  @IBOutlet weak var ratingSlider: UISlider!
+  @IBOutlet weak var ratingLabel: UILabel!
+  private let startRating:Float = 3.7
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    ratingSlider.value = startRating
+    
     starRatingViewOne.backgroundColor = nil
-
-    starRatingViewOne.show(raiting: 3.7, numberOfPeople: 132)
+    starRatingViewHalf.backgroundColor = nil
+    starRatingViewPrecise.backgroundColor = nil
+    
+    starRatingViewOne.starFillMode = TegStarFillMode.Full
+    starRatingViewHalf.starFillMode = TegStarFillMode.Half
+    starRatingViewPrecise.starFillMode = TegStarFillMode.Precise
+    
+    updateRating()
+  }
+  
+  private func updateLabel() {
+    
+  }
+  
+  @IBAction func onSliderChanged(sender: AnyObject) {
+    updateRating()
+  }
+  
+  private func updateRating() {
+    let value = Double(ratingSlider.value)
+    starRatingViewOne.show(raiting: value, numberOfPeople: 132)
+    starRatingViewHalf.show(raiting: value, numberOfPeople: 132)
+    starRatingViewPrecise.show(raiting: value, numberOfPeople: 132)
+    
+    self.ratingLabel.text = ViewController.formatValue(value)
+  }
+  
+  private class func formatValue(value: Double) -> String {
+    return String(format: "%.2f", value)
   }
 }
 

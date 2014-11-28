@@ -56,7 +56,7 @@ class TegStarRatingView: UIView {
     }
     
     if marginBetweenStarsAndNumber == -100 {
-      marginBetweenStarsAndNumber = numberFont.pointSize / 3
+      marginBetweenStarsAndNumber = numberFont.pointSize / 4
     }
   }
   
