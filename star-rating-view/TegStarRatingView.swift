@@ -19,7 +19,7 @@ class TegStarRatingView: UIView {
   func setup() {
   }
 
-  func show(raiting: Double, count: Int) {
+  func show(#raiting: Double, numberOfPeopleWhoRated: Int) {
     let starLayers = TegStarRating.createStarLayers(raiting, numberOfStars: numberOfStars,
       font: starFont, color: starColor, marginBetweenStars: marginBetweenStars)
 

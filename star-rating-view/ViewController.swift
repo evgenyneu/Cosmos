@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     starRatingViewOne.backgroundColor = nil
 
-    starRatingViewOne.setup()
+    starRatingViewOne.show(raiting: 3, numberOfPeopleWhoRated: 132)
   }
 }
 
