@@ -11,15 +11,15 @@ import UIKit
 class TegStarRating {
   class func createStarLayers(raiting: Double, numberOfStars: Int, font: UIFont, color: UIColor, marginBetweenStars: CGFloat) -> [CALayer] {
 
-    var filledStarsCount = numberOfFilledStars(raiting)
+    var ratingRemander = numberOfFilledStars(raiting)
 
     var starLayers = [CALayer]()
 
     for starNumber in (0..<numberOfStars) {
-      filledStarsCount--
+      ratingRemander--
 
-      let isFilled = filledStarsCount >= 0
-      let starLayer = createStarLayer(isFilled, font: font, color: color)
+      let starType = TegStarRatingType.starType(ratingRemander)
+      let starLayer = createCompositeStarLayer(starType, font: font, color: color)
       starLayers.append(starLayer)
     }
 
@@ -27,13 +27,26 @@ class TegStarRating {
     return starLayers
   }
 
+  private class func createCompositeStarLayer(starType: TegStarRatingType,
+    font: UIFont, color: UIColor) -> CALayer {
+
+    switch starType {
+    case .Filled:
+      return createStarLayer(true, font: font, color: color)
+    case .Empty:
+      return createStarLayer(false, font: font, color: color)
+    default:
+      return createStarLayer(false, font: font, color: color)
+    }
+  }
+
   private class func createStarLayer(isFilled: Bool, font: UIFont, color: UIColor) -> CALayer {
     let text = isFilled ? "★" : "☆"
     return createSublayer(text, font: font, color: color)
   }
 
-  private class func numberOfFilledStars(rating: Double) -> Int {
-    var stars = Int(round(rating))
+  private class func numberOfFilledStars(rating: Double) -> Double {
+    var stars = round(rating * 2) / 2
 
     if stars > 5 { stars = 5 }
     if stars < 0 { stars = 0 }
