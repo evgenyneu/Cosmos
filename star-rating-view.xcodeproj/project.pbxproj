@@ -17,6 +17,9 @@
 		2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */; };
 		2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */; };
 		2BCCCCF01A283633003F07E3 /* TegStarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */; };
+		2BCCCCF21A2838BA003F07E3 /* TegStarPeopleNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCF11A2838BA003F07E3 /* TegStarPeopleNumber.swift */; };
+		2BCCCCF41A2839D8003F07E3 /* TegStarRaitingLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCF31A2839D8003F07E3 /* TegStarRaitingLayerHelper.swift */; };
+		2BCCCCF61A283ADE003F07E3 /* TegStarRatingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCF51A283ADE003F07E3 /* TegStarRatingSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingView.swift; sourceTree = "<group>"; };
 		2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRating.swift; sourceTree = "<group>"; };
 		2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarFillMode.swift; sourceTree = "<group>"; };
+		2BCCCCF11A2838BA003F07E3 /* TegStarPeopleNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarPeopleNumber.swift; sourceTree = "<group>"; };
+		2BCCCCF31A2839D8003F07E3 /* TegStarRaitingLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRaitingLayerHelper.swift; sourceTree = "<group>"; };
+		2BCCCCF51A283ADE003F07E3 /* TegStarRatingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,9 @@
 				2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */,
 				2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */,
 				2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */,
+				2BCCCCF11A2838BA003F07E3 /* TegStarPeopleNumber.swift */,
+				2BCCCCF31A2839D8003F07E3 /* TegStarRaitingLayerHelper.swift */,
+				2BCCCCF51A283ADE003F07E3 /* TegStarRatingSize.swift */,
 			);
 			name = "star-rating-view";
 			sourceTree = "<group>";
@@ -234,9 +243,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */,
+				2BCCCCF21A2838BA003F07E3 /* TegStarPeopleNumber.swift in Sources */,
 				2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */,
 				2BCCCCF01A283633003F07E3 /* TegStarFillMode.swift in Sources */,
+				2BCCCCF61A283ADE003F07E3 /* TegStarRatingSize.swift in Sources */,
 				2B6D52B71A281B7100DF85BF /* AppDelegate.swift in Sources */,
+				2BCCCCF41A2839D8003F07E3 /* TegStarRaitingLayerHelper.swift in Sources */,
 				2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

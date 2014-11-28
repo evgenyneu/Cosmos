@@ -81,7 +81,7 @@ class TegStarRating {
   
   private class func createStarLayer(isFilled: Bool, font: UIFont, color: UIColor) -> CALayer {
     let text = isFilled ? "★" : "☆"
-    return createSublayer(text, font: font, color: color)
+    return TegStarRaitingLayerHelper.createTextLayer(text, font: font, color: color)
   }
 
   private class func numberOfFilledStars(rating: Double) -> Double {
@@ -91,22 +91,6 @@ class TegStarRating {
     if stars < 0 { stars = 0 }
 
     return stars
-  }
-
-  private class func createSublayer(text: String, font: UIFont, color: UIColor) -> CATextLayer {
-    let size = NSString(string: text).sizeWithAttributes([NSFontAttributeName: font])
-
-    let layer = CATextLayer()
-    layer.bounds = CGRect(origin: CGPoint(), size: size)
-    layer.anchorPoint = CGPoint()
-
-    layer.string = text
-    layer.font = CGFontCreateWithFontName(font.fontName)
-    layer.fontSize = font.pointSize
-    layer.foregroundColor = color.CGColor
-    layer.contentsScale = UIScreen.mainScreen().scale
-
-    return layer
   }
 
   private class func positionStarLayers(layers: [CALayer], marginBetweenStars: CGFloat) {
