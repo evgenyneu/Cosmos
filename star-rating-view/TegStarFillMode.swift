@@ -13,7 +13,7 @@ enum TegStarFillMode {
   case Precise
   
   // Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6
-  case Halve
+  case Half
   
   // Show only fully filled stars. For example, fourth star will be empty for 3.2
   case Full

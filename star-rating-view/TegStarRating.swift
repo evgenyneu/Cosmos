@@ -49,6 +49,7 @@ class TegStarRating {
     let emptyStar = createStarLayer(false, font: font, color: color)
 
     let parentLayer = CALayer()
+    parentLayer.contentsScale = UIScreen.mainScreen().scale
     parentLayer.bounds = CGRect(origin: CGPoint(), size: emptyStar.bounds.size)
     parentLayer.anchorPoint = CGPoint()
     parentLayer.addSublayer(filledStar)
@@ -71,7 +72,7 @@ class TegStarRating {
       result = Double(round(result))
     }
     
-    if starFillMode == TegStarFillMode.Halve {
+    if starFillMode == TegStarFillMode.Half {
       result = Double(round(result * 2) / 2)
     }
   

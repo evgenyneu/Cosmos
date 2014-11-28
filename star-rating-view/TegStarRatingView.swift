@@ -12,7 +12,7 @@ class TegStarRatingView: UIView {
 
   let numberOfStars = 5
 
-  var starFillMode = TegStarFillMode.Precise
+  var starFillMode = TegStarFillMode.Half
   var marginBetweenStars:CGFloat = 3
   var starFont = UIFont.boldSystemFontOfSize(19)
   var starColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)

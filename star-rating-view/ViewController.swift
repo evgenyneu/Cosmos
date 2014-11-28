@@ -13,10 +13,10 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     starRatingViewOne.backgroundColor = nil
 
-    starRatingViewOne.show(raiting: 3.5, numberOfPeopleWhoRated: 132)
+    starRatingViewOne.show(raiting: 3.7, numberOfPeopleWhoRated: 132)
   }
 }
 
