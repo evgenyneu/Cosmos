@@ -12,21 +12,21 @@ class TegStarRatingView: UIView {
   let numberOfStars = 5
 
   var starFillMode = TegStarFillMode.Half
-  var marginBetweenStars:CGFloat = -100 // Relative to star font size
+  var marginBetweenStars:CGFloat = -100 // -100 means relative to font size
   
   var starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   var starColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
   var numberFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   var numberColor = UIColor.grayColor()
-  var marginBetweenStarsAndNumber: CGFloat = -100 // Relative to number font size
+  var marginBetweenStarsAndNumber: CGFloat = -100 // -100 means relative to font size
 
 
   func setup() {
   }
 
   func show(#raiting: Double, numberOfPeople: Int?) {
-    setMargins()
+    setRelativeMargins()
     
     let starLayers = TegStarRating.createStarLayers(raiting, numberOfStars: numberOfStars,
       font: starFont, color: starColor, marginBetweenStars: marginBetweenStars, starFillMode: starFillMode)
@@ -46,7 +46,7 @@ class TegStarRatingView: UIView {
     }
   }
   
-  private func setMargins() {
+  private func setRelativeMargins() {
     if marginBetweenStars == -100 {
       marginBetweenStars = starFont.pointSize / 10
     }
