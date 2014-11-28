@@ -21,29 +21,33 @@ class TegStarRatingView: UIView {
   var numberColor = UIColor.grayColor()
   var marginBetweenStarsAndNumber: CGFloat = -100 // -100 means relative to font size
 
+  private var size = CGSize()
 
-  func setup() {
-  }
+  func setup() {}
 
   func show(#raiting: Double, numberOfPeople: Int?) {
     setRelativeMargins()
     
-    let starLayers = TegStarRating.createStarLayers(raiting, numberOfStars: numberOfStars,
+    var sublayers = TegStarRating.createStarLayers(raiting, numberOfStars: numberOfStars,
       font: starFont, color: starColor, marginBetweenStars: marginBetweenStars, starFillMode: starFillMode)
 
-    layer.sublayers = starLayers
+    layer.sublayers = sublayers
     
     if let currentNumberOfPeople = numberOfPeople {
       let numberLayer = TegStarPeopleNumber.createLayer(currentNumberOfPeople,
         font: numberFont, color: numberColor)
       
-      let starsSize = TegStarRatingSize.outerSize(starLayers)
+      let starsSize = TegStarRatingSize.outerSize(sublayers)
       
       TegStarPeopleNumber.position(numberLayer, starsSize: starsSize,
         marginBetweenStarsAndNumber: marginBetweenStarsAndNumber)
       
       layer.addSublayer(numberLayer)
+      
+      sublayers.append(numberLayer)
     }
+    
+    size = TegStarRatingSize.outerSize(sublayers) // used as intrinsic content size
   }
   
   private func setRelativeMargins() {
@@ -54,5 +58,9 @@ class TegStarRatingView: UIView {
     if marginBetweenStarsAndNumber == -100 {
       marginBetweenStarsAndNumber = numberFont.pointSize / 3
     }
+  }
+  
+  override func intrinsicContentSize() -> CGSize {
+    return size
   }
 }
