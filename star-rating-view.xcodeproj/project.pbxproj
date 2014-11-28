@@ -15,6 +15,7 @@
 		2B6D52CD1A281B7100DF85BF /* star_rating_viewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52CC1A281B7100DF85BF /* star_rating_viewTests.swift */; };
 		2B6D52D71A281B9700DF85BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */; };
 		2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */; };
+		2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		2B6D52CC1A281B7100DF85BF /* star_rating_viewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = star_rating_viewTests.swift; sourceTree = "<group>"; };
 		2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingView.swift; sourceTree = "<group>"; };
+		2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRating.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */,
+				2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */,
 			);
 			name = "star-rating-view";
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */,
+				2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */,
 				2B6D52B71A281B7100DF85BF /* AppDelegate.swift in Sources */,
 				2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */,
 			);
