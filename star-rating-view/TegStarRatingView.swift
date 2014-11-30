@@ -15,10 +15,10 @@ class TegStarRatingView: UIView {
 
   func setup() {}
 
-  func show(#raiting: Double, text: String? = nil) {
+  func show(#rating: Double, text: String? = nil) {
     setRelativeMargins()
     
-    var sublayers = TegStarRating.createStarLayers(raiting, settings: settings)
+    var sublayers = TegStarRating.createStarLayers(rating, settings: settings)
 
     layer.sublayers = sublayers
     

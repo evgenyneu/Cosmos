@@ -54,10 +54,10 @@ class ViewController: UIViewController {
   
   private func updateRating() {
     let value = Double(ratingSlider.value)
-    startRatingWithFilledStyle.show(raiting: value)
-    starRatingViewOne.show(raiting: value)
-    starRatingViewHalf.show(raiting: value, text: "(132)")
-    starRatingViewPrecise.show(raiting: value)
+    startRatingWithFilledStyle.show(rating: value)
+    starRatingViewOne.show(rating: value)
+    starRatingViewHalf.show(rating: value, text: "(132)")
+    starRatingViewPrecise.show(rating: value)
     
     self.ratingLabel.text = ViewController.formatValue(value)
   }

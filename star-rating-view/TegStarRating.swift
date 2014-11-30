@@ -9,9 +9,9 @@
 import UIKit
 
 class TegStarRating {
-  class func createStarLayers(raiting: Double, settings: TegStarRatingSettings) -> [CALayer] {
+  class func createStarLayers(rating: Double, settings: TegStarRatingSettings) -> [CALayer] {
 
-    var ratingRemander = numberOfFilledStars(raiting)
+    var ratingRemander = numberOfFilledStars(rating)
 
     var starLayers = [CALayer]()
 
@@ -97,7 +97,7 @@ class TegStarRating {
     let text = isFilled ? settings.starCharacterFilled : settings.starCharacterEmpty
     let color = isFilled ? settings.starColorFilled : settings.starColorEmpty
 
-    return TegStarRaitingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
+    return TegStarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
   }
 
   private class func numberOfFilledStars(rating: Double) -> Double {

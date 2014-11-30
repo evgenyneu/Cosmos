@@ -1,5 +1,5 @@
 //
-//  TegStartRaitingLayerHelper.swift
+//  TegStartRatingLayerHelper.swift
 //  star-rating-view
 //
 //  Created by Evgenii Neumerzhitckii on 28/11/2014.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TegStarRaitingLayerHelper {
+class TegStarRatingLayerHelper {
   class func createTextLayer(text: String, font: UIFont, color: UIColor) -> CATextLayer {
     let size = NSString(string: text).sizeWithAttributes([NSFontAttributeName: font])
     

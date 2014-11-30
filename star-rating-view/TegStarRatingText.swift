@@ -11,7 +11,7 @@ import UIKit
 
 class TegStarRatingText {
   class func createLayer(text: String, font: UIFont, color: UIColor) -> CALayer {
-    let layer = TegStarRaitingLayerHelper.createTextLayer(text, font: font, color: color)
+    let layer = TegStarRatingLayerHelper.createTextLayer(text, font: font, color: color)
     return layer
   }
   

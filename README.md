@@ -1,4 +1,4 @@
-# iOS five-star raiting control written in Swift
+# iOS five-star rating control written in Swift
 
 <img src='https://dl.dropboxusercontent.com/u/11143285/bikeexchange/github_images/start-rating-view-ios-swift.png'
   alt='five star rating control for iOS written in Swift' width='320' >
@@ -8,10 +8,10 @@
 1. Copy .swift files under `start-rating-view` group into your project.
 1. Add `View` control into your storyboard. Set its class to `TegStarRatingView`.
 1. Add an outlet for this view in your view controller.
-1. Use `show` method to displau rating:
+1. Use `show` method to display rating:
 
 ```
-ratingView.show(raiting: value, text: "(132)")
+ratingView.show(rating: value, text: "(132)")
 ```
 
 ## Customization
