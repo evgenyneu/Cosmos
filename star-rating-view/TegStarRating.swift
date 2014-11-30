@@ -68,6 +68,10 @@ class TegStarRating {
     if result > 1 { result = 1 }
     if result < 0 { result = 0 }
     
+    if starFillMode == TegStarFillMode.Precise {
+      return correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
+    }
+    
     if starFillMode == TegStarFillMode.Full {
       result = Double(round(result))
     }
@@ -77,6 +81,14 @@ class TegStarRating {
     }
   
     return result
+  }
+  
+  private class func correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(fillLevel: Double) -> Double {
+    if fillLevel >= 0 && fillLevel <= 1 {
+      return 3.0 / 5.0 * fillLevel + 1.0 / 5.0
+    }
+    
+    return fillLevel
   }
   
   private class func createStarLayer(isFilled: Bool, font: UIFont, color: UIColor) -> CALayer {
