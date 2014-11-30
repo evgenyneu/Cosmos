@@ -1,5 +1,8 @@
 # iOS five-star raiting control written in Swift
 
+<img src='https://dl.dropboxusercontent.com/u/11143285/bikeexchange/github_images/start-rating-view-ios-swift.png'
+  alt='five star rating control for iOS written in Swift' width='320' >
+
 ## Usage
 
 1. Copy .swift files under `start-rating-view` group into your project.

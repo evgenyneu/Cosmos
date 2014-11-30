@@ -37,7 +37,6 @@ class ViewController: UIViewController {
     startRatingWithFilledStyle.settings.starColorFilled = UIColor.blackColor()
     startRatingWithFilledStyle.settings.correctFillLevelForPreciseMode = false
 
-    startRatingWithFilledStyle.settings.starFillMode = TegStarFillMode.Precise
     starRatingViewOne.settings.starFillMode = TegStarFillMode.Full
     starRatingViewHalf.settings.starFillMode = TegStarFillMode.Half
     starRatingViewPrecise.settings.starFillMode = TegStarFillMode.Precise
