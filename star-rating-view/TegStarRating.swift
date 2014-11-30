@@ -18,7 +18,9 @@ class TegStarRating {
     for starNumber in (0..<settings.numberOfStars) {
       ratingRemander--
 
-      let fillLevel = starFillLevel(ratingRemander, starFillMode: settings.starFillMode)
+      let fillLevel = starFillLevel(ratingRemander, starFillMode: settings.starFillMode,
+        correctFillLevelForPrecise: settings.correctFillLevelForPreciseMode)
+      
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
       starLayers.append(starLayer)
     }
@@ -48,10 +50,10 @@ class TegStarRating {
 
     let parentLayer = CALayer()
     parentLayer.contentsScale = UIScreen.mainScreen().scale
-    parentLayer.bounds = CGRect(origin: CGPoint(), size: emptyStar.bounds.size)
+    parentLayer.bounds = CGRect(origin: CGPoint(), size: filledStar.bounds.size)
     parentLayer.anchorPoint = CGPoint()
-    parentLayer.addSublayer(filledStar)
     parentLayer.addSublayer(emptyStar)
+    parentLayer.addSublayer(filledStar)
     
     // make filled layer width smaller according to fill level
     filledStar.bounds.size.width *= CGFloat(starFillLevel)
@@ -61,13 +63,15 @@ class TegStarRating {
   
   // Returns a number between 0 and 1 describing the star fill level.
   // 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
-  private class func starFillLevel(ratingRemainder: Double, starFillMode: TegStarFillMode) -> Double {
+  private class func starFillLevel(ratingRemainder: Double, starFillMode: TegStarFillMode,
+    correctFillLevelForPrecise: Bool) -> Double {
+      
     var result = ratingRemainder + 1
     if result > 1 { result = 1 }
     if result < 0 { result = 0 }
     
-    if starFillMode == TegStarFillMode.Precise {
-      return correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
+    if starFillMode == TegStarFillMode.Precise && correctFillLevelForPrecise {
+      result = correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
     }
     
     if starFillMode == TegStarFillMode.Full {

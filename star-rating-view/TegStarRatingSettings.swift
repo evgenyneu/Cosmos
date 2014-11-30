@@ -27,4 +27,6 @@ struct TegStarRatingSettings {
   var textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   var textColor = UIColor.grayColor()
   var marginBetweenStarsAndText: CGFloat = -100 // -100 means relative to font size
+  
+  var correctFillLevelForPreciseMode = true // Needs to be true for ★ ☆ characters.
 }

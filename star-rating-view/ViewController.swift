@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+  
+  @IBOutlet weak var startRatingWithFilledStyle: TegStarRatingView!
+  
   @IBOutlet weak var starRatingViewOne: TegStarRatingView!
 
   @IBOutlet weak var starRatingViewHalf: TegStarRatingView!
@@ -24,10 +27,17 @@ class ViewController: UIViewController {
     
     ratingSlider.value = startRating
     
+    startRatingWithFilledStyle.backgroundColor = nil
     starRatingViewOne.backgroundColor = nil
     starRatingViewHalf.backgroundColor = nil
     starRatingViewPrecise.backgroundColor = nil
     
+    startRatingWithFilledStyle.settings.starCharacterEmpty = "★"
+    startRatingWithFilledStyle.settings.starColorEmpty = UIColor.lightGrayColor()
+    startRatingWithFilledStyle.settings.starColorFilled = UIColor.blackColor()
+    startRatingWithFilledStyle.settings.correctFillLevelForPreciseMode = false
+
+    startRatingWithFilledStyle.settings.starFillMode = TegStarFillMode.Precise
     starRatingViewOne.settings.starFillMode = TegStarFillMode.Full
     starRatingViewHalf.settings.starFillMode = TegStarFillMode.Half
     starRatingViewPrecise.settings.starFillMode = TegStarFillMode.Precise
@@ -45,6 +55,7 @@ class ViewController: UIViewController {
   
   private func updateRating() {
     let value = Double(ratingSlider.value)
+    startRatingWithFilledStyle.show(raiting: value)
     starRatingViewOne.show(raiting: value)
     starRatingViewHalf.show(raiting: value, text: "(132)")
     starRatingViewPrecise.show(raiting: value)
