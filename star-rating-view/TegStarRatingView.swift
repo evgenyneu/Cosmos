@@ -25,7 +25,7 @@ class TegStarRatingView: UIView {
 
   func setup() {}
 
-  func show(#raiting: Double, numberOfPeople: Int?) {
+  func show(#raiting: Double, text: String? = nil) {
     setRelativeMargins()
     
     var sublayers = TegStarRating.createStarLayers(raiting, numberOfStars: numberOfStars,
@@ -33,13 +33,13 @@ class TegStarRatingView: UIView {
 
     layer.sublayers = sublayers
     
-    if let currentNumberOfPeople = numberOfPeople {
-      let numberLayer = TegStarPeopleNumber.createLayer(currentNumberOfPeople,
+    if let currentText = text {
+      let numberLayer = TegStarRatingText.createLayer(currentText,
         font: numberFont, color: numberColor)
       
       let starsSize = TegStarRatingSize.outerSize(sublayers)
       
-      TegStarPeopleNumber.position(numberLayer, starsSize: starsSize,
+      TegStarRatingText.position(numberLayer, starsSize: starsSize,
         marginBetweenStarsAndNumber: marginBetweenStarsAndNumber)
       
       layer.addSublayer(numberLayer)

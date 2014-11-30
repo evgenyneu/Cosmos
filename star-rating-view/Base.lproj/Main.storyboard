@@ -43,13 +43,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000000000002" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="rOq-O5-T9w">
-                                <rect key="frame" x="14" y="278" width="572" height="31"/>
+                                <rect key="frame" x="14" y="308" width="572" height="31"/>
                                 <connections>
                                     <action selector="onSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="nco-A7-3HA"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVr-vp-BsX">
-                                <rect key="frame" x="279" y="316" width="42" height="21"/>
+                                <rect key="frame" x="279" y="274" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,9 +58,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="My4-e0-8vY" secondAttribute="centerX" id="2mE-sa-ZIS"/>
-                            <constraint firstItem="vVr-vp-BsX" firstAttribute="top" secondItem="rOq-O5-T9w" secondAttribute="bottom" constant="8" id="7zj-6j-KbG"/>
                             <constraint firstAttribute="centerX" secondItem="hUd-GH-FSZ" secondAttribute="centerX" id="LgW-bM-8d8"/>
+                            <constraint firstItem="vVr-vp-BsX" firstAttribute="top" secondItem="9i6-5t-ngw" secondAttribute="bottom" constant="46" id="MgV-5K-pOn"/>
                             <constraint firstAttribute="centerX" secondItem="GKI-Vi-o6d" secondAttribute="centerX" id="Vh9-zx-tZi"/>
+                            <constraint firstItem="rOq-O5-T9w" firstAttribute="top" secondItem="vVr-vp-BsX" secondAttribute="bottom" constant="13" id="Y65-xV-PhG"/>
                             <constraint firstItem="rOq-O5-T9w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YZx-MV-X1P"/>
                             <constraint firstItem="9i6-5t-ngw" firstAttribute="top" secondItem="yoS-Zs-d6b" secondAttribute="bottom" id="b1E-QW-Gd8"/>
                             <constraint firstItem="My4-e0-8vY" firstAttribute="top" secondItem="GKI-Vi-o6d" secondAttribute="bottom" constant="1" id="e9Z-IZ-msK"/>
@@ -71,7 +72,6 @@
                             <constraint firstItem="hUd-GH-FSZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="tSY-Ph-cGJ"/>
                             <constraint firstAttribute="centerX" secondItem="vVr-vp-BsX" secondAttribute="centerX" id="vOO-IA-Vf6"/>
                             <constraint firstAttribute="centerX" secondItem="yoS-Zs-d6b" secondAttribute="centerX" id="xRy-h7-VeY"/>
-                            <constraint firstItem="rOq-O5-T9w" firstAttribute="top" secondItem="9i6-5t-ngw" secondAttribute="bottom" constant="50" id="zCO-60-oSe"/>
                         </constraints>
                     </view>
                     <connections>

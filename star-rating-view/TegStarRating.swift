@@ -38,7 +38,6 @@ class TegStarRating {
     if starFillLevel == 0 {
       return createStarLayer(false, font: font, color: color)
     }
-
       
     return createHalfStar(starFillLevel, font: font, color: color)
   }
