@@ -9,17 +9,7 @@
 import UIKit
 
 class TegStarRatingView: UIView {
-  let numberOfStars = 5
-
-  var starFillMode = TegStarFillMode.Half
-  var marginBetweenStars:CGFloat = -100 // -100 means relative to font size
-  
-  var starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-  var starColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
-  
-  var numberFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
-  var numberColor = UIColor.grayColor()
-  var marginBetweenStarsAndNumber: CGFloat = -100 // -100 means relative to font size
+  var settings = TegStarRatingSettings()
 
   private var size = CGSize()
 
@@ -28,19 +18,18 @@ class TegStarRatingView: UIView {
   func show(#raiting: Double, text: String? = nil) {
     setRelativeMargins()
     
-    var sublayers = TegStarRating.createStarLayers(raiting, numberOfStars: numberOfStars,
-      font: starFont, color: starColor, marginBetweenStars: marginBetweenStars, starFillMode: starFillMode)
+    var sublayers = TegStarRating.createStarLayers(raiting, settings: settings)
 
     layer.sublayers = sublayers
     
     if let currentText = text {
       let numberLayer = TegStarRatingText.createLayer(currentText,
-        font: numberFont, color: numberColor)
+        font: settings.textFont, color: settings.textColor)
       
       let starsSize = TegStarRatingSize.outerSize(sublayers)
       
       TegStarRatingText.position(numberLayer, starsSize: starsSize,
-        marginBetweenStarsAndNumber: marginBetweenStarsAndNumber)
+        marginBetweenStarsAndText: settings.marginBetweenStarsAndText)
       
       layer.addSublayer(numberLayer)
       
@@ -51,12 +40,12 @@ class TegStarRatingView: UIView {
   }
   
   private func setRelativeMargins() {
-    if marginBetweenStars == -100 {
-      marginBetweenStars = starFont.pointSize / 10
+    if settings.marginBetweenStars == -100 {
+      settings.marginBetweenStars = settings.starFont.pointSize / 10
     }
     
-    if marginBetweenStarsAndNumber == -100 {
-      marginBetweenStarsAndNumber = numberFont.pointSize / 4
+    if settings.marginBetweenStarsAndText == -100 {
+      settings.marginBetweenStarsAndText = settings.textFont.pointSize / 4
     }
   }
   

@@ -28,9 +28,9 @@ class ViewController: UIViewController {
     starRatingViewHalf.backgroundColor = nil
     starRatingViewPrecise.backgroundColor = nil
     
-    starRatingViewOne.starFillMode = TegStarFillMode.Full
-    starRatingViewHalf.starFillMode = TegStarFillMode.Half
-    starRatingViewPrecise.starFillMode = TegStarFillMode.Precise
+    starRatingViewOne.settings.starFillMode = TegStarFillMode.Full
+    starRatingViewHalf.settings.starFillMode = TegStarFillMode.Half
+    starRatingViewPrecise.settings.starFillMode = TegStarFillMode.Precise
     
     updateRating()
   }

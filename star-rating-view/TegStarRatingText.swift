@@ -15,8 +15,8 @@ class TegStarRatingText {
     return layer
   }
   
-  class func position(layer: CALayer, starsSize: CGSize, marginBetweenStarsAndNumber: CGFloat) {
-    layer.position.x = starsSize.width + marginBetweenStarsAndNumber
+  class func position(layer: CALayer, starsSize: CGSize, marginBetweenStarsAndText: CGFloat) {
+    layer.position.x = starsSize.width + marginBetweenStarsAndText
     
     let yOffset = (starsSize.height - layer.bounds.height) / 2
     

@@ -9,43 +9,42 @@
 import UIKit
 
 class TegStarRating {
-  class func createStarLayers(raiting: Double, numberOfStars: Int,
-    font: UIFont, color: UIColor, marginBetweenStars: CGFloat, starFillMode: TegStarFillMode) -> [CALayer] {
+  class func createStarLayers(raiting: Double, settings: TegStarRatingSettings) -> [CALayer] {
 
     var ratingRemander = numberOfFilledStars(raiting)
 
     var starLayers = [CALayer]()
 
-    for starNumber in (0..<numberOfStars) {
+    for starNumber in (0..<settings.numberOfStars) {
       ratingRemander--
 
-      let fillLevel = starFillLevel(ratingRemander, starFillMode: starFillMode)
-      let starLayer = createCompositeStarLayer(fillLevel, font: font, color: color)
+      let fillLevel = starFillLevel(ratingRemander, starFillMode: settings.starFillMode)
+      let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
       starLayers.append(starLayer)
     }
 
-    positionStarLayers(starLayers, marginBetweenStars: marginBetweenStars)
+    positionStarLayers(starLayers, marginBetweenStars: settings.marginBetweenStars)
     return starLayers
   }
 
   private class func createCompositeStarLayer(starFillLevel: Double,
-    font: UIFont, color: UIColor) -> CALayer {
+    settings: TegStarRatingSettings) -> CALayer {
 
     if starFillLevel >= 1 {
-      return createStarLayer(true, font: font, color: color)
+      return createStarLayer(true, settings: settings)
     }
       
     if starFillLevel == 0 {
-      return createStarLayer(false, font: font, color: color)
+      return createStarLayer(false, settings: settings)
     }
       
-    return createHalfStar(starFillLevel, font: font, color: color)
+    return createHalfStar(starFillLevel, settings: settings)
   }
 
   
-  private class func createHalfStar(starFillLevel: Double, font: UIFont, color: UIColor) -> CALayer {
-    let filledStar = createStarLayer(true, font: font, color: color)
-    let emptyStar = createStarLayer(false, font: font, color: color)
+  private class func createHalfStar(starFillLevel: Double, settings: TegStarRatingSettings) -> CALayer {
+    let filledStar = createStarLayer(true, settings: settings)
+    let emptyStar = createStarLayer(false, settings: settings)
 
     let parentLayer = CALayer()
     parentLayer.contentsScale = UIScreen.mainScreen().scale
@@ -90,9 +89,11 @@ class TegStarRating {
     return fillLevel
   }
   
-  private class func createStarLayer(isFilled: Bool, font: UIFont, color: UIColor) -> CALayer {
-    let text = isFilled ? "★" : "☆"
-    return TegStarRaitingLayerHelper.createTextLayer(text, font: font, color: color)
+  private class func createStarLayer(isFilled: Bool, settings: TegStarRatingSettings) -> CALayer {
+    let text = isFilled ? settings.starCharacterFilled : settings.starCharacterEmpty
+    let color = isFilled ? settings.starColorFilled : settings.starColorEmpty
+
+    return TegStarRaitingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
   }
 
   private class func numberOfFilledStars(rating: Double) -> Double {
