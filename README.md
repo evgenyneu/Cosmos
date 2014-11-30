@@ -11,7 +11,7 @@
 1. Use `show` method to display rating:
 
 ```
-ratingView.show(rating: value, text: "(132)")
+ratingView.show(rating: 4, text: "(132)")
 ```
 
 ## Customization
