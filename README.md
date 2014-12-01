@@ -22,3 +22,7 @@ Customization can be made by changing `settings` properties. For example:
 ratingView.settings.starColorFilled = UIColor.blackColor()
 ratingView.settings.starFillMode = TegStarFillMode.Precise
 ```
+
+## Home
+
+[https://github.com/exchangegroup/star-rating-view](https://github.com/exchangegroup/star-rating-view)

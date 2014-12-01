@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0CAA7F1A2C16C500599AE7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAA7E1A2C16C500599AE7 /* README.md */; };
 		2B6D52B71A281B7100DF85BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52B61A281B7100DF85BF /* AppDelegate.swift */; };
 		2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52B81A281B7100DF85BF /* ViewController.swift */; };
 		2B6D52BC1A281B7100DF85BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52BA1A281B7100DF85BF /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0CAA7E1A2C16C500599AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2B6D52B11A281B7100DF85BF /* star-rating-view.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "star-rating-view.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6D52B51A281B7100DF85BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6D52B61A281B7100DF85BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		2B6D52A81A281B7100DF85BF = {
 			isa = PBXGroup;
 			children = (
+				2B0CAA7E1A2C16C500599AE7 /* README.md */,
 				2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */,
 				2B6D52B31A281B7100DF85BF /* star-rating-view */,
 				2B6D52C91A281B7100DF85BF /* star-rating-viewTests */,
@@ -247,6 +250,7 @@
 			files = (
 				2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */,
 				2BCCCCF21A2838BA003F07E3 /* TegStarRatingText.swift in Sources */,
+				2B0CAA7F1A2C16C500599AE7 /* README.md in Sources */,
 				2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */,
 				2BCCCCF01A283633003F07E3 /* TegStarFillMode.swift in Sources */,
 				2BCCCCF61A283ADE003F07E3 /* TegStarRatingSize.swift in Sources */,
