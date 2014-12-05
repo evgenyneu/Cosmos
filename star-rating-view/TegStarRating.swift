@@ -67,8 +67,11 @@ class TegStarRating {
     correctFillLevelForPrecise: Bool) -> Double {
       
     var result = ratingRemainder + 1
-    if result > 1 { result = 1 }
-    if result < 0 { result = 0 }
+    if result > 1 {
+      result = 1
+    } else if result < 0 {
+      result = 0
+    }
     
     if starFillMode == TegStarFillMode.Precise && correctFillLevelForPrecise {
       result = correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
@@ -101,12 +104,10 @@ class TegStarRating {
   }
 
   private class func numberOfFilledStars(rating: Double) -> Double {
-    var stars = rating
+    if rating > 5 { return 5 }
+    if rating < 0 { return 0 }
 
-    if stars > 5 { stars = 5 }
-    if stars < 0 { stars = 0 }
-
-    return stars
+    return rating
   }
 
   private class func positionStarLayers(layers: [CALayer], marginBetweenStars: CGFloat) {
