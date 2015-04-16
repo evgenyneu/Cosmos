@@ -1,11 +1,3 @@
-//
-//  TegStarRatingSettings.swift
-//  star-rating-view
-//
-//  Created by Evgenii Neumerzhitckii on 1/12/2014.
-//  Copyright (c) 2014 The Exchange Group Pty Ltd. All rights reserved.
-//
-
 import UIKit
 
 struct TegStarRatingSettings {

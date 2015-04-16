@@ -1,25 +1,17 @@
-//
-//  StarRatingView.swift
-//  star-rating-view
-//
-//  Created by Evgenii Neumerzhitckii on 28/11/2014.
-//  Copyright (c) 2014 The Exchange Group Pty Ltd. All rights reserved.
-//
-
 import UIKit
 
 class TegStarRatingView: UIView {
   var settings = TegStarRatingSettings()
-  
+
   private var size = CGSize()
-  
+
   func setup() {}
-  
+
   func show(#rating: Double, text: String? = nil) {
     setRelativeMargins()
     
     var sublayers = TegStarRating.createStarLayers(rating, settings: settings)
-    
+
     layer.sublayers = sublayers
     
     if let currentText = text {
@@ -37,7 +29,7 @@ class TegStarRatingView: UIView {
     }
     
     size = TegStarRatingSize.outerSize(sublayers) // used as intrinsic content size
-    
+
     invalidateIntrinsicContentSize()
   }
   

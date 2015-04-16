@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2B0CAA7F1A2C16C500599AE7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAA7E1A2C16C500599AE7 /* README.md */; };
+		2B1151B81ADF963900FC26C5 /* TegStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1151B11ADF963900FC26C5 /* TegStarRatingView.swift */; };
+		2B1151B91ADF963900FC26C5 /* TegStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1151B21ADF963900FC26C5 /* TegStarRating.swift */; };
+		2B1151BA1ADF963900FC26C5 /* TegStarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1151B31ADF963900FC26C5 /* TegStarFillMode.swift */; };
+		2B1151BB1ADF963900FC26C5 /* TegStarRatingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1151B41ADF963900FC26C5 /* TegStarRatingText.swift */; };
+		2B1151BC1ADF963900FC26C5 /* TegStarRatingLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1151B51ADF963900FC26C5 /* TegStarRatingLayerHelper.swift */; };
+		2B1151BD1ADF963900FC26C5 /* TegStarRatingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1151B61ADF963900FC26C5 /* TegStarRatingSettings.swift */; };
+		2B1151BE1ADF963900FC26C5 /* TegStarRatingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1151B71ADF963900FC26C5 /* TegStarRatingSize.swift */; };
 		2B6D52B71A281B7100DF85BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52B61A281B7100DF85BF /* AppDelegate.swift */; };
 		2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52B81A281B7100DF85BF /* ViewController.swift */; };
 		2B6D52BC1A281B7100DF85BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52BA1A281B7100DF85BF /* Main.storyboard */; };
@@ -15,13 +22,6 @@
 		2B6D52C11A281B7100DF85BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52BF1A281B7100DF85BF /* LaunchScreen.xib */; };
 		2B6D52CD1A281B7100DF85BF /* star_rating_viewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52CC1A281B7100DF85BF /* star_rating_viewTests.swift */; };
 		2B6D52D71A281B9700DF85BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */; };
-		2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */; };
-		2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */; };
-		2BCCCCF01A283633003F07E3 /* TegStarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */; };
-		2BCCCCF21A2838BA003F07E3 /* TegStarRatingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCF11A2838BA003F07E3 /* TegStarRatingText.swift */; };
-		2BCCCCF41A2839D8003F07E3 /* TegStarRatingLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCF31A2839D8003F07E3 /* TegStarRatingLayerHelper.swift */; };
-		2BCCCCF61A283ADE003F07E3 /* TegStarRatingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCCCF51A283ADE003F07E3 /* TegStarRatingSize.swift */; };
-		2BCCF0821A2BD1BE007E740A /* TegStarRatingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCF0811A2BD1BE007E740A /* TegStarRatingSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,13 @@
 
 /* Begin PBXFileReference section */
 		2B0CAA7E1A2C16C500599AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2B1151B11ADF963900FC26C5 /* TegStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingView.swift; sourceTree = "<group>"; };
+		2B1151B21ADF963900FC26C5 /* TegStarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRating.swift; sourceTree = "<group>"; };
+		2B1151B31ADF963900FC26C5 /* TegStarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarFillMode.swift; sourceTree = "<group>"; };
+		2B1151B41ADF963900FC26C5 /* TegStarRatingText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingText.swift; sourceTree = "<group>"; };
+		2B1151B51ADF963900FC26C5 /* TegStarRatingLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingLayerHelper.swift; sourceTree = "<group>"; };
+		2B1151B61ADF963900FC26C5 /* TegStarRatingSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingSettings.swift; sourceTree = "<group>"; };
+		2B1151B71ADF963900FC26C5 /* TegStarRatingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingSize.swift; sourceTree = "<group>"; };
 		2B6D52B11A281B7100DF85BF /* star-rating-view.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "star-rating-view.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6D52B51A281B7100DF85BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6D52B61A281B7100DF85BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,13 +54,6 @@
 		2B6D52CB1A281B7100DF85BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6D52CC1A281B7100DF85BF /* star_rating_viewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = star_rating_viewTests.swift; sourceTree = "<group>"; };
 		2B6D52D61A281B9700DF85BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingView.swift; sourceTree = "<group>"; };
-		2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRating.swift; sourceTree = "<group>"; };
-		2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarFillMode.swift; sourceTree = "<group>"; };
-		2BCCCCF11A2838BA003F07E3 /* TegStarRatingText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingText.swift; sourceTree = "<group>"; };
-		2BCCCCF31A2839D8003F07E3 /* TegStarRatingLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingLayerHelper.swift; sourceTree = "<group>"; };
-		2BCCCCF51A283ADE003F07E3 /* TegStarRatingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingSize.swift; sourceTree = "<group>"; };
-		2BCCF0811A2BD1BE007E740A /* TegStarRatingSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,13 +136,13 @@
 		2B6D52D81A281BC700DF85BF /* star-rating-view */ = {
 			isa = PBXGroup;
 			children = (
-				2B6D52D91A281BD500DF85BF /* TegStarRatingView.swift */,
-				2B6D52DB1A2827DA00DF85BF /* TegStarRating.swift */,
-				2BCCCCEF1A283633003F07E3 /* TegStarFillMode.swift */,
-				2BCCCCF11A2838BA003F07E3 /* TegStarRatingText.swift */,
-				2BCCCCF31A2839D8003F07E3 /* TegStarRatingLayerHelper.swift */,
-				2BCCF0811A2BD1BE007E740A /* TegStarRatingSettings.swift */,
-				2BCCCCF51A283ADE003F07E3 /* TegStarRatingSize.swift */,
+				2B1151B11ADF963900FC26C5 /* TegStarRatingView.swift */,
+				2B1151B21ADF963900FC26C5 /* TegStarRating.swift */,
+				2B1151B31ADF963900FC26C5 /* TegStarFillMode.swift */,
+				2B1151B41ADF963900FC26C5 /* TegStarRatingText.swift */,
+				2B1151B51ADF963900FC26C5 /* TegStarRatingLayerHelper.swift */,
+				2B1151B61ADF963900FC26C5 /* TegStarRatingSettings.swift */,
+				2B1151B71ADF963900FC26C5 /* TegStarRatingSize.swift */,
 			);
 			name = "star-rating-view";
 			sourceTree = "<group>";
@@ -248,16 +248,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1151B81ADF963900FC26C5 /* TegStarRatingView.swift in Sources */,
 				2B6D52B91A281B7100DF85BF /* ViewController.swift in Sources */,
-				2BCCCCF21A2838BA003F07E3 /* TegStarRatingText.swift in Sources */,
+				2B1151BA1ADF963900FC26C5 /* TegStarFillMode.swift in Sources */,
+				2B1151BB1ADF963900FC26C5 /* TegStarRatingText.swift in Sources */,
+				2B1151B91ADF963900FC26C5 /* TegStarRating.swift in Sources */,
+				2B1151BC1ADF963900FC26C5 /* TegStarRatingLayerHelper.swift in Sources */,
 				2B0CAA7F1A2C16C500599AE7 /* README.md in Sources */,
-				2B6D52DC1A2827DA00DF85BF /* TegStarRating.swift in Sources */,
-				2BCCCCF01A283633003F07E3 /* TegStarFillMode.swift in Sources */,
-				2BCCCCF61A283ADE003F07E3 /* TegStarRatingSize.swift in Sources */,
+				2B1151BD1ADF963900FC26C5 /* TegStarRatingSettings.swift in Sources */,
+				2B1151BE1ADF963900FC26C5 /* TegStarRatingSize.swift in Sources */,
 				2B6D52B71A281B7100DF85BF /* AppDelegate.swift in Sources */,
-				2BCCCCF41A2839D8003F07E3 /* TegStarRatingLayerHelper.swift in Sources */,
-				2BCCF0821A2BD1BE007E740A /* TegStarRatingSettings.swift in Sources */,
-				2B6D52DA1A281BD500DF85BF /* TegStarRatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
