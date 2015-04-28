@@ -14,8 +14,8 @@ class TegStarRatingView: UIView {
 
     layer.sublayers = sublayers
     
-    if let currentText = text {
-      let numberLayer = TegStarRatingText.createLayer(currentText,
+    if let text = text {
+      let numberLayer = TegStarRatingText.createLayer(text,
         font: settings.textFont, color: settings.textColor)
       
       let starsSize = TegStarRatingSize.outerSize(sublayers)
