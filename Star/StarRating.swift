@@ -7,6 +7,15 @@ Colection of helper functions for creating star layers.
 
 */
 class StarRating {
+  /**
+  
+  Creates the layers for the stars.
+  
+  - parameter rating: The decimal number representing the rating. Usually a number between 1 and 5
+  - parameter settings: Star view settings.
+  - returns: Array of star layers.
+  
+  */
   class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
 
     var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.numberOfStars)

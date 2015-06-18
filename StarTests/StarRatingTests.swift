@@ -264,4 +264,25 @@ class StarRatingTests: XCTestCase {
     XCTAssertEqual(19, filledStarLayer.fontSize)
     XCTAssertEqual(UIColor.greenColor(), UIColor(CGColor: filledStarLayer.foregroundColor!))
   }
+  
+  // MARK: - Create star layers 
+  
+  func testCreateStarLayers() {
+    var settings = StarRatingSettings()
+    settings.starCharacterEmpty = "☆"
+    settings.starCharacterFilled = "★"
+    settings.starFont = UIFont.systemFontOfSize(10)
+    settings.marginBetweenStars = 5
+    settings.numberOfStars = 100 // Crazy, huh? But still way less than 100,000,000,000 to 400,000,000,000 stars in our Milky Way galaxy. 🌌
+    
+    let result = StarRating.createStarLayers(3.7, settings: settings)
+    
+    XCTAssertEqual(100, result.count)
+    XCTAssertEqual(10, result.last!.bounds.width)
+    
+    // 100 * 10 (width of the stars)
+    //   + 99 * 5 (margin between stars)
+    XCTAssertEqual(Double(99 * 10 + 99 * 5), Double(result.last!.position.x))
+  }
+  
 }

@@ -47,6 +47,15 @@ Colection of helper functions for creating star layers.
 
 */
 class StarRating {
+  /**
+  
+  Creates the layers for the stars.
+  
+  - parameter rating: The decimal number representing the rating. Usually a number between 1 and 5
+  - parameter settings: Star view settings.
+  - returns: Array of star layers.
+  
+  */
   class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
 
     var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.numberOfStars)
@@ -421,10 +430,13 @@ A star rating view that can be used to show customer rating for the products. An
 
 Example:
 
-   ratingView.show(rating: 4.3, text: "(132)")
+   ratingView.show(rating: 4, text: "(132)")
+
+Displays: ★★★★☆ (132)
 
 */
 public class StarRatingView: UIView {
+  /// Star rating settings.
   public var settings = StarRatingSettings()
   
   /// Stores the size of the view. It is used as intrinsic content size.
@@ -432,7 +444,7 @@ public class StarRatingView: UIView {
 
   /**
   
-  Shows the star rating with an optional text label.
+  Creates sub-layers in the view that show the stars and the optional text.
   
   Example:
   

@@ -6,10 +6,13 @@ A star rating view that can be used to show customer rating for the products. An
 
 Example:
 
-   ratingView.show(rating: 4.3, text: "(132)")
+   ratingView.show(rating: 4, text: "(132)")
+
+Displays: ★★★★☆ (132)
 
 */
 public class StarRatingView: UIView {
+  /// Star rating settings.
   public var settings = StarRatingSettings()
   
   /// Stores the size of the view. It is used as intrinsic content size.
@@ -17,7 +20,7 @@ public class StarRatingView: UIView {
 
   /**
   
-  Shows the star rating with an optional text label.
+  Creates sub-layers in the view that show the stars and the optional text.
   
   Example:
   
