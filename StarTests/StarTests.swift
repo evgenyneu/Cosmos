@@ -7,29 +7,58 @@
 //
 
 import XCTest
+@testable import Star
 
 class StarTests: XCTestCase {
+  
+  var star: StarRatingView!
+  
+  override func setUp() {
+    super.setUp()
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    star = StarRatingView()
+  }
+  
+  // MARK: - Content size
+  
+  func testContentSize() {
+    star.settings.starFont = UIFont.systemFontOfSize(10)
+    star.settings.marginBetweenStarsRelativeToFontSize = 0.2
+
+    star.show(rating: 4)
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    let size = star.intrinsicContentSize()
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    // 5 * 10 (width of 5 stars)
+    //   + 4 * 10 * 0.2 (4 margins between stars)
+    //   == 58
+    XCTAssertEqual(size.width, 58)
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
+    let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(10)]
+    let fontSize = NSString(string: "★").sizeWithAttributes(sizeAttributes)
+    
+    XCTAssertEqual(size.height, fontSize.height)
+  }
+  
+  func testContentSizeWithText() {
+    star.settings.starFont = UIFont.systemFontOfSize(10)
+    star.settings.marginBetweenStarsRelativeToFontSize = 0.2
+    
+    star.settings.textFont = UIFont.systemFontOfSize(15)
+    star.settings.marginBetweenStarsAndTextRelativeToFontSize = 0.5
+    
+    star.show(rating: 4, text: "123")
+    
+    let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(15)]
+    let textSize = NSString(string: "123").sizeWithAttributes(sizeAttributes)
+    
+    let size = star.intrinsicContentSize()
+    
+    // 58 (width of 5 stars)
+    //   + 15 * 0.5 (margin between stars and text)
+    //   + fontSize.width (width of text)
+    XCTAssertEqual(size.width, 58 + 7.5 + textSize.width)
+  }
+  
 }
