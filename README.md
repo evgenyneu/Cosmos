@@ -7,11 +7,9 @@
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
   alt="Binary star system of Sirius A and Sirius B (artist's impression)" width='450'>
 
-Binary star system of Sirius A and Sirius B (artist's impression).
+*Binary star system of Sirius A and Sirius B (artist's impression).*
 
-Credit: [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/))
-
-Source: [Hubble Space Telescope](http://www.spacetelescope.org/images/heic0516b/)
+[NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [Hubble Space Telescope](http://www.spacetelescope.org/images/heic0516b/)
 
 ## Usage
 
