@@ -1,11 +1,3 @@
-//
-//  StarTests.swift
-//  StarTests
-//
-//  Created by Evgenii on 18/06/2015.
-//  Copyright © 2015 Marketplacer. All rights reserved.
-//
-
 import XCTest
 @testable import Star
 

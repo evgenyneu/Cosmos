@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BE82F6B1B32896E009B98CB /* StarRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */; };
 		7E0C075B1B32319000412D79 /* Star.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0C075A1B32319000412D79 /* Star.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E0C07621B32319000412D79 /* Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Star.framework */; };
-		7E0C07671B32319000412D79 /* StarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07661B32319000412D79 /* StarTests.swift */; };
+		7E0C07671B32319000412D79 /* StarRatingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07661B32319000412D79 /* StarRatingViewTests.swift */; };
 		7E0C07781B3232B400412D79 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07711B3232B400412D79 /* StarRatingView.swift */; };
 		7E0C07791B3232B400412D79 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07721B3232B400412D79 /* StarRating.swift */; };
 		7E0C077A1B3232B400412D79 /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07731B3232B400412D79 /* StarFillMode.swift */; };
@@ -58,11 +59,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingTests.swift; sourceTree = "<group>"; };
 		7E0C07571B32319000412D79 /* Star.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Star.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C075A1B32319000412D79 /* Star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		7E0C075C1B32319000412D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E0C07611B32319000412D79 /* StarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E0C07661B32319000412D79 /* StarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTests.swift; sourceTree = "<group>"; };
+		7E0C07661B32319000412D79 /* StarRatingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingViewTests.swift; sourceTree = "<group>"; };
 		7E0C07681B32319000412D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E0C07711B3232B400412D79 /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		7E0C07721B3232B400412D79 /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
@@ -148,7 +150,8 @@
 		7E0C07651B32319000412D79 /* StarTests */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C07661B32319000412D79 /* StarTests.swift */,
+				7E0C07661B32319000412D79 /* StarRatingViewTests.swift */,
+				2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */,
 				7E0C07681B32319000412D79 /* Info.plist */,
 			);
 			path = StarTests;
@@ -352,7 +355,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E0C07671B32319000412D79 /* StarTests.swift in Sources */,
+				2BE82F6B1B32896E009B98CB /* StarRatingTests.swift in Sources */,
+				7E0C07671B32319000412D79 /* StarRatingViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +645,7 @@
 				7E4F8C7B1B3253600070F074 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

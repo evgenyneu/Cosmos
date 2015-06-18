@@ -1,5 +1,11 @@
 import UIKit
 
+
+/**
+
+Colection of helper functions for creating star layers.
+
+*/
 class StarRating {
   class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
 
@@ -8,13 +14,12 @@ class StarRating {
     var starLayers = [CALayer]()
 
     for _ in (0..<settings.numberOfStars) {
-      ratingRemander--
-
-      let fillLevel = starFillLevel(ratingRemander, starFillMode: settings.starFillMode,
+      let fillLevel = starFillLevel(ratingRemainder: ratingRemander, starFillMode: settings.starFillMode,
         correctFillLevelForPrecise: settings.correctFillLevelForPreciseMode)
 
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
       starLayers.append(starLayer)
+      ratingRemander--
     }
 
     positionStarLayers(starLayers, marginBetweenStars: settings.marginBetweenStars)
@@ -24,17 +29,16 @@ class StarRating {
   private class func createCompositeStarLayer(starFillLevel: Double,
     settings: StarRatingSettings) -> CALayer {
 
-      if starFillLevel >= 1 {
-        return createStarLayer(true, settings: settings)
-      }
+    if starFillLevel >= 1 {
+      return createStarLayer(true, settings: settings)
+    }
 
-      if starFillLevel == 0 {
-        return createStarLayer(false, settings: settings)
-      }
+    if starFillLevel == 0 {
+      return createStarLayer(false, settings: settings)
+    }
 
-      return createHalfStar(starFillLevel, settings: settings)
+    return createHalfStar(starFillLevel, settings: settings)
   }
-
 
   private class func createHalfStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
     let filledStar = createStarLayer(true, settings: settings)
@@ -53,12 +57,23 @@ class StarRating {
     return parentLayer
   }
 
-  // Returns a number between 0 and 1 describing the star fill level.
-  // 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
-  private class func starFillLevel(ratingRemainder: Double, starFillMode: StarFillMode,
+  /**
+
+  Returns a decimal number between 0 and 1 describing the star fill level.
+  
+  - parameter ratingRemainder: This value is passed from the loop that creates star layers. The value starts with the rating value and decremented by 1 when each star is created. For example, suppose we want to display rating of 3.5. When the first star is created the ratingRemainder parameter will be 3.5. For the second star it will be 2.5. Third: 1.5. Fourth: 0.5. Fifth: -0.5.
+  
+  - parameter starFillMode: Describe how stars should be filled: full, half or precise.
+  
+  - parameter correctFillLevelForPrecise: If true and the fill mode is 'precise' the fill level will be corrected for better looks.
+  
+  - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
+
+  */
+  class func starFillLevel(ratingRemainder ratingRemainder: Double, starFillMode: StarFillMode,
     correctFillLevelForPrecise: Bool) -> Double {
       
-    var result = ratingRemainder + 1
+    var result = ratingRemainder
     
     if result > 1 {
       result = 1

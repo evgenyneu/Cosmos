@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     starRatingViewHalf.settings.starFillMode = StarFillMode.Half
     starRatingViewPrecise.settings.starFillMode = StarFillMode.Precise
     
+    starRatingViewPrecise.settings.numberOfStars = 8
+    
     updateRating()
   }
   
