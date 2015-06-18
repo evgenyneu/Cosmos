@@ -37,10 +37,24 @@ class StarRating {
       return createStarLayer(false, settings: settings)
     }
 
-    return createHalfStar(starFillLevel, settings: settings)
+    return createPartialStar(starFillLevel, settings: settings)
   }
 
-  private class func createHalfStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
+  /**
+  
+  Creates a partially filled star layer with two sub-layers:
+  
+  1. The layer for the 'filled star' character on top. The fill level parameter determines the width of this layer.
+  2. The layer for the 'empty star' character below.
+  
+  
+  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
+  - parameter settings: Settings objects.
+  
+  - returns: Layer that contains the partially filled star.
+  
+  */
+  class func createPartialStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
     let filledStar = createStarLayer(true, settings: settings)
     let emptyStar = createStarLayer(false, settings: settings)
 
@@ -51,7 +65,7 @@ class StarRating {
     parentLayer.addSublayer(emptyStar)
     parentLayer.addSublayer(filledStar)
 
-    // make filled layer width smaller according to fill level
+    // make filled layer width smaller according to the fill level.
     filledStar.bounds.size.width *= CGFloat(starFillLevel)
 
     return parentLayer

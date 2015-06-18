@@ -129,4 +129,29 @@ class StarRatingTests: XCTestCase {
     XCTAssertEqual(25, layerTwo.position.x)
     XCTAssertEqual(50, layerThree.position.x)
   }
+  
+  // MARK: - Create partially filled star
+  
+  func testCreatePartiallyFilledStar_verifyTextAndStyles() {
+    var settings = StarRatingSettings()
+    settings.starCharacterEmpty = "empty"
+    settings.starCharacterFilled = "filled"
+    settings.starFont = UIFont.systemFontOfSize(19)
+    settings.starColorEmpty = UIColor.purpleColor()
+    settings.starColorFilled = UIColor.redColor()
+
+    let result = StarRating.createPartialStar(0.8, settings: settings)
+    
+    XCTAssertEqual(2, result.sublayers!.count)
+    
+    let emptyStarLayer = result.sublayers![0] as! CATextLayer
+    XCTAssertEqual("empty", emptyStarLayer.string as! String)
+    XCTAssertEqual(19, emptyStarLayer.fontSize)
+    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyStarLayer.foregroundColor!))
+    
+    let filledStarLayer = result.sublayers![1] as! CATextLayer
+    XCTAssertEqual("filled", filledStarLayer.string as! String)
+    XCTAssertEqual(19, filledStarLayer.fontSize)
+    XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: filledStarLayer.foregroundColor!))
+  }
 }
