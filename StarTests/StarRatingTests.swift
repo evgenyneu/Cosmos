@@ -154,4 +154,39 @@ class StarRatingTests: XCTestCase {
     XCTAssertEqual(19, filledStarLayer.fontSize)
     XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: filledStarLayer.foregroundColor!))
   }
+  
+  func testCreatePartiallyFilledStar_verifySize() {
+    var settings = StarRatingSettings()
+    settings.starCharacterEmpty = "☆"
+    settings.starCharacterFilled = "★"
+    settings.starFont = UIFont.systemFontOfSize(19)
+
+    
+    let result = StarRating.createPartialStar(0.8, settings: settings)
+    
+    let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(19)]
+    
+    
+    // Check empty star size
+    // ------------------
+    
+    let emptyStarLayer = result.sublayers![0] as! CATextLayer
+    let emptyFontSize = NSString(string: "☆").sizeWithAttributes(sizeAttributes)
+    XCTAssertEqual(19, emptyStarLayer.bounds.width)
+    XCTAssertEqual(emptyFontSize.height, emptyStarLayer.bounds.height)
+    
+    // Check filled star size
+    // ------------------
+    
+    let filledStarLayer = result.sublayers![1] as! CATextLayer
+    let filledFontSize = NSString(string: "★").sizeWithAttributes(sizeAttributes)
+    XCTAssertEqual(19 * 0.8, filledStarLayer.bounds.width)
+    XCTAssertEqual(filledFontSize.height, filledStarLayer.bounds.height)
+    
+    // Check parent layer size
+    // ------------------
+    
+    XCTAssertEqual(19, result.bounds.width)
+    XCTAssertEqual(filledFontSize.height, result.bounds.height)
+  }
 }
