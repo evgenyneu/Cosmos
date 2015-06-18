@@ -108,4 +108,25 @@ class StarRatingTests: XCTestCase {
     let result = StarRating.numberOfFilledStars(-0.6, totalNumberOfStars: 5)
     XCTAssertEqual(0, result)
   }
+  
+  // MARK: - Position star layers
+  
+  func testPositionStarLayers() {
+    let layerOne = CALayer()
+    layerOne.bounds = CGRect(origin: CGPoint(), size: CGSize(width: 20, height: 2))
+      
+    let layerTwo = CALayer()
+    layerTwo.bounds = CGRect(origin: CGPoint(), size: CGSize(width: 20, height: 2))
+    
+    let layerThree = CALayer()
+    layerThree.bounds = CGRect(origin: CGPoint(), size: CGSize(width: 20, height: 2))
+    
+    let layers = [layerOne, layerTwo, layerThree]
+      
+    StarRating.positionStarLayers(layers, marginBetweenStars: 5)
+    
+    XCTAssertEqual(0, layerOne.position.x)
+    XCTAssertEqual(25, layerTwo.position.x)
+    XCTAssertEqual(50, layerThree.position.x)
+  }
 }

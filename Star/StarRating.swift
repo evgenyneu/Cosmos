@@ -139,7 +139,15 @@ class StarRating {
     return rating
   }
 
-  private class func positionStarLayers(layers: [CALayer], marginBetweenStars: CGFloat) {
+  /**
+  
+  Positions the star layers one after another with a margin in between.
+  
+  - parameter layers: The star layers array.
+  - parameter marginBetweenStars: Margin between stars.
+
+  */
+  class func positionStarLayers(layers: [CALayer], marginBetweenStars: CGFloat) {
     var positionX:CGFloat = 0
 
     for layer in layers {
