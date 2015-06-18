@@ -37,6 +37,18 @@ This project includes a demo iOS app.
 
 <img src='https://dl.dropboxusercontent.com/u/11143285/bikeexchange/github_images/start-rating-view-ios-swift.png' alt='five star rating control for iOS written in Swift' width='320' >
 
+## Alternative solutions
+
+Here are some other star rating controls for iOS:
+
+* [danwilliams64/DJWStarRatingView](https://github.com/danwilliams64/DJWStarRatingView)
+* [dlinsin/DLStarRating](https://github.com/dlinsin/DLStarRating)
+* [dyang/DYRateView](https://github.com/dyang/DYRateView)
+* [erndev/EDStarRating](https://github.com/erndev/EDStarRating)
+* [hugocampossousa/HCSStarRatingView](https://github.com/hugocampossousa/HCSStarRatingView)
+* [strekfus/FloatRatingView](https://github.com/strekfus/FloatRatingView)
+* [yanguango/ASStarRatingView](https://github.com/yanguango/ASStarRatingView)
+
 ## License
 
 Star is released under the [MIT License](LICENSE).
