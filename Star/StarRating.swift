@@ -57,31 +57,34 @@ class StarRating {
   // 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
   private class func starFillLevel(ratingRemainder: Double, starFillMode: StarFillMode,
     correctFillLevelForPrecise: Bool) -> Double {
-
-      var result = ratingRemainder + 1
       
-      if result > 1 {
-        result = 1
-      } else if result < 0 {
-        result = 0
-      }
-
-      if starFillMode == StarFillMode.Precise && correctFillLevelForPrecise {
-        result = correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
-      }
-
-      if starFillMode == StarFillMode.Full {
-        result = Double(round(result))
-      }
-
-      if starFillMode == StarFillMode.Half {
-        result = Double(round(result * 2) / 2)
-      }
-
-      return result
+    var result = ratingRemainder + 1
+    
+    if result > 1 {
+      result = 1
+    } else if result < 0 {
+      result = 0
+    }
+    
+    if starFillMode == StarFillMode.Precise && correctFillLevelForPrecise {
+      result = correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
+    }
+    
+    if starFillMode == StarFillMode.Full {
+      result = Double(round(result))
+    }
+    
+    if starFillMode == StarFillMode.Half {
+      result = Double(round(result * 2) / 2)
+    }
+    
+    return result
   }
 
-  private class func correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(fillLevel: Double) -> Double {
+  /// Correct the fill level to achieve more gradual fill of the ★ and ☆ star characters in precise mode.
+  private class func correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(
+    fillLevel: Double) -> Double {
+  
     if fillLevel >= 0 && fillLevel <= 1 {
       return 3.0 / 5.0 * fillLevel + 1.0 / 5.0
     }
