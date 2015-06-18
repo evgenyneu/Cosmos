@@ -2,7 +2,7 @@ import Foundation
 
 /**
 
-Defines how the star is filled when the rating is not an integer number. For example, if raiting is 4.6 and the fill more is Half, the star will appear to be half filled.
+Defines how the star is filled when the rating is not an integer number. For example, if rating is 4.6 and the fill more is Half, the star will appear to be half filled.
 
 */
 public enum StarFillMode {

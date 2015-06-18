@@ -17,7 +17,7 @@ import Foundation
 
 /**
 
-Defines how the star is filled when the rating is not an integer number. For example, if raiting is 4.6 and the fill more is Half, the star will appear to be half filled.
+Defines how the star is filled when the rating is not an integer number. For example, if rating is 4.6 and the fill more is Half, the star will appear to be half filled.
 
 */
 public enum StarFillMode {
@@ -99,6 +99,7 @@ class StarRating {
     correctFillLevelForPrecise: Bool) -> Double {
 
       var result = ratingRemainder + 1
+      
       if result > 1 {
         result = 1
       } else if result < 0 {
@@ -287,7 +288,7 @@ class StarRatingSize {
   Calculates the size of star rating view. It goes through all the layers and makes size the view size is large enough to show all of them.
   
   */
-  class func outerSize(layers: [CALayer]) -> CGSize {
+  class func calculateSizeToFitLayers(layers: [CALayer]) -> CGSize {
     var size = CGSize()
     
     for layer in layers {
@@ -348,7 +349,7 @@ import UIKit
 
 /*
 
-A view that shows stars. It can be used to show customer rating for the products. An optional text can be supplied that is shown to the right from the stars.
+A star rating view that can be used to show customer rating for the products. An optional text can be supplied that is shown to the right from the stars.
 
 Example:
 
@@ -357,11 +358,13 @@ Example:
 */
 public class StarRatingView: UIView {
   public var settings = StarRatingSettings()
+  
+  /// Stores the size of the view. It is used as intrinsic content size.
   private var size = CGSize()
 
   /**
   
-  Shows the star raiting with an optional text label.
+  Shows the star rating with an optional text label.
   
   Example:
   
@@ -374,26 +377,59 @@ public class StarRatingView: UIView {
   public func show(rating rating: Double, text: String? = nil) {
     calculateMargins()
     
-    var sublayers = StarRating.createStarLayers(rating, settings: settings)
-
-    layer.sublayers = sublayers
+    // Create star layers
+    // ------------
     
+    var layers = StarRating.createStarLayers(rating, settings: settings)
+    layer.sublayers = layers
+    
+    // Create text layer
+    // ------------
+
     if let text = text {
-      let numberLayer = StarRatingLayerHelper.createTextLayer(text,
-        font: settings.textFont, color: settings.textColor)
-      
-      let starsSize = StarRatingSize.outerSize(sublayers)
-      
-      StarRatingText.position(numberLayer, starsSize: starsSize,
-        marginBetweenStarsAndText: settings.marginBetweenStarsAndText)
-      
-      layer.addSublayer(numberLayer)
-      
-      sublayers.append(numberLayer)
+      let textLayer = createTextLayer(text, layers: layers)
+      layers.append(textLayer)
     }
     
-    size = StarRatingSize.outerSize(sublayers) // used as intrinsic content size
+    // Update size
+    // ------------
 
+    updateSize(layers)
+  }
+  
+  /**
+  
+  Creates the text layer for the given text string.
+  
+  - parameter text: Text string for the text layer.
+  - parameter layers: Arrays of layers containing the stars.
+  
+  - returns: The newly created text layer.
+  
+  */
+  private func createTextLayer(text: String, layers: [CALayer]) -> CALayer {
+    let textLayer = StarRatingLayerHelper.createTextLayer(text,
+      font: settings.textFont, color: settings.textColor)
+    
+    let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
+    
+    StarRatingText.position(textLayer, starsSize: starsSize,
+      marginBetweenStarsAndText: settings.marginBetweenStarsAndText)
+    
+    layer.addSublayer(textLayer)
+    
+    return textLayer
+  }
+  
+  /**
+
+  Updates the size to fit all the layers containing stars and text.
+  
+  - parameter layers: Array of layers containing stars and the text.
+
+  */
+  private func updateSize(layers: [CALayer]) {
+    size = StarRatingSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
   }
   
@@ -406,6 +442,7 @@ public class StarRatingView: UIView {
       CGFloat(settings.marginBetweenStarsAndTextRelativeToFontSize)
   }
   
+  /// Returns the content size to fit all the star and text layers.
   override public func intrinsicContentSize() -> CGSize {
     return size
   }

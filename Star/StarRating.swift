@@ -59,6 +59,7 @@ class StarRating {
     correctFillLevelForPrecise: Bool) -> Double {
 
       var result = ratingRemainder + 1
+      
       if result > 1 {
         result = 1
       } else if result < 0 {

@@ -11,7 +11,7 @@ class StarRatingSize {
   Calculates the size of star rating view. It goes through all the layers and makes size the view size is large enough to show all of them.
   
   */
-  class func outerSize(layers: [CALayer]) -> CGSize {
+  class func calculateSizeToFitLayers(layers: [CALayer]) -> CGSize {
     var size = CGSize()
     
     for layer in layers {
