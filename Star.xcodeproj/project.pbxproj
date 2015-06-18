@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BCA32671B32911300642477 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA32661B32911300642477 /* Round.swift */; };
 		2BE82F6B1B32896E009B98CB /* StarRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */; };
 		7E0C075B1B32319000412D79 /* Star.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0C075A1B32319000412D79 /* Star.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E0C07621B32319000412D79 /* Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Star.framework */; };
@@ -59,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2BCA32661B32911300642477 /* Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingTests.swift; sourceTree = "<group>"; };
 		7E0C07571B32319000412D79 /* Star.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Star.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C075A1B32319000412D79 /* Star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BCA32651B32910D00642477 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				2BCA32661B32911300642477 /* Round.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
 		7E0C074D1B32319000412D79 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 		7E0C07651B32319000412D79 /* StarTests */ = {
 			isa = PBXGroup;
 			children = (
+				2BCA32651B32910D00642477 /* TestHelpers */,
 				7E0C07661B32319000412D79 /* StarRatingViewTests.swift */,
 				2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */,
 				7E0C07681B32319000412D79 /* Info.plist */,
@@ -356,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE82F6B1B32896E009B98CB /* StarRatingTests.swift in Sources */,
+				2BCA32671B32911300642477 /* Round.swift in Sources */,
 				7E0C07671B32319000412D79 /* StarRatingViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
