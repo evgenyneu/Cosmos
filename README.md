@@ -37,4 +37,6 @@ This project includes a demo iOS app.
 
 <img src='https://dl.dropboxusercontent.com/u/11143285/bikeexchange/github_images/start-rating-view-ios-swift.png' alt='five star rating control for iOS written in Swift' width='320' >
 
-## Credits
+## License
+
+Star is released under the [MIT License](LICENSE).
