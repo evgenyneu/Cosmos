@@ -9,7 +9,7 @@ Colection of helper functions for creating star layers.
 class StarRating {
   class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
 
-    var ratingRemander = numberOfFilledStars(rating)
+    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.numberOfStars)
 
     var starLayers = [CALayer]()
 
@@ -75,36 +75,45 @@ class StarRating {
       
     var result = ratingRemainder
     
-    if result > 1 {
-      result = 1
-    } else if result < 0 {
-      result = 0
-    }
-    
-    if starFillMode == StarFillMode.Precise && correctFillLevelForPrecise {
-      result = correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
-    }
-    
-    if starFillMode == StarFillMode.Full {
-      result = Double(round(result))
-    }
-    
-    if starFillMode == StarFillMode.Half {
+    if result > 1 { result = 1 }
+    if result < 0 { result = 0 }
+      
+    switch starFillMode {
+    case .Full:
+       result = Double(round(result))
+    case .Half:
       result = Double(round(result * 2) / 2)
+    case .Precise :
+      if correctFillLevelForPrecise {
+        result = correctPreciseFillLevel(result)
+      }
     }
     
     return result
   }
 
-  /// Correct the fill level to achieve more gradual fill of the ★ and ☆ star characters in precise mode.
-  private class func correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(
-    fillLevel: Double) -> Double {
-  
-    if fillLevel >= 0 && fillLevel <= 1 {
-      return 3.0 / 5.0 * fillLevel + 1.0 / 5.0
-    }
+  /**
 
-    return fillLevel
+  Correct the fill level to achieve more gradual fill of the ★ and ☆ star characters in precise mode. This is done to compensate for the fact that the ★ and ☆ characters do not occupy 100% width of their layer bound rectangle.
+  
+  Graph: https://www.desmos.com/calculator/zrxqlrypsk
+  
+  - parameter fillLevel: The initial fill level for correction.
+  - returns: The corrected fill level.
+
+  */
+  class func correctPreciseFillLevel(fillLevel: Double) -> Double {
+  
+    var result = fillLevel
+    
+    if result > 1 { result = 1 }
+    if result < 0 { result = 0 }
+    
+    let correctionRatio: Double = 1 / 5
+    
+    let multiplier: Double = 1 - 2 * correctionRatio
+    
+    return multiplier * result + correctionRatio
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
@@ -114,8 +123,17 @@ class StarRating {
     return StarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
   }
 
-  private class func numberOfFilledStars(rating: Double) -> Double {
-    if rating > 5 { return 5 }
+  /**
+  
+  Returns the number of filled stars for given rating.
+  
+  - parameter rating: The rating to be displayed.
+  - parameter maxNumberOfStars: Total number of stars.
+  - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
+  
+  */
+  class func numberOfFilledStars(rating: Double, totalNumberOfStars: Int) -> Double {
+    if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
     if rating < 0 { return 0 }
 
     return rating

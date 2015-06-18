@@ -47,4 +47,65 @@ class StarRatingTests: XCTestCase {
     
     XCTAssertEqual(1, result)
   }
+  
+  // MARK: - Correct precise fill level
+  
+  func testCorrectPreciseFillLevel() {
+    let result = StarRating.correctPreciseFillLevel(0.5)
+    
+    XCTAssertEqual(0.5, result)
+  }
+  
+  func testCorrectPreciseFillLevel_moreThanHalf() {
+    let result = StarRating.correctPreciseFillLevel(0.7)
+    
+    XCTAssertEqual(0.62, result)
+  }
+  
+  func testCorrectPreciseFillLevel_lessThanHalf() {
+    let result = StarRating.correctPreciseFillLevel(0.3)
+    
+    XCTAssertEqual(0.38, result)
+  }
+  
+  func testCorrectPreciseFillLevel_one() {
+    let result = StarRating.correctPreciseFillLevel(1)
+    
+    XCTAssertEqual(0.8, result)
+  }
+  
+  func testCorrectPreciseFillLevel_zero() {
+    let result = StarRating.correctPreciseFillLevel(0)
+    
+    XCTAssertEqual(0.2, result)
+  }
+  
+  func testCorrectPreciseFillLevel_moreThanOne() {
+    let result = StarRating.correctPreciseFillLevel(1.1)
+    
+    XCTAssertEqual(0.8, result)
+  }
+  
+  func testCorrectPreciseFillLevel_lessThanZero() {
+    let result = StarRating.correctPreciseFillLevel(-0.2)
+    
+    XCTAssertEqual(0.2, result)
+  }
+  
+  // MARK: - Number of filled stars
+  
+  func testNumberOfFilledStars() {
+    let result = StarRating.numberOfFilledStars(2.6, totalNumberOfStars: 5)
+    XCTAssertEqual(2.6, result)
+  }
+  
+  func testNumberOfFilledStars_ratingIsBiggerThanNumberOfStars() {
+    let result = StarRating.numberOfFilledStars(3.6, totalNumberOfStars: 3)
+    XCTAssertEqual(3, result)
+  }
+  
+  func testNumberOfFilledStars_ratingIsNegative() {
+    let result = StarRating.numberOfFilledStars(-0.6, totalNumberOfStars: 5)
+    XCTAssertEqual(0, result)
+  }
 }
