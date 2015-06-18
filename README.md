@@ -1,7 +1,17 @@
+🔨🔨🔨 This is work in progress 🔨🔨🔨
+
 # iOS five-star rating control written in Swift
 
 <img src='https://dl.dropboxusercontent.com/u/11143285/bikeexchange/github_images/start-rating-view-ios-swift.png'
   alt='five star rating control for iOS written in Swift' width='320' >
+
+
+
+Binary star system of Sirius A and Sirius B (artist's impression).
+
+Credit: [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/))
+
+Source: [Hubble Space Telescope](http://www.spacetelescope.org/images/heic0516b/)
 
 ## Usage
 
@@ -23,6 +33,4 @@ ratingView.settings.starColorFilled = UIColor.blackColor()
 ratingView.settings.starFillMode = TegStarFillMode.Precise
 ```
 
-## Home
-
-[https://github.com/exchangegroup/star-rating-view](https://github.com/exchangegroup/star-rating-view)
+## Credits

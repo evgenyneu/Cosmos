@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="04p-6S-l61">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="p2T-rg-chC">
+            <objects>
+                <viewController id="04p-6S-l61" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nBP-Xs-bUF"/>
+                        <viewControllerLayoutGuide type="bottom" id="2U8-Lj-ZeU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IMe-Pv-Qb9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-i3-DDA" customClass="TegStarRatingView" customModule="Star">
+                                <rect key="frame" x="250" y="199" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.98854736160000001" blue="0.45219169729999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="BKG-sm-9ov" customClass="TegStarRatingView" customModule="Star">
+                                <rect key="frame" x="250" y="130" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.98854736160000001" blue="0.45219169729999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-hA-9rh" customClass="TegStarRatingView" customModule="Star">
+                                <rect key="frame" x="250" y="269" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.98854736160000001" blue="0.45219169729999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANi-gK-FQG">
+                                <rect key="frame" x="272" y="249" width="56.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000476837158" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="etZ-lR-1Kk">
+                                <rect key="frame" x="18" y="396" width="564" height="31"/>
+                                <connections>
+                                    <action selector="onSliderChanged:" destination="04p-6S-l61" eventType="valueChanged" id="1EX-Gd-XAY"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nY-5f-JVD">
+                                <rect key="frame" x="279" y="367" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymj-cd-i5z">
+                                <rect key="frame" x="285" y="180" width="27" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Half" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6H-AG-HAV">
+                                <rect key="frame" x="284" y="110" width="31" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filled style" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-Qz-Ihc">
+                                <rect key="frame" x="259" y="40" width="81" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="JzH-DQ-pyf" customClass="TegStarRatingView" customModule="Star">
+                                <rect key="frame" x="250" y="60" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.98854736160000001" blue="0.45219169729999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ANi-gK-FQG" firstAttribute="top" secondItem="yIn-i3-DDA" secondAttribute="bottom" constant="20" id="2CP-Ig-B2L"/>
+                            <constraint firstItem="etZ-lR-1Kk" firstAttribute="top" secondItem="9nY-5f-JVD" secondAttribute="bottom" constant="8" id="4XG-YH-iU7"/>
+                            <constraint firstAttribute="centerX" secondItem="JzH-DQ-pyf" secondAttribute="centerX" id="5Kd-RU-LE3"/>
+                            <constraint firstItem="yIn-i3-DDA" firstAttribute="top" secondItem="Ymj-cd-i5z" secondAttribute="bottom" constant="-1" id="5XG-Ay-gJx"/>
+                            <constraint firstAttribute="centerX" secondItem="w6H-AG-HAV" secondAttribute="centerX" id="6Bu-gw-Cwc"/>
+                            <constraint firstItem="BKG-sm-9ov" firstAttribute="top" secondItem="w6H-AG-HAV" secondAttribute="bottom" id="8co-yP-b9A"/>
+                            <constraint firstItem="bi9-Qz-Ihc" firstAttribute="top" secondItem="nBP-Xs-bUF" secondAttribute="bottom" constant="20" id="AcD-9C-tCn"/>
+                            <constraint firstItem="bi9-Qz-Ihc" firstAttribute="centerX" secondItem="IMe-Pv-Qb9" secondAttribute="centerX" id="GtU-ez-7hI"/>
+                            <constraint firstItem="etZ-lR-1Kk" firstAttribute="leading" secondItem="IMe-Pv-Qb9" secondAttribute="leadingMargin" id="K16-cd-2XC"/>
+                            <constraint firstItem="9nY-5f-JVD" firstAttribute="top" secondItem="hZe-hA-9rh" secondAttribute="bottom" constant="68" id="Lk0-CE-w8o"/>
+                            <constraint firstAttribute="centerX" secondItem="Ymj-cd-i5z" secondAttribute="centerX" constant="1" id="O0e-Fz-w1O"/>
+                            <constraint firstAttribute="centerX" secondItem="9nY-5f-JVD" secondAttribute="centerX" id="O9l-EW-IUn"/>
+                            <constraint firstAttribute="centerX" secondItem="hZe-hA-9rh" secondAttribute="centerX" id="U5J-MB-45n"/>
+                            <constraint firstItem="Ymj-cd-i5z" firstAttribute="top" secondItem="BKG-sm-9ov" secondAttribute="bottom" constant="20" id="Uvk-n5-v8v"/>
+                            <constraint firstAttribute="centerX" secondItem="BKG-sm-9ov" secondAttribute="centerX" id="WGK-7j-lI4"/>
+                            <constraint firstItem="hZe-hA-9rh" firstAttribute="top" secondItem="ANi-gK-FQG" secondAttribute="bottom" id="aaK-Yl-5aK"/>
+                            <constraint firstAttribute="centerX" secondItem="ANi-gK-FQG" secondAttribute="centerX" id="j4S-br-UaV"/>
+                            <constraint firstAttribute="centerX" secondItem="yIn-i3-DDA" secondAttribute="centerX" id="rmr-Op-QvY"/>
+                            <constraint firstItem="w6H-AG-HAV" firstAttribute="top" secondItem="JzH-DQ-pyf" secondAttribute="bottom" constant="20" id="sw8-Mf-UZw"/>
+                            <constraint firstItem="JzH-DQ-pyf" firstAttribute="top" secondItem="bi9-Qz-Ihc" secondAttribute="bottom" id="vBu-Rn-kyG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="etZ-lR-1Kk" secondAttribute="trailing" id="vE1-Z4-Uh0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ratingLabel" destination="9nY-5f-JVD" id="fzp-gS-Be0"/>
+                        <outlet property="ratingSlider" destination="etZ-lR-1Kk" id="FW7-rq-QTM"/>
+                        <outlet property="starRatingViewHalf" destination="BKG-sm-9ov" id="b1K-Xv-E8K"/>
+                        <outlet property="starRatingViewOne" destination="yIn-i3-DDA" id="h4d-Ac-2f9"/>
+                        <outlet property="starRatingViewPrecise" destination="hZe-hA-9rh" id="1WO-D7-MCN"/>
+                        <outlet property="startRatingWithFilledStyle" destination="JzH-DQ-pyf" id="DoQ-1g-RQH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipT-gh-ehm" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="355" y="233"/>
+        </scene>
+    </scenes>
+</document>
