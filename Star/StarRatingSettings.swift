@@ -5,7 +5,7 @@ import UIKit
 Settings that define the appearance of the star rating views.
 
 */
-public struct TegStarRatingSettings {
+public struct StarRatingSettings {
   init() {}
   
   /// The maximum number of start to be shown
@@ -16,7 +16,7 @@ public struct TegStarRatingSettings {
   Defines how the star should appear to be filled when the rating value is not an integer value.
 
   */
-  public var starFillMode = TegStarFillMode.Half
+  public var starFillMode = StarFillMode.Half
   
   /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
   var marginBetweenStars:CGFloat = 0

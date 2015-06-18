@@ -9,7 +9,7 @@
 
 // ----------------------------
 //
-// TegStarFillMode.swift
+// StarFillMode.swift
 //
 // ----------------------------
 
@@ -20,7 +20,7 @@ import Foundation
 Defines how the star is filled when the rating is not an integer number. For example, if raiting is 4.6 and the fill more is Half, the star will appear to be half filled.
 
 */
-public enum TegStarFillMode {
+public enum StarFillMode {
   /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. By default the fill rate is not applied linearly but corrected (see correctFillLevelForPreciseMode setting).
   case Precise
   
@@ -34,14 +34,14 @@ public enum TegStarFillMode {
 
 // ----------------------------
 //
-// TegStarRating.swift
+// StarRating.swift
 //
 // ----------------------------
 
 import UIKit
 
-class TegStarRating {
-  class func createStarLayers(rating: Double, settings: TegStarRatingSettings) -> [CALayer] {
+class StarRating {
+  class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
 
     var ratingRemander = numberOfFilledStars(rating)
 
@@ -62,7 +62,7 @@ class TegStarRating {
   }
 
   private class func createCompositeStarLayer(starFillLevel: Double,
-    settings: TegStarRatingSettings) -> CALayer {
+    settings: StarRatingSettings) -> CALayer {
 
       if starFillLevel >= 1 {
         return createStarLayer(true, settings: settings)
@@ -76,7 +76,7 @@ class TegStarRating {
   }
 
 
-  private class func createHalfStar(starFillLevel: Double, settings: TegStarRatingSettings) -> CALayer {
+  private class func createHalfStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
     let filledStar = createStarLayer(true, settings: settings)
     let emptyStar = createStarLayer(false, settings: settings)
 
@@ -95,7 +95,7 @@ class TegStarRating {
 
   // Returns a number between 0 and 1 describing the star fill level.
   // 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
-  private class func starFillLevel(ratingRemainder: Double, starFillMode: TegStarFillMode,
+  private class func starFillLevel(ratingRemainder: Double, starFillMode: StarFillMode,
     correctFillLevelForPrecise: Bool) -> Double {
 
       var result = ratingRemainder + 1
@@ -105,15 +105,15 @@ class TegStarRating {
         result = 0
       }
 
-      if starFillMode == TegStarFillMode.Precise && correctFillLevelForPrecise {
+      if starFillMode == StarFillMode.Precise && correctFillLevelForPrecise {
         result = correctFillLevelToCompensateForTheFactThatStarIsNotOneHundredPercentWide(result)
       }
 
-      if starFillMode == TegStarFillMode.Full {
+      if starFillMode == StarFillMode.Full {
         result = Double(round(result))
       }
 
-      if starFillMode == TegStarFillMode.Half {
+      if starFillMode == StarFillMode.Half {
         result = Double(round(result * 2) / 2)
       }
 
@@ -128,11 +128,11 @@ class TegStarRating {
     return fillLevel
   }
 
-  private class func createStarLayer(isFilled: Bool, settings: TegStarRatingSettings) -> CALayer {
+  private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
     let text = isFilled ? settings.starCharacterFilled : settings.starCharacterEmpty
     let color = isFilled ? settings.starColorFilled : settings.starColorEmpty
 
-    return TegStarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
+    return StarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
   }
 
   private class func numberOfFilledStars(rating: Double) -> Double {
@@ -155,13 +155,25 @@ class TegStarRating {
 
 // ----------------------------
 //
-// TegStarRatingLayerHelper.swift
+// StarRatingLayerHelper.swift
 //
 // ----------------------------
 
 import UIKit
 
-class TegStarRatingLayerHelper {
+/// Helper class for creating CALayer objects.
+class StarRatingLayerHelper {
+  /**
+
+  Creates a text layer for the given text string and font.
+  
+  - parameter text: The text shown in the layer.
+  - parameter font: The text font. It is also used to calculate the layer bounds.
+  - parameter color: Text color.
+  
+  - returns: New text layer.
+  
+  */
   class func createTextLayer(text: String, font: UIFont, color: UIColor) -> CATextLayer {
     let size = NSString(string: text).sizeWithAttributes([NSFontAttributeName: font])
     
@@ -182,7 +194,7 @@ class TegStarRatingLayerHelper {
 
 // ----------------------------
 //
-// TegStarRatingSettings.swift
+// StarRatingSettings.swift
 //
 // ----------------------------
 
@@ -193,7 +205,7 @@ import UIKit
 Settings that define the appearance of the star rating views.
 
 */
-public struct TegStarRatingSettings {
+public struct StarRatingSettings {
   init() {}
   
   /// The maximum number of start to be shown
@@ -204,7 +216,7 @@ public struct TegStarRatingSettings {
   Defines how the star should appear to be filled when the rating value is not an integer value.
 
   */
-  public var starFillMode = TegStarFillMode.Half
+  public var starFillMode = StarFillMode.Half
   
   /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
   var marginBetweenStars:CGFloat = 0
@@ -258,13 +270,23 @@ public struct TegStarRatingSettings {
 
 // ----------------------------
 //
-// TegStarRatingSize.swift
+// StarRatingSize.swift
 //
 // ----------------------------
 
 import UIKit
 
-class TegStarRatingSize {
+/**
+
+Helper class for calculating size fo star view.
+
+*/
+class StarRatingSize {
+  /**
+  
+  Calculates the size of star rating view. It goes through all the layers and makes size the view size is large enough to show all of them.
+  
+  */
   class func outerSize(layers: [CALayer]) -> CGSize {
     var size = CGSize()
     
@@ -285,27 +307,32 @@ class TegStarRatingSize {
 
 // ----------------------------
 //
-// TegStarRatingText.swift
+// StarRatingText.swift
 //
 // ----------------------------
 
-//
-//  Shows text to the right of the stars
-//
+
 
 import UIKit
 
-class TegStarRatingText {
-  class func createLayer(text: String, font: UIFont, color: UIColor) -> CALayer {
-    let layer = TegStarRatingLayerHelper.createTextLayer(text, font: font, color: color)
-    return layer
-  }
+/**
+
+Positions the text layer to the right of the stars.
+
+*/
+class StarRatingText {
+  /**
   
+  Positions the text layer to the right from the stars. Text is aligned to the center of the star superview vertically.
+  
+  - parameter layer: The text layer to be positioned.
+  - parameter starsSize: The size of the star superview.
+  - parameter marginBetweenStarsAndText: The distance between the stars and the text.
+  
+  */
   class func position(layer: CALayer, starsSize: CGSize, marginBetweenStarsAndText: CGFloat) {
     layer.position.x = starsSize.width + marginBetweenStarsAndText
-    
     let yOffset = (starsSize.height - layer.bounds.height) / 2
-    
     layer.position.y = yOffset
   }
 }
@@ -313,7 +340,7 @@ class TegStarRatingText {
 
 // ----------------------------
 //
-// TegStarRatingView.swift
+// StarRatingView.swift
 //
 // ----------------------------
 
@@ -328,8 +355,8 @@ Example:
    ratingView.show(rating: 4.3, text: "(132)")
 
 */
-public class TegStarRatingView: UIView {
-  public var settings = TegStarRatingSettings()
+public class StarRatingView: UIView {
+  public var settings = StarRatingSettings()
   private var size = CGSize()
 
   /**
@@ -340,21 +367,24 @@ public class TegStarRatingView: UIView {
   
       ratingView.show(rating: 4.3, text: "(132)")
   
+  - parameter rating: Number of stars to be shown, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
+  - parameter text: An optional text string that will be shown to the right from the stars.
+  
   */
   public func show(rating rating: Double, text: String? = nil) {
     calculateMargins()
     
-    var sublayers = TegStarRating.createStarLayers(rating, settings: settings)
+    var sublayers = StarRating.createStarLayers(rating, settings: settings)
 
     layer.sublayers = sublayers
     
     if let text = text {
-      let numberLayer = TegStarRatingText.createLayer(text,
+      let numberLayer = StarRatingLayerHelper.createTextLayer(text,
         font: settings.textFont, color: settings.textColor)
       
-      let starsSize = TegStarRatingSize.outerSize(sublayers)
+      let starsSize = StarRatingSize.outerSize(sublayers)
       
-      TegStarRatingText.position(numberLayer, starsSize: starsSize,
+      StarRatingText.position(numberLayer, starsSize: starsSize,
         marginBetweenStarsAndText: settings.marginBetweenStarsAndText)
       
       layer.addSublayer(numberLayer)
@@ -362,7 +392,7 @@ public class TegStarRatingView: UIView {
       sublayers.append(numberLayer)
     }
     
-    size = TegStarRatingSize.outerSize(sublayers) // used as intrinsic content size
+    size = StarRatingSize.outerSize(sublayers) // used as intrinsic content size
 
     invalidateIntrinsicContentSize()
   }

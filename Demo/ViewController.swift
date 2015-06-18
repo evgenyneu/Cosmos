@@ -3,13 +3,13 @@ import Star
 
 class ViewController: UIViewController {
   
-  @IBOutlet weak var startRatingWithFilledStyle: TegStarRatingView!
+  @IBOutlet weak var startRatingWithFilledStyle: StarRatingView!
   
-  @IBOutlet weak var starRatingViewHalf: TegStarRatingView!
+  @IBOutlet weak var starRatingViewHalf: StarRatingView!
   
-  @IBOutlet weak var starRatingViewOne: TegStarRatingView!
+  @IBOutlet weak var starRatingViewOne: StarRatingView!
   
-  @IBOutlet weak var starRatingViewPrecise: TegStarRatingView!
+  @IBOutlet weak var starRatingViewPrecise: StarRatingView!
   
   @IBOutlet weak var ratingSlider: UISlider!
   @IBOutlet weak var ratingLabel: UILabel!
@@ -30,9 +30,9 @@ class ViewController: UIViewController {
     startRatingWithFilledStyle.settings.starColorFilled = UIColor.blackColor()
     startRatingWithFilledStyle.settings.correctFillLevelForPreciseMode = false
     
-    starRatingViewOne.settings.starFillMode = TegStarFillMode.Full
-    starRatingViewHalf.settings.starFillMode = TegStarFillMode.Half
-    starRatingViewPrecise.settings.starFillMode = TegStarFillMode.Precise
+    starRatingViewOne.settings.starFillMode = StarFillMode.Full
+    starRatingViewHalf.settings.starFillMode = StarFillMode.Half
+    starRatingViewPrecise.settings.starFillMode = StarFillMode.Precise
     
     updateRating()
   }

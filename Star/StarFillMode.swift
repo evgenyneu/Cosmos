@@ -5,7 +5,7 @@ import Foundation
 Defines how the star is filled when the rating is not an integer number. For example, if raiting is 4.6 and the fill more is Half, the star will appear to be half filled.
 
 */
-public enum TegStarFillMode {
+public enum StarFillMode {
   /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. By default the fill rate is not applied linearly but corrected (see correctFillLevelForPreciseMode setting).
   case Precise
   

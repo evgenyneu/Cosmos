@@ -9,8 +9,8 @@ Example:
    ratingView.show(rating: 4.3, text: "(132)")
 
 */
-public class TegStarRatingView: UIView {
-  public var settings = TegStarRatingSettings()
+public class StarRatingView: UIView {
+  public var settings = StarRatingSettings()
   private var size = CGSize()
 
   /**
@@ -21,21 +21,24 @@ public class TegStarRatingView: UIView {
   
       ratingView.show(rating: 4.3, text: "(132)")
   
+  - parameter rating: Number of stars to be shown, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
+  - parameter text: An optional text string that will be shown to the right from the stars.
+  
   */
   public func show(rating rating: Double, text: String? = nil) {
     calculateMargins()
     
-    var sublayers = TegStarRating.createStarLayers(rating, settings: settings)
+    var sublayers = StarRating.createStarLayers(rating, settings: settings)
 
     layer.sublayers = sublayers
     
     if let text = text {
-      let numberLayer = TegStarRatingText.createLayer(text,
+      let numberLayer = StarRatingLayerHelper.createTextLayer(text,
         font: settings.textFont, color: settings.textColor)
       
-      let starsSize = TegStarRatingSize.outerSize(sublayers)
+      let starsSize = StarRatingSize.outerSize(sublayers)
       
-      TegStarRatingText.position(numberLayer, starsSize: starsSize,
+      StarRatingText.position(numberLayer, starsSize: starsSize,
         marginBetweenStarsAndText: settings.marginBetweenStarsAndText)
       
       layer.addSublayer(numberLayer)
@@ -43,7 +46,7 @@ public class TegStarRatingView: UIView {
       sublayers.append(numberLayer)
     }
     
-    size = TegStarRatingSize.outerSize(sublayers) // used as intrinsic content size
+    size = StarRatingSize.outerSize(sublayers) // used as intrinsic content size
 
     invalidateIntrinsicContentSize()
   }

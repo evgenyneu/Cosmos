@@ -10,13 +10,13 @@
 		7E0C075B1B32319000412D79 /* Star.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0C075A1B32319000412D79 /* Star.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E0C07621B32319000412D79 /* Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Star.framework */; };
 		7E0C07671B32319000412D79 /* StarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07661B32319000412D79 /* StarTests.swift */; };
-		7E0C07781B3232B400412D79 /* TegStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07711B3232B400412D79 /* TegStarRatingView.swift */; };
-		7E0C07791B3232B400412D79 /* TegStarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07721B3232B400412D79 /* TegStarRating.swift */; };
-		7E0C077A1B3232B400412D79 /* TegStarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07731B3232B400412D79 /* TegStarFillMode.swift */; };
-		7E0C077B1B3232B400412D79 /* TegStarRatingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07741B3232B400412D79 /* TegStarRatingText.swift */; };
-		7E0C077C1B3232B400412D79 /* TegStarRatingLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07751B3232B400412D79 /* TegStarRatingLayerHelper.swift */; };
-		7E0C077D1B3232B400412D79 /* TegStarRatingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07761B3232B400412D79 /* TegStarRatingSettings.swift */; };
-		7E0C077E1B3232B400412D79 /* TegStarRatingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07771B3232B400412D79 /* TegStarRatingSize.swift */; };
+		7E0C07781B3232B400412D79 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07711B3232B400412D79 /* StarRatingView.swift */; };
+		7E0C07791B3232B400412D79 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07721B3232B400412D79 /* StarRating.swift */; };
+		7E0C077A1B3232B400412D79 /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07731B3232B400412D79 /* StarFillMode.swift */; };
+		7E0C077B1B3232B400412D79 /* StarRatingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07741B3232B400412D79 /* StarRatingText.swift */; };
+		7E0C077C1B3232B400412D79 /* StarRatingLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07751B3232B400412D79 /* StarRatingLayerHelper.swift */; };
+		7E0C077D1B3232B400412D79 /* StarRatingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07761B3232B400412D79 /* StarRatingSettings.swift */; };
+		7E0C077E1B3232B400412D79 /* StarRatingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07771B3232B400412D79 /* StarRatingSize.swift */; };
 		7E0C07861B32378000412D79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07851B32378000412D79 /* AppDelegate.swift */; };
 		7E0C07881B32378000412D79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07871B32378000412D79 /* ViewController.swift */; };
 		7E0C078B1B32378000412D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C07891B32378000412D79 /* Main.storyboard */; };
@@ -64,13 +64,13 @@
 		7E0C07611B32319000412D79 /* StarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C07661B32319000412D79 /* StarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTests.swift; sourceTree = "<group>"; };
 		7E0C07681B32319000412D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E0C07711B3232B400412D79 /* TegStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingView.swift; sourceTree = "<group>"; };
-		7E0C07721B3232B400412D79 /* TegStarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRating.swift; sourceTree = "<group>"; };
-		7E0C07731B3232B400412D79 /* TegStarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarFillMode.swift; sourceTree = "<group>"; };
-		7E0C07741B3232B400412D79 /* TegStarRatingText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingText.swift; sourceTree = "<group>"; };
-		7E0C07751B3232B400412D79 /* TegStarRatingLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingLayerHelper.swift; sourceTree = "<group>"; };
-		7E0C07761B3232B400412D79 /* TegStarRatingSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingSettings.swift; sourceTree = "<group>"; };
-		7E0C07771B3232B400412D79 /* TegStarRatingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegStarRatingSize.swift; sourceTree = "<group>"; };
+		7E0C07711B3232B400412D79 /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
+		7E0C07721B3232B400412D79 /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		7E0C07731B3232B400412D79 /* StarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarFillMode.swift; sourceTree = "<group>"; };
+		7E0C07741B3232B400412D79 /* StarRatingText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingText.swift; sourceTree = "<group>"; };
+		7E0C07751B3232B400412D79 /* StarRatingLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingLayerHelper.swift; sourceTree = "<group>"; };
+		7E0C07761B3232B400412D79 /* StarRatingSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingSettings.swift; sourceTree = "<group>"; };
+		7E0C07771B3232B400412D79 /* StarRatingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingSize.swift; sourceTree = "<group>"; };
 		7E0C07831B32378000412D79 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C07851B32378000412D79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E0C07871B32378000412D79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,13 +132,13 @@
 		7E0C07591B32319000412D79 /* Star */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C07711B3232B400412D79 /* TegStarRatingView.swift */,
-				7E0C07721B3232B400412D79 /* TegStarRating.swift */,
-				7E0C07731B3232B400412D79 /* TegStarFillMode.swift */,
-				7E0C07741B3232B400412D79 /* TegStarRatingText.swift */,
-				7E0C07751B3232B400412D79 /* TegStarRatingLayerHelper.swift */,
-				7E0C07761B3232B400412D79 /* TegStarRatingSettings.swift */,
-				7E0C07771B3232B400412D79 /* TegStarRatingSize.swift */,
+				7E0C07711B3232B400412D79 /* StarRatingView.swift */,
+				7E0C07721B3232B400412D79 /* StarRating.swift */,
+				7E0C07731B3232B400412D79 /* StarFillMode.swift */,
+				7E0C07741B3232B400412D79 /* StarRatingText.swift */,
+				7E0C07751B3232B400412D79 /* StarRatingLayerHelper.swift */,
+				7E0C07761B3232B400412D79 /* StarRatingSettings.swift */,
+				7E0C07771B3232B400412D79 /* StarRatingSize.swift */,
 				7E0C075A1B32319000412D79 /* Star.h */,
 				7E0C075C1B32319000412D79 /* Info.plist */,
 			);
@@ -338,13 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E0C07781B3232B400412D79 /* TegStarRatingView.swift in Sources */,
-				7E0C07791B3232B400412D79 /* TegStarRating.swift in Sources */,
-				7E0C077C1B3232B400412D79 /* TegStarRatingLayerHelper.swift in Sources */,
-				7E0C077E1B3232B400412D79 /* TegStarRatingSize.swift in Sources */,
-				7E0C077B1B3232B400412D79 /* TegStarRatingText.swift in Sources */,
-				7E0C077D1B3232B400412D79 /* TegStarRatingSettings.swift in Sources */,
-				7E0C077A1B3232B400412D79 /* TegStarFillMode.swift in Sources */,
+				7E0C07781B3232B400412D79 /* StarRatingView.swift in Sources */,
+				7E0C07791B3232B400412D79 /* StarRating.swift in Sources */,
+				7E0C077C1B3232B400412D79 /* StarRatingLayerHelper.swift in Sources */,
+				7E0C077E1B3232B400412D79 /* StarRatingSize.swift in Sources */,
+				7E0C077B1B3232B400412D79 /* StarRatingText.swift in Sources */,
+				7E0C077D1B3232B400412D79 /* StarRatingSettings.swift in Sources */,
+				7E0C077A1B3232B400412D79 /* StarFillMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
