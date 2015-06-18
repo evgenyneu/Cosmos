@@ -8,7 +8,7 @@ This is a UI control for iOS that can be used to show user ratings for products.
 
 * Shows stars with optional text label.
 * Sizes, colors and margins are customizable.
-* Includes different star filling modes: full, half-filled stars and precise.
+* Includes different star filling modes: full, half-filled and precise.
 * Can be used in the storyboard with Auto Layout.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
