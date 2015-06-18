@@ -11,9 +11,27 @@
 
 [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [Hubble Space Telescope](http://www.spacetelescope.org/images/heic0516b/).
 
+## Setup
+
+There are three ways you can add Star to your Xcode project.
+
+**Add source (iOS 7+)**
+
+Simply add [StarDistrib.swift](https://github.com/evgenyneu/moa/blob/master/Distrib/MoaDistrib.swift) file into your Xcode project.
+
+**Setup with Carthage (iOS 8+)**
+
+Alternatively, add `github "evgenyneu/moa" ~> 1.0` to your Cartfile and run `carthage update`.
+
+**Setup with CocoaPods (iOS 8+)**
+
+If you are using CocoaPods add this text to your Podfile and run `pod install`.
+
+    use_frameworks!
+    pod 'moa', '~> 1.0'
+
 ## Usage
 
-1. Copy .swift files under `start-rating-view` group into your project.
 1. Add `View` control into your storyboard. Set its class to `TegStarRatingView`.
 1. Add an outlet for this view in your view controller.
 1. Use `show` method to display rating:
