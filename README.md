@@ -9,7 +9,7 @@
 
 *Binary star system of Sirius A and Sirius B (artist's impression).*
 
-[NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [Hubble Space Telescope](http://www.spacetelescope.org/images/heic0516b/)
+[NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [Hubble Space Telescope](http://www.spacetelescope.org/images/heic0516b/).
 
 ## Usage
 
