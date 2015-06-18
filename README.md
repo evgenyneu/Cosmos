@@ -1,8 +1,15 @@
 🔨🔨🔨 This is work in progress 🔨🔨🔨
 
-# iOS five-star rating control written in Swift
+# A star rating control for iOS / Swift
 
+<img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/star_screenshot.png' alt='Star raiting control for iOS / Swift' width='250'>
 
+This is a UI control for iOS that shows a star rating. It can be used to show user ratings for products.
+
+* Shows stars with optional text label.
+* Sizes, colors and margins are customizable.
+* Includes different star filling modes: full, half-filled stars and precise.
+* Can be used in the storyboard with Auto Layout.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
   alt="Binary star system of Sirius A and Sirius B (artist's impression)" width='450'>
