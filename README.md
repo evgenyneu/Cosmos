@@ -4,7 +4,7 @@
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/star_screenshot.png' alt='Star raiting control for iOS / Swift' width='250'>
 
-This is a UI control for iOS that shows a star rating. It can be used to show user ratings for products.
+This is a UI control for iOS that can be used to show user ratings for products.
 
 * Shows stars with optional text label.
 * Sizes, colors and margins are customizable.
