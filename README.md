@@ -17,18 +17,18 @@ There are three ways you can add Star to your Xcode project.
 
 **Add source (iOS 7+)**
 
-Simply add [StarDistrib.swift](https://github.com/evgenyneu/moa/blob/master/Distrib/MoaDistrib.swift) file into your Xcode project.
+Simply add [StarDistrib.swift](https://github.com/exchangegroup/Star/blob/master/Distrib/StarDistrib.swift) file into your Xcode project.
 
 **Setup with Carthage (iOS 8+)**
 
-Alternatively, add `github "evgenyneu/moa" ~> 1.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "exchangegroup/Star" ~> 1.0` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    pod 'moa', '~> 1.0'
+    pod 'Star', '~> 1.0'
 
 ## Usage
 
