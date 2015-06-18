@@ -144,10 +144,16 @@ class StarRatingTests: XCTestCase {
     
     XCTAssertEqual(2, result.sublayers!.count)
     
+    // Check empty star size
+    // ------------------
+    
     let emptyStarLayer = result.sublayers![0] as! CATextLayer
     XCTAssertEqual("empty", emptyStarLayer.string as! String)
     XCTAssertEqual(19, emptyStarLayer.fontSize)
     XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyStarLayer.foregroundColor!))
+    
+    // Check filled star size
+    // ------------------
     
     let filledStarLayer = result.sublayers![1] as! CATextLayer
     XCTAssertEqual("filled", filledStarLayer.string as! String)
@@ -160,12 +166,10 @@ class StarRatingTests: XCTestCase {
     settings.starCharacterEmpty = "☆"
     settings.starCharacterFilled = "★"
     settings.starFont = UIFont.systemFontOfSize(19)
-
     
     let result = StarRating.createPartialStar(0.8, settings: settings)
     
     let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(19)]
-    
     
     // Check empty star size
     // ------------------
@@ -188,5 +192,76 @@ class StarRatingTests: XCTestCase {
     
     XCTAssertEqual(19, result.bounds.width)
     XCTAssertEqual(filledFontSize.height, result.bounds.height)
+  }
+  
+  // MARK: - Create composite star layer
+  
+  func testCreateCompositeStarLayer_fullStar() {
+    var settings = StarRatingSettings()
+    settings.starCharacterFilled = "full"
+    settings.starFont = UIFont.systemFontOfSize(19)
+    settings.starColorFilled = UIColor.redColor()
+    
+    let result = StarRating.createCompositeStarLayer(1, settings: settings) as! CATextLayer
+    
+    let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(19)]
+    let fontSize = NSString(string: "full").sizeWithAttributes(sizeAttributes)
+    
+    XCTAssert(result.sublayers == nil)
+    XCTAssertEqual("full", result.string as! String)
+    XCTAssertEqual(19, result.fontSize)
+    XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: result.foregroundColor!))
+    XCTAssertEqual(fontSize.width, result.bounds.width)
+    XCTAssertEqual(fontSize.height, result.bounds.height)
+  }
+  
+  func testCreateCompositeStarLayer_emptyStar() {
+    var settings = StarRatingSettings()
+    settings.starCharacterEmpty = "empty"
+    settings.starFont = UIFont.systemFontOfSize(19)
+    settings.starColorEmpty = UIColor.blueColor()
+    
+    let result = StarRating.createCompositeStarLayer(0, settings: settings) as! CATextLayer
+    
+    XCTAssert(result.sublayers == nil)
+    
+    let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(19)]
+    let fontSize = NSString(string: "empty").sizeWithAttributes(sizeAttributes)
+    
+    XCTAssertEqual("empty", result.string as! String)
+    XCTAssertEqual(19, result.fontSize)
+    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: result.foregroundColor!))
+    XCTAssertEqual(fontSize.width, result.bounds.width)
+    XCTAssertEqual(fontSize.height, result.bounds.height)
+  }
+  
+  func testCreateCompositeStarLayer_partiallyFilled() {
+    var settings = StarRatingSettings()
+    settings.starCharacterEmpty = "empty"
+    settings.starCharacterFilled = "filled"
+
+    settings.starFont = UIFont.systemFontOfSize(19)
+    settings.starColorEmpty = UIColor.blueColor()
+    settings.starColorFilled = UIColor.greenColor()
+    
+    let result = StarRating.createCompositeStarLayer(0.2, settings: settings)
+    
+    XCTAssertEqual(2, result.sublayers!.count)
+    
+    // Check empty star size
+    // ------------------
+    
+    let emptyStarLayer = result.sublayers![0] as! CATextLayer
+    XCTAssertEqual("empty", emptyStarLayer.string as! String)
+    XCTAssertEqual(19, emptyStarLayer.fontSize)
+    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyStarLayer.foregroundColor!))
+    
+    // Check filled star size
+    // ------------------
+    
+    let filledStarLayer = result.sublayers![1] as! CATextLayer
+    XCTAssertEqual("filled", filledStarLayer.string as! String)
+    XCTAssertEqual(19, filledStarLayer.fontSize)
+    XCTAssertEqual(UIColor.greenColor(), UIColor(CGColor: filledStarLayer.foregroundColor!))
   }
 }

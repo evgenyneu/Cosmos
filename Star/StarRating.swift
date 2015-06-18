@@ -26,8 +26,18 @@ class StarRating {
     return starLayers
   }
 
-  private class func createCompositeStarLayer(starFillLevel: Double,
-    settings: StarRatingSettings) -> CALayer {
+  
+  /**
+  
+  Creates an layer that shows a star that can look empty, fully filled or partially filled.
+  Partially filled layer contains two sublayers.
+  
+  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
+  - parameter settings: Star view settings.
+  - returns: Layer that shows the star. The layer is displauyed in the star view.
+  
+  */
+  class func createCompositeStarLayer(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
 
     if starFillLevel >= 1 {
       return createStarLayer(true, settings: settings)
@@ -49,8 +59,8 @@ class StarRating {
   
   
   - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
-  - parameter settings: Settings objects.
-  
+  - parameter settings: Star view settings.
+
   - returns: Layer that contains the partially filled star.
   
   */
