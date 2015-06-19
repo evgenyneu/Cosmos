@@ -47,5 +47,4 @@ class StarTests: XCTestCase {
     //   + fontSize.width (width of text)
     XCTAssertEqual(66 + 8 + textSize.width, size.width)
   }
-  
 }
