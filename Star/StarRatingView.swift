@@ -11,7 +11,51 @@ Example:
 Displays: ★★★★☆ (132)
 
 */
-public class StarRatingView: UIView {
+@IBDesignable public class StarRatingView: UIView {
+  // MARK: Inspectable properties for storyboard
+  
+  @IBInspectable var rating: Double = StarRatingDefaultSettings.rating {
+    didSet { settings.rating = rating }
+  }
+  
+  @IBInspectable var numberOfStars: Int = StarRatingDefaultSettings.numberOfStars {
+    didSet { settings.numberOfStars = numberOfStars }
+  }
+  
+  @IBInspectable var starCharacterFilled: String = StarRatingDefaultSettings.starCharacterFilled {
+    didSet { settings.starCharacterFilled = starCharacterFilled }
+  }
+  
+  @IBInspectable var starCharacterEmpty: String = StarRatingDefaultSettings.starCharacterEmpty {
+    didSet { settings.starCharacterEmpty = starCharacterEmpty }
+  }
+  
+  @IBInspectable var starColorFilled: UIColor = StarRatingDefaultSettings.starColorFilled {
+    didSet { settings.starColorFilled = starColorFilled }
+  }
+  
+  @IBInspectable var starColorEmpty: UIColor = StarRatingDefaultSettings.starColorEmpty {
+    didSet { settings.starColorEmpty = starColorEmpty }
+  }
+  
+  @IBInspectable var starFillMode: Int = StarRatingDefaultSettings.starFillMode.rawValue {
+    didSet {
+      settings.starFillMode = StarFillMode(rawValue: starFillMode) ??
+        StarRatingDefaultSettings.starFillMode
+    }
+  }
+  
+  public override func prepareForInterfaceBuilder() {
+    super.prepareForInterfaceBuilder()
+    
+    show(rating: settings.rating)
+  }
+  
+  public override func awakeFromNib() {
+    super.awakeFromNib()
+    show()
+  }
+  
   /// Star rating settings.
   public var settings = StarRatingSettings()
   
@@ -30,13 +74,16 @@ public class StarRatingView: UIView {
   - parameter text: An optional text string that will be shown to the right from the stars.
   
   */
-  public func show(rating rating: Double, text: String? = nil) {
+  public func show(rating rating: Double? = nil, text: String? = nil) {
+    
+    let ratingToShow = rating ?? settings.rating
+    
     calculateMargins()
     
     // Create star layers
     // ------------
     
-    var layers = StarRating.createStarLayers(rating, settings: settings)
+    var layers = StarRating.createStarLayers(ratingToShow, settings: settings)
     layer.sublayers = layers
     
     // Create text layer
@@ -52,6 +99,8 @@ public class StarRatingView: UIView {
 
     updateSize(layers)
   }
+  
+  
   
   /**
   

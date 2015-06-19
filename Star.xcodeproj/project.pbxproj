@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B79BBE61B3388B600C848AD /* StarRatingDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79BBE51B3388B600C848AD /* StarRatingDefaultSettings.swift */; };
 		2BCA32671B32911300642477 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA32661B32911300642477 /* Round.swift */; };
 		2BE82F6B1B32896E009B98CB /* StarRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */; };
 		7E0C075B1B32319000412D79 /* Star.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0C075A1B32319000412D79 /* Star.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B79BBE51B3388B600C848AD /* StarRatingDefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingDefaultSettings.swift; sourceTree = "<group>"; };
 		2BCA32661B32911300642477 /* Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingTests.swift; sourceTree = "<group>"; };
 		7E0C07571B32319000412D79 /* Star.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Star.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				7E0C07741B3232B400412D79 /* StarRatingText.swift */,
 				7E0C07751B3232B400412D79 /* StarRatingLayerHelper.swift */,
 				7E0C07761B3232B400412D79 /* StarRatingSettings.swift */,
+				2B79BBE51B3388B600C848AD /* StarRatingDefaultSettings.swift */,
 				7E0C07771B3232B400412D79 /* StarRatingSize.swift */,
 				7E0C075A1B32319000412D79 /* Star.h */,
 				7E0C075C1B32319000412D79 /* Info.plist */,
@@ -359,6 +362,7 @@
 				7E0C077B1B3232B400412D79 /* StarRatingText.swift in Sources */,
 				7E0C077D1B3232B400412D79 /* StarRatingSettings.swift in Sources */,
 				7E0C077A1B3232B400412D79 /* StarFillMode.swift in Sources */,
+				2B79BBE61B3388B600C848AD /* StarRatingDefaultSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

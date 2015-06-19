@@ -20,15 +20,15 @@ import Foundation
 Defines how the star is filled when the rating is not an integer number. For example, if rating is 4.6 and the fill more is Half, the star will appear to be half filled.
 
 */
-public enum StarFillMode {
-  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. By default the fill rate is not applied linearly but corrected (see correctFillLevelForPreciseMode setting).
-  case Precise
+public enum StarFillMode: Int {
+  /// Show only fully filled stars. For example, fourth star will be empty for 3.2.
+  case Full = 0
   
   /// Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6.
-  case Half
+  case Half = 1
   
-  /// Show only fully filled stars. For example, fourth star will be empty for 3.2.
-  case Full
+  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. By default the fill rate is not applied linearly but corrected (see correctFillLevelForPreciseMode setting).
+  case Precise = 2
 }
 
 
@@ -233,6 +233,84 @@ class StarRating {
 
 // ----------------------------
 //
+// StarRatingDefaultSettings.swift
+//
+// ----------------------------
+
+
+/**
+
+Defaults setting values.
+
+*/
+struct StarRatingDefaultSettings {
+  init() {}
+  
+  /// Raiting value that is shown in the storyboard by default.
+  static let rating: Double = 3.5
+  
+  /// The maximum number of start to be shown.
+  static let numberOfStars = 5
+  
+  /**
+  
+  Defines how the star should appear to be filled when the rating value is not an integer value.
+  
+  */
+  static let starFillMode = StarFillMode.Half
+  
+  /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
+  static let marginBetweenStars:CGFloat = 0
+  
+  /**
+  
+  Distance between stars expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the distance will be 4.
+  
+  */
+  static let marginBetweenStarsRelativeToFontSize = 0.1
+  
+  /// The font used to draw the star character
+  static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+  
+  /// Character used to show a filled star
+  static let starCharacterFilled = "★"
+  
+  /// Character used to show an empty star
+  static let starCharacterEmpty = "☆"
+  
+  /// Filled star color
+  static let starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  
+  /// Empty star color
+  static let starColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  
+  /// Font for the text
+  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+  
+  /// Color of the text
+  static let textColor = UIColor.grayColor()
+  
+  /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
+  static let marginBetweenStarsAndText: CGFloat = 0
+  
+  /**
+  
+  Distance between the text and the star expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the margin will be 4.
+  
+  */
+  static let marginBetweenStarsAndTextRelativeToFontSize = 0.25
+  
+  /**
+  
+  When true the fill level is corrected to appear more gradual for default characters ★ and ☆. Applied only for precise star fill level.
+  
+  */
+  static let correctFillLevelForPreciseMode = true
+}
+
+
+// ----------------------------
+//
 // StarRatingLayerHelper.swift
 //
 // ----------------------------
@@ -286,8 +364,11 @@ Settings that define the appearance of the star rating views.
 public struct StarRatingSettings {
   init() {}
   
-  /// The maximum number of start to be shown
-  public var numberOfStars = 5
+  /// Raiting value that is shown in the storyboard by default.
+  public var rating: Double = StarRatingDefaultSettings.rating
+  
+  /// The maximum number of start to be shown.
+  public var numberOfStars = StarRatingDefaultSettings.numberOfStars
   
   /**
 
@@ -435,7 +516,51 @@ Example:
 Displays: ★★★★☆ (132)
 
 */
-public class StarRatingView: UIView {
+@IBDesignable public class StarRatingView: UIView {
+  // MARK: Inspectable properties for storyboard
+  
+  @IBInspectable var rating: Double = StarRatingDefaultSettings.rating {
+    didSet { settings.rating = rating }
+  }
+  
+  @IBInspectable var numberOfStars: Int = StarRatingDefaultSettings.numberOfStars {
+    didSet { settings.numberOfStars = numberOfStars }
+  }
+  
+  @IBInspectable var starCharacterFilled: String = StarRatingDefaultSettings.starCharacterFilled {
+    didSet { settings.starCharacterFilled = starCharacterFilled }
+  }
+  
+  @IBInspectable var starCharacterEmpty: String = StarRatingDefaultSettings.starCharacterEmpty {
+    didSet { settings.starCharacterEmpty = starCharacterEmpty }
+  }
+  
+  @IBInspectable var starColorFilled: UIColor = StarRatingDefaultSettings.starColorFilled {
+    didSet { settings.starColorFilled = starColorFilled }
+  }
+  
+  @IBInspectable var starColorEmpty: UIColor = StarRatingDefaultSettings.starColorEmpty {
+    didSet { settings.starColorEmpty = starColorEmpty }
+  }
+  
+  @IBInspectable var starFillMode: Int = StarRatingDefaultSettings.starFillMode.rawValue {
+    didSet {
+      settings.starFillMode = StarFillMode(rawValue: starFillMode) ??
+        StarRatingDefaultSettings.starFillMode
+    }
+  }
+  
+  public override func prepareForInterfaceBuilder() {
+    super.prepareForInterfaceBuilder()
+    
+    show(rating: settings.rating)
+  }
+  
+  public override func awakeFromNib() {
+    super.awakeFromNib()
+    show()
+  }
+  
   /// Star rating settings.
   public var settings = StarRatingSettings()
   
@@ -454,13 +579,16 @@ public class StarRatingView: UIView {
   - parameter text: An optional text string that will be shown to the right from the stars.
   
   */
-  public func show(rating rating: Double, text: String? = nil) {
+  public func show(rating rating: Double? = nil, text: String? = nil) {
+    
+    let ratingToShow = rating ?? settings.rating
+    
     calculateMargins()
     
     // Create star layers
     // ------------
     
-    var layers = StarRating.createStarLayers(rating, settings: settings)
+    var layers = StarRating.createStarLayers(ratingToShow, settings: settings)
     layer.sublayers = layers
     
     // Create text layer
@@ -476,6 +604,8 @@ public class StarRatingView: UIView {
 
     updateSize(layers)
   }
+  
+  
   
   /**
   

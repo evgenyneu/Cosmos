@@ -20,21 +20,13 @@ class ViewController: UIViewController {
     
     ratingSlider.value = startRating
     
-    startRatingWithFilledStyle.backgroundColor = nil
-    starRatingViewOne.backgroundColor = nil
-    starRatingViewHalf.backgroundColor = nil
-    starRatingViewPrecise.backgroundColor = nil
-    
-    startRatingWithFilledStyle.settings.starCharacterEmpty = "★"
-    startRatingWithFilledStyle.settings.starColorEmpty = UIColor.lightGrayColor()
-    startRatingWithFilledStyle.settings.starColorFilled = UIColor.blackColor()
-    startRatingWithFilledStyle.settings.correctFillLevelForPreciseMode = false
-    
-    starRatingViewOne.settings.starFillMode = StarFillMode.Full
-    starRatingViewHalf.settings.starFillMode = StarFillMode.Half
-    starRatingViewPrecise.settings.starFillMode = StarFillMode.Precise
-    
-    starRatingViewPrecise.settings.numberOfStars = 8
+//    startRatingWithFilledStyle.settings.correctFillLevelForPreciseMode = false
+//    
+//    starRatingViewOne.settings.starFillMode = StarFillMode.Full
+//    starRatingViewHalf.settings.starFillMode = StarFillMode.Half
+//    starRatingViewPrecise.settings.starFillMode = StarFillMode.Precise
+//    
+//    starRatingViewPrecise.settings.numberOfStars = 8
     
     updateRating()
   }
