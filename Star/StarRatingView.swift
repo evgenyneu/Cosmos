@@ -22,14 +22,6 @@ Displays: ★★★★☆ (132)
     didSet { settings.totalStars = totalStars }
   }
   
-  @IBInspectable var textFilled: String = StarRatingDefaultSettings.textFilled {
-    didSet { settings.textFilled = textFilled }
-  }
-  
-  @IBInspectable var textEmpty: String = StarRatingDefaultSettings.textEmpty {
-    didSet { settings.textEmpty = textEmpty }
-  }
-  
   @IBInspectable var starSize: Double = StarRatingDefaultSettings.starSize {
     didSet {
       settings.starSize = starSize

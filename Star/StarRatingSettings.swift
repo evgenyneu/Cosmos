@@ -33,12 +33,6 @@ public struct StarRatingSettings {
   /// Size of the star.
   public var starSize: Double = StarRatingDefaultSettings.starSize
   
-  /// Character used to show a filled star
-  public var textFilled = StarRatingDefaultSettings.textFilled
-  
-  /// Character used to show an empty star
-  public var textEmpty = StarRatingDefaultSettings.textEmpty
-  
   /// Filled star color
   public var colorFilled = StarRatingDefaultSettings.colorFilled
   

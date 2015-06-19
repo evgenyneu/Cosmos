@@ -30,12 +30,6 @@ struct StarRatingDefaultSettings {
   /// Size of the star.
   static var starSize: Double = 20
   
-  /// Character used to show a filled star
-  static let textFilled = "★"
-  
-  /// Character used to show an empty star
-  static let textEmpty = "☆"
-  
   /// Filled star color
   static let colorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
