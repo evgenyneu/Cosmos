@@ -64,6 +64,11 @@ Displays: ★★★★☆ (132)
 
   }
   
+  @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
+    didSet { settings.textColor = textColor }
+  }
+  
+  
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     

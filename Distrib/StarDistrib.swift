@@ -384,7 +384,7 @@ public struct StarRatingSettings {
   */
   public var fillMode = StarRatingDefaultSettings.fillMode
   
-  /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
+  /// Distance between stars expressed. The value is automatically calculated based on marginPercent property and the font size.
   var marginBetweenStars:CGFloat = 0
   
   /**
@@ -413,9 +413,9 @@ public struct StarRatingSettings {
   public var textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   
   /// Color of the text
-  public var textColor = UIColor.grayColor()
+  public var textColor = StarRatingDefaultSettings.textColor
   
-  /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
+  /// Distance between the text and the star. The value is automatically calculated based on textMarginPercent property and the font size.
   var marginBetweenStarsAndText: CGFloat = 0
   
   /**
@@ -577,6 +577,11 @@ Displays: ★★★★☆ (132)
     didSet { settings.textMarginPercent = textMarginPercent }
 
   }
+  
+  @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
+    didSet { settings.textColor = textColor }
+  }
+  
   
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
