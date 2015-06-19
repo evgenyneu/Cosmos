@@ -73,4 +73,11 @@ public struct StarRatingSettings {
   
   */
   public var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection
+  
+  /**
+  
+  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
+  
+  */
+  public var starPoints: [CGPoint] = StarRatingDefaultSettings.starPoints
 }

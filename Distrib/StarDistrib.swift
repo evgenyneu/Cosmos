@@ -34,6 +34,84 @@ public enum StarFillMode: Int {
 
 // ----------------------------
 //
+// StarLayer.swift
+//
+// ----------------------------
+
+/**
+
+Draws a star inside a layer
+
+*/
+struct StarLayer {
+  static func createStarLayer(starPoints: [CGPoint], width: Double,
+    lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
+    
+    // Container layer
+    
+    let parentLayer = createContainerLayer(width)
+    let path = createStarPath(starPoints, width: width)
+    let shapeLayer = createShapeLayer(path.CGPath, lineWidth: lineWidth, fillColor: fillColor, strokeColor: strokeColor)
+    let maskLayer = createMaskLayer(path.CGPath)
+    
+    parentLayer.mask = maskLayer
+    parentLayer.addSublayer(shapeLayer)
+    
+    return parentLayer
+  }
+  
+  static func createMaskLayer(path: CGPath) -> CALayer {
+    let layer = CAShapeLayer()
+    layer.anchorPoint = CGPoint()
+    layer.contentsScale = UIScreen.mainScreen().scale
+    layer.path = path
+    return layer
+  }
+  
+  static func createShapeLayer(path: CGPath, lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
+    let layer = CAShapeLayer()
+    layer.anchorPoint = CGPoint()
+    layer.contentsScale = UIScreen.mainScreen().scale
+    layer.strokeColor = strokeColor.CGColor
+    layer.fillColor = fillColor.CGColor
+    layer.lineWidth = CGFloat(lineWidth)
+    layer.path = path
+    return layer
+  }
+  
+  static func createContainerLayer(width: Double) -> CALayer {
+    let layer = CALayer()
+    layer.contentsScale = UIScreen.mainScreen().scale
+    layer.anchorPoint = CGPoint()
+    layer.masksToBounds = true
+    layer.bounds.size = CGSize(width: width, height: width)
+    return layer
+  }
+  
+  static func createStarPath(starPoints: [CGPoint], width: Double) -> UIBezierPath {
+    let points = scaleStar(starPoints, factor: width / 100)
+    let path = UIBezierPath()
+    path.moveToPoint(points[0])
+    let remainingPoints = Array(points[1..<points.count])
+    
+    for point in remainingPoints {
+      path.addLineToPoint(point)
+    }
+    
+    path.closePath()
+    return path
+  }
+  
+  static func scaleStar(starPoints: [CGPoint], factor: Double) -> [CGPoint] {
+    return starPoints.map { point in
+      return CGPoint(x: point.x * CGFloat(factor), y: point.y * CGFloat(factor))
+    }
+  }
+}
+
+
+// ----------------------------
+//
 // StarRating.swift
 //
 // ----------------------------
@@ -317,6 +395,25 @@ struct StarRatingDefaultSettings {
   
   */
   static let fillCorrection: Double = 40
+  
+  
+  /**
+  
+  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
+  
+  */
+  static let starPoints: [CGPoint] = [
+    CGPoint(x: 49.5,  y: 0.0),
+    CGPoint(x: 60.5,  y: 35.0),
+    CGPoint(x: 99.0, y: 35.0),
+    CGPoint(x: 67.5,  y: 58.0),
+    CGPoint(x: 78.5,  y: 92.0),
+    CGPoint(x: 49.5,    y: 71.0),
+    CGPoint(x: 20.5,  y: 92.0),
+    CGPoint(x: 31.5,  y: 58.0),
+    CGPoint(x: 0.0,   y: 35.0),
+    CGPoint(x: 38.5,  y: 35.0)
+  ]
 }
 
 
@@ -440,6 +537,13 @@ public struct StarRatingSettings {
   
   */
   public var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection
+  
+  /**
+  
+  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
+  
+  */
+  public var starPoints: [CGPoint] = StarRatingDefaultSettings.starPoints
 }
 
 
