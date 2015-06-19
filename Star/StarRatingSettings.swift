@@ -24,15 +24,8 @@ public struct StarRatingSettings {
   */
   public var fillMode = StarRatingDefaultSettings.fillMode
   
-  /// Distance between stars expressed. The value is automatically calculated based on marginPercent property and the font size.
-  var marginBetweenStars:CGFloat = 0
-  
-  /**
-
-  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 3.
-
-  */
-  public var marginPercent: Double = StarRatingDefaultSettings.marginPercent
+  /// Distance between stars.
+  public var starMargin: Double = StarRatingDefaultSettings.starMargin
   
   /// The font used to draw the star character
   public var starFont = StarRatingDefaultSettings.starFont

@@ -32,7 +32,7 @@ class StarRating {
       ratingRemander--
     }
 
-    positionStarLayers(starLayers, marginBetweenStars: settings.marginBetweenStars)
+    positionStarLayers(starLayers, starMargin: settings.starMargin)
     return starLayers
   }
 
@@ -186,12 +186,12 @@ class StarRating {
   - parameter marginBetweenStars: Margin between stars.
 
   */
-  class func positionStarLayers(layers: [CALayer], marginBetweenStars: CGFloat) {
+  class func positionStarLayers(layers: [CALayer], starMargin: Double) {
     var positionX:CGFloat = 0
 
     for layer in layers {
       layer.position.x = positionX
-      positionX += layer.bounds.width + marginBetweenStars
+      positionX += layer.bounds.width + CGFloat(starMargin)
     }
   }
 }

@@ -20,15 +20,8 @@ struct StarRatingDefaultSettings {
   */
   static let fillMode = StarFillMode.Half
   
-  /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
-  static let marginBetweenStars: CGFloat = 0
-  
-  /**
-  
-  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 3.
-  
-  */
-  static let marginPercent: Double = 10
+  /// Distance between stars.
+  static let starMargin: Double = 5
   
   /// The font used to draw the star character
   static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)

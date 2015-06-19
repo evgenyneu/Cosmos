@@ -221,7 +221,7 @@ class StarRating {
       ratingRemander--
     }
 
-    positionStarLayers(starLayers, marginBetweenStars: settings.marginBetweenStars)
+    positionStarLayers(starLayers, starMargin: settings.starMargin)
     return starLayers
   }
 
@@ -375,12 +375,12 @@ class StarRating {
   - parameter marginBetweenStars: Margin between stars.
 
   */
-  class func positionStarLayers(layers: [CALayer], marginBetweenStars: CGFloat) {
+  class func positionStarLayers(layers: [CALayer], starMargin: Double) {
     var positionX:CGFloat = 0
 
     for layer in layers {
       layer.position.x = positionX
-      positionX += layer.bounds.width + marginBetweenStars
+      positionX += layer.bounds.width + CGFloat(starMargin)
     }
   }
 }
@@ -414,15 +414,8 @@ struct StarRatingDefaultSettings {
   */
   static let fillMode = StarFillMode.Half
   
-  /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
-  static let marginBetweenStars: CGFloat = 0
-  
-  /**
-  
-  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 3.
-  
-  */
-  static let marginPercent: Double = 10
+  /// Distance between stars.
+  static let starMargin: Double = 5
   
   /// The font used to draw the star character
   static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
@@ -559,15 +552,8 @@ public struct StarRatingSettings {
   */
   public var fillMode = StarRatingDefaultSettings.fillMode
   
-  /// Distance between stars expressed. The value is automatically calculated based on marginPercent property and the font size.
-  var marginBetweenStars:CGFloat = 0
-  
-  /**
-
-  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 3.
-
-  */
-  public var marginPercent: Double = StarRatingDefaultSettings.marginPercent
+  /// Distance between stars.
+  public var starMargin: Double = StarRatingDefaultSettings.starMargin
   
   /// The font used to draw the star character
   public var starFont = StarRatingDefaultSettings.starFont
@@ -743,8 +729,8 @@ Displays: ★★★★☆ (132)
     didSet { settings.colorEmpty = colorEmpty }
   }
   
-  @IBInspectable var marginPercent: Double = StarRatingDefaultSettings.marginPercent {
-    didSet { settings.marginPercent = marginPercent }
+  @IBInspectable var starMargin: Double = StarRatingDefaultSettings.starMargin {
+    didSet { settings.starMargin = starMargin }
   }
   
   @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
@@ -864,10 +850,6 @@ Displays: ★★★★☆ (132)
   
   /// Calculate margins based on the font size.
   private func calculateMargins() {
-    print("!!!!!!!!!! star font size \(settings.starFont.pointSize)")
-    settings.marginBetweenStars = settings.starFont.pointSize *
-      CGFloat(settings.marginPercent / 100)
-    
     settings.marginBetweenStarsAndText = settings.textFont.pointSize *
       CGFloat(settings.textMarginPercent / 100)
   }
