@@ -38,7 +38,7 @@ class StarTests: XCTestCase {
     star.settings.marginPercent = 20
     
     star.settings.textFont = UIFont.systemFontOfSize(15)
-    star.settings.marginBetweenStarsAndTextRelativeToFontSize = 0.5
+    star.settings.marginBetweenStarsAndTextRelativeToFontSize = 50
     
     star.show(rating: 4, text: "123")
     
