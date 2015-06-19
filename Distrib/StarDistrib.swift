@@ -190,7 +190,7 @@ class StarRating {
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
-    let text = isFilled ? settings.starCharacterFilled : settings.starCharacterEmpty
+    let text = isFilled ? settings.textFilled : settings.textEmpty
     let color = isFilled ? settings.starColorFilled : settings.starColorEmpty
 
     return StarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
@@ -273,10 +273,10 @@ struct StarRatingDefaultSettings {
   static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
   /// Character used to show a filled star
-  static let starCharacterFilled = "★"
+  static let textFilled = "★"
   
   /// Character used to show an empty star
-  static let starCharacterEmpty = "☆"
+  static let textEmpty = "☆"
   
   /// Filled star color
   static let starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
@@ -391,10 +391,10 @@ public struct StarRatingSettings {
   public var starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
   /// Character used to show a filled star
-  public var starCharacterFilled = "★"
+  public var textFilled = StarRatingDefaultSettings.textFilled
   
   /// Character used to show an empty star
-  public var starCharacterEmpty = "☆"
+  public var textEmpty = StarRatingDefaultSettings.textEmpty
   
   /// Filled star color
   public var starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
@@ -527,12 +527,12 @@ Displays: ★★★★☆ (132)
     didSet { settings.totalStars = totalStars }
   }
   
-  @IBInspectable var starCharacterFilled: String = StarRatingDefaultSettings.starCharacterFilled {
-    didSet { settings.starCharacterFilled = starCharacterFilled }
+  @IBInspectable var textFilled: String = StarRatingDefaultSettings.textFilled {
+    didSet { settings.textFilled = textFilled }
   }
   
-  @IBInspectable var starCharacterEmpty: String = StarRatingDefaultSettings.starCharacterEmpty {
-    didSet { settings.starCharacterEmpty = starCharacterEmpty }
+  @IBInspectable var textEmpty: String = StarRatingDefaultSettings.textEmpty {
+    didSet { settings.textEmpty = textEmpty }
   }
   
   @IBInspectable var starColorFilled: UIColor = StarRatingDefaultSettings.starColorFilled {

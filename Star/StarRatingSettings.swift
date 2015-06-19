@@ -35,10 +35,10 @@ public struct StarRatingSettings {
   public var starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
   /// Character used to show a filled star
-  public var starCharacterFilled = "★"
+  public var textFilled = StarRatingDefaultSettings.textFilled
   
   /// Character used to show an empty star
-  public var starCharacterEmpty = "☆"
+  public var textEmpty = StarRatingDefaultSettings.textEmpty
   
   /// Filled star color
   public var starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
