@@ -12,7 +12,6 @@ struct StarRatingDefaultSettings {
   
   /// The total number of start to be shown.
   static let totalStars = 5
-  
 
   /**
 
@@ -23,9 +22,6 @@ struct StarRatingDefaultSettings {
   
   /// Distance between stars.
   static let starMargin: Double = 5
-  
-  /// The font used to draw the star character
-  static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
   /// Size of the star.
   static var starSize: Double = 20

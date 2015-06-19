@@ -27,9 +27,6 @@ public struct StarRatingSettings {
   /// Distance between stars.
   public var starMargin: Double = StarRatingDefaultSettings.starMargin
   
-  /// The font used to draw the star character
-  public var starFont = StarRatingDefaultSettings.starFont
-  
   /// Size of the star.
   public var starSize: Double = StarRatingDefaultSettings.starSize
   
