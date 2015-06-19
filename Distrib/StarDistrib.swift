@@ -168,7 +168,7 @@ class StarRating {
 
   Correct the fill level to achieve more gradual fill of the ★ and ☆ star characters in precise mode. This is done to compensate for the fact that the ★ and ☆ characters do not occupy 100% width of their layer bound rectangle.
   
-  Graph: https://www.desmos.com/calculator/zrxqlrypsk
+  Graph: https://www.desmos.com/calculator/gk0fpc7tun
   
   - parameter fillLevel: The initial fill level for correction.
   
@@ -306,6 +306,8 @@ struct StarRatingDefaultSettings {
   
   Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
   
+  Graph: https://www.desmos.com/calculator/gk0fpc7tun
+  
   */
   static let fillCorrection: Double = 40
 }
@@ -423,6 +425,8 @@ public struct StarRatingSettings {
   /**
   
   Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
+  
+  Graph: https://www.desmos.com/calculator/gk0fpc7tun
   
   */
   public var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection
@@ -548,6 +552,12 @@ Displays: ★★★★☆ (132)
   @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
     didSet {
       settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
+    }
+  }
+  
+  @IBInspectable var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection {
+    didSet {
+      settings.fillCorrection = max( min(fillCorrection, 0) , 100)
     }
   }
   

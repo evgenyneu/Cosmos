@@ -128,7 +128,7 @@ class StarRating {
 
   Correct the fill level to achieve more gradual fill of the ★ and ☆ star characters in precise mode. This is done to compensate for the fact that the ★ and ☆ characters do not occupy 100% width of their layer bound rectangle.
   
-  Graph: https://www.desmos.com/calculator/zrxqlrypsk
+  Graph: https://www.desmos.com/calculator/gk0fpc7tun
   
   - parameter fillLevel: The initial fill level for correction.
   

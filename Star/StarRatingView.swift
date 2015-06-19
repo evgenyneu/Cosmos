@@ -44,6 +44,12 @@ Displays: ★★★★☆ (132)
     }
   }
   
+  @IBInspectable var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection {
+    didSet {
+      settings.fillCorrection = max( min(fillCorrection, 0) , 100)
+    }
+  }
+  
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
