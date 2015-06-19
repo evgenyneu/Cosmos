@@ -3,8 +3,6 @@ import Star
 
 class ViewController: UIViewController {
   
-  @IBOutlet weak var startRatingWithFilledStyle: StarRatingView!
-  
   @IBOutlet weak var starRatingViewHalf: StarRatingView!
   
   @IBOutlet weak var starRatingViewOne: StarRatingView!
@@ -19,12 +17,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     ratingSlider.value = startRating
-        
     updateRating()
-  }
-  
-  private func updateLabel() {
-    
   }
   
   @IBAction func onSliderChanged(sender: AnyObject) {
@@ -33,7 +26,6 @@ class ViewController: UIViewController {
   
   private func updateRating() {
     let value = Double(ratingSlider.value)
-    startRatingWithFilledStyle.show(rating: value)
     starRatingViewOne.show(rating: value)
     starRatingViewHalf.show(rating: value)
     starRatingViewPrecise.show(rating: value)

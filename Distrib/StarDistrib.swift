@@ -250,9 +250,8 @@ class StarRating {
   
   Creates a partially filled star layer with two sub-layers:
   
-  1. The layer for the 'filled star' character on top. The fill level parameter determines the width of this layer.
-  2. The layer for the 'empty star' character below.
-  
+  1. The layer for the filled star on top. The fill level parameter determines the width of this layer.
+  2. The layer for the empty star below.
   
   - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
   - parameter settings: Star view settings.
@@ -308,12 +307,12 @@ class StarRating {
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
-    let fillColor = isFilled ? settings.colorFilled : UIColor.clearColor()
-    let strokeColor = isFilled ? UIColor.clearColor() : settings.colorEmpty
+    let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
+    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
-      lineWidth: 1,
+      lineWidth: settings.borderWidthEmpty,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }
@@ -391,7 +390,13 @@ struct StarRatingDefaultSettings {
   static let colorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
   /// Empty star color
-  static let colorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let colorEmpty = UIColor.clearColor()
+  
+  /// Border color of an empty star.
+  static let borderColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  
+  /// Width of the border for the empty star.
+  static let borderWidthEmpty: Double = 1
   
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
@@ -507,6 +512,12 @@ public struct StarRatingSettings {
   
   /// Empty star color
   public var colorEmpty = StarRatingDefaultSettings.colorEmpty
+  
+  /// Border color of an empty star.
+  public var borderColorEmpty = StarRatingDefaultSettings.borderColorEmpty
+  
+  /// Width of the border for the empty star.
+  public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
   
   /// Font for the text
   public var textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
@@ -639,6 +650,14 @@ Displays: ★★★★☆ (132)
   
   @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
     didSet { settings.colorEmpty = colorEmpty }
+  }
+  
+  @IBInspectable var borderColorEmpty: UIColor = StarRatingDefaultSettings.borderColorEmpty {
+    didSet { settings.borderColorEmpty = borderColorEmpty }
+  }
+  
+  @IBInspectable var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty {
+    didSet { settings.borderWidthEmpty = borderWidthEmpty }
   }
   
   @IBInspectable var starMargin: Double = StarRatingDefaultSettings.starMargin {

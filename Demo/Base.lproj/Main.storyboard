@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKG-sm-9ov" customClass="StarRatingView" customModule="Star">
-                                <rect key="frame" x="208" y="172" width="184" height="25"/>
+                                <rect key="frame" x="197" y="142" width="206" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starFillMode">
                                         <integer key="value" value="1"/>
@@ -32,57 +32,39 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="(124)"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
-                                        <color key="value" red="0.043137254901960784" green="0.69019607843137254" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorEmpty">
-                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="textMargin">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANi-gK-FQG">
-                                <rect key="frame" x="272" y="212" width="57" height="21"/>
+                                <rect key="frame" x="272" y="192" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000476837158" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="etZ-lR-1Kk">
-                                <rect key="frame" x="18" y="381" width="564" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000476837158" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="etZ-lR-1Kk">
+                                <rect key="frame" x="18" y="347" width="564" height="31"/>
                                 <connections>
                                     <action selector="onSliderChanged:" destination="04p-6S-l61" eventType="valueChanged" id="1EX-Gd-XAY"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nY-5f-JVD">
-                                <rect key="frame" x="279" y="352" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymj-cd-i5z">
-                                <rect key="frame" x="286" y="96" width="27" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nY-5f-JVD">
+                                <rect key="frame" x="279" y="318" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Half" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6H-AG-HAV">
-                                <rect key="frame" x="285" y="151" width="31" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-Qz-Ihc">
-                                <rect key="frame" x="281" y="40" width="37" height="21"/>
+                                <rect key="frame" x="285" y="116" width="31" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-i3-DDA" customClass="StarRatingView" customModule="Star">
-                                <rect key="frame" x="240" y="116" width="120" height="20"/>
+                                <rect key="frame" x="240" y="76" width="120" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starFillMode">
                                         <integer key="value" value="0"/>
@@ -93,10 +75,19 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorEmpty">
+                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
+                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-hA-9rh" customClass="StarRatingView" customModule="Star">
-                                <rect key="frame" x="180" y="233" width="240" height="40"/>
+                                <rect key="frame" x="155" y="218" width="290" height="50"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                         <real key="value" value="3.7000000000000002"/>
@@ -111,76 +102,47 @@
                                         <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                        <real key="value" value="40"/>
+                                        <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
-                                        <color key="value" red="1" green="0.30980392156862746" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorEmpty">
                                         <color key="value" red="1" green="0.30980392156862746" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JzH-DQ-pyf" customClass="StarRatingView" customModule="Star">
-                                <rect key="frame" x="240" y="61" width="120" height="20"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfStars">
-                                        <integer key="value" value="5"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthEmpty">
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                        <real key="value" value="3.7000000000000002"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="starColorFilled">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="starColorEmpty">
-                                        <color key="value" red="0.78068663556166373" green="0.78068663556166373" blue="0.78068663556166373" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="starCharacterEmpty" value="★"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starFillMode">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textEmpty" value="★"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorEmpty">
-                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
-                                        <integer key="value" value="5"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
+                                        <color key="value" red="1" green="0.30980392159999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymj-cd-i5z">
+                                <rect key="frame" x="286" y="50" width="27" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ymj-cd-i5z" firstAttribute="top" secondItem="JzH-DQ-pyf" secondAttribute="bottom" constant="15" id="05d-9H-iWb"/>
                             <constraint firstItem="etZ-lR-1Kk" firstAttribute="top" secondItem="9nY-5f-JVD" secondAttribute="bottom" constant="8" id="4XG-YH-iU7"/>
-                            <constraint firstAttribute="centerX" secondItem="JzH-DQ-pyf" secondAttribute="centerX" id="5Kd-RU-LE3"/>
-                            <constraint firstItem="yIn-i3-DDA" firstAttribute="top" secondItem="Ymj-cd-i5z" secondAttribute="bottom" constant="-1" id="5XG-Ay-gJx"/>
+                            <constraint firstItem="yIn-i3-DDA" firstAttribute="top" secondItem="Ymj-cd-i5z" secondAttribute="bottom" constant="5" id="5XG-Ay-gJx"/>
                             <constraint firstAttribute="centerX" secondItem="w6H-AG-HAV" secondAttribute="centerX" id="6Bu-gw-Cwc"/>
-                            <constraint firstItem="w6H-AG-HAV" firstAttribute="top" secondItem="yIn-i3-DDA" secondAttribute="bottom" constant="15" id="7UA-xM-iLz"/>
-                            <constraint firstItem="BKG-sm-9ov" firstAttribute="top" secondItem="w6H-AG-HAV" secondAttribute="bottom" id="8co-yP-b9A"/>
-                            <constraint firstItem="bi9-Qz-Ihc" firstAttribute="top" secondItem="nBP-Xs-bUF" secondAttribute="bottom" constant="20" id="AcD-9C-tCn"/>
-                            <constraint firstItem="bi9-Qz-Ihc" firstAttribute="centerX" secondItem="IMe-Pv-Qb9" secondAttribute="centerX" id="GtU-ez-7hI"/>
+                            <constraint firstItem="w6H-AG-HAV" firstAttribute="top" secondItem="yIn-i3-DDA" secondAttribute="bottom" constant="20" id="7UA-xM-iLz"/>
+                            <constraint firstItem="BKG-sm-9ov" firstAttribute="top" secondItem="w6H-AG-HAV" secondAttribute="bottom" constant="5" id="8co-yP-b9A"/>
                             <constraint firstItem="etZ-lR-1Kk" firstAttribute="leading" secondItem="IMe-Pv-Qb9" secondAttribute="leadingMargin" id="K16-cd-2XC"/>
-                            <constraint firstItem="9nY-5f-JVD" firstAttribute="top" secondItem="hZe-hA-9rh" secondAttribute="bottom" constant="68" id="Lk0-CE-w8o"/>
+                            <constraint firstItem="9nY-5f-JVD" firstAttribute="top" secondItem="hZe-hA-9rh" secondAttribute="bottom" constant="50" id="Lk0-CE-w8o"/>
                             <constraint firstAttribute="centerX" secondItem="Ymj-cd-i5z" secondAttribute="centerX" constant="1" id="O0e-Fz-w1O"/>
                             <constraint firstAttribute="centerX" secondItem="9nY-5f-JVD" secondAttribute="centerX" id="O9l-EW-IUn"/>
                             <constraint firstAttribute="centerX" secondItem="hZe-hA-9rh" secondAttribute="centerX" id="U5J-MB-45n"/>
                             <constraint firstAttribute="centerX" secondItem="BKG-sm-9ov" secondAttribute="centerX" id="WGK-7j-lI4"/>
-                            <constraint firstItem="hZe-hA-9rh" firstAttribute="top" secondItem="ANi-gK-FQG" secondAttribute="bottom" id="aaK-Yl-5aK"/>
-                            <constraint firstItem="ANi-gK-FQG" firstAttribute="top" secondItem="BKG-sm-9ov" secondAttribute="bottom" constant="15" id="dE9-I8-jDK"/>
+                            <constraint firstItem="hZe-hA-9rh" firstAttribute="top" secondItem="ANi-gK-FQG" secondAttribute="bottom" constant="5" id="aaK-Yl-5aK"/>
+                            <constraint firstItem="ANi-gK-FQG" firstAttribute="top" secondItem="BKG-sm-9ov" secondAttribute="bottom" constant="20" id="dE9-I8-jDK"/>
                             <constraint firstAttribute="centerX" secondItem="ANi-gK-FQG" secondAttribute="centerX" id="j4S-br-UaV"/>
+                            <constraint firstItem="Ymj-cd-i5z" firstAttribute="top" secondItem="nBP-Xs-bUF" secondAttribute="bottom" constant="30" id="rDk-ul-JZq"/>
                             <constraint firstAttribute="centerX" secondItem="yIn-i3-DDA" secondAttribute="centerX" id="rmr-Op-QvY"/>
-                            <constraint firstItem="JzH-DQ-pyf" firstAttribute="top" secondItem="bi9-Qz-Ihc" secondAttribute="bottom" id="vBu-Rn-kyG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="etZ-lR-1Kk" secondAttribute="trailing" id="vE1-Z4-Uh0"/>
                         </constraints>
                     </view>
@@ -190,7 +152,6 @@
                         <outlet property="starRatingViewHalf" destination="BKG-sm-9ov" id="b1K-Xv-E8K"/>
                         <outlet property="starRatingViewOne" destination="yIn-i3-DDA" id="h4d-Ac-2f9"/>
                         <outlet property="starRatingViewPrecise" destination="hZe-hA-9rh" id="1WO-D7-MCN"/>
-                        <outlet property="startRatingWithFilledStyle" destination="JzH-DQ-pyf" id="DoQ-1g-RQH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipT-gh-ehm" sceneMemberID="firstResponder"/>

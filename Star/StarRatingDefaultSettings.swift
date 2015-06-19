@@ -30,7 +30,13 @@ struct StarRatingDefaultSettings {
   static let colorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
   /// Empty star color
-  static let colorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let colorEmpty = UIColor.clearColor()
+  
+  /// Border color of an empty star.
+  static let borderColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  
+  /// Width of the border for the empty star.
+  static let borderWidthEmpty: Double = 1
   
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)

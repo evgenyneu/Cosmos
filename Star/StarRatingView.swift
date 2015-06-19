@@ -36,6 +36,14 @@ Displays: ★★★★☆ (132)
     didSet { settings.colorEmpty = colorEmpty }
   }
   
+  @IBInspectable var borderColorEmpty: UIColor = StarRatingDefaultSettings.borderColorEmpty {
+    didSet { settings.borderColorEmpty = borderColorEmpty }
+  }
+  
+  @IBInspectable var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty {
+    didSet { settings.borderWidthEmpty = borderWidthEmpty }
+  }
+  
   @IBInspectable var starMargin: Double = StarRatingDefaultSettings.starMargin {
     didSet { settings.starMargin = starMargin }
   }

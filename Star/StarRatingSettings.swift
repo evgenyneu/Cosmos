@@ -36,6 +36,12 @@ public struct StarRatingSettings {
   /// Empty star color
   public var colorEmpty = StarRatingDefaultSettings.colorEmpty
   
+  /// Border color of an empty star.
+  public var borderColorEmpty = StarRatingDefaultSettings.borderColorEmpty
+  
+  /// Width of the border for the empty star.
+  public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
+  
   /// Font for the text
   public var textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   

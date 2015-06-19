@@ -61,9 +61,8 @@ class StarRating {
   
   Creates a partially filled star layer with two sub-layers:
   
-  1. The layer for the 'filled star' character on top. The fill level parameter determines the width of this layer.
-  2. The layer for the 'empty star' character below.
-  
+  1. The layer for the filled star on top. The fill level parameter determines the width of this layer.
+  2. The layer for the empty star below.
   
   - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
   - parameter settings: Star view settings.
@@ -119,12 +118,12 @@ class StarRating {
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
-    let fillColor = isFilled ? settings.colorFilled : UIColor.clearColor()
-    let strokeColor = isFilled ? UIColor.clearColor() : settings.colorEmpty
+    let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
+    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
-      lineWidth: 1,
+      lineWidth: settings.borderWidthEmpty,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }
