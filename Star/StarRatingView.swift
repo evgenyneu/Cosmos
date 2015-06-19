@@ -18,8 +18,8 @@ Displays: ★★★★☆ (132)
     didSet { settings.rating = rating }
   }
   
-  @IBInspectable var numberOfStars: Int = StarRatingDefaultSettings.numberOfStars {
-    didSet { settings.numberOfStars = numberOfStars }
+  @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
+    didSet { settings.totalStars = totalStars }
   }
   
   @IBInspectable var starCharacterFilled: String = StarRatingDefaultSettings.starCharacterFilled {

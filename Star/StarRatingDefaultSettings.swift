@@ -10,8 +10,8 @@ struct StarRatingDefaultSettings {
   /// Raiting value that is shown in the storyboard by default.
   static let rating: Double = 3.5
   
-  /// The maximum number of start to be shown.
-  static let numberOfStars = 5
+  /// The total number of start to be shown.
+  static let totalStars = 5
   
   /**
   

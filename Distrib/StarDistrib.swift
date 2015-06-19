@@ -58,11 +58,11 @@ class StarRating {
   */
   class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
 
-    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.numberOfStars)
+    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.totalStars)
 
     var starLayers = [CALayer]()
 
-    for _ in (0..<settings.numberOfStars) {
+    for _ in (0..<settings.totalStars) {
       let fillLevel = starFillLevel(ratingRemainder: ratingRemander, starFillMode: settings.starFillMode,
         correctFillLevelForPrecise: settings.correctFillLevelForPreciseMode)
 
@@ -249,8 +249,8 @@ struct StarRatingDefaultSettings {
   /// Raiting value that is shown in the storyboard by default.
   static let rating: Double = 3.5
   
-  /// The maximum number of start to be shown.
-  static let numberOfStars = 5
+  /// The total number of start to be shown.
+  static let totalStars = 5
   
   /**
   
@@ -368,7 +368,7 @@ public struct StarRatingSettings {
   public var rating: Double = StarRatingDefaultSettings.rating
   
   /// The maximum number of start to be shown.
-  public var numberOfStars = StarRatingDefaultSettings.numberOfStars
+  public var totalStars = StarRatingDefaultSettings.totalStars
   
   /**
 
@@ -523,8 +523,8 @@ Displays: ★★★★☆ (132)
     didSet { settings.rating = rating }
   }
   
-  @IBInspectable var numberOfStars: Int = StarRatingDefaultSettings.numberOfStars {
-    didSet { settings.numberOfStars = numberOfStars }
+  @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
+    didSet { settings.totalStars = totalStars }
   }
   
   @IBInspectable var starCharacterFilled: String = StarRatingDefaultSettings.starCharacterFilled {

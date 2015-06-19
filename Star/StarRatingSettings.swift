@@ -12,7 +12,7 @@ public struct StarRatingSettings {
   public var rating: Double = StarRatingDefaultSettings.rating
   
   /// The maximum number of start to be shown.
-  public var numberOfStars = StarRatingDefaultSettings.numberOfStars
+  public var totalStars = StarRatingDefaultSettings.totalStars
   
   /**
 

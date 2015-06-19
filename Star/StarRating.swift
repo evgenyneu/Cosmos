@@ -18,11 +18,11 @@ class StarRating {
   */
   class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
 
-    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.numberOfStars)
+    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.totalStars)
 
     var starLayers = [CALayer]()
 
-    for _ in (0..<settings.numberOfStars) {
+    for _ in (0..<settings.totalStars) {
       let fillLevel = starFillLevel(ratingRemainder: ratingRemander, starFillMode: settings.starFillMode,
         correctFillLevelForPrecise: settings.correctFillLevelForPreciseMode)
 
