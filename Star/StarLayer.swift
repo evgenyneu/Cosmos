@@ -21,7 +21,7 @@ struct StarLayer {
   - returns: New layer containing the star shape.
   
   */
-  static func createStarLayer(starPoints: [CGPoint], size: Double,
+  static func create(starPoints: [CGPoint], size: Double,
     lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
       
     let containerLayer = createContainerLayer(size)

@@ -152,10 +152,14 @@ class StarRating {
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
-    let text = isFilled ? settings.textFilled : settings.textEmpty
-    let color = isFilled ? settings.colorFilled : settings.colorEmpty
+    let fillColor = isFilled ? settings.colorFilled : UIColor.clearColor()
+    let strokeColor = isFilled ? UIColor.clearColor() : settings.colorEmpty
 
-    return StarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
+    return StarLayer.create(settings.starPoints,
+      size: 20,
+      lineWidth: 3,
+      fillColor: fillColor,
+      strokeColor: strokeColor)
   }
 
   /**
