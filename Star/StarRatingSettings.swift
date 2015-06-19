@@ -37,6 +37,9 @@ public struct StarRatingSettings {
   /// The font used to draw the star character
   public var starFont = StarRatingDefaultSettings.starFont
   
+  /// Size of the star.
+  public var starSize: Double = StarRatingDefaultSettings.starSize
+  
   /// Character used to show a filled star
   public var textFilled = StarRatingDefaultSettings.textFilled
   

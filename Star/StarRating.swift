@@ -156,8 +156,8 @@ class StarRating {
     let strokeColor = isFilled ? UIColor.clearColor() : settings.colorEmpty
 
     return StarLayer.create(settings.starPoints,
-      size: 20,
-      lineWidth: 3,
+      size: settings.starSize,
+      lineWidth: 1,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }

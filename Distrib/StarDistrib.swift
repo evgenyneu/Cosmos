@@ -345,8 +345,8 @@ class StarRating {
     let strokeColor = isFilled ? UIColor.clearColor() : settings.colorEmpty
 
     return StarLayer.create(settings.starPoints,
-      size: 20,
-      lineWidth: 3,
+      size: settings.starSize,
+      lineWidth: 1,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }
@@ -415,7 +415,7 @@ struct StarRatingDefaultSettings {
   static let fillMode = StarFillMode.Half
   
   /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
-  static let marginBetweenStars:CGFloat = 0
+  static let marginBetweenStars: CGFloat = 0
   
   /**
   
@@ -427,12 +427,8 @@ struct StarRatingDefaultSettings {
   /// The font used to draw the star character
   static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
-  /// Returns the size of the default star font
-  static var starSize: CGFloat {
-    get {
-      return starFont.pointSize
-    }
-  }
+  /// Size of the star.
+  static var starSize: Double = 20
   
   /// Character used to show a filled star
   static let textFilled = "★"
@@ -575,6 +571,9 @@ public struct StarRatingSettings {
   
   /// The font used to draw the star character
   public var starFont = StarRatingDefaultSettings.starFont
+  
+  /// Size of the star.
+  public var starSize: Double = StarRatingDefaultSettings.starSize
   
   /// Character used to show a filled star
   public var textFilled = StarRatingDefaultSettings.textFilled
@@ -730,9 +729,9 @@ Displays: ★★★★☆ (132)
     didSet { settings.textEmpty = textEmpty }
   }
   
-  @IBInspectable var starSize: CGFloat = StarRatingDefaultSettings.starSize {
+  @IBInspectable var starSize: Double = StarRatingDefaultSettings.starSize {
     didSet {
-      settings.starFont = UIFont.systemFontOfSize(starSize)
+      settings.starSize = starSize
     }
   }
   
@@ -785,7 +784,7 @@ Displays: ★★★★☆ (132)
   public var settings = StarRatingSettings()
   
   /// Stores the size of the view. It is used as intrinsic content size.
-  private var size = CGSize()
+  private var viewSize = CGSize()
 
   /**
   
@@ -859,7 +858,7 @@ Displays: ★★★★☆ (132)
 
   */
   private func updateSize(layers: [CALayer]) {
-    size = StarRatingSize.calculateSizeToFitLayers(layers)
+    viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
   }
   
@@ -875,7 +874,7 @@ Displays: ★★★★☆ (132)
   
   /// Returns the content size to fit all the star and text layers.
   override public func intrinsicContentSize() -> CGSize {
-    return size
+    return viewSize
   }
 }
 

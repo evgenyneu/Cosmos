@@ -30,9 +30,9 @@ Displays: ★★★★☆ (132)
     didSet { settings.textEmpty = textEmpty }
   }
   
-  @IBInspectable var starSize: CGFloat = StarRatingDefaultSettings.starSize {
+  @IBInspectable var starSize: Double = StarRatingDefaultSettings.starSize {
     didSet {
-      settings.starFont = UIFont.systemFontOfSize(starSize)
+      settings.starSize = starSize
     }
   }
   
@@ -85,7 +85,7 @@ Displays: ★★★★☆ (132)
   public var settings = StarRatingSettings()
   
   /// Stores the size of the view. It is used as intrinsic content size.
-  private var size = CGSize()
+  private var viewSize = CGSize()
 
   /**
   
@@ -159,7 +159,7 @@ Displays: ★★★★☆ (132)
 
   */
   private func updateSize(layers: [CALayer]) {
-    size = StarRatingSize.calculateSizeToFitLayers(layers)
+    viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
   }
   
@@ -175,6 +175,6 @@ Displays: ★★★★☆ (132)
   
   /// Returns the content size to fit all the star and text layers.
   override public func intrinsicContentSize() -> CGSize {
-    return size
+    return viewSize
   }
 }
