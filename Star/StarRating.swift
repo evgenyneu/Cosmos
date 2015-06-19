@@ -119,11 +119,12 @@ class StarRating {
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
     let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
-    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
+    let strokeColor = isFilled ? settings.borderColorFilled : settings.borderColorEmpty
+    let lineWidth = isFilled ? settings.borderWidthFilled : settings.borderWidthEmpty
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
-      lineWidth: settings.borderWidthEmpty,
+      lineWidth: lineWidth,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }

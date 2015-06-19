@@ -308,11 +308,12 @@ class StarRating {
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
     let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
-    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
+    let strokeColor = isFilled ? settings.borderColorFilled : settings.borderColorEmpty
+    let lineWidth = isFilled ? settings.borderWidthFilled : settings.borderWidthEmpty
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
-      lineWidth: settings.borderWidthEmpty,
+      lineWidth: lineWidth,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }
@@ -367,6 +368,8 @@ Defaults setting values.
 struct StarRatingDefaultSettings {
   init() {}
   
+  static let defaultColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  
   /// Raiting value that is shown in the storyboard by default.
   static let rating: Double = 3.5
   
@@ -387,20 +390,25 @@ struct StarRatingDefaultSettings {
   static var starSize: Double = 20
   
   /// Filled star color
-  static let colorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let colorFilled = defaultColor
+  
+  /// Border color of the filled star.
+  static let borderColorFilled = UIColor.clearColor()
+  
+  /// Width of the border for the filled star.
+  static let borderWidthFilled: Double = 1
   
   /// Empty star color
   static let colorEmpty = UIColor.clearColor()
   
   /// Border color of an empty star.
-  static let borderColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let borderColorEmpty = defaultColor
   
   /// Width of the border for the empty star.
   static let borderWidthEmpty: Double = 1
   
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
-  
   
   /// Calculates the size of the default text font.
   static var textSize: Double {
@@ -410,7 +418,7 @@ struct StarRatingDefaultSettings {
   }
   
   /// Color of the text
-  static let textColor = UIColor.grayColor()
+  static let textColor = defaultColor
   
   /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
   static let marginBetweenStarsAndText: CGFloat = 0
@@ -517,6 +525,12 @@ public struct StarRatingSettings {
   
   /// Filled star color
   public var colorFilled = StarRatingDefaultSettings.colorFilled
+  
+  /// Border color of a filled star.
+  public var borderColorFilled = StarRatingDefaultSettings.borderColorFilled
+  
+  /// Width of the border for the filled star.
+  public var borderWidthFilled: Double = StarRatingDefaultSettings.borderWidthFilled
   
   /// Empty star color
   public var colorEmpty = StarRatingDefaultSettings.colorEmpty
@@ -654,6 +668,14 @@ Displays: ★★★★☆ (132)
   
   @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
     didSet { settings.colorFilled = colorFilled }
+  }
+  
+  @IBInspectable var borderColorFilled: UIColor = StarRatingDefaultSettings.borderColorFilled {
+    didSet { settings.borderColorFilled = borderColorFilled }
+  }
+  
+  @IBInspectable var borderWidthFilled: Double = StarRatingDefaultSettings.borderWidthFilled {
+    didSet { settings.borderWidthFilled = borderWidthFilled }
   }
   
   @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
