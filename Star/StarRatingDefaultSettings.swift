@@ -41,6 +41,14 @@ struct StarRatingDefaultSettings {
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   
+  
+  /// Calculates the size of the default text font.
+  static var textSize: Double {
+    get {
+      return Double(textFont.pointSize)
+    }
+  }
+  
   /// Color of the text
   static let textColor = UIColor.grayColor()
   
@@ -48,7 +56,7 @@ struct StarRatingDefaultSettings {
   static let marginBetweenStarsAndText: CGFloat = 0
   
   /// Distance between the text and the star
-  static let textMargin: Double = 25
+  static let textMargin: Double = 5
   
   /**
   

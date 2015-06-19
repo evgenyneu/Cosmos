@@ -59,6 +59,12 @@ Displays: ★★★★☆ (132)
     
   }
   
+  @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
+    didSet {
+      settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
+    }
+  }
+  
   @IBInspectable var textMargin: Double = StarRatingDefaultSettings.textMargin {
     didSet { settings.textMargin = textMargin }
   }
@@ -115,8 +121,6 @@ Displays: ★★★★☆ (132)
 
     updateSize(layers)
   }
-  
-  
   
   /**
   
