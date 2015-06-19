@@ -14,31 +14,26 @@ class StarTests: XCTestCase {
   // MARK: - Content size
   
   func testContentSize() {
-    star.settings.starFont = UIFont.systemFontOfSize(10)
-    star.settings.marginPercent = 20
+    star.settings.starSize = 10
+    star.settings.starMargin = 4
 
     star.show(rating: 4)
     
     let size = star.intrinsicContentSize()
     
     // 5 * 10 (width of 5 stars)
-    //   + 4 * 10 * 20 / 100 (4 margins between stars)
-    //   == 58
-    XCTAssertEqual(size.width, 58)
+    //   + 4 * 6 (4 margins between stars)
+    XCTAssertEqual(66, size.width)
     
-    
-    let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(10)]
-    let fontSize = NSString(string: "★").sizeWithAttributes(sizeAttributes)
-    
-    XCTAssertEqual(size.height, fontSize.height)
+    XCTAssertEqual(10, size.height)
   }
   
   func testContentSizeWithText() {
-    star.settings.starFont = UIFont.systemFontOfSize(10)
-    star.settings.marginPercent = 20
+    star.settings.starSize = 10
+    star.settings.starMargin = 4
     
     star.settings.textFont = UIFont.systemFontOfSize(15)
-    star.settings.textMarginPercent = 50
+    star.settings.textMargin = 8
     
     star.show(rating: 4, text: "123")
     
@@ -50,7 +45,7 @@ class StarTests: XCTestCase {
     // 58 (width of 5 stars)
     //   + 15 * 50 / 100 (margin between stars and text)
     //   + fontSize.width (width of text)
-    XCTAssertEqual(size.width, 58 + 7.5 + textSize.width)
+    XCTAssertEqual(66 + 8 + textSize.width, size.width)
   }
   
 }
