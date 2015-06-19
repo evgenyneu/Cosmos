@@ -40,10 +40,10 @@ struct StarRatingDefaultSettings {
   static let textEmpty = "☆"
   
   /// Filled star color
-  static let starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let colorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
   /// Empty star color
-  static let starColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let colorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)

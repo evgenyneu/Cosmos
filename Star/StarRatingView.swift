@@ -30,12 +30,12 @@ Displays: ★★★★☆ (132)
     didSet { settings.textEmpty = textEmpty }
   }
   
-  @IBInspectable var starColorFilled: UIColor = StarRatingDefaultSettings.starColorFilled {
-    didSet { settings.starColorFilled = starColorFilled }
+  @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
+    didSet { settings.colorFilled = colorFilled }
   }
   
-  @IBInspectable var starColorEmpty: UIColor = StarRatingDefaultSettings.starColorEmpty {
-    didSet { settings.starColorEmpty = starColorEmpty }
+  @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
+    didSet { settings.colorEmpty = colorEmpty }
   }
   
   @IBInspectable var starFillMode: Int = StarRatingDefaultSettings.starFillMode.rawValue {

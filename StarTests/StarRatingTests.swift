@@ -134,11 +134,11 @@ class StarRatingTests: XCTestCase {
   
   func testCreatePartiallyFilledStar_verifyTextAndStyles() {
     var settings = StarRatingSettings()
-    settings.starCharacterEmpty = "empty"
-    settings.starCharacterFilled = "filled"
+    settings.textEmpty = "empty"
+    settings.textFilled = "filled"
     settings.starFont = UIFont.systemFontOfSize(19)
-    settings.starColorEmpty = UIColor.purpleColor()
-    settings.starColorFilled = UIColor.redColor()
+    settings.colorEmpty = UIColor.purpleColor()
+    settings.colorFilled = UIColor.redColor()
 
     let result = StarRating.createPartialStar(0.8, settings: settings)
     
@@ -163,8 +163,8 @@ class StarRatingTests: XCTestCase {
   
   func testCreatePartiallyFilledStar_verifySize() {
     var settings = StarRatingSettings()
-    settings.starCharacterEmpty = "☆"
-    settings.starCharacterFilled = "★"
+    settings.textEmpty = "☆"
+    settings.textFilled = "★"
     settings.starFont = UIFont.systemFontOfSize(19)
     
     let result = StarRating.createPartialStar(0.8, settings: settings)
@@ -198,9 +198,9 @@ class StarRatingTests: XCTestCase {
   
   func testCreateCompositeStarLayer_fullStar() {
     var settings = StarRatingSettings()
-    settings.starCharacterFilled = "full"
+    settings.textFilled = "full"
     settings.starFont = UIFont.systemFontOfSize(19)
-    settings.starColorFilled = UIColor.redColor()
+    settings.colorFilled = UIColor.redColor()
     
     let result = StarRating.createCompositeStarLayer(1, settings: settings) as! CATextLayer
     
@@ -217,9 +217,9 @@ class StarRatingTests: XCTestCase {
   
   func testCreateCompositeStarLayer_emptyStar() {
     var settings = StarRatingSettings()
-    settings.starCharacterEmpty = "empty"
+    settings.textEmpty = "empty"
     settings.starFont = UIFont.systemFontOfSize(19)
-    settings.starColorEmpty = UIColor.blueColor()
+    settings.colorEmpty = UIColor.blueColor()
     
     let result = StarRating.createCompositeStarLayer(0, settings: settings) as! CATextLayer
     
@@ -237,12 +237,12 @@ class StarRatingTests: XCTestCase {
   
   func testCreateCompositeStarLayer_partiallyFilled() {
     var settings = StarRatingSettings()
-    settings.starCharacterEmpty = "empty"
-    settings.starCharacterFilled = "filled"
+    settings.textEmpty = "empty"
+    settings.textFilled = "filled"
 
     settings.starFont = UIFont.systemFontOfSize(19)
-    settings.starColorEmpty = UIColor.blueColor()
-    settings.starColorFilled = UIColor.greenColor()
+    settings.colorEmpty = UIColor.blueColor()
+    settings.colorFilled = UIColor.greenColor()
     
     let result = StarRating.createCompositeStarLayer(0.2, settings: settings)
     
@@ -269,11 +269,11 @@ class StarRatingTests: XCTestCase {
   
   func testCreateStarLayers() {
     var settings = StarRatingSettings()
-    settings.starCharacterEmpty = "☆"
-    settings.starCharacterFilled = "★"
+    settings.textEmpty = "☆"
+    settings.textFilled = "★"
     settings.starFont = UIFont.systemFontOfSize(10)
     settings.marginBetweenStars = 5
-    settings.numberOfStars = 100 // Crazy, huh? But still way less than 100,000,000,000 to 400,000,000,000 stars in our Milky Way galaxy. 🌌
+    settings.totalStars = 100 // Crazy, huh? But still way less than 100,000,000,000 to 400,000,000,000 stars in our Milky Way galaxy. 🌌
     
     let result = StarRating.createStarLayers(3.7, settings: settings)
     

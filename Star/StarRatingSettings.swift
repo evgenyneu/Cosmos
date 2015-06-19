@@ -41,10 +41,10 @@ public struct StarRatingSettings {
   public var textEmpty = StarRatingDefaultSettings.textEmpty
   
   /// Filled star color
-  public var starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  public var colorFilled = StarRatingDefaultSettings.colorFilled
   
   /// Empty star color
-  public var starColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  public var colorEmpty = StarRatingDefaultSettings.colorEmpty
   
   /// Font for the text
   public var textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)

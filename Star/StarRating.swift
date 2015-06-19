@@ -151,7 +151,7 @@ class StarRating {
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
     let text = isFilled ? settings.textFilled : settings.textEmpty
-    let color = isFilled ? settings.starColorFilled : settings.starColorEmpty
+    let color = isFilled ? settings.colorFilled : settings.colorEmpty
 
     return StarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
   }

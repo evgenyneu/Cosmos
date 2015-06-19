@@ -191,7 +191,7 @@ class StarRating {
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
     let text = isFilled ? settings.textFilled : settings.textEmpty
-    let color = isFilled ? settings.starColorFilled : settings.starColorEmpty
+    let color = isFilled ? settings.colorFilled : settings.colorEmpty
 
     return StarRatingLayerHelper.createTextLayer(text, font:settings.starFont, color: color)
   }
@@ -279,10 +279,10 @@ struct StarRatingDefaultSettings {
   static let textEmpty = "☆"
   
   /// Filled star color
-  static let starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let colorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
   /// Empty star color
-  static let starColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  static let colorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
@@ -397,10 +397,10 @@ public struct StarRatingSettings {
   public var textEmpty = StarRatingDefaultSettings.textEmpty
   
   /// Filled star color
-  public var starColorFilled = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  public var colorFilled = StarRatingDefaultSettings.colorFilled
   
   /// Empty star color
-  public var starColorEmpty = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  public var colorEmpty = StarRatingDefaultSettings.colorEmpty
   
   /// Font for the text
   public var textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
@@ -535,12 +535,12 @@ Displays: ★★★★☆ (132)
     didSet { settings.textEmpty = textEmpty }
   }
   
-  @IBInspectable var starColorFilled: UIColor = StarRatingDefaultSettings.starColorFilled {
-    didSet { settings.starColorFilled = starColorFilled }
+  @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
+    didSet { settings.colorFilled = colorFilled }
   }
   
-  @IBInspectable var starColorEmpty: UIColor = StarRatingDefaultSettings.starColorEmpty {
-    didSet { settings.starColorEmpty = starColorEmpty }
+  @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
+    didSet { settings.colorEmpty = colorEmpty }
   }
   
   @IBInspectable var starFillMode: Int = StarRatingDefaultSettings.starFillMode.rawValue {
