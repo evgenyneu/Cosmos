@@ -38,7 +38,7 @@ class StarTests: XCTestCase {
     star.settings.marginPercent = 20
     
     star.settings.textFont = UIFont.systemFontOfSize(15)
-    star.settings.marginBetweenStarsAndTextRelativeToFontSize = 50
+    star.settings.textMarginPercent = 50
     
     star.show(rating: 4, text: "123")
     
@@ -48,7 +48,7 @@ class StarTests: XCTestCase {
     let size = star.intrinsicContentSize()
     
     // 58 (width of 5 stars)
-    //   + 15 * 0.5 (margin between stars and text)
+    //   + 15 * 50 / 100 (margin between stars and text)
     //   + fontSize.width (width of text)
     XCTAssertEqual(size.width, 58 + 7.5 + textSize.width)
   }

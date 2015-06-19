@@ -20,18 +20,6 @@ class ViewController: UIViewController {
     
     ratingSlider.value = startRating
     
-//    
-//    startRatingWithFilledStyle.settings.starCharacterEmpty = "★"
-//    startRatingWithFilledStyle.settings.starColorEmpty = UIColor.lightGrayColor()
-//    startRatingWithFilledStyle.settings.starColorFilled = UIColor.blackColor()
-//    startRatingWithFilledStyle.settings.correctFillLevelForPreciseMode = false
-//    
-//    starRatingViewOne.settings.starFillMode = StarFillMode.Full
-//    starRatingViewHalf.settings.starFillMode = StarFillMode.Half
-//    starRatingViewPrecise.settings.starFillMode = StarFillMode.Precise
-//    
-//    starRatingViewPrecise.settings.numberOfStars = 8
-    
     updateRating()
   }
   
@@ -47,7 +35,7 @@ class ViewController: UIViewController {
     let value = Double(ratingSlider.value)
     startRatingWithFilledStyle.show(rating: value)
     starRatingViewOne.show(rating: value)
-    starRatingViewHalf.show(rating: value, text: "(132)")
+    starRatingViewHalf.show(rating: value)
     starRatingViewPrecise.show(rating: value)
     
     self.ratingLabel.text = ViewController.formatValue(value)

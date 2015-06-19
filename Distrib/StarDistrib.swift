@@ -266,7 +266,7 @@ struct StarRatingDefaultSettings {
   
   /**
   
-  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 4.
+  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 3.
   
   */
   static let marginPercent: Double = 10
@@ -297,10 +297,10 @@ struct StarRatingDefaultSettings {
   
   /**
   
-  Distance between the text and the star expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the margin will be 4.
+  Distance between the text and the star expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the margin will be 3.
   
   */
-  static let marginBetweenStarsAndTextRelativeToFontSize = 0.25
+  static let textMarginPercent: Double = 25
   
   /**
   
@@ -371,6 +371,9 @@ public struct StarRatingSettings {
   /// Raiting value that is shown in the storyboard by default.
   public var rating: Double = StarRatingDefaultSettings.rating
   
+  /// Text that is shown in the storyboard.
+  public var text: String?
+  
   /// The maximum number of start to be shown.
   public var totalStars = StarRatingDefaultSettings.totalStars
   
@@ -386,7 +389,7 @@ public struct StarRatingSettings {
   
   /**
 
-  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 4.
+  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 3.
 
   */
   public var marginPercent: Double = StarRatingDefaultSettings.marginPercent
@@ -417,10 +420,10 @@ public struct StarRatingSettings {
   
   /**
 
-  Distance between the text and the star expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the margin will be 4.
+  Distance between the text and the star expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the margin will be 3.
 
   */
-  public var marginBetweenStarsAndTextRelativeToFontSize = 0.25
+  public var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent
   
   /**
   
@@ -565,15 +568,20 @@ Displays: ★★★★☆ (132)
     }
   }
   
+  @IBInspectable var text: String? {
+    didSet { settings.text = text }
+    
+  }
+  
+  @IBInspectable var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent {
+    didSet { settings.textMarginPercent = textMarginPercent }
+
+  }
+  
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
-    show(rating: settings.rating)
-  }
-  
-  public override func awakeFromNib() {
-    super.awakeFromNib()
-    show()
+    show(rating: settings.rating, text: settings.text)
   }
   
   /// Star rating settings.
@@ -594,23 +602,23 @@ Displays: ★★★★☆ (132)
   - parameter text: An optional text string that will be shown to the right from the stars.
   
   */
-  public func show(rating rating: Double? = nil, text: String? = nil) {
+  public func show(rating rating: Double, text: String? = nil) {
     
-    let ratingToShow = rating ?? settings.rating
+    let currenText = text ?? settings.text
     
     calculateMargins()
     
     // Create star layers
     // ------------
     
-    var layers = StarRating.createStarLayers(ratingToShow, settings: settings)
+    var layers = StarRating.createStarLayers(rating, settings: settings)
     layer.sublayers = layers
     
     // Create text layer
     // ------------
 
-    if let text = text {
-      let textLayer = createTextLayer(text, layers: layers)
+    if let currenText = currenText {
+      let textLayer = createTextLayer(currenText, layers: layers)
       layers.append(textLayer)
     }
     
@@ -664,7 +672,7 @@ Displays: ★★★★☆ (132)
       CGFloat(settings.marginPercent / 100)
     
     settings.marginBetweenStarsAndText = settings.textFont.pointSize *
-      CGFloat(settings.marginPercent / 100)
+      CGFloat(settings.textMarginPercent / 100)
   }
   
   /// Returns the content size to fit all the star and text layers.

@@ -11,6 +11,9 @@ public struct StarRatingSettings {
   /// Raiting value that is shown in the storyboard by default.
   public var rating: Double = StarRatingDefaultSettings.rating
   
+  /// Text that is shown in the storyboard.
+  public var text: String?
+  
   /// The maximum number of start to be shown.
   public var totalStars = StarRatingDefaultSettings.totalStars
   
@@ -26,7 +29,7 @@ public struct StarRatingSettings {
   
   /**
 
-  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 4.
+  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 3.
 
   */
   public var marginPercent: Double = StarRatingDefaultSettings.marginPercent
@@ -57,10 +60,10 @@ public struct StarRatingSettings {
   
   /**
 
-  Distance between the text and the star expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the margin will be 4.
+  Distance between the text and the star expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the margin will be 3.
 
   */
-  public var marginBetweenStarsAndTextRelativeToFontSize = 0.25
+  public var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent
   
   /**
   

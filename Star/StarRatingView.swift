@@ -54,15 +54,20 @@ Displays: ★★★★☆ (132)
     }
   }
   
+  @IBInspectable var text: String? {
+    didSet { settings.text = text }
+    
+  }
+  
+  @IBInspectable var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent {
+    didSet { settings.textMarginPercent = textMarginPercent }
+
+  }
+  
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
-    show(rating: settings.rating)
-  }
-  
-  public override func awakeFromNib() {
-    super.awakeFromNib()
-    show()
+    show(rating: settings.rating, text: settings.text)
   }
   
   /// Star rating settings.
@@ -83,23 +88,23 @@ Displays: ★★★★☆ (132)
   - parameter text: An optional text string that will be shown to the right from the stars.
   
   */
-  public func show(rating rating: Double? = nil, text: String? = nil) {
+  public func show(rating rating: Double, text: String? = nil) {
     
-    let ratingToShow = rating ?? settings.rating
+    let currenText = text ?? settings.text
     
     calculateMargins()
     
     // Create star layers
     // ------------
     
-    var layers = StarRating.createStarLayers(ratingToShow, settings: settings)
+    var layers = StarRating.createStarLayers(rating, settings: settings)
     layer.sublayers = layers
     
     // Create text layer
     // ------------
 
-    if let text = text {
-      let textLayer = createTextLayer(text, layers: layers)
+    if let currenText = currenText {
+      let textLayer = createTextLayer(currenText, layers: layers)
       layers.append(textLayer)
     }
     
@@ -153,7 +158,7 @@ Displays: ★★★★☆ (132)
       CGFloat(settings.marginPercent / 100)
     
     settings.marginBetweenStarsAndText = settings.textFont.pointSize *
-      CGFloat(settings.marginPercent / 100)
+      CGFloat(settings.textMarginPercent / 100)
   }
   
   /// Returns the content size to fit all the star and text layers.
