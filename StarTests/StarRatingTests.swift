@@ -8,7 +8,7 @@ class StarRatingTests: XCTestCase {
   func testStarFillLevel_moreThanOneRemain() {
     let result = StarRating.starFillLevel(ratingRemainder: 1.1,
       fillMode: .Precise,
-      correctFillLevelForPrecise: false)
+      fillCorrection: 0)
     
     XCTAssertEqual(1, result)
   }
@@ -16,7 +16,7 @@ class StarRatingTests: XCTestCase {
   func testStarFillLevel_negativeRemainder() {
     let result = StarRating.starFillLevel(ratingRemainder: -0.1,
       fillMode: .Precise,
-      correctFillLevelForPrecise: false)
+      fillCorrection: 0)
     
     XCTAssertEqual(0, result)
   }
@@ -24,14 +24,14 @@ class StarRatingTests: XCTestCase {
   func testStarFillLevel_partiallyFileldPrecise() {
     let result = StarRating.starFillLevel(ratingRemainder: 0.67,
       fillMode: .Precise,
-      correctFillLevelForPrecise: false)
+      fillCorrection: 0)
     
     XCTAssertEqual(0.67, result)
   }
   
   func testStarFillLevel_partiallyFileldPreciseWithCorrection() {
     var result = StarRating.starFillLevel(ratingRemainder: 0.67, fillMode: .Precise,
-      correctFillLevelForPrecise: true)
+      fillCorrection: 40)
     
     result = Helpers.roundToPlaces(result, places: 3)
     XCTAssertEqual(0.602, result)
@@ -39,14 +39,14 @@ class StarRatingTests: XCTestCase {
   
   func testStarFillLevel_partiallyFileldHalf() {
     let result = StarRating.starFillLevel(ratingRemainder: 0.67, fillMode: .Half,
-      correctFillLevelForPrecise: false)
+      fillCorrection: 0)
     
     XCTAssertEqual(0.5, result)
   }
   
   func testStarFillLevel_partiallyFileldFull() {
     let result = StarRating.starFillLevel(ratingRemainder: 0.67, fillMode: .Full,
-      correctFillLevelForPrecise: false)
+      fillCorrection: 0)
     
     XCTAssertEqual(1, result)
   }
@@ -54,43 +54,55 @@ class StarRatingTests: XCTestCase {
   // MARK: - Correct precise fill level
   
   func testCorrectPreciseFillLevel() {
-    let result = StarRating.correctPreciseFillLevel(0.5)
+    let result = StarRating.correctPreciseFillLevel(0.5, fillCorrection: 40)
     
     XCTAssertEqual(0.5, result)
   }
   
   func testCorrectPreciseFillLevel_moreThanHalf() {
-    let result = StarRating.correctPreciseFillLevel(0.7)
+    let result = StarRating.correctPreciseFillLevel(0.7, fillCorrection: 40)
     
     XCTAssertEqual(0.62, result)
   }
   
+  func testCorrectPreciseFillLevel_moreThanHalf_noFillCorrection() {
+    let result = StarRating.correctPreciseFillLevel(0.7, fillCorrection: 0)
+    
+    XCTAssertEqual(0.7, result)
+  }
+  
   func testCorrectPreciseFillLevel_lessThanHalf() {
-    let result = StarRating.correctPreciseFillLevel(0.3)
+    let result = StarRating.correctPreciseFillLevel(0.3, fillCorrection: 40)
     
     XCTAssertEqual(0.38, result)
   }
   
+  func testCorrectPreciseFillLevel_lessThanHalf_noFillCorrection() {
+    let result = StarRating.correctPreciseFillLevel(0.3, fillCorrection: 0)
+    
+    XCTAssertEqual(0.3, result)
+  }
+  
   func testCorrectPreciseFillLevel_one() {
-    let result = StarRating.correctPreciseFillLevel(1)
+    let result = StarRating.correctPreciseFillLevel(1, fillCorrection: 40)
     
     XCTAssertEqual(0.8, result)
   }
   
   func testCorrectPreciseFillLevel_zero() {
-    let result = StarRating.correctPreciseFillLevel(0)
+    let result = StarRating.correctPreciseFillLevel(0, fillCorrection: 40)
     
     XCTAssertEqual(0.2, result)
   }
   
   func testCorrectPreciseFillLevel_moreThanOne() {
-    let result = StarRating.correctPreciseFillLevel(1.1)
+    let result = StarRating.correctPreciseFillLevel(1.1, fillCorrection: 40)
     
     XCTAssertEqual(0.8, result)
   }
   
   func testCorrectPreciseFillLevel_lessThanZero() {
-    let result = StarRating.correctPreciseFillLevel(-0.2)
+    let result = StarRating.correctPreciseFillLevel(-0.2, fillCorrection: 40)
     
     XCTAssertEqual(0.2, result)
   }

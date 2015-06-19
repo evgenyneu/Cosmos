@@ -63,8 +63,8 @@ struct StarRatingDefaultSettings {
   
   /**
   
-  When true the fill level is corrected to appear more gradual for default characters ★ and ☆. Applied only for precise star fill level.
+  Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
   
   */
-  static let correctFillLevelForPreciseMode = true
+  static let fillCorrection: Double = 40
 }

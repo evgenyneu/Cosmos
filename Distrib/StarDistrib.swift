@@ -65,7 +65,7 @@ class StarRating {
     for _ in (0..<settings.totalStars) {
       let fillLevel = starFillLevel(ratingRemainder: ratingRemander,
         fillMode: settings.fillMode,
-        correctFillLevelForPrecise: settings.correctFillLevelForPreciseMode)
+        fillCorrection: settings.fillCorrection)
 
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
       starLayers.append(starLayer)
@@ -139,13 +139,13 @@ class StarRating {
   
   - parameter fillMode: Describe how stars should be filled: full, half or precise.
   
-  - parameter correctFillLevelForPrecise: If true and the fill mode is 'precise' the fill level will be corrected for better looks.
+  - parameter fillCorrection: Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
   
   - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
 
   */
   class func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode,
-    correctFillLevelForPrecise: Bool) -> Double {
+    fillCorrection: Double) -> Double {
       
     var result = ratingRemainder
     
@@ -158,9 +158,7 @@ class StarRating {
     case .Half:
       result = Double(round(result * 2) / 2)
     case .Precise :
-      if correctFillLevelForPrecise {
-        result = correctPreciseFillLevel(result)
-      }
+      result = correctPreciseFillLevel(result, fillCorrection: fillCorrection)
     }
     
     return result
@@ -173,17 +171,20 @@ class StarRating {
   Graph: https://www.desmos.com/calculator/zrxqlrypsk
   
   - parameter fillLevel: The initial fill level for correction.
+  
+  - parameter fillCorrection: Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
+  
   - returns: The corrected fill level.
 
   */
-  class func correctPreciseFillLevel(fillLevel: Double) -> Double {
+  class func correctPreciseFillLevel(fillLevel: Double, fillCorrection: Double) -> Double {
   
     var result = fillLevel
     
     if result > 1 { result = 1 }
     if result < 0 { result = 0 }
     
-    let correctionRatio: Double = 1 / 5
+    let correctionRatio: Double = fillCorrection / 200
     
     let multiplier: Double = 1 - 2 * correctionRatio
     
@@ -303,10 +304,10 @@ struct StarRatingDefaultSettings {
   
   /**
   
-  When true the fill level is corrected to appear more gradual for default characters ★ and ☆. Applied only for precise star fill level.
+  Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
   
   */
-  static let correctFillLevelForPreciseMode = true
+  static let fillCorrection: Double = 40
 }
 
 
@@ -420,11 +421,11 @@ public struct StarRatingSettings {
   public var marginBetweenStarsAndTextRelativeToFontSize = 0.25
   
   /**
-
-  When true the fill level is corrected to appear more gradual for default characters ★ and ☆. Applied only for precise star fill level.
-
+  
+  Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
+  
   */
-  public var correctFillLevelForPreciseMode = true
+  public var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection
 }
 
 
