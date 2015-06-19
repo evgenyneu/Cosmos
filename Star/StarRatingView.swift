@@ -30,6 +30,12 @@ Displays: ★★★★☆ (132)
     didSet { settings.textEmpty = textEmpty }
   }
   
+  @IBInspectable var starSize: CGFloat = StarRatingDefaultSettings.starSize {
+    didSet {
+      settings.starFont = UIFont.systemFontOfSize(starSize)
+    }
+  }
+  
   @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
     didSet { settings.colorFilled = colorFilled }
   }
@@ -159,6 +165,7 @@ Displays: ★★★★☆ (132)
   
   /// Calculate margins based on the font size.
   private func calculateMargins() {
+    print("!!!!!!!!!! star font size \(settings.starFont.pointSize)")
     settings.marginBetweenStars = settings.starFont.pointSize *
       CGFloat(settings.marginPercent / 100)
     

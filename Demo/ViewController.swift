@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     ratingSlider.value = startRating
-    
+        
     updateRating()
   }
   

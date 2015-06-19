@@ -35,7 +35,7 @@ public struct StarRatingSettings {
   public var marginPercent: Double = StarRatingDefaultSettings.marginPercent
   
   /// The font used to draw the star character
-  public var starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+  public var starFont = StarRatingDefaultSettings.starFont
   
   /// Character used to show a filled star
   public var textFilled = StarRatingDefaultSettings.textFilled

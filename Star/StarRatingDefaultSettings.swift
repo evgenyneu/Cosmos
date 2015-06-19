@@ -33,6 +33,13 @@ struct StarRatingDefaultSettings {
   /// The font used to draw the star character
   static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
+  /// Returns the size of the default star font
+  static var starSize: CGFloat {
+    get {
+      return starFont.pointSize
+    }
+  }
+  
   /// Character used to show a filled star
   static let textFilled = "★"
   
