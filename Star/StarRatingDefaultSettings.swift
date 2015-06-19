@@ -13,10 +13,11 @@ struct StarRatingDefaultSettings {
   /// The total number of start to be shown.
   static let totalStars = 5
   
+
   /**
-  
-  Defines how the star should appear to be filled when the rating value is not an integer value.
-  
+
+  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+
   */
   static let fillMode = StarFillMode.Half
   
@@ -50,12 +51,8 @@ struct StarRatingDefaultSettings {
   /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
   static let marginBetweenStarsAndText: CGFloat = 0
   
-  /**
-  
-  Distance between the text and the star expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the margin will be 3.
-  
-  */
-  static let textMarginPercent: Double = 25
+  /// Distance between the text and the star
+  static let textMargin: Double = 25
   
   /**
   
@@ -65,7 +62,6 @@ struct StarRatingDefaultSettings {
   
   */
   static let fillCorrection: Double = 40
-  
   
   /**
   

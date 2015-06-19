@@ -407,10 +407,11 @@ struct StarRatingDefaultSettings {
   /// The total number of start to be shown.
   static let totalStars = 5
   
+
   /**
-  
-  Defines how the star should appear to be filled when the rating value is not an integer value.
-  
+
+  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+
   */
   static let fillMode = StarFillMode.Half
   
@@ -444,12 +445,8 @@ struct StarRatingDefaultSettings {
   /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
   static let marginBetweenStarsAndText: CGFloat = 0
   
-  /**
-  
-  Distance between the text and the star expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the margin will be 3.
-  
-  */
-  static let textMarginPercent: Double = 25
+  /// Distance between the text and the star
+  static let textMargin: Double = 25
   
   /**
   
@@ -546,9 +543,9 @@ public struct StarRatingSettings {
   public var totalStars = StarRatingDefaultSettings.totalStars
   
   /**
-
-  Defines how the star should appear to be filled when the rating value is not an integer value.
-
+  
+  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+  
   */
   public var fillMode = StarRatingDefaultSettings.fillMode
   
@@ -579,15 +576,9 @@ public struct StarRatingSettings {
   /// Color of the text
   public var textColor = StarRatingDefaultSettings.textColor
   
-  /// Distance between the text and the star. The value is automatically calculated based on textMarginPercent property and the font size.
-  var marginBetweenStarsAndText: CGFloat = 0
   
-  /**
-
-  Distance between the text and the star expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the margin will be 3.
-
-  */
-  public var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent
+  /// Distance between the text and the star
+  public var textMargin: Double = StarRatingDefaultSettings.textMargin
   
   /**
   
@@ -669,8 +660,8 @@ class StarRatingText {
   - parameter marginBetweenStarsAndText: The distance between the stars and the text.
   
   */
-  class func position(layer: CALayer, starsSize: CGSize, marginBetweenStarsAndText: CGFloat) {
-    layer.position.x = starsSize.width + marginBetweenStarsAndText
+  class func position(layer: CALayer, starsSize: CGSize, textMargin: Double) {
+    layer.position.x = starsSize.width + CGFloat(textMargin)
     let yOffset = (starsSize.height - layer.bounds.height) / 2
     layer.position.y = yOffset
   }
@@ -750,9 +741,8 @@ Displays: ★★★★☆ (132)
     
   }
   
-  @IBInspectable var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent {
-    didSet { settings.textMarginPercent = textMarginPercent }
-
+  @IBInspectable var textMargin: Double = StarRatingDefaultSettings.textMargin {
+    didSet { settings.textMargin = textMargin }
   }
   
   @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
@@ -787,8 +777,6 @@ Displays: ★★★★☆ (132)
   public func show(rating rating: Double, text: String? = nil) {
     
     let currenText = text ?? settings.text
-    
-    calculateMargins()
     
     // Create star layers
     // ------------
@@ -828,8 +816,7 @@ Displays: ★★★★☆ (132)
     
     let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
     
-    StarRatingText.position(textLayer, starsSize: starsSize,
-      marginBetweenStarsAndText: settings.marginBetweenStarsAndText)
+    StarRatingText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
     
     layer.addSublayer(textLayer)
     
@@ -846,12 +833,6 @@ Displays: ★★★★☆ (132)
   private func updateSize(layers: [CALayer]) {
     viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
-  }
-  
-  /// Calculate margins based on the font size.
-  private func calculateMargins() {
-    settings.marginBetweenStarsAndText = settings.textFont.pointSize *
-      CGFloat(settings.textMarginPercent / 100)
   }
   
   /// Returns the content size to fit all the star and text layers.

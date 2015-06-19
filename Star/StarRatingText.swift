@@ -17,8 +17,8 @@ class StarRatingText {
   - parameter marginBetweenStarsAndText: The distance between the stars and the text.
   
   */
-  class func position(layer: CALayer, starsSize: CGSize, marginBetweenStarsAndText: CGFloat) {
-    layer.position.x = starsSize.width + marginBetweenStarsAndText
+  class func position(layer: CALayer, starsSize: CGSize, textMargin: Double) {
+    layer.position.x = starsSize.width + CGFloat(textMargin)
     let yOffset = (starsSize.height - layer.bounds.height) / 2
     layer.position.y = yOffset
   }

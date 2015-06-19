@@ -18,9 +18,9 @@ public struct StarRatingSettings {
   public var totalStars = StarRatingDefaultSettings.totalStars
   
   /**
-
-  Defines how the star should appear to be filled when the rating value is not an integer value.
-
+  
+  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+  
   */
   public var fillMode = StarRatingDefaultSettings.fillMode
   
@@ -51,15 +51,9 @@ public struct StarRatingSettings {
   /// Color of the text
   public var textColor = StarRatingDefaultSettings.textColor
   
-  /// Distance between the text and the star. The value is automatically calculated based on textMarginPercent property and the font size.
-  var marginBetweenStarsAndText: CGFloat = 0
   
-  /**
-
-  Distance between the text and the star expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the margin will be 3.
-
-  */
-  public var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent
+  /// Distance between the text and the star
+  public var textMargin: Double = StarRatingDefaultSettings.textMargin
   
   /**
   

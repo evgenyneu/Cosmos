@@ -65,9 +65,8 @@ Displays: ★★★★☆ (132)
     
   }
   
-  @IBInspectable var textMarginPercent: Double = StarRatingDefaultSettings.textMarginPercent {
-    didSet { settings.textMarginPercent = textMarginPercent }
-
+  @IBInspectable var textMargin: Double = StarRatingDefaultSettings.textMargin {
+    didSet { settings.textMargin = textMargin }
   }
   
   @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
@@ -102,8 +101,6 @@ Displays: ★★★★☆ (132)
   public func show(rating rating: Double, text: String? = nil) {
     
     let currenText = text ?? settings.text
-    
-    calculateMargins()
     
     // Create star layers
     // ------------
@@ -143,8 +140,7 @@ Displays: ★★★★☆ (132)
     
     let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
     
-    StarRatingText.position(textLayer, starsSize: starsSize,
-      marginBetweenStarsAndText: settings.marginBetweenStarsAndText)
+    StarRatingText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
     
     layer.addSublayer(textLayer)
     
@@ -161,12 +157,6 @@ Displays: ★★★★☆ (132)
   private func updateSize(layers: [CALayer]) {
     viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
-  }
-  
-  /// Calculate margins based on the font size.
-  private func calculateMargins() {
-    settings.marginBetweenStarsAndText = settings.textFont.pointSize *
-      CGFloat(settings.textMarginPercent / 100)
   }
   
   /// Returns the content size to fit all the star and text layers.
