@@ -528,7 +528,7 @@ public struct StarRatingSettings {
   public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
   
   /// Font for the text
-  public var textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+  public var textFont = StarRatingDefaultSettings.textFont
   
   /// Color of the text
   public var textColor = StarRatingDefaultSettings.textColor
