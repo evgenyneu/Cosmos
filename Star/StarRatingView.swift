@@ -38,10 +38,9 @@ Displays: ★★★★☆ (132)
     didSet { settings.colorEmpty = colorEmpty }
   }
   
-  @IBInspectable var starFillMode: Int = StarRatingDefaultSettings.starFillMode.rawValue {
+  @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
     didSet {
-      settings.starFillMode = StarFillMode(rawValue: starFillMode) ??
-        StarRatingDefaultSettings.starFillMode
+      settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
     }
   }
   

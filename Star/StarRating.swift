@@ -23,7 +23,8 @@ class StarRating {
     var starLayers = [CALayer]()
 
     for _ in (0..<settings.totalStars) {
-      let fillLevel = starFillLevel(ratingRemainder: ratingRemander, starFillMode: settings.starFillMode,
+      let fillLevel = starFillLevel(ratingRemainder: ratingRemander,
+        fillMode: settings.fillMode,
         correctFillLevelForPrecise: settings.correctFillLevelForPreciseMode)
 
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
@@ -96,14 +97,14 @@ class StarRating {
   
   - parameter ratingRemainder: This value is passed from the loop that creates star layers. The value starts with the rating value and decremented by 1 when each star is created. For example, suppose we want to display rating of 3.5. When the first star is created the ratingRemainder parameter will be 3.5. For the second star it will be 2.5. Third: 1.5. Fourth: 0.5. Fifth: -0.5.
   
-  - parameter starFillMode: Describe how stars should be filled: full, half or precise.
+  - parameter fillMode: Describe how stars should be filled: full, half or precise.
   
   - parameter correctFillLevelForPrecise: If true and the fill mode is 'precise' the fill level will be corrected for better looks.
   
   - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
 
   */
-  class func starFillLevel(ratingRemainder ratingRemainder: Double, starFillMode: StarFillMode,
+  class func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode,
     correctFillLevelForPrecise: Bool) -> Double {
       
     var result = ratingRemainder
@@ -111,7 +112,7 @@ class StarRating {
     if result > 1 { result = 1 }
     if result < 0 { result = 0 }
       
-    switch starFillMode {
+    switch fillMode {
     case .Full:
        result = Double(round(result))
     case .Half:

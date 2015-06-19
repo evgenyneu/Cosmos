@@ -19,7 +19,7 @@ public struct StarRatingSettings {
   Defines how the star should appear to be filled when the rating value is not an integer value.
 
   */
-  public var starFillMode = StarFillMode.Half
+  public var fillMode = StarRatingDefaultSettings.fillMode
   
   /// Distance between stars expressed. The value is automatically calculated based on marginBetweenStarsRelativeToFontSize property and the font size.
   var marginBetweenStars:CGFloat = 0
