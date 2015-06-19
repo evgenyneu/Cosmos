@@ -266,10 +266,10 @@ struct StarRatingDefaultSettings {
   
   /**
   
-  Distance between stars expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the distance will be 4.
+  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 4.
   
   */
-  static let marginBetweenStarsRelativeToFontSize = 0.1
+  static let marginPercent: Double = 10
   
   /// The font used to draw the star character
   static let starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
@@ -386,10 +386,10 @@ public struct StarRatingSettings {
   
   /**
 
-  Distance between stars expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the distance will be 4.
+  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 4.
 
   */
-  public var marginBetweenStarsRelativeToFontSize = 0.1
+  public var marginPercent: Double = StarRatingDefaultSettings.marginPercent
   
   /// The font used to draw the star character
   public var starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
@@ -549,6 +549,10 @@ Displays: ★★★★☆ (132)
     didSet { settings.colorEmpty = colorEmpty }
   }
   
+  @IBInspectable var marginPercent: Double = StarRatingDefaultSettings.marginPercent {
+    didSet { settings.marginPercent = marginPercent }
+  }
+  
   @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
     didSet {
       settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
@@ -657,10 +661,10 @@ Displays: ★★★★☆ (132)
   /// Calculate margins based on the font size.
   private func calculateMargins() {
     settings.marginBetweenStars = settings.starFont.pointSize *
-      CGFloat(settings.marginBetweenStarsRelativeToFontSize)
+      CGFloat(settings.marginPercent / 100)
     
     settings.marginBetweenStarsAndText = settings.textFont.pointSize *
-      CGFloat(settings.marginBetweenStarsAndTextRelativeToFontSize)
+      CGFloat(settings.marginPercent / 100)
   }
   
   /// Returns the content size to fit all the star and text layers.

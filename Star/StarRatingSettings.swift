@@ -26,10 +26,10 @@ public struct StarRatingSettings {
   
   /**
 
-  Distance between stars expressed as a fraction of the font size. For example, if the font size is 12 and the value is 0.25 the distance will be 4.
+  Distance between stars expressed as a percentage of the font size. For example, if the font size is 12 and the value is 25 the distance will be 4.
 
   */
-  public var marginBetweenStarsRelativeToFontSize = 0.1
+  public var marginPercent: Double = StarRatingDefaultSettings.marginPercent
   
   /// The font used to draw the star character
   public var starFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)

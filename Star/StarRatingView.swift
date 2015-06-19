@@ -38,6 +38,10 @@ Displays: ★★★★☆ (132)
     didSet { settings.colorEmpty = colorEmpty }
   }
   
+  @IBInspectable var marginPercent: Double = StarRatingDefaultSettings.marginPercent {
+    didSet { settings.marginPercent = marginPercent }
+  }
+  
   @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
     didSet {
       settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
@@ -146,10 +150,10 @@ Displays: ★★★★☆ (132)
   /// Calculate margins based on the font size.
   private func calculateMargins() {
     settings.marginBetweenStars = settings.starFont.pointSize *
-      CGFloat(settings.marginBetweenStarsRelativeToFontSize)
+      CGFloat(settings.marginPercent / 100)
     
     settings.marginBetweenStarsAndText = settings.textFont.pointSize *
-      CGFloat(settings.marginBetweenStarsAndTextRelativeToFontSize)
+      CGFloat(settings.marginPercent / 100)
   }
   
   /// Returns the content size to fit all the star and text layers.
