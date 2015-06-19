@@ -557,7 +557,7 @@ Displays: ★★★★☆ (132)
   
   @IBInspectable var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection {
     didSet {
-      settings.fillCorrection = max( min(fillCorrection, 0) , 100)
+      settings.fillCorrection = fillCorrection
     }
   }
   
