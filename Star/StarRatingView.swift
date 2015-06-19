@@ -54,12 +54,6 @@ Displays: ★★★★☆ (132)
     }
   }
   
-  @IBInspectable var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection {
-    didSet {
-      settings.fillCorrection = min( max(fillCorrection, 0) , 100)
-    }
-  }
-  
   @IBInspectable var text: String? {
     didSet { settings.text = text }
     

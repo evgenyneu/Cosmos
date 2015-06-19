@@ -14,7 +14,7 @@ class StarRatingText {
   
   - parameter layer: The text layer to be positioned.
   - parameter starsSize: The size of the star superview.
-  - parameter marginBetweenStarsAndText: The distance between the stars and the text.
+  - parameter textMargin: The distance between the stars and the text.
   
   */
   class func position(layer: CALayer, starsSize: CGSize, textMargin: Double) {

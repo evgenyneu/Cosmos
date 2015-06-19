@@ -212,10 +212,7 @@ class StarRating {
     var starLayers = [CALayer]()
 
     for _ in (0..<settings.totalStars) {
-      let fillLevel = starFillLevel(ratingRemainder: ratingRemander,
-        fillMode: settings.fillMode,
-        fillCorrection: settings.fillCorrection)
-
+      let fillLevel = starFillLevel(ratingRemainder: ratingRemander, fillMode: settings.fillMode)
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
       starLayers.append(starLayer)
       ratingRemander--
@@ -288,13 +285,10 @@ class StarRating {
   
   - parameter fillMode: Describe how stars should be filled: full, half or precise.
   
-  - parameter fillCorrection: Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
-  
   - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
 
   */
-  class func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode,
-    fillCorrection: Double) -> Double {
+  class func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode) -> Double {
       
     var result = ratingRemainder
     
@@ -307,37 +301,10 @@ class StarRating {
     case .Half:
       result = Double(round(result * 2) / 2)
     case .Precise :
-      result = correctPreciseFillLevel(result, fillCorrection: fillCorrection)
+      let _ = "rating is very pecise"
     }
     
     return result
-  }
-
-  /**
-
-  Correct the fill level to achieve more gradual fill of the ★ and ☆ star characters in precise mode. This is done to compensate for the fact that the ★ and ☆ characters do not occupy 100% width of their layer bound rectangle.
-  
-  Graph: https://www.desmos.com/calculator/gk0fpc7tun
-  
-  - parameter fillLevel: The initial fill level for correction.
-  
-  - parameter fillCorrection: Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
-  
-  - returns: The corrected fill level.
-
-  */
-  class func correctPreciseFillLevel(fillLevel: Double, fillCorrection: Double) -> Double {
-  
-    var result = fillLevel
-    
-    if result > 1 { result = 1 }
-    if result < 0 { result = 0 }
-    
-    let correctionRatio: Double = fillCorrection / 200
-    
-    let multiplier: Double = 1 - 2 * correctionRatio
-    
-    return multiplier * result + correctionRatio
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
@@ -372,7 +339,7 @@ class StarRating {
   Positions the star layers one after another with a margin in between.
   
   - parameter layers: The star layers array.
-  - parameter marginBetweenStars: Margin between stars.
+  - parameter starMargin: Margin between stars.
 
   */
   class func positionStarLayers(layers: [CALayer], starMargin: Double) {
@@ -447,16 +414,6 @@ struct StarRatingDefaultSettings {
   
   /// Distance between the text and the star
   static let textMargin: Double = 25
-  
-  /**
-  
-  Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
-  
-  Graph: https://www.desmos.com/calculator/gk0fpc7tun
-  
-  */
-  static let fillCorrection: Double = 40
-  
   
   /**
   
@@ -582,15 +539,6 @@ public struct StarRatingSettings {
   
   /**
   
-  Value between 0 and 100 that is used to correct the star fill value when precise fill mode is used. Default value is 40. When 0 - no correction is applied. Correction is done to compensate for the fact that star characters do not fill the full width of they lay rectangle. Default value is 40.
-  
-  Graph: https://www.desmos.com/calculator/gk0fpc7tun
-  
-  */
-  public var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection
-  
-  /**
-  
   Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
   
   */
@@ -657,7 +605,7 @@ class StarRatingText {
   
   - parameter layer: The text layer to be positioned.
   - parameter starsSize: The size of the star superview.
-  - parameter marginBetweenStarsAndText: The distance between the stars and the text.
+  - parameter textMargin: The distance between the stars and the text.
   
   */
   class func position(layer: CALayer, starsSize: CGSize, textMargin: Double) {
@@ -727,12 +675,6 @@ Displays: ★★★★☆ (132)
   @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
     didSet {
       settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
-    }
-  }
-  
-  @IBInspectable var fillCorrection: Double = StarRatingDefaultSettings.fillCorrection {
-    didSet {
-      settings.fillCorrection = min( max(fillCorrection, 0) , 100)
     }
   }
   
