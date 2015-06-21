@@ -31,12 +31,6 @@ struct StarRatingDefaultSettings {
   /// Filled star color
   static let colorFilled = defaultColor
   
-  /// Border color of the filled star.
-  static let borderColorFilled = UIColor.clearColor()
-  
-  /// Width of the border for the filled star.
-  static let borderWidthFilled: Double = 1
-  
   /// Empty star color
   static let colorEmpty = UIColor.clearColor()
   

@@ -33,12 +33,6 @@ public struct StarRatingSettings {
   /// Filled star color
   public var colorFilled = StarRatingDefaultSettings.colorFilled
   
-  /// Border color of a filled star.
-  public var borderColorFilled = StarRatingDefaultSettings.borderColorFilled
-  
-  /// Width of the border for the filled star.
-  public var borderWidthFilled: Double = StarRatingDefaultSettings.borderWidthFilled
-  
   /// Empty star color
   public var colorEmpty = StarRatingDefaultSettings.colorEmpty
   

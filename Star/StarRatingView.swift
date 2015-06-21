@@ -32,14 +32,6 @@ Displays: ★★★★☆ (132)
     didSet { settings.colorFilled = colorFilled }
   }
   
-  @IBInspectable var borderColorFilled: UIColor = StarRatingDefaultSettings.borderColorFilled {
-    didSet { settings.borderColorFilled = borderColorFilled }
-  }
-  
-  @IBInspectable var borderWidthFilled: Double = StarRatingDefaultSettings.borderWidthFilled {
-    didSet { settings.borderWidthFilled = borderWidthFilled }
-  }
-  
   @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
     didSet { settings.colorEmpty = colorEmpty }
   }
