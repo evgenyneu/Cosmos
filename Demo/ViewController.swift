@@ -16,6 +16,11 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // Register touch handlers
+    starRatingViewOne.touchedTheStar = touchedTheStar
+    starRatingViewHalf.touchedTheStar = touchedTheStar
+    starRatingViewPrecise.touchedTheStar = touchedTheStar
+    
     ratingSlider.value = startRating
     updateRating()
   }
@@ -29,11 +34,17 @@ class ViewController: UIViewController {
     starRatingViewOne.show(rating: value)
     starRatingViewHalf.show(rating: value)
     starRatingViewPrecise.show(rating: value)
+  
     
     self.ratingLabel.text = ViewController.formatValue(value)
   }
   
   private class func formatValue(value: Double) -> String {
     return String(format: "%.2f", value)
+  }
+  
+  private func touchedTheStar(rating: Double) {
+    ratingSlider.value = Float(rating)
+    self.ratingLabel.text = ViewController.formatValue(rating)
   }
 }

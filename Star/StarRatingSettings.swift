@@ -8,6 +8,10 @@ Settings that define the appearance of the star rating views.
 public struct StarRatingSettings {
   init() {}
   
+  // MARK: - Star settings
+  // -----------------------------
+  
+  
   /// Raiting value that is shown in the storyboard by default.
   public var rating: Double = StarRatingDefaultSettings.rating
   
@@ -42,6 +46,11 @@ public struct StarRatingSettings {
   /// Width of the border for the empty star.
   public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
   
+  
+  // MARK: - Text settings
+  // -----------------------------
+  
+  
   /// Font for the text
   public var textFont = StarRatingDefaultSettings.textFont
   
@@ -51,6 +60,16 @@ public struct StarRatingSettings {
   
   /// Distance between the text and the star
   public var textMargin: Double = StarRatingDefaultSettings.textMargin
+  
+  
+  // MARK: - Touch settings
+  // -----------------------------
+  
+  
+  /// When true the star fill level is update when user touches the star view.
+  public var updateOnTouch = StarRatingDefaultSettings.updateOnTouch
+  
+  
   
   /**
   

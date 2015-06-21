@@ -9,6 +9,39 @@
 
 // ----------------------------
 //
+// StarTouchTarget.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Helper function to make sure bounds are big enought to be used as touch target.
+The function is used in pointInside(point: CGPoint, withEvent event: UIEvent?) of UIImageView.
+
+*/
+struct StarTouchTarget {
+  static func optimize(bounds: CGRect) -> CGRect {
+    let recommendedHitSize: CGFloat = 44
+    
+    var hitWidthIncrease:CGFloat = recommendedHitSize - bounds.width
+    var hitHeightIncrease:CGFloat = recommendedHitSize - bounds.height
+    
+    if hitWidthIncrease < 0 { hitWidthIncrease = 0 }
+    if hitHeightIncrease < 0 { hitHeightIncrease = 0 }
+    
+    let extendedBounds: CGRect = CGRectInset(bounds,
+      -hitWidthIncrease / 2,
+      -hitHeightIncrease / 2)
+    
+    return extendedBounds
+  }
+}
+
+
+// ----------------------------
+//
 // StarFillMode.swift
 //
 // ----------------------------
@@ -369,6 +402,11 @@ struct StarRatingDefaultSettings {
   
   static let defaultColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
+  
+  // MARK: - Star settings
+  // -----------------------------
+
+  
   /// Raiting value that is shown in the storyboard by default.
   static let rating: Double = 3.5
   
@@ -400,6 +438,11 @@ struct StarRatingDefaultSettings {
   /// Width of the border for the empty star.
   static let borderWidthEmpty: Double = 1
   
+  
+  // MARK: - Text settings
+  // -----------------------------
+  
+  
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   
@@ -418,6 +461,14 @@ struct StarRatingDefaultSettings {
   
   /// Distance between the text and the star
   static let textMargin: Double = 5
+  
+  
+  // MARK: - Touch settings
+  // -----------------------------
+
+  
+  /// When true the star fill level is update when user touches the star view.
+  static let updateOnTouch = false
   
   /**
   
@@ -494,6 +545,10 @@ Settings that define the appearance of the star rating views.
 public struct StarRatingSettings {
   init() {}
   
+  // MARK: - Star settings
+  // -----------------------------
+  
+  
   /// Raiting value that is shown in the storyboard by default.
   public var rating: Double = StarRatingDefaultSettings.rating
   
@@ -528,6 +583,11 @@ public struct StarRatingSettings {
   /// Width of the border for the empty star.
   public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
   
+  
+  // MARK: - Text settings
+  // -----------------------------
+  
+  
   /// Font for the text
   public var textFont = StarRatingDefaultSettings.textFont
   
@@ -537,6 +597,16 @@ public struct StarRatingSettings {
   
   /// Distance between the text and the star
   public var textMargin: Double = StarRatingDefaultSettings.textMargin
+  
+  
+  // MARK: - Touch settings
+  // -----------------------------
+  
+  
+  /// When true the star fill level is update when user touches the star view.
+  public var updateOnTouch = StarRatingDefaultSettings.updateOnTouch
+  
+  
   
   /**
   
@@ -751,49 +821,6 @@ Displays: ★★★★☆ (132)
     
   }
   
-  // MARK: - Gesture
-  
-  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    if let touch = touches.first {
-      onDidTouch(touch)
-    }
-  }
-  
-  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    if let touch = touches.first {
-      onDidTouch(touch)
-    }
-  }
-  
-  private func onDidTouch(touch: UITouch) {
-    let translation = touch.locationInView(self)
-    
-    
-    if let sublayers = self.layer.sublayers {
-      let starLayers = Array(sublayers[0..<settings.totalStars])
-      let size = StarRatingSize.calculateSizeToFitLayers(starLayers)
-      
-      let position = translation.x / size.width
-      let actualRating = Double(settings.totalStars) * Double(position)
-      var correctedRating: Double = actualRating
-      
-      switch settings.fillMode {
-      case .Full:
-        correctedRating = ceil(correctedRating)
-      case .Half:
-        correctedRating += 0.25
-      case .Precise:
-        let _ = "ignore"
-      }
-      
-      show(rating: correctedRating)
-      
-      print("translation \(position) \(actualRating) corrected: \(correctedRating)")
-    }
-
-    
-  }
-  
   /**
   
   Creates the text layer for the given text string.
@@ -832,6 +859,55 @@ Displays: ★★★★☆ (132)
   /// Returns the content size to fit all the star and text layers.
   override public func intrinsicContentSize() -> CGSize {
     return viewSize
+  }
+  
+  
+  // MARK: - Touch recognition
+  
+  public var touchedTheStar: ((Double)->())?
+  
+  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesMoved(touches, withEvent: event)
+    
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesBegan(touches, withEvent: event)
+    
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  private func onDidTouch(touch: UITouch) {
+    let translation = touch.locationInView(self)
+    
+    
+    if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
+      let starLayers = Array(sublayers[0..<settings.totalStars])
+      let size = StarRatingSize.calculateSizeToFitLayers(starLayers)
+      
+      let position = translation.x / size.width
+      let actualRating = Double(settings.totalStars) * Double(position)
+      var correctedRating: Double = actualRating
+      
+      if settings.fillMode != .Precise {
+        correctedRating += 0.25
+      }
+      
+      show(rating: correctedRating)
+      
+      touchedTheStar?(correctedRating)
+    }
+  }
+  
+  /// Increase the hitsize of the view if it's less than 44px for easier tapping.
+  override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    let oprimizedBounds = StarTouchTarget.optimize(bounds)
+    return oprimizedBounds.contains(point)
   }
 }
 

@@ -126,49 +126,6 @@ Displays: ★★★★☆ (132)
     
   }
   
-  // MARK: - Gesture
-  
-  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    if let touch = touches.first {
-      onDidTouch(touch)
-    }
-  }
-  
-  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    if let touch = touches.first {
-      onDidTouch(touch)
-    }
-  }
-  
-  private func onDidTouch(touch: UITouch) {
-    let translation = touch.locationInView(self)
-    
-    
-    if let sublayers = self.layer.sublayers {
-      let starLayers = Array(sublayers[0..<settings.totalStars])
-      let size = StarRatingSize.calculateSizeToFitLayers(starLayers)
-      
-      let position = translation.x / size.width
-      let actualRating = Double(settings.totalStars) * Double(position)
-      var correctedRating: Double = actualRating
-      
-      switch settings.fillMode {
-      case .Full:
-        correctedRating = ceil(correctedRating)
-      case .Half:
-        correctedRating += 0.25
-      case .Precise:
-        let _ = "ignore"
-      }
-      
-      show(rating: correctedRating)
-      
-      print("translation \(position) \(actualRating) corrected: \(correctedRating)")
-    }
-
-    
-  }
-  
   /**
   
   Creates the text layer for the given text string.
@@ -207,5 +164,54 @@ Displays: ★★★★☆ (132)
   /// Returns the content size to fit all the star and text layers.
   override public func intrinsicContentSize() -> CGSize {
     return viewSize
+  }
+  
+  
+  // MARK: - Touch recognition
+  
+  public var touchedTheStar: ((Double)->())?
+  
+  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesMoved(touches, withEvent: event)
+    
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesBegan(touches, withEvent: event)
+    
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  private func onDidTouch(touch: UITouch) {
+    let translation = touch.locationInView(self)
+    
+    
+    if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
+      let starLayers = Array(sublayers[0..<settings.totalStars])
+      let size = StarRatingSize.calculateSizeToFitLayers(starLayers)
+      
+      let position = translation.x / size.width
+      let actualRating = Double(settings.totalStars) * Double(position)
+      var correctedRating: Double = actualRating
+      
+      if settings.fillMode != .Precise {
+        correctedRating += 0.25
+      }
+      
+      show(rating: correctedRating)
+      
+      touchedTheStar?(correctedRating)
+    }
+  }
+  
+  /// Increase the hitsize of the view if it's less than 44px for easier tapping.
+  override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    let oprimizedBounds = StarTouchTarget.optimize(bounds)
+    return oprimizedBounds.contains(point)
   }
 }

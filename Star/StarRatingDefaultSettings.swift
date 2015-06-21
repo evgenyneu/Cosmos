@@ -9,6 +9,11 @@ struct StarRatingDefaultSettings {
   
   static let defaultColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
   
+  
+  // MARK: - Star settings
+  // -----------------------------
+
+  
   /// Raiting value that is shown in the storyboard by default.
   static let rating: Double = 3.5
   
@@ -40,6 +45,11 @@ struct StarRatingDefaultSettings {
   /// Width of the border for the empty star.
   static let borderWidthEmpty: Double = 1
   
+  
+  // MARK: - Text settings
+  // -----------------------------
+  
+  
   /// Font for the text
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   
@@ -58,6 +68,14 @@ struct StarRatingDefaultSettings {
   
   /// Distance between the text and the star
   static let textMargin: Double = 5
+  
+  
+  // MARK: - Touch settings
+  // -----------------------------
+
+  
+  /// When true the star fill level is update when user touches the star view.
+  static let updateOnTouch = false
   
   /**
   
