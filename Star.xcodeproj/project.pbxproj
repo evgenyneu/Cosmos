@@ -148,8 +148,8 @@
 		7E0C07591B32319000412D79 /* Star */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C07711B3232B400412D79 /* StarRatingView.swift */,
 				7E0C07721B3232B400412D79 /* StarRating.swift */,
+				7E0C07711B3232B400412D79 /* StarRatingView.swift */,
 				7E0C07731B3232B400412D79 /* StarFillMode.swift */,
 				2BE17AFA1B33D41A00D96A60 /* StarLayer.swift */,
 				7E0C07741B3232B400412D79 /* StarRatingText.swift */,

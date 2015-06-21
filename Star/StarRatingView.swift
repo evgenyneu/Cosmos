@@ -14,6 +14,8 @@ Displays: ★★★★☆ (132)
 @IBDesignable public class StarRatingView: UIView {
   // MARK: Inspectable properties for storyboard
   
+  var gestureRecognizer: UIGestureRecognizer?
+  
   @IBInspectable var rating: Double = StarRatingDefaultSettings.rating {
     didSet { settings.rating = rating }
   }
@@ -120,6 +122,51 @@ Displays: ★★★★☆ (132)
     // ------------
 
     updateSize(layers)
+    
+    
+  }
+  
+  // MARK: - Gesture
+  
+  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  private func onDidTouch(touch: UITouch) {
+    let translation = touch.locationInView(self)
+    
+    
+    if let sublayers = self.layer.sublayers {
+      let starLayers = Array(sublayers[0..<settings.totalStars])
+      let size = StarRatingSize.calculateSizeToFitLayers(starLayers)
+      
+      let position = translation.x / size.width
+      let actualRating = Double(settings.totalStars) * Double(position)
+      var correctedRating: Double = actualRating
+      
+      switch settings.fillMode {
+      case .Full:
+        correctedRating = ceil(correctedRating)
+      case .Half:
+        correctedRating += 0.25
+      case .Precise:
+        let _ = "ignore"
+      }
+      
+      show(rating: correctedRating)
+      
+      print("translation \(position) \(actualRating) corrected: \(correctedRating)")
+    }
+
+    
   }
   
   /**

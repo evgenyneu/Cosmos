@@ -308,12 +308,11 @@ class StarRating {
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
     let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
-    let strokeColor = isFilled ? settings.borderColorFilled : settings.borderColorEmpty
-    let lineWidth = isFilled ? settings.borderWidthFilled : settings.borderWidthEmpty
+    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
-      lineWidth: lineWidth,
+      lineWidth: settings.borderWidthEmpty,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }
@@ -391,12 +390,6 @@ struct StarRatingDefaultSettings {
   
   /// Filled star color
   static let colorFilled = defaultColor
-  
-  /// Border color of the filled star.
-  static let borderColorFilled = UIColor.clearColor()
-  
-  /// Width of the border for the filled star.
-  static let borderWidthFilled: Double = 1
   
   /// Empty star color
   static let colorEmpty = UIColor.clearColor()
@@ -526,12 +519,6 @@ public struct StarRatingSettings {
   /// Filled star color
   public var colorFilled = StarRatingDefaultSettings.colorFilled
   
-  /// Border color of a filled star.
-  public var borderColorFilled = StarRatingDefaultSettings.borderColorFilled
-  
-  /// Width of the border for the filled star.
-  public var borderWidthFilled: Double = StarRatingDefaultSettings.borderWidthFilled
-  
   /// Empty star color
   public var colorEmpty = StarRatingDefaultSettings.colorEmpty
   
@@ -652,6 +639,8 @@ Displays: ★★★★☆ (132)
 @IBDesignable public class StarRatingView: UIView {
   // MARK: Inspectable properties for storyboard
   
+  var gestureRecognizer: UIGestureRecognizer?
+  
   @IBInspectable var rating: Double = StarRatingDefaultSettings.rating {
     didSet { settings.rating = rating }
   }
@@ -668,14 +657,6 @@ Displays: ★★★★☆ (132)
   
   @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
     didSet { settings.colorFilled = colorFilled }
-  }
-  
-  @IBInspectable var borderColorFilled: UIColor = StarRatingDefaultSettings.borderColorFilled {
-    didSet { settings.borderColorFilled = borderColorFilled }
-  }
-  
-  @IBInspectable var borderWidthFilled: Double = StarRatingDefaultSettings.borderWidthFilled {
-    didSet { settings.borderWidthFilled = borderWidthFilled }
   }
   
   @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
@@ -766,6 +747,51 @@ Displays: ★★★★☆ (132)
     // ------------
 
     updateSize(layers)
+    
+    
+  }
+  
+  // MARK: - Gesture
+  
+  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let touch = touches.first {
+      onDidTouch(touch)
+    }
+  }
+  
+  private func onDidTouch(touch: UITouch) {
+    let translation = touch.locationInView(self)
+    
+    
+    if let sublayers = self.layer.sublayers {
+      let starLayers = Array(sublayers[0..<settings.totalStars])
+      let size = StarRatingSize.calculateSizeToFitLayers(starLayers)
+      
+      let position = translation.x / size.width
+      let actualRating = Double(settings.totalStars) * Double(position)
+      var correctedRating: Double = actualRating
+      
+      switch settings.fillMode {
+      case .Full:
+        correctedRating = ceil(correctedRating)
+      case .Half:
+        correctedRating += 0.25
+      case .Precise:
+        let _ = "ignore"
+      }
+      
+      show(rating: correctedRating)
+      
+      print("translation \(position) \(actualRating) corrected: \(correctedRating)")
+    }
+
+    
   }
   
   /**
