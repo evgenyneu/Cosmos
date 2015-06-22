@@ -41,7 +41,7 @@ class CosmosLayers {
   
   - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
   - parameter settings: Star view settings.
-  - returns: Layer that shows the star. The layer is displauyed in the star view.
+  - returns: Layer that shows the star. The layer is displauyed in the cosmos view.
   
   */
   class func createCompositeStarLayer(starFillLevel: Double, settings: CosmosSettings) -> CALayer {

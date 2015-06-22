@@ -33,7 +33,7 @@ struct CosmosDefaultSettings {
   /// Raiting value that is shown in the storyboard by default.
   static let rating: Double = 3.5
   
-  /// The total number of start to be shown.
+  /// The total number of stars to be shown.
   static let totalStars = 5
 
   /**
@@ -90,7 +90,7 @@ struct CosmosDefaultSettings {
   // -----------------------------
 
   
-  /// When true the star fill level is update when user touches the star view.
+  /// When true the star fill level is update when user touches the cosmos view.
   static let updateOnTouch = false
   
   /// The lowest rating that user can set by touching the stars.
@@ -204,7 +204,7 @@ class CosmosLayers {
   
   - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
   - parameter settings: Star view settings.
-  - returns: Layer that shows the star. The layer is displauyed in the star view.
+  - returns: Layer that shows the star. The layer is displauyed in the cosmos view.
   
   */
   class func createCompositeStarLayer(starFillLevel: Double, settings: CosmosSettings) -> CALayer {
@@ -359,7 +359,7 @@ public struct CosmosSettings {
   // MARK: - Star settings
   // -----------------------------
   
-  /// The maximum number of start to be shown.
+  /// The maximum number of stars to be shown.
   public var totalStars = CosmosDefaultSettings.totalStars
   
   /**
@@ -407,7 +407,7 @@ public struct CosmosSettings {
   // -----------------------------
   
   
-  /// When true the star fill level is update when user touches the star view.
+  /// When true the star fill level is update when user touches the cosmos view.
   public var updateOnTouch = CosmosDefaultSettings.updateOnTouch
   
   /// The lowest rating that user can set by touching the stars.
@@ -724,7 +724,7 @@ Shows: ★★★★☆ (132)
   
   // MARK: - Touch recognition
   
-  /// Closure will be called when user touches the star view. The touch rating argument is passed to the closure.
+  /// Closure will be called when user touches the cosmos view. The touch rating argument is passed to the closure.
   public var touchedTheStar: ((Double)->())?
   
   /// Overriding the function to detect the first touch gesture.

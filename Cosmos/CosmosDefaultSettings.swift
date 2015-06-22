@@ -18,7 +18,7 @@ struct CosmosDefaultSettings {
   /// Raiting value that is shown in the storyboard by default.
   static let rating: Double = 3.5
   
-  /// The total number of start to be shown.
+  /// The total number of stars to be shown.
   static let totalStars = 5
 
   /**
@@ -75,7 +75,7 @@ struct CosmosDefaultSettings {
   // -----------------------------
 
   
-  /// When true the star fill level is update when user touches the star view.
+  /// When true the star fill level is update when user touches the cosmos view.
   static let updateOnTouch = false
   
   /// The lowest rating that user can set by touching the stars.

@@ -173,7 +173,7 @@ Shows: ★★★★☆ (132)
   
   // MARK: - Touch recognition
   
-  /// Closure will be called when user touches the star view. The touch rating argument is passed to the closure.
+  /// Closure will be called when user touches the cosmos view. The touch rating argument is passed to the closure.
   public var touchedTheStar: ((Double)->())?
   
   /// Overriding the function to detect the first touch gesture.

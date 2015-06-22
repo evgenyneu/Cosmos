@@ -11,7 +11,7 @@ public struct CosmosSettings {
   // MARK: - Star settings
   // -----------------------------
   
-  /// The maximum number of start to be shown.
+  /// The maximum number of stars to be shown.
   public var totalStars = CosmosDefaultSettings.totalStars
   
   /**
@@ -59,7 +59,7 @@ public struct CosmosSettings {
   // -----------------------------
   
   
-  /// When true the star fill level is update when user touches the star view.
+  /// When true the star fill level is update when user touches the cosmos view.
   public var updateOnTouch = CosmosDefaultSettings.updateOnTouch
   
   /// The lowest rating that user can set by touching the stars.
