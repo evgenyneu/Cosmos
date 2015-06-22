@@ -41,7 +41,12 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 ## Usage
 
-1. Add `View` control into your storyboard. Set its class to `TegStarRatingView`.
+1.
+
+Add `View` control into your storyboard. Set its class to `CosmosView`. Set its *module* property to `Cosmos` if you did Carthage or Cocoapods setup.
+
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
+
 1. Add an outlet for this view in your view controller.
 1. Use `show` method to display rating:
 
