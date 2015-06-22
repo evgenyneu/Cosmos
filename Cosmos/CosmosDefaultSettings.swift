@@ -15,36 +15,36 @@ struct CosmosDefaultSettings {
   // -----------------------------
 
   
-  /// Raiting value that is shown in the storyboard by default.
-  static let rating: Double = 3.5
-  
-  /// The total number of stars to be shown.
-  static let totalStars = 5
-
-  /**
-
-  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
-
-  */
-  static let fillMode = StarFillMode.Half
-  
-  /// Distance between stars.
-  static let starMargin: Double = 5
-  
-  /// Size of the star.
-  static var starSize: Double = 20
-  
-  /// Filled star color
-  static let colorFilled = defaultColor
-  
-  /// Empty star color
-  static let colorEmpty = UIColor.clearColor()
-  
   /// Border color of an empty star.
   static let borderColorEmpty = defaultColor
   
   /// Width of the border for the empty star.
   static let borderWidthEmpty: Double = 1
+  
+  /// Background color of an empty star.
+  static let colorEmpty = UIColor.whiteColor()
+  
+  /// Background color of a filled star.
+  static let colorFilled = defaultColor
+  
+  /**
+
+  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+
+  */
+  static let fillMode = StarFillMode.Full
+  
+  /// Raiting value that is shown in the storyboard by default.
+  static let rating: Double = 3.5
+  
+  /// Distance between stars.
+  static let starMargin: Double = 5
+  
+  /// Size of a single star.
+  static var starSize: Double = 20
+
+  /// The total number of stars to be shown.
+  static let totalStars = 5
   
   
   // MARK: - Text settings

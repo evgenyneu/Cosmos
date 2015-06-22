@@ -11,12 +11,22 @@ public struct CosmosSettings {
   // MARK: - Star settings
   // -----------------------------
   
-  /// The maximum number of stars to be shown.
-  public var totalStars = CosmosDefaultSettings.totalStars
+  
+  /// Border color of an empty star.
+  public var borderColorEmpty = CosmosDefaultSettings.borderColorEmpty
+  
+  /// Width of the border for the empty star.
+  public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty
+
+  /// Background color of an empty star.
+  public var colorEmpty = CosmosDefaultSettings.colorEmpty
+  
+  /// Background color of a filled star.
+  public var colorFilled = CosmosDefaultSettings.colorFilled
   
   /**
   
-  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+  Defines how the star is filled when the rating value is not a whole integer. It can either show full stars, half stars or stars partially filled according to the rating value.
   
   */
   public var fillMode = CosmosDefaultSettings.fillMode
@@ -24,20 +34,11 @@ public struct CosmosSettings {
   /// Distance between stars.
   public var starMargin: Double = CosmosDefaultSettings.starMargin
   
-  /// Size of the star.
+  /// Size of a single star.
   public var starSize: Double = CosmosDefaultSettings.starSize
   
-  /// Filled star color
-  public var colorFilled = CosmosDefaultSettings.colorFilled
-  
-  /// Empty star color
-  public var colorEmpty = CosmosDefaultSettings.colorEmpty
-  
-  /// Border color of an empty star.
-  public var borderColorEmpty = CosmosDefaultSettings.borderColorEmpty
-  
-  /// Width of the border for the empty star.
-  public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty
+  /// The maximum number of stars to be shown.
+  public var totalStars = CosmosDefaultSettings.totalStars
   
   
   // MARK: - Text settings
