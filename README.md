@@ -53,7 +53,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 ## Using Cosmos in code
 
-You can also style and control the Cosmos view from your code by creating an outlet from the storyboard into your view controller or by creating a new instance of `CosmosView` class.
+You can also style and control the Cosmos view from your code by creating an outlet in your view controller or by creating a new instance of `CosmosView` class.
 
 ```Swift
 // Change the cosmos view rating
