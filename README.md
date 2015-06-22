@@ -8,10 +8,8 @@ This is a UI control for iOS for showing a 5-star rating or taking the rating in
 
 * Shows stars with optional text label.
 * Can be used as a rating input control.
-* Sizes, colors and margins are customizable.
-* Includes different star filling modes: full, half-filled and precise.
 * One can customize a cosmos view in the Storyboard without writing code.
-* Can be used in the Storyboard with Auto Layout.
+* Includes different star filling modes: full, half-filled and precise.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
   alt="Binary star system of Sirius A and Sirius B (artist's impression)" width='450'>
