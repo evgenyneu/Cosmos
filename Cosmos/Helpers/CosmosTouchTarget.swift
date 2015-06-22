@@ -6,7 +6,7 @@ Helper function to make sure bounds are big enought to be used as touch target.
 The function is used in pointInside(point: CGPoint, withEvent event: UIEvent?) of UIImageView.
 
 */
-struct StarTouchTarget {
+struct CosmosTouchTarget {
   static func optimize(bounds: CGRect) -> CGRect {
     let recommendedHitSize: CGFloat = 44
     

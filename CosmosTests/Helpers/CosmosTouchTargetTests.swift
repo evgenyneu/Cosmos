@@ -2,14 +2,14 @@ import UIKit
 import XCTest
 @testable import Cosmos
 
-class StarTouchTargetTests: XCTestCase {
+class CosmosTouchTargetTests: XCTestCase {
   func testIncreaseTheBounds() {
     let bounds = CGRect(
       origin: CGPoint(),
       size: CGSize(width: 30, height: 40)
     )
     
-    let result = StarTouchTarget.optimize(bounds)
+    let result = CosmosTouchTarget.optimize(bounds)
     
     XCTAssertEqual(result.width, 44)
     XCTAssertEqual(result.height, 44)
@@ -23,7 +23,7 @@ class StarTouchTargetTests: XCTestCase {
       size: CGSize(width: 50, height: 60)
     )
     
-    let result = StarTouchTarget.optimize(bounds)
+    let result = CosmosTouchTarget.optimize(bounds)
     
     XCTAssertEqual(result.width, 50)
     XCTAssertEqual(result.height, 60)

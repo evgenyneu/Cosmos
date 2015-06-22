@@ -230,7 +230,7 @@ Shows: ★★★★☆ (132)
   
   /// Increase the hitsize of the view if it's less than 44px for easier touching.
   override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    let oprimizedBounds = StarTouchTarget.optimize(bounds)
+    let oprimizedBounds = CosmosTouchTarget.optimize(bounds)
     return oprimizedBounds.contains(point)
   }
 }

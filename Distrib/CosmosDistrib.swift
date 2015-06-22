@@ -430,7 +430,7 @@ Shows: ★★★★☆ (132)
   
   /// Increase the hitsize of the view if it's less than 44px for easier touching.
   override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    let oprimizedBounds = StarTouchTarget.optimize(bounds)
+    let oprimizedBounds = CosmosTouchTarget.optimize(bounds)
     return oprimizedBounds.contains(point)
   }
 }
@@ -438,7 +438,7 @@ Shows: ★★★★☆ (132)
 
 // ----------------------------
 //
-// StarTouchTarget.swift
+// CosmosTouchTarget.swift
 //
 // ----------------------------
 
@@ -450,7 +450,7 @@ Helper function to make sure bounds are big enought to be used as touch target.
 The function is used in pointInside(point: CGPoint, withEvent event: UIEvent?) of UIImageView.
 
 */
-struct StarTouchTarget {
+struct CosmosTouchTarget {
   static func optimize(bounds: CGRect) -> CGRect {
     let recommendedHitSize: CGFloat = 44
     
