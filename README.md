@@ -43,7 +43,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 1. Add `import Cosmos` to your source code if you used Carthage or CocoaPods setup methods.
 
-2. Add `View` control into your storyboard. Set its class to `CosmosView`. Set its *module* property to `Cosmos` if you did Carthage or Cocoapods setup.
+2. Add `View` control into your storyboard. Set its class to `CosmosView`. Set its *module* property to `Cosmos` if you did Carthage or CocoaPods setup.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
 
