@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,37 +19,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Precise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE3-kT-Xhz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE3-kT-Xhz">
                                 <rect key="frame" x="272" y="191" width="56.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.48627450980392156" green="0.5607843137254902" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000476837158" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="kq7-em-h86">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000476837158" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="kq7-em-h86">
                                 <rect key="frame" x="18" y="344" width="564" height="31"/>
+                                <color key="tintColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="minimumTrackTintColor" red="0.13110154751471231" green="0.15358960386264187" blue="0.21540496084425187" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.34608103872005963" green="0.40544486811203001" blue="0.56862465781394889" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.69803921568627447" green="0.79607843137254897" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="onSliderChanged:" destination="sGD-SW-CeX" eventType="valueChanged" id="L78-bH-8a0"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-6T-bH2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-6T-bH2">
                                 <rect key="frame" x="279" y="316" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.48627450980392156" green="0.5607843137254902" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKg-Hv-taV">
                                 <rect key="frame" x="286" y="50" width="27" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.48627450980392156" green="0.5607843137254902" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Half" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-kd-8Ca">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Half" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-kd-8Ca">
                                 <rect key="frame" x="285" y="115" width="31" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.48627450980392156" green="0.5607843137254902" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-Q3-Dv1" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-Q3-Dv1" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="155" y="216" width="290" height="50"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -77,7 +82,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-pS-FV2" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-pS-FV2" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="223" y="75" width="154" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -87,21 +92,24 @@
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorEmpty">
-                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
-                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.43171505735378068" green="0.43171505735378068" blue="0.43171505735378068" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="0.61277707120000002" green="0.61277707120000002" blue="0.61277707120000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.89376183712121215" green="0.89376183712121215" blue="0.89376183712121215" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="(124)"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthEmpty">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j21-ho-3LA" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j21-ho-3LA" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="215" y="141" width="170" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -121,8 +129,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="veo-Fz-sdA">
+                                <rect key="frame" x="-60" y="424" width="540" height="454"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="veo-Fz-sdA" secondAttribute="height" multiplier="1603:1347" id="06v-lo-xjm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.040883680679999999" green="0.039581347230000001" blue="0.050820707069999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kq7-em-h86" secondAttribute="trailing" id="12Z-nr-ctD"/>
                             <constraint firstAttribute="centerX" secondItem="Zcm-Q3-Dv1" secondAttribute="centerX" id="2JY-vM-gal"/>
@@ -133,14 +147,18 @@
                             <constraint firstItem="kq7-em-h86" firstAttribute="leading" secondItem="Fer-fB-nQw" secondAttribute="leadingMargin" id="ISv-B8-9st"/>
                             <constraint firstItem="QMh-kd-8Ca" firstAttribute="top" secondItem="2tN-pS-FV2" secondAttribute="bottom" constant="20" id="MY4-bx-EFl"/>
                             <constraint firstAttribute="centerX" secondItem="lo6-6T-bH2" secondAttribute="centerX" id="NkV-6N-1zY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="veo-Fz-sdA" secondAttribute="trailing" constant="100" id="PfV-GC-wux"/>
                             <constraint firstItem="Zcm-Q3-Dv1" firstAttribute="top" secondItem="ZE3-kT-Xhz" secondAttribute="bottom" constant="5" id="Pl0-3p-ruO"/>
                             <constraint firstItem="ZE3-kT-Xhz" firstAttribute="top" secondItem="j21-ho-3LA" secondAttribute="bottom" constant="20" id="Uxv-lu-khP"/>
                             <constraint firstAttribute="centerX" secondItem="FKg-Hv-taV" secondAttribute="centerX" constant="1" id="VG1-XT-fWI"/>
                             <constraint firstItem="kq7-em-h86" firstAttribute="top" secondItem="lo6-6T-bH2" secondAttribute="bottom" constant="8" id="YM2-ue-NN2"/>
+                            <constraint firstItem="VPe-Ik-D8g" firstAttribute="top" secondItem="veo-Fz-sdA" secondAttribute="bottom" priority="250" constant="-40" id="ZdB-yB-r2j"/>
                             <constraint firstItem="FKg-Hv-taV" firstAttribute="top" secondItem="8EV-UE-Erj" secondAttribute="bottom" constant="30" id="cQe-C8-i2i"/>
                             <constraint firstAttribute="centerX" secondItem="2tN-pS-FV2" secondAttribute="centerX" id="ca9-cU-IDH"/>
                             <constraint firstAttribute="centerX" secondItem="ZE3-kT-Xhz" secondAttribute="centerX" id="mHN-58-4EF"/>
                             <constraint firstItem="lo6-6T-bH2" firstAttribute="top" secondItem="Zcm-Q3-Dv1" secondAttribute="bottom" constant="50" id="syf-G4-AXC"/>
+                            <constraint firstItem="veo-Fz-sdA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kq7-em-h86" secondAttribute="bottom" constant="50" id="ty6-yw-Ap8"/>
+                            <constraint firstItem="veo-Fz-sdA" firstAttribute="leading" secondItem="Fer-fB-nQw" secondAttribute="leadingMargin" constant="-80" id="xc1-HN-k9I"/>
                         </constraints>
                     </view>
                     <connections>
@@ -156,4 +174,7 @@
             <point key="canvasLocation" x="223" y="312"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch_screen.png" width="1603" height="1347"/>
+    </resources>
 </document>

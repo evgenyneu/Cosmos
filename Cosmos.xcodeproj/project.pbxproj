@@ -33,6 +33,7 @@
 		2B622F041B37BC6B0090D81B /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B622EAF1B37BAE50090D81B /* Cosmos.framework */; };
 		2B622F051B37BC6B0090D81B /* Cosmos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B622EAF1B37BAE50090D81B /* Cosmos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B622F0F1B37BE780090D81B /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */; };
+		7E4295551B38C70900C66E9F /* launch_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4295541B38C70900C66E9F /* launch_screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		2B622EFE1B37BC120090D81B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B622F021B37BC270090D81B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		7E4295541B38C70900C66E9F /* launch_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 		2B622EF11B37BC120090D81B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				7E4295531B38C6FF00C66E9F /* graphics */,
 				2B622EF21B37BC120090D81B /* AppDelegate.swift */,
 				2B622F021B37BC270090D81B /* ViewController.swift */,
 				2B622EF61B37BC120090D81B /* Main.storyboard */,
@@ -222,6 +225,14 @@
 				2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */,
 			);
 			path = Distrib;
+			sourceTree = "<group>";
+		};
+		7E4295531B38C6FF00C66E9F /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				7E4295541B38C70900C66E9F /* launch_screen.png */,
+			);
+			path = graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +387,7 @@
 			files = (
 				2B622EFD1B37BC120090D81B /* LaunchScreen.storyboard in Resources */,
 				2B622EFA1B37BC120090D81B /* Assets.xcassets in Resources */,
+				7E4295551B38C70900C66E9F /* launch_screen.png in Resources */,
 				2B622EF81B37BC120090D81B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
