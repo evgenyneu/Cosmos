@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-@testable import Star
+@testable import Cosmos
 
 class StarTouchTargetTests: XCTestCase {
   func testIncreaseTheBounds() {

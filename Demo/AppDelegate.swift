@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Demo
 //
-//  Created by Evgenii on 18/06/2015.
+//  Created by Evgenii Neumerzhitckii on 22/06/2015.
 //  Copyright © 2015 Marketplacer. All rights reserved.
 //
 

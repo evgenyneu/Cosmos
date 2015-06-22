@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E0C07561B32319000412D79"
+               BlueprintIdentifier = "2B622EAE1B37BAE50090D81B"
                BuildableName = "Cosmos.framework"
                BlueprintName = "Cosmos"
                ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E4F8C791B3253600070F074"
+               BlueprintIdentifier = "2B622F091B37BD960090D81B"
                BuildableName = "ConcatenateSwiftFiles"
                BlueprintName = "ConcatenateSwiftFiles"
                ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -40,14 +40,23 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2B622EB81B37BAE50090D81B"
+               BuildableName = "CosmosTests.xctest"
+               BlueprintName = "CosmosTests"
+               ReferencedContainer = "container:Cosmos.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07561B32319000412D79"
+            BlueprintIdentifier = "2B622EAE1B37BAE50090D81B"
             BuildableName = "Cosmos.framework"
             BlueprintName = "Cosmos"
             ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -69,7 +78,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07561B32319000412D79"
+            BlueprintIdentifier = "2B622EAE1B37BAE50090D81B"
             BuildableName = "Cosmos.framework"
             BlueprintName = "Cosmos"
             ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -87,7 +96,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07561B32319000412D79"
+            BlueprintIdentifier = "2B622EAE1B37BAE50090D81B"
             BuildableName = "Cosmos.framework"
             BlueprintName = "Cosmos"
             ReferencedContainer = "container:Cosmos.xcodeproj">

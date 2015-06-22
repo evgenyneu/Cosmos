@@ -1,5 +1,5 @@
 import XCTest
-@testable import Star
+@testable import Cosmos
 
 class StarTouchTests: XCTestCase {
   

@@ -1,3 +1,5 @@
+import UIKit
+
 /**
 
 Draws a star inside a layer

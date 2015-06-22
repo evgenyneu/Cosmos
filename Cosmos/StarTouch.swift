@@ -1,3 +1,5 @@
+import UIKit
+
 /**
 
 Functions for working with touch input.
@@ -35,9 +37,7 @@ struct StarTouch {
     correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars
     correctedRating = max(0, correctedRating) // Can't be less than zero
     correctedRating = max(settings.minTouchRating, correctedRating) // Can't be less than min rating
-    
-    print("rating: \(correctedRating)")
-    
+        
     return correctedRating
   }
 }

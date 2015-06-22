@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E0C07821B32378000412D79"
+               BlueprintIdentifier = "2B622EEF1B37BC120090D81B"
                BuildableName = "Demo.app"
                BlueprintName = "Demo"
                ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E4F8C791B3253600070F074"
+               BlueprintIdentifier = "2B622F091B37BD960090D81B"
                BuildableName = "ConcatenateSwiftFiles"
                BlueprintName = "ConcatenateSwiftFiles"
                ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -46,7 +46,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07821B32378000412D79"
+            BlueprintIdentifier = "2B622EEF1B37BC120090D81B"
             BuildableName = "Demo.app"
             BlueprintName = "Demo"
             ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -69,7 +69,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07821B32378000412D79"
+            BlueprintIdentifier = "2B622EEF1B37BC120090D81B"
             BuildableName = "Demo.app"
             BlueprintName = "Demo"
             ReferencedContainer = "container:Cosmos.xcodeproj">
@@ -88,7 +88,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07821B32378000412D79"
+            BlueprintIdentifier = "2B622EEF1B37BC120090D81B"
             BuildableName = "Demo.app"
             BlueprintName = "Demo"
             ReferencedContainer = "container:Cosmos.xcodeproj">

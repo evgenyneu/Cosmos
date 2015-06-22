@@ -1,5 +1,5 @@
 import UIKit
-import Star
+import Cosmos
 
 class ViewController: UIViewController {
   
