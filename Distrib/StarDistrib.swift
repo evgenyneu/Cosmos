@@ -794,6 +794,9 @@ Shows: ★★★★☆ (132)
     didSet { settings.updateOnTouch = updateOnTouch }
   }
   
+  @IBInspectable var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating {
+    didSet { settings.minTouchRating = minTouchRating }
+  }
   
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
