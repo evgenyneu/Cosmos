@@ -2,29 +2,37 @@ import UIKit
 
 /*
 
-A star rating view that can be used to show customer rating for the products. An optional text can be supplied that is shown to the right from the stars.
+A star rating view that can be used to show customer rating for the products. On can select number of stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown to the right from the stars.
 
 Example:
 
-   ratingView.show(rating: 4, text: "(132)")
+    ratingView.rating = 4
+    ratingView.text = "(123)"
 
-Displays: ★★★★☆ (132)
+Shows: ★★★★☆ (132)
 
 */
 @IBDesignable public class StarRatingView: UIView {
-  // MARK: Inspectable properties for storyboard
+  // MARK: - Inspectable properties for storyboard
   
-  var gestureRecognizer: UIGestureRecognizer?
+  /**
   
-  // Text that is currently being displayed
-  public var currentText: String?
-  
-  // Currently displayed rating
-  public var currentRating: Double = 0
-  
-  @IBInspectable var rating: Double = StarRatingDefaultSettings.rating {
-    didSet { currentRating = rating }
+  The currently shown number of stars, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
+
+  */
+  @IBInspectable public var rating: Double = StarRatingDefaultSettings.rating {
+    didSet {      
+      update()
+    }
   }
+  
+  /// Currently shown text. Set it to nil to display just the stars without text.
+  @IBInspectable public var text: String? {
+    didSet {
+      update()
+    }
+  }
+  
   
   @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
     didSet { settings.totalStars = totalStars }
@@ -62,10 +70,6 @@ Displays: ★★★★☆ (132)
     }
   }
   
-  @IBInspectable var text: String? {
-    didSet { currentText = text }
-  }
-  
   @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
     didSet {
       settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
@@ -88,31 +92,21 @@ Displays: ★★★★☆ (132)
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
-    show(rating: currentRating, text: currentText)
+    update()
   }
   
   /// Star rating settings.
   public var settings = StarRatingSettings()
   
-  /// Stores the size of the view. It is used as intrinsic content size.
+  /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
 
   /**
   
-  Creates sub-layers in the view that show the stars and the optional text.
-  
-  Example:
-  
-      ratingView.show(rating: 4.3, text: "(132)")
-  
-  - parameter rating: Number of stars to be shown, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
-  - parameter text: An optional text string that will be shown to the right from the stars.
+  Updates the stars and optional text based on current values of `rating` and `text` properties.
   
   */
-  public func show(rating rating: Double, text: String? = nil) {
-    currentRating = rating
-    currentText = text
-    
+  public func update() {
     // Create star layers
     // ------------
     
@@ -122,8 +116,8 @@ Displays: ★★★★☆ (132)
     // Create text layer
     // ------------
 
-    if let currentText = currentText {
-      let textLayer = createTextLayer(currentText, layers: layers)
+    if let text = text {
+      let textLayer = createTextLayer(text, layers: layers)
       layers.append(textLayer)
     }
     
@@ -209,10 +203,11 @@ Displays: ★★★★☆ (132)
   
   */
   func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
-    let rating = touchRating(locationX, starsWidth: starsWidth)
+    let calculatedTouchRating = touchRating(locationX, starsWidth: starsWidth)
     
     if settings.updateOnTouch {
-      show(rating: rating, text: currentText)
+      rating = calculatedTouchRating
+      update()
     }
     
     touchedTheStar?(rating)

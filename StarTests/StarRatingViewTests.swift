@@ -82,6 +82,15 @@ class StarTests: XCTestCase {
   
   // MARK: - On did touch
   
+  
+  func testOnDidTouch_updateCurrentRating() {
+    star.settings.updateOnTouch = true
+
+    star.onDidTouch(140, starsWidth: 400)
+    
+    XCTAssertEqual(2, star.currentRating)
+  }
+  
   func testOnDidTouch_updateTheStars() {
     star.settings.updateOnTouch = true
     XCTAssert(star.layer.sublayers == nil)
@@ -119,6 +128,7 @@ class StarTests: XCTestCase {
     
     let textLayer = star.layer.sublayers!.last as! CATextLayer
     XCTAssertEqual("🐋", textLayer.string as! String)
+    XCTAssertEqual("🐋", star.currentText!)
   }
 
 }
