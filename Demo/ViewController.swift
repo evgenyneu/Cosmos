@@ -17,9 +17,9 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     // Register touch handlers
-    cosmosViewFull.touchedTheStar = touchedTheStar
-    cosmosViewHalf.touchedTheStar = touchedTheStar
-    cosmosViewPrecise.touchedTheStar = touchedTheStar
+    cosmosViewFull.didTouchCosmos = touchedTheStar
+    cosmosViewHalf.didTouchCosmos = touchedTheStar
+    cosmosViewPrecise.didTouchCosmos = touchedTheStar
     
     ratingSlider.value = startRating
     updateRating()

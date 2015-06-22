@@ -57,21 +57,38 @@ You can also style and control the Cosmos view from your code by creating an out
 
 ```Swift
 // Change the cosmos view rating
-cosmosView.rating = 4
+view.rating = 4
 
 // Change the text
-cosmosView.text = "(123)"
+view.text = "(123)"
 
+// Receive user input
+view.didTouchCosmos = { rating in }
 ```
 
 
 ## Customization
 
-Customization can be made by changing `settings` properties. For example:
+One can customize cosmos from code by changing its `settings` properties.
 
-```
-ratingView.settings.starColorFilled = UIColor.blackColor()
-ratingView.settings.starFillMode = TegStarFillMode.Precise
+```Swift
+// Show only fully filled stars
+view.settings.fillMode = .Full
+
+// Change the size of the stars
+view.settings.starSize = 30
+
+// Set the distance between stars
+view.settings.starMargin = 5
+
+// Set the color of a filled star
+view.settings.colorFilled = UIColor.orangeColor()
+
+// Set the border color of an empty star
+view.settings.borderColorEmpty = UIColor.orangeColor()
+
+// Change the rating when the view is touched
+view.settings.updateOnTouch = true
 ```
 
 ## Demo app
