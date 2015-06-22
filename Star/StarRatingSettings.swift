@@ -69,7 +69,8 @@ public struct StarRatingSettings {
   /// When true the star fill level is update when user touches the star view.
   public var updateOnTouch = StarRatingDefaultSettings.updateOnTouch
   
-  
+  /// The lowest rating that user can set by touching the stars.
+  public var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating
   
   /**
   

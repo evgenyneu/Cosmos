@@ -58,7 +58,6 @@ Displays: ★★★★☆ (132)
   
   @IBInspectable var text: String? {
     didSet { settings.text = text }
-    
   }
   
   @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
@@ -73,6 +72,10 @@ Displays: ★★★★☆ (132)
   
   @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
     didSet { settings.textColor = textColor }
+  }
+  
+  @IBInspectable var updateOnTouch: Bool = StarRatingDefaultSettings.updateOnTouch {
+    didSet { settings.updateOnTouch = updateOnTouch }
   }
   
   
@@ -122,8 +125,6 @@ Displays: ★★★★☆ (132)
     // ------------
 
     updateSize(layers)
-    
-    
   }
   
   /**
@@ -169,47 +170,82 @@ Displays: ★★★★☆ (132)
   
   // MARK: - Touch recognition
   
+  /// Closure will be called when user touches the star view. The touch rating argument is passed to the closure.
   public var touchedTheStar: ((Double)->())?
   
-  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    super.touchesMoved(touches, withEvent: event)
-    
-    if let touch = touches.first {
-      onDidTouch(touch)
-    }
-  }
-  
+  /// Overriding the function to detect the first touch gesture.
   public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     super.touchesBegan(touches, withEvent: event)
     
     if let touch = touches.first {
-      onDidTouch(touch)
+      let location = touch.locationInView(self).x
+      onDidTouch(location, starsWidth: widthOfStars)
     }
   }
   
-  private func onDidTouch(touch: UITouch) {
-    let translation = touch.locationInView(self)
+  /// Overriding the function to detect touch move.
+  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesMoved(touches, withEvent: event)
     
+    if let touch = touches.first {
+      let location = touch.locationInView(self).x
+      onDidTouch(location, starsWidth: widthOfStars)
+    }
+  }
+
+  /**
+
+  Called when the view is touched.
+
+  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
+  
+  - parameter starsWidth: The width of the stars excluding the text.
+  
+  */
+  func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
+    let rating = touchRating(locationX, starsWidth: starsWidth)
     
+    if settings.updateOnTouch {
+      show(rating: rating)
+    }
+    
+    touchedTheStar?(rating)
+  }
+  
+  /**
+  
+  Calculates the rating based on the touch location.
+  
+  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
+  
+  - parameter starsWidth: The width of the stars excluding the text.
+  
+  - returns: The rating representing the touch location.
+  
+  */
+  func touchRating(locationX: CGFloat, starsWidth: CGFloat) -> Double {
+    let position = locationX / starsWidth
+    let actualRating = Double(settings.totalStars) * Double(position)
+    var correctedRating = actualRating
+    
+    if settings.fillMode != .Precise {
+      correctedRating += 0.25
+    }
+    
+    return correctedRating
+  }
+  
+  /// Width of the stars (excluding the text). Used for calculating touch location.
+  var widthOfStars: CGFloat {
     if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
       let starLayers = Array(sublayers[0..<settings.totalStars])
-      let size = StarRatingSize.calculateSizeToFitLayers(starLayers)
-      
-      let position = translation.x / size.width
-      let actualRating = Double(settings.totalStars) * Double(position)
-      var correctedRating: Double = actualRating
-      
-      if settings.fillMode != .Precise {
-        correctedRating += 0.25
-      }
-      
-      show(rating: correctedRating)
-      
-      touchedTheStar?(correctedRating)
+      return StarRatingSize.calculateSizeToFitLayers(starLayers).width
     }
+    
+    return 0
   }
   
-  /// Increase the hitsize of the view if it's less than 44px for easier tapping.
+  /// Increase the hitsize of the view if it's less than 44px for easier touching.
   override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
     let oprimizedBounds = StarTouchTarget.optimize(bounds)
     return oprimizedBounds.contains(point)

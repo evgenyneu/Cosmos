@@ -47,4 +47,56 @@ class StarTests: XCTestCase {
     //   + fontSize.width (width of text)
     XCTAssertEqual(66 + 8 + textSize.width, size.width)
   }
+  
+  // MARK: - Touch rating
+  
+  func testTouchRating_full() {
+    star.settings.fillMode = .Full
+    let result = star.touchRating(200, starsWidth: 500)
+    XCTAssertEqual(2.25, result)
+  }
+  
+  func testTouchRating_half() {
+    star.settings.fillMode = .Half
+    let result = star.touchRating(200, starsWidth: 500)
+    XCTAssertEqual(2.25, result)
+  }
+  
+  func testTouchRating_precise() {
+    star.settings.fillMode = .Precise
+    let result = star.touchRating(200, starsWidth: 500)
+    XCTAssertEqual(2, result)
+  }
+  
+  // MARK: - On did touch
+  
+  func testOnDidTouch_updateTheStars() {
+    star.settings.updateOnTouch = true
+    XCTAssert(star.layer.sublayers == nil)
+
+    star.onDidTouch(200, starsWidth: 500)
+
+    XCTAssertEqual(5, star.layer.sublayers!.count)
+  }
+  
+  func testOnDidTouch_doNotUpdateOnTouch() {
+    star.settings.updateOnTouch = false
+    
+    star.onDidTouch(200, starsWidth: 500)
+    
+    XCTAssert(star.layer.sublayers == nil)
+  }
+  
+  func testOnDidTouch_executeTheCallback() {
+    var callbackRating: Double?
+    
+    star.touchedTheStar = { rating in
+      callbackRating = rating
+    }
+    
+    star.onDidTouch(200, starsWidth: 500)
+    
+    XCTAssertEqual(2.25, callbackRating!)
+  }
+
 }

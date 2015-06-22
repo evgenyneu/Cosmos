@@ -77,6 +77,9 @@ struct StarRatingDefaultSettings {
   /// When true the star fill level is update when user touches the star view.
   static let updateOnTouch = false
   
+  /// The lowest rating that user can set by touching the stars.
+  static let minTouchRating: Double = 1
+  
   /**
   
   Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
