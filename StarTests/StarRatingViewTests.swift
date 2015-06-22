@@ -17,7 +17,7 @@ class StarTests: XCTestCase {
     star.settings.starSize = 10
     star.settings.starMargin = 4
 
-    star.show(rating: 4)
+    star.rating = 4
     
     let size = star.intrinsicContentSize()
     
@@ -35,7 +35,8 @@ class StarTests: XCTestCase {
     star.settings.textFont = UIFont.systemFontOfSize(15)
     star.settings.textMargin = 8
     
-    star.show(rating: 4, text: "123")
+    star.rating = 4
+    star.text = "123"
     
     let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(15)]
     let textSize = NSString(string: "123").sizeWithAttributes(sizeAttributes)
@@ -47,19 +48,8 @@ class StarTests: XCTestCase {
     //   + fontSize.width (width of text)
     XCTAssertEqual(66 + 8 + textSize.width, size.width)
   }
-  
-  func testShowUpdateCurrentRating() {
-    star.show(rating: 2.13)
-    
-    XCTAssertEqual(2.13, star.currentRating)
-  }
-  
-  func testShowUpdateCurrentText() {
-    star.show(rating: 2.13, text: "🐝")
-    
-    XCTAssertEqual("🐝", star.currentText!)
-  }
-  
+
+
   // MARK: - Touch rating
   
   func testTouchRating_full() {
@@ -67,19 +57,19 @@ class StarTests: XCTestCase {
     let result = star.touchRating(200, starsWidth: 500)
     XCTAssertEqual(2.25, result)
   }
-  
+
   func testTouchRating_half() {
     star.settings.fillMode = .Half
     let result = star.touchRating(200, starsWidth: 500)
     XCTAssertEqual(2.25, result)
   }
-  
+
   func testTouchRating_precise() {
     star.settings.fillMode = .Precise
     let result = star.touchRating(200, starsWidth: 500)
     XCTAssertEqual(2, result)
   }
-  
+
   // MARK: - On did touch
   
   
@@ -88,26 +78,27 @@ class StarTests: XCTestCase {
 
     star.onDidTouch(140, starsWidth: 400)
     
-    XCTAssertEqual(2, star.currentRating)
+    XCTAssertEqual(2, star.rating)
   }
-  
+
   func testOnDidTouch_updateTheStars() {
+    star.rating = 0
     star.settings.updateOnTouch = true
-    XCTAssert(star.layer.sublayers == nil)
 
     star.onDidTouch(200, starsWidth: 500)
 
-    XCTAssertEqual(5, star.layer.sublayers!.count)
+    XCTAssertEqual(2.25, star.rating)
   }
-  
+
   func testOnDidTouch_doNotUpdateOnTouch() {
+    star.rating = 0
     star.settings.updateOnTouch = false
     
     star.onDidTouch(200, starsWidth: 500)
     
-    XCTAssert(star.layer.sublayers == nil)
+    XCTAssertEqual(0, star.rating)
   }
-  
+
   func testOnDidTouch_executeTheCallback() {
     var callbackRating: Double?
     
@@ -119,16 +110,4 @@ class StarTests: XCTestCase {
     
     XCTAssertEqual(2.25, callbackRating!)
   }
-  
-  func testOnDidTouch_keepShowingTheText() {
-    star.show(rating: 4, text: "🐋")
-   
-    star.settings.updateOnTouch = true
-    star.onDidTouch(200, starsWidth: 500)
-    
-    let textLayer = star.layer.sublayers!.last as! CATextLayer
-    XCTAssertEqual("🐋", textLayer.string as! String)
-    XCTAssertEqual("🐋", star.currentText!)
-  }
-
 }

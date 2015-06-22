@@ -210,7 +210,7 @@ Shows: ★★★★☆ (132)
       update()
     }
     
-    touchedTheStar?(rating)
+    touchedTheStar?(calculatedTouchRating)
   }
   
   /**
