@@ -70,7 +70,7 @@ class CosmosLayers {
   - returns: Array of star layers.
   
   */
-  class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
+  class func createStarLayers(rating: Double, settings: CosmosSettings) -> [CALayer] {
 
     var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.totalStars)
 
@@ -98,7 +98,7 @@ class CosmosLayers {
   - returns: Layer that shows the star. The layer is displauyed in the star view.
   
   */
-  class func createCompositeStarLayer(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
+  class func createCompositeStarLayer(starFillLevel: Double, settings: CosmosSettings) -> CALayer {
 
     if starFillLevel >= 1 {
       return createStarLayer(true, settings: settings)
@@ -124,7 +124,7 @@ class CosmosLayers {
   - returns: Layer that contains the partially filled star.
   
   */
-  class func createPartialStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
+  class func createPartialStar(starFillLevel: Double, settings: CosmosSettings) -> CALayer {
     let filledStar = createStarLayer(true, settings: settings)
     let emptyStar = createStarLayer(false, settings: settings)
 
@@ -185,7 +185,7 @@ class CosmosLayers {
     }
   }
 
-  private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
+  private class func createStarLayer(isFilled: Bool, settings: CosmosSettings) -> CALayer {
     let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
     let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
 
@@ -228,6 +228,88 @@ class CosmosLayers {
       positionX += layer.bounds.width + CGFloat(starMargin)
     }
   }
+}
+
+
+// ----------------------------
+//
+// CosmosSettings.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Settings that define the appearance of the star rating views.
+
+*/
+public struct CosmosSettings {
+  init() {}
+  
+  // MARK: - Star settings
+  // -----------------------------
+  
+  /// The maximum number of start to be shown.
+  public var totalStars = StarRatingDefaultSettings.totalStars
+  
+  /**
+  
+  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+  
+  */
+  public var fillMode = StarRatingDefaultSettings.fillMode
+  
+  /// Distance between stars.
+  public var starMargin: Double = StarRatingDefaultSettings.starMargin
+  
+  /// Size of the star.
+  public var starSize: Double = StarRatingDefaultSettings.starSize
+  
+  /// Filled star color
+  public var colorFilled = StarRatingDefaultSettings.colorFilled
+  
+  /// Empty star color
+  public var colorEmpty = StarRatingDefaultSettings.colorEmpty
+  
+  /// Border color of an empty star.
+  public var borderColorEmpty = StarRatingDefaultSettings.borderColorEmpty
+  
+  /// Width of the border for the empty star.
+  public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
+  
+  
+  // MARK: - Text settings
+  // -----------------------------
+  
+  
+  /// Font for the text
+  public var textFont = StarRatingDefaultSettings.textFont
+  
+  /// Color of the text
+  public var textColor = StarRatingDefaultSettings.textColor
+  
+  
+  /// Distance between the text and the star
+  public var textMargin: Double = StarRatingDefaultSettings.textMargin
+  
+  
+  // MARK: - Touch settings
+  // -----------------------------
+  
+  
+  /// When true the star fill level is update when user touches the star view.
+  public var updateOnTouch = StarRatingDefaultSettings.updateOnTouch
+  
+  /// The lowest rating that user can set by touching the stars.
+  public var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating
+  
+  /**
+  
+  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
+  
+  */
+  public var starPoints: [CGPoint] = StarRatingDefaultSettings.starPoints
 }
 
 
@@ -371,7 +453,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Star rating settings.
-  public var settings = StarRatingSettings()
+  public var settings = CosmosSettings()
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
@@ -828,88 +910,6 @@ struct StarRatingDefaultSettings {
 
 // ----------------------------
 //
-// StarRatingSettings.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
-
-Settings that define the appearance of the star rating views.
-
-*/
-public struct StarRatingSettings {
-  init() {}
-  
-  // MARK: - Star settings
-  // -----------------------------
-  
-  /// The maximum number of start to be shown.
-  public var totalStars = StarRatingDefaultSettings.totalStars
-  
-  /**
-  
-  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
-  
-  */
-  public var fillMode = StarRatingDefaultSettings.fillMode
-  
-  /// Distance between stars.
-  public var starMargin: Double = StarRatingDefaultSettings.starMargin
-  
-  /// Size of the star.
-  public var starSize: Double = StarRatingDefaultSettings.starSize
-  
-  /// Filled star color
-  public var colorFilled = StarRatingDefaultSettings.colorFilled
-  
-  /// Empty star color
-  public var colorEmpty = StarRatingDefaultSettings.colorEmpty
-  
-  /// Border color of an empty star.
-  public var borderColorEmpty = StarRatingDefaultSettings.borderColorEmpty
-  
-  /// Width of the border for the empty star.
-  public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
-  
-  
-  // MARK: - Text settings
-  // -----------------------------
-  
-  
-  /// Font for the text
-  public var textFont = StarRatingDefaultSettings.textFont
-  
-  /// Color of the text
-  public var textColor = StarRatingDefaultSettings.textColor
-  
-  
-  /// Distance between the text and the star
-  public var textMargin: Double = StarRatingDefaultSettings.textMargin
-  
-  
-  // MARK: - Touch settings
-  // -----------------------------
-  
-  
-  /// When true the star fill level is update when user touches the star view.
-  public var updateOnTouch = StarRatingDefaultSettings.updateOnTouch
-  
-  /// The lowest rating that user can set by touching the stars.
-  public var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating
-  
-  /**
-  
-  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
-  
-  */
-  public var starPoints: [CGPoint] = StarRatingDefaultSettings.starPoints
-}
-
-
-// ----------------------------
-//
 // StarRatingSize.swift
 //
 // ----------------------------
@@ -970,7 +970,7 @@ struct StarTouch {
   - returns: The rating representing the touch location.
   
   */
-  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: StarRatingSettings) -> Double {
+  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: CosmosSettings) -> Double {
       
     let position = locationX / starsWidth
     let totalStars = Double(settings.totalStars)

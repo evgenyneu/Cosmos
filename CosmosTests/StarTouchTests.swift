@@ -5,7 +5,7 @@ class StarTouchTests: XCTestCase {
   // MARK: - Touch rating
   
   func testTouchRating_full() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     settings.fillMode = .Full
     settings.minTouchRating = 0
     let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
@@ -13,7 +13,7 @@ class StarTouchTests: XCTestCase {
   }
   
   func testTouchRating_fullWithMoreStars() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
 
     settings.fillMode = .Full
     settings.totalStars = 500
@@ -24,7 +24,7 @@ class StarTouchTests: XCTestCase {
   }
 
   func testTouchRating_biggerThanWidth() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     
     settings.fillMode = .Full
     settings.minTouchRating = 0
@@ -34,7 +34,7 @@ class StarTouchTests: XCTestCase {
   }
 
   func testTouchRating_lessThanWidth() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     
     settings.fillMode = .Full
     settings.minTouchRating = 0
@@ -44,7 +44,7 @@ class StarTouchTests: XCTestCase {
   }
 
   func testTouchRating_half() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     
     settings.fillMode = .Half
     settings.minTouchRating = 0
@@ -54,7 +54,7 @@ class StarTouchTests: XCTestCase {
   }
 
   func testTouchRating_precise() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     
     settings.fillMode = .Precise
     settings.minTouchRating = 0
@@ -64,7 +64,7 @@ class StarTouchTests: XCTestCase {
   }
 
   func testTouchRating_minRating() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     
     settings.fillMode = .Precise
     settings.minTouchRating = 1.1

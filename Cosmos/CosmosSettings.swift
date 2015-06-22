@@ -5,7 +5,7 @@ import UIKit
 Settings that define the appearance of the star rating views.
 
 */
-public struct StarRatingSettings {
+public struct CosmosSettings {
   init() {}
   
   // MARK: - Star settings

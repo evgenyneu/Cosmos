@@ -99,7 +99,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Star rating settings.
-  public var settings = StarRatingSettings()
+  public var settings = CosmosSettings()
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()

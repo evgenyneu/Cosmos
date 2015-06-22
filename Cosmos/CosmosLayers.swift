@@ -16,7 +16,7 @@ class CosmosLayers {
   - returns: Array of star layers.
   
   */
-  class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
+  class func createStarLayers(rating: Double, settings: CosmosSettings) -> [CALayer] {
 
     var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.totalStars)
 
@@ -44,7 +44,7 @@ class CosmosLayers {
   - returns: Layer that shows the star. The layer is displauyed in the star view.
   
   */
-  class func createCompositeStarLayer(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
+  class func createCompositeStarLayer(starFillLevel: Double, settings: CosmosSettings) -> CALayer {
 
     if starFillLevel >= 1 {
       return createStarLayer(true, settings: settings)
@@ -70,7 +70,7 @@ class CosmosLayers {
   - returns: Layer that contains the partially filled star.
   
   */
-  class func createPartialStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
+  class func createPartialStar(starFillLevel: Double, settings: CosmosSettings) -> CALayer {
     let filledStar = createStarLayer(true, settings: settings)
     let emptyStar = createStarLayer(false, settings: settings)
 
@@ -131,7 +131,7 @@ class CosmosLayers {
     }
   }
 
-  private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
+  private class func createStarLayer(isFilled: Bool, settings: CosmosSettings) -> CALayer {
     let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
     let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
 

@@ -17,7 +17,7 @@ struct StarTouch {
   - returns: The rating representing the touch location.
   
   */
-  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: StarRatingSettings) -> Double {
+  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: CosmosSettings) -> Double {
       
     let position = locationX / starsWidth
     let totalStars = Double(settings.totalStars)

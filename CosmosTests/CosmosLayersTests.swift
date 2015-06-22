@@ -76,7 +76,7 @@ class CosmosLayersTests: XCTestCase {
   // MARK: - Create partially filled star
   
   func testCreatePartiallyFilledStar_verifyTextAndStyles() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     settings.starSize = 19
     settings.colorEmpty = UIColor.purpleColor()
     settings.borderColorEmpty = UIColor.blueColor()
@@ -127,7 +127,7 @@ class CosmosLayersTests: XCTestCase {
   // MARK: - Create composite star layer
   
   func testCreateCompositeStarLayer_fullStar() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     settings.starSize = 12
     settings.colorFilled = UIColor.yellowColor()
     
@@ -150,7 +150,7 @@ class CosmosLayersTests: XCTestCase {
   }
 
   func testCreateCompositeStarLayer_emptyStar() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     settings.starSize = 61
     settings.colorEmpty = UIColor.purpleColor()
     settings.borderColorEmpty = UIColor.blueColor()
@@ -176,7 +176,7 @@ class CosmosLayersTests: XCTestCase {
   }
 
   func testCreateCompositeStarLayer_partiallyFilled() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     settings.starSize = 14
     settings.colorEmpty = UIColor.purpleColor()
     settings.borderColorEmpty = UIColor.blueColor()
@@ -228,7 +228,7 @@ class CosmosLayersTests: XCTestCase {
   // MARK: - Create star layers 
   
   func testCreateStarLayers() {
-    var settings = StarRatingSettings()
+    var settings = CosmosSettings()
     settings.starSize = 17
     settings.starMargin = 5
     settings.totalStars = 100 // Crazy, huh? But still way less than 100,000,000,000 to 400,000,000,000 stars in our Milky Way galaxy. 🌌

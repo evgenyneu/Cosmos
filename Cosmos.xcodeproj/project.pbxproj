@@ -15,7 +15,7 @@
 		2B622ED61B37BB700090D81B /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECC1B37BB700090D81B /* StarLayer.swift */; };
 		2B622ED71B37BB700090D81B /* CosmosText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECD1B37BB700090D81B /* CosmosText.swift */; };
 		2B622ED81B37BB700090D81B /* CosmosLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECE1B37BB700090D81B /* CosmosLayerHelper.swift */; };
-		2B622ED91B37BB700090D81B /* StarRatingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECF1B37BB700090D81B /* StarRatingSettings.swift */; };
+		2B622ED91B37BB700090D81B /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECF1B37BB700090D81B /* CosmosSettings.swift */; };
 		2B622EDA1B37BB700090D81B /* StarRatingDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED01B37BB700090D81B /* StarRatingDefaultSettings.swift */; };
 		2B622EDB1B37BB700090D81B /* StarRatingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED11B37BB700090D81B /* StarRatingSize.swift */; };
 		2B622EDC1B37BB700090D81B /* StarTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED21B37BB700090D81B /* StarTouch.swift */; };
@@ -78,7 +78,7 @@
 		2B622ECC1B37BB700090D81B /* StarLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarLayer.swift; sourceTree = "<group>"; };
 		2B622ECD1B37BB700090D81B /* CosmosText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosText.swift; sourceTree = "<group>"; };
 		2B622ECE1B37BB700090D81B /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayerHelper.swift; sourceTree = "<group>"; };
-		2B622ECF1B37BB700090D81B /* StarRatingSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingSettings.swift; sourceTree = "<group>"; };
+		2B622ECF1B37BB700090D81B /* CosmosSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettings.swift; sourceTree = "<group>"; };
 		2B622ED01B37BB700090D81B /* StarRatingDefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingDefaultSettings.swift; sourceTree = "<group>"; };
 		2B622ED11B37BB700090D81B /* StarRatingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingSize.swift; sourceTree = "<group>"; };
 		2B622ED21B37BB700090D81B /* StarTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouch.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				2B622ECC1B37BB700090D81B /* StarLayer.swift */,
 				2B622ECD1B37BB700090D81B /* CosmosText.swift */,
 				2B622ECE1B37BB700090D81B /* CosmosLayerHelper.swift */,
-				2B622ECF1B37BB700090D81B /* StarRatingSettings.swift */,
+				2B622ECF1B37BB700090D81B /* CosmosSettings.swift */,
 				2B622ED01B37BB700090D81B /* StarRatingDefaultSettings.swift */,
 				2B622ED11B37BB700090D81B /* StarRatingSize.swift */,
 				2B622ED21B37BB700090D81B /* StarTouch.swift */,
@@ -388,7 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B622ED81B37BB700090D81B /* CosmosLayerHelper.swift in Sources */,
-				2B622ED91B37BB700090D81B /* StarRatingSettings.swift in Sources */,
+				2B622ED91B37BB700090D81B /* CosmosSettings.swift in Sources */,
 				2B622ED31B37BB700090D81B /* CosmosLayers.swift in Sources */,
 				2B622ED61B37BB700090D81B /* StarLayer.swift in Sources */,
 				2B622EDF1B37BB850090D81B /* CosmosTouchTarget.swift in Sources */,
