@@ -194,6 +194,39 @@ class CosmosLayers {
 
 // ----------------------------
 //
+// CosmosText.swift
+//
+// ----------------------------
+
+
+
+import UIKit
+
+/**
+
+Positions the text layer to the right of the stars.
+
+*/
+class CosmosText {
+  /**
+  
+  Positions the text layer to the right from the stars. Text is aligned to the center of the star superview vertically.
+  
+  - parameter layer: The text layer to be positioned.
+  - parameter starsSize: The size of the star superview.
+  - parameter textMargin: The distance between the stars and the text.
+  
+  */
+  class func position(layer: CALayer, starsSize: CGSize, textMargin: Double) {
+    layer.position.x = starsSize.width + CGFloat(textMargin)
+    let yOffset = (starsSize.height - layer.bounds.height) / 2
+    layer.position.y = yOffset
+  }
+}
+
+
+// ----------------------------
+//
 // CosmosView.swift
 //
 // ----------------------------
@@ -346,7 +379,7 @@ Shows: ★★★★☆ (132)
     
     let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
     
-    StarRatingText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
+    CosmosText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
     
     layer.addSublayer(textLayer)
     
@@ -504,7 +537,7 @@ import UIKit
 
 /**
 
-Draws a star inside a layer
+Creates a layer with a single star in it.
 
 */
 struct StarLayer {
@@ -908,39 +941,6 @@ class StarRatingSize {
     }
     
     return size
-  }
-}
-
-
-// ----------------------------
-//
-// StarRatingText.swift
-//
-// ----------------------------
-
-
-
-import UIKit
-
-/**
-
-Positions the text layer to the right of the stars.
-
-*/
-class StarRatingText {
-  /**
-  
-  Positions the text layer to the right from the stars. Text is aligned to the center of the star superview vertically.
-  
-  - parameter layer: The text layer to be positioned.
-  - parameter starsSize: The size of the star superview.
-  - parameter textMargin: The distance between the stars and the text.
-  
-  */
-  class func position(layer: CALayer, starsSize: CGSize, textMargin: Double) {
-    layer.position.x = starsSize.width + CGFloat(textMargin)
-    let yOffset = (starsSize.height - layer.bounds.height) / 2
-    layer.position.y = yOffset
   }
 }
 

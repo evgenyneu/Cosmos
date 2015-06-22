@@ -7,7 +7,7 @@ import UIKit
 Positions the text layer to the right of the stars.
 
 */
-class StarRatingText {
+class CosmosText {
   /**
   
   Positions the text layer to the right from the stars. Text is aligned to the center of the star superview vertically.

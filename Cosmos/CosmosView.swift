@@ -146,7 +146,7 @@ Shows: ★★★★☆ (132)
     
     let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
     
-    StarRatingText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
+    CosmosText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
     
     layer.addSublayer(textLayer)
     

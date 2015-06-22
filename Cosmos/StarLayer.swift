@@ -2,7 +2,7 @@ import UIKit
 
 /**
 
-Draws a star inside a layer
+Creates a layer with a single star in it.
 
 */
 struct StarLayer {
