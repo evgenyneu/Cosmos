@@ -51,12 +51,19 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/cosmos_customize_in_storyboard.png' width='480' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
 
-1. Add an outlet for this view in your view controller.
-1. Use `show` method to display rating:
+## Using Cosmos in code
+
+You can also style and control the Cosmos view from your code by creating an outlet from the storyboard into your view controller. You can also instantiate a `CosmosView` in code without using the storyboard.
+
+```Swift
+// Change the cosmos view rating
+cosmosView.rating = 4
+
+// Change the text
+cosmosView.text = "(123)"
 
 ```
-ratingView.show(rating: 4, text: "(132)")
-```
+
 
 ## Customization
 
