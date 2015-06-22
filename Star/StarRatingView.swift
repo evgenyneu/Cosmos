@@ -203,7 +203,8 @@ Shows: ★★★★☆ (132)
   
   */
   func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
-    let calculatedTouchRating = touchRating(locationX, starsWidth: starsWidth)
+    let calculatedTouchRating = StarTouch.touchRating(locationX, starsWidth: starsWidth,
+      settings: settings)
     
     if settings.updateOnTouch {
       rating = calculatedTouchRating
@@ -213,28 +214,6 @@ Shows: ★★★★☆ (132)
     touchedTheStar?(calculatedTouchRating)
   }
   
-  /**
-  
-  Calculates the rating based on the touch location.
-  
-  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
-  
-  - parameter starsWidth: The width of the stars excluding the text.
-  
-  - returns: The rating representing the touch location.
-  
-  */
-  func touchRating(locationX: CGFloat, starsWidth: CGFloat) -> Double {
-    let position = locationX / starsWidth
-    let actualRating = Double(settings.totalStars) * Double(position)
-    var correctedRating = actualRating
-    
-    if settings.fillMode != .Precise {
-      correctedRating += 0.25
-    }
-    
-    return correctedRating
-  }
   
   /// Width of the stars (excluding the text). Used for calculating touch location.
   var widthOfStars: CGFloat {

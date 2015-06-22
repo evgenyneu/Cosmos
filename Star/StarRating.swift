@@ -104,17 +104,31 @@ class StarRating {
     
     if result > 1 { result = 1 }
     if result < 0 { result = 0 }
-      
+    
+    return roundFillLevel(result, fillMode: fillMode)
+  }
+  
+  
+  /**
+  
+  Rounds a single star's fill level according to the fill mode. "Full" mode returns 0 or 1 by using the standard decimal rounding. "Half" mode returns 0, 0.5 or 1 by rounding the decimal to closest of 3 values. "Precise" mode will return the fill level unchanged.
+  
+  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
+  
+  - parameter fillMode: Fill mode that is used to round the fill level value.
+  
+  - returns: The rounded fill level.
+  
+  */
+  class func roundFillLevel(starFillLevel: Double, fillMode: StarFillMode) -> Double {
     switch fillMode {
     case .Full:
-       result = Double(round(result))
+      return Double(round(starFillLevel))
     case .Half:
-      result = Double(round(result * 2) / 2)
+      return Double(round(starFillLevel * 2) / 2)
     case .Precise :
-      let _ = "rating is very pecise"
+      return starFillLevel
     }
-    
-    return result
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {

@@ -326,17 +326,31 @@ class StarRating {
     
     if result > 1 { result = 1 }
     if result < 0 { result = 0 }
-      
+    
+    return roundFillLevel(result, fillMode: fillMode)
+  }
+  
+  
+  /**
+  
+  Rounds a single star's fill level according to the fill mode. "Full" mode returns 0 or 1 by using the standard decimal rounding. "Half" mode returns 0, 0.5 or 1 by rounding the decimal to closest of 3 values. "Precise" mode will return the fill level unchanged.
+  
+  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
+  
+  - parameter fillMode: Fill mode that is used to round the fill level value.
+  
+  - returns: The rounded fill level.
+  
+  */
+  class func roundFillLevel(starFillLevel: Double, fillMode: StarFillMode) -> Double {
     switch fillMode {
     case .Full:
-       result = Double(round(result))
+      return Double(round(starFillLevel))
     case .Half:
-      result = Double(round(result * 2) / 2)
+      return Double(round(starFillLevel * 2) / 2)
     case .Precise :
-      let _ = "rating is very pecise"
+      return starFillLevel
     }
-    
-    return result
   }
 
   private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
@@ -694,19 +708,18 @@ import UIKit
 
 /*
 
-A star rating view that can be used to show customer rating for the products. An optional text can be supplied that is shown to the right from the stars.
+A star rating view that can be used to show customer rating for the products. On can select number of stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown to the right from the stars.
 
 Example:
 
-   ratingView.show(rating: 4, text: "(132)")
+    ratingView.rating = 4
+    ratingView.text = "(123)"
 
-Displays: ★★★★☆ (132)
+Shows: ★★★★☆ (132)
 
 */
 @IBDesignable public class StarRatingView: UIView {
-  // MARK: Inspectable properties for storyboard
-  
-  var gestureRecognizer: UIGestureRecognizer?
+  // MARK: - Inspectable properties for storyboard
   
   /**
   
@@ -791,17 +804,15 @@ Displays: ★★★★☆ (132)
   /// Star rating settings.
   public var settings = StarRatingSettings()
   
-  /// Stores the size of the view. It is used as intrinsic content size.
+  /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
 
   /**
   
-  Updates the stars and optional text.
+  Updates the stars and optional text based on current values of `rating` and `text` properties.
   
   */
   public func update() {
-    print("!!!!!!!!! drawing")
-    
     // Create star layers
     // ------------
     
@@ -898,38 +909,17 @@ Displays: ★★★★☆ (132)
   
   */
   func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
-    let calculatedTouchRating = touchRating(locationX, starsWidth: starsWidth)
+    let calculatedTouchRating = StarTouch.touchRating(locationX, starsWidth: starsWidth,
+      settings: settings)
     
     if settings.updateOnTouch {
       rating = calculatedTouchRating
       update()
     }
     
-    touchedTheStar?(rating)
+    touchedTheStar?(calculatedTouchRating)
   }
   
-  /**
-  
-  Calculates the rating based on the touch location.
-  
-  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
-  
-  - parameter starsWidth: The width of the stars excluding the text.
-  
-  - returns: The rating representing the touch location.
-  
-  */
-  func touchRating(locationX: CGFloat, starsWidth: CGFloat) -> Double {
-    let position = locationX / starsWidth
-    let actualRating = Double(settings.totalStars) * Double(position)
-    var correctedRating = actualRating
-    
-    if settings.fillMode != .Precise {
-      correctedRating += 0.25
-    }
-    
-    return correctedRating
-  }
   
   /// Width of the stars (excluding the text). Used for calculating touch location.
   var widthOfStars: CGFloat {
@@ -945,6 +935,52 @@ Displays: ★★★★☆ (132)
   override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
     let oprimizedBounds = StarTouchTarget.optimize(bounds)
     return oprimizedBounds.contains(point)
+  }
+}
+
+
+// ----------------------------
+//
+// StarTouch.swift
+//
+// ----------------------------
+
+/**
+
+Functions for working with touch input.
+
+*/
+struct StarTouch {
+  /**
+  
+  Calculates the rating based on the touch location.
+  
+  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
+  
+  - parameter starsWidth: The width of the stars excluding the text.
+  
+  - returns: The rating representing the touch location.
+  
+  */
+  static func touchRating(locationX: CGFloat, starsWidth: CGFloat,
+    settings: StarRatingSettings) -> Double {
+      
+    let position = locationX / starsWidth
+    let totalStars = Double(settings.totalStars)
+    let actualRating = totalStars * Double(position)
+    var correctedRating = actualRating
+    
+    if settings.fillMode != .Precise {
+      correctedRating += 0.25
+    }
+    
+    correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars
+    correctedRating = max(0, correctedRating) // Can't be less than zero
+    correctedRating = max(settings.minTouchRating, correctedRating) // Can't be less than min rating
+    
+    print("rating: \(correctedRating)")
+    
+    return correctedRating
   }
 }
 

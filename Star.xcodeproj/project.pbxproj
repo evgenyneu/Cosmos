@@ -13,6 +13,8 @@
 		2BE82F6B1B32896E009B98CB /* StarRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */; };
 		2BF44B581B378647007A84A0 /* StarTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF44B571B378647007A84A0 /* StarTouchTarget.swift */; };
 		2BF44B5B1B37870C007A84A0 /* StarTouchTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF44B5A1B37870C007A84A0 /* StarTouchTargetTests.swift */; };
+		2BF44B5D1B37B494007A84A0 /* StarTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF44B5C1B37B494007A84A0 /* StarTouch.swift */; };
+		2BF44B5F1B37B4E6007A84A0 /* StarTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF44B5E1B37B4E6007A84A0 /* StarTouchTests.swift */; };
 		7E0C075B1B32319000412D79 /* Star.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0C075A1B32319000412D79 /* Star.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E0C07621B32319000412D79 /* Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Star.framework */; };
 		7E0C07671B32319000412D79 /* StarRatingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07661B32319000412D79 /* StarRatingViewTests.swift */; };
@@ -70,6 +72,8 @@
 		2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingTests.swift; sourceTree = "<group>"; };
 		2BF44B571B378647007A84A0 /* StarTouchTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTarget.swift; sourceTree = "<group>"; };
 		2BF44B5A1B37870C007A84A0 /* StarTouchTargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTargetTests.swift; sourceTree = "<group>"; };
+		2BF44B5C1B37B494007A84A0 /* StarTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouch.swift; sourceTree = "<group>"; };
+		2BF44B5E1B37B4E6007A84A0 /* StarTouchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTests.swift; sourceTree = "<group>"; };
 		7E0C07571B32319000412D79 /* Star.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Star.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C075A1B32319000412D79 /* Star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		7E0C075C1B32319000412D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				7E0C07761B3232B400412D79 /* StarRatingSettings.swift */,
 				2B79BBE51B3388B600C848AD /* StarRatingDefaultSettings.swift */,
 				7E0C07771B3232B400412D79 /* StarRatingSize.swift */,
+				2BF44B5C1B37B494007A84A0 /* StarTouch.swift */,
 				7E0C075A1B32319000412D79 /* Star.h */,
 				7E0C075C1B32319000412D79 /* Info.plist */,
 			);
@@ -191,6 +196,7 @@
 				2BCA32651B32910D00642477 /* TestHelpers */,
 				7E0C07661B32319000412D79 /* StarRatingViewTests.swift */,
 				2BE82F6A1B32896E009B98CB /* StarRatingTests.swift */,
+				2BF44B5E1B37B4E6007A84A0 /* StarTouchTests.swift */,
 				7E0C07681B32319000412D79 /* Info.plist */,
 			);
 			path = StarTests;
@@ -384,6 +390,7 @@
 				7E0C07791B3232B400412D79 /* StarRating.swift in Sources */,
 				2BF44B581B378647007A84A0 /* StarTouchTarget.swift in Sources */,
 				7E0C077C1B3232B400412D79 /* StarRatingLayerHelper.swift in Sources */,
+				2BF44B5D1B37B494007A84A0 /* StarTouch.swift in Sources */,
 				7E0C077E1B3232B400412D79 /* StarRatingSize.swift in Sources */,
 				7E0C077B1B3232B400412D79 /* StarRatingText.swift in Sources */,
 				2BE17AFB1B33D41A00D96A60 /* StarLayer.swift in Sources */,
@@ -397,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF44B5F1B37B4E6007A84A0 /* StarTouchTests.swift in Sources */,
 				2BF44B5B1B37870C007A84A0 /* StarTouchTargetTests.swift in Sources */,
 				2BE82F6B1B32896E009B98CB /* StarRatingTests.swift in Sources */,
 				2BCA32671B32911300642477 /* Round.swift in Sources */,

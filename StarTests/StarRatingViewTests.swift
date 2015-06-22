@@ -49,29 +49,7 @@ class StarTests: XCTestCase {
     XCTAssertEqual(66 + 8 + textSize.width, size.width)
   }
 
-
-  // MARK: - Touch rating
-  
-  func testTouchRating_full() {
-    star.settings.fillMode = .Full
-    let result = star.touchRating(200, starsWidth: 500)
-    XCTAssertEqual(2.25, result)
-  }
-
-  func testTouchRating_half() {
-    star.settings.fillMode = .Half
-    let result = star.touchRating(200, starsWidth: 500)
-    XCTAssertEqual(2.25, result)
-  }
-
-  func testTouchRating_precise() {
-    star.settings.fillMode = .Precise
-    let result = star.touchRating(200, starsWidth: 500)
-    XCTAssertEqual(2, result)
-  }
-
   // MARK: - On did touch
-  
   
   func testOnDidTouch_updateCurrentRating() {
     star.settings.updateOnTouch = true
@@ -109,5 +87,14 @@ class StarTests: XCTestCase {
     star.onDidTouch(200, starsWidth: 500)
     
     XCTAssertEqual(2.25, callbackRating!)
+  }
+  
+  func testOnDidTouch_minimumRating() {
+    star.settings.minTouchRating = 0.9
+    star.settings.updateOnTouch = true
+    
+    star.onDidTouch(0, starsWidth: 400)
+    
+    XCTAssertEqual(0.9, star.rating)
   }
 }

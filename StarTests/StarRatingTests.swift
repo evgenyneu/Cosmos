@@ -243,4 +243,32 @@ class StarRatingTests: XCTestCase {
     XCTAssertEqual(Double(99 * 17 + 99 * 5), Double(result.last!.position.x))
   }
   
+  // MARK: - Round fill level
+  
+  func testRoundFillLevel_full() {
+    XCTAssertEqual(0,   StarRating.roundFillLevel(0,    fillMode: .Full))
+    XCTAssertEqual(0,   StarRating.roundFillLevel(0.4,  fillMode: .Full))
+    XCTAssertEqual(1,   StarRating.roundFillLevel(0.5,  fillMode: .Full))
+    XCTAssertEqual(1,   StarRating.roundFillLevel(1,    fillMode: .Full))
+  }
+  
+  func testRoundFillLevel_half() {
+    XCTAssertEqual(0,   StarRating.roundFillLevel(0,    fillMode: .Half))
+    XCTAssertEqual(0,   StarRating.roundFillLevel(0.1,  fillMode: .Half))
+    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.25, fillMode: .Half))
+    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.3,  fillMode: .Half))
+    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.5,  fillMode: .Half))
+    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.6,  fillMode: .Half))
+    XCTAssertEqual(1,   StarRating.roundFillLevel(0.75, fillMode: .Half))
+    XCTAssertEqual(1,   StarRating.roundFillLevel(0.9,  fillMode: .Half))
+    XCTAssertEqual(1,   StarRating.roundFillLevel(1,    fillMode: .Half))
+  }
+  
+  func testRoundFillLevel_precise() {
+    XCTAssertEqual(0,   StarRating.roundFillLevel(0,    fillMode: .Precise))
+    XCTAssertEqual(0.1, StarRating.roundFillLevel(0.1,  fillMode: .Precise))
+    XCTAssertEqual(0.25,StarRating.roundFillLevel(0.25, fillMode: .Precise))
+    XCTAssertEqual(0.9, StarRating.roundFillLevel(0.9,  fillMode: .Precise))
+  }
+  
 }
