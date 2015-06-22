@@ -12,32 +12,32 @@ public struct CosmosSettings {
   // -----------------------------
   
   /// The maximum number of start to be shown.
-  public var totalStars = StarRatingDefaultSettings.totalStars
+  public var totalStars = CosmosDefaultSettings.totalStars
   
   /**
   
   Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
   
   */
-  public var fillMode = StarRatingDefaultSettings.fillMode
+  public var fillMode = CosmosDefaultSettings.fillMode
   
   /// Distance between stars.
-  public var starMargin: Double = StarRatingDefaultSettings.starMargin
+  public var starMargin: Double = CosmosDefaultSettings.starMargin
   
   /// Size of the star.
-  public var starSize: Double = StarRatingDefaultSettings.starSize
+  public var starSize: Double = CosmosDefaultSettings.starSize
   
   /// Filled star color
-  public var colorFilled = StarRatingDefaultSettings.colorFilled
+  public var colorFilled = CosmosDefaultSettings.colorFilled
   
   /// Empty star color
-  public var colorEmpty = StarRatingDefaultSettings.colorEmpty
+  public var colorEmpty = CosmosDefaultSettings.colorEmpty
   
   /// Border color of an empty star.
-  public var borderColorEmpty = StarRatingDefaultSettings.borderColorEmpty
+  public var borderColorEmpty = CosmosDefaultSettings.borderColorEmpty
   
   /// Width of the border for the empty star.
-  public var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty
+  public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty
   
   
   // MARK: - Text settings
@@ -45,14 +45,14 @@ public struct CosmosSettings {
   
   
   /// Font for the text
-  public var textFont = StarRatingDefaultSettings.textFont
+  public var textFont = CosmosDefaultSettings.textFont
   
   /// Color of the text
-  public var textColor = StarRatingDefaultSettings.textColor
+  public var textColor = CosmosDefaultSettings.textColor
   
   
   /// Distance between the text and the star
-  public var textMargin: Double = StarRatingDefaultSettings.textMargin
+  public var textMargin: Double = CosmosDefaultSettings.textMargin
   
   
   // MARK: - Touch settings
@@ -60,15 +60,15 @@ public struct CosmosSettings {
   
   
   /// When true the star fill level is update when user touches the star view.
-  public var updateOnTouch = StarRatingDefaultSettings.updateOnTouch
+  public var updateOnTouch = CosmosDefaultSettings.updateOnTouch
   
   /// The lowest rating that user can set by touching the stars.
-  public var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating
+  public var minTouchRating: Double = CosmosDefaultSettings.minTouchRating
   
   /**
   
   Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
   
   */
-  public var starPoints: [CGPoint] = StarRatingDefaultSettings.starPoints
+  public var starPoints: [CGPoint] = CosmosDefaultSettings.starPoints
 }

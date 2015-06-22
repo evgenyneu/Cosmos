@@ -20,7 +20,7 @@ Shows: ★★★★☆ (132)
   The currently shown number of stars, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
 
   */
-  @IBInspectable public var rating: Double = StarRatingDefaultSettings.rating {
+  @IBInspectable public var rating: Double = CosmosDefaultSettings.rating {
     didSet {      
       update()
     }
@@ -34,61 +34,61 @@ Shows: ★★★★☆ (132)
   }
   
   
-  @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
+  @IBInspectable var totalStars: Int = CosmosDefaultSettings.totalStars {
     didSet { settings.totalStars = totalStars }
   }
   
-  @IBInspectable var starSize: Double = StarRatingDefaultSettings.starSize {
+  @IBInspectable var starSize: Double = CosmosDefaultSettings.starSize {
     didSet {
       settings.starSize = starSize
     }
   }
   
-  @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
+  @IBInspectable var colorFilled: UIColor = CosmosDefaultSettings.colorFilled {
     didSet { settings.colorFilled = colorFilled }
   }
   
-  @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
+  @IBInspectable var colorEmpty: UIColor = CosmosDefaultSettings.colorEmpty {
     didSet { settings.colorEmpty = colorEmpty }
   }
   
-  @IBInspectable var borderColorEmpty: UIColor = StarRatingDefaultSettings.borderColorEmpty {
+  @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
     didSet { settings.borderColorEmpty = borderColorEmpty }
   }
   
-  @IBInspectable var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty {
+  @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
     didSet { settings.borderWidthEmpty = borderWidthEmpty }
   }
   
-  @IBInspectable var starMargin: Double = StarRatingDefaultSettings.starMargin {
+  @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
     didSet { settings.starMargin = starMargin }
   }
   
-  @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
+  @IBInspectable var fillMode: Int = CosmosDefaultSettings.fillMode.rawValue {
     didSet {
-      settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
+      settings.fillMode = StarFillMode(rawValue: fillMode) ?? CosmosDefaultSettings.fillMode
     }
   }
   
-  @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
+  @IBInspectable var textSize: Double = CosmosDefaultSettings.textSize {
     didSet {
       settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
     }
   }
   
-  @IBInspectable var textMargin: Double = StarRatingDefaultSettings.textMargin {
+  @IBInspectable var textMargin: Double = CosmosDefaultSettings.textMargin {
     didSet { settings.textMargin = textMargin }
   }
   
-  @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
+  @IBInspectable var textColor: UIColor = CosmosDefaultSettings.textColor {
     didSet { settings.textColor = textColor }
   }
   
-  @IBInspectable var updateOnTouch: Bool = StarRatingDefaultSettings.updateOnTouch {
+  @IBInspectable var updateOnTouch: Bool = CosmosDefaultSettings.updateOnTouch {
     didSet { settings.updateOnTouch = updateOnTouch }
   }
   
-  @IBInspectable var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating {
+  @IBInspectable var minTouchRating: Double = CosmosDefaultSettings.minTouchRating {
     didSet { settings.minTouchRating = minTouchRating }
   }
   
