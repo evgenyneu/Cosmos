@@ -65,24 +65,20 @@ struct CosmosDefaultSettings {
   // MARK: - Text settings
   // -----------------------------
   
-  
-  /// Font for the text
-  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
-  
   /// Calculates the size of the default text font.
-  static var textSize: Double {
-    get {
-      return Double(textFont.pointSize)
-    }
-  }
+//  static var textSize: Double {
+//    get {
+//      return Double(textFont.pointSize)
+//    }
+//  }
   
   /// Color of the text
   static let textColor = defaultColor
   
-  /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
-  static let marginBetweenStarsAndText: CGFloat = 0
+  /// Font for the text
+  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
   
-  /// Distance between the text and the star
+  /// Distance between the text and the stars.
   static let textMargin: Double = 5
   
   
@@ -392,15 +388,13 @@ public struct CosmosSettings {
   // MARK: - Text settings
   // -----------------------------
   
-  
-  /// Font for the text
-  public var textFont = CosmosDefaultSettings.textFont
-  
-  /// Color of the text
+  /// Color of the text.
   public var textColor = CosmosDefaultSettings.textColor
   
+  /// Font for the text.
+  public var textFont = CosmosDefaultSettings.textFont
   
-  /// Distance between the text and the star
+  /// Distance between the text and the stars.
   public var textMargin: Double = CosmosDefaultSettings.textMargin
   
   
