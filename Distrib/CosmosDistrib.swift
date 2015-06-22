@@ -55,46 +55,9 @@ struct CosmosDefaultSettings {
   /// Distance between stars.
   static let starMargin: Double = 5
   
-  /// Size of a single star.
-  static var starSize: Double = 20
-
-  /// The total number of stars to be shown.
-  static let totalStars = 5
-  
-  
-  // MARK: - Text settings
-  // -----------------------------
-  
-  /// Calculates the size of the default text font.
-//  static var textSize: Double {
-//    get {
-//      return Double(textFont.pointSize)
-//    }
-//  }
-  
-  /// Color of the text
-  static let textColor = defaultColor
-  
-  /// Font for the text
-  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
-  
-  /// Distance between the text and the stars.
-  static let textMargin: Double = 5
-  
-  
-  // MARK: - Touch settings
-  // -----------------------------
-
-  
-  /// When true the star fill level is update when user touches the cosmos view.
-  static let updateOnTouch = true
-  
-  /// The lowest rating that user can set by touching the stars.
-  static let minTouchRating: Double = 1
-  
   /**
   
-  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
+  Array of points for drawing the star with size of 100 by 100 pixels. Supply your points if you need to draw a different shape.
   
   */
   static let starPoints: [CGPoint] = [
@@ -109,6 +72,43 @@ struct CosmosDefaultSettings {
     CGPoint(x: 0.0,   y: 35.0),
     CGPoint(x: 38.5,  y: 35.0)
   ]
+  
+  /// Size of a single star.
+  static var starSize: Double = 20
+
+  /// The total number of stars to be shown.
+  static let totalStars = 5
+  
+  
+  // MARK: - Text settings
+  // -----------------------------
+  
+  
+  /// Color of the text.
+  static let textColor = defaultColor
+  
+  /// Font for the text.
+  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+  
+  /// Distance between the text and the stars.
+  static let textMargin: Double = 5
+  
+  /// Calculates the size of the default text font. It is used for making the text size configurable from the storyboard.
+  static var textSize: Double {
+    get {
+      return Double(textFont.pointSize)
+    }
+  }
+  
+  
+  // MARK: - Touch settings
+  // -----------------------------
+
+  /// The lowest rating that user can set by touching the stars.
+  static let minTouchRating: Double = 1
+  
+  /// When `true` the star fill level is updated when user touches the cosmos view. When `false` the Cosmos view only shows the rating and does not act as the input control.
+  static let updateOnTouch = true
 }
 
 
@@ -378,6 +378,13 @@ public struct CosmosSettings {
   /// Distance between stars.
   public var starMargin: Double = CosmosDefaultSettings.starMargin
   
+  /**
+  
+  Array of points for drawing the star with size of 100 by 100 pixels. Supply your points if you need to draw a different shape.
+  
+  */
+  public var starPoints: [CGPoint] = CosmosDefaultSettings.starPoints
+  
   /// Size of a single star.
   public var starSize: Double = CosmosDefaultSettings.starSize
   
@@ -401,19 +408,11 @@ public struct CosmosSettings {
   // MARK: - Touch settings
   // -----------------------------
   
-  
-  /// When true the star fill level is update when user touches the cosmos view.
-  public var updateOnTouch = CosmosDefaultSettings.updateOnTouch
-  
   /// The lowest rating that user can set by touching the stars.
   public var minTouchRating: Double = CosmosDefaultSettings.minTouchRating
   
-  /**
-  
-  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
-  
-  */
-  public var starPoints: [CGPoint] = CosmosDefaultSettings.starPoints
+  /// When `true` the star fill level is updated when user touches the cosmos view. When `false` the Cosmos view only shows the rating and does not act as the input control.
+  public var updateOnTouch = CosmosDefaultSettings.updateOnTouch
 }
 
 
