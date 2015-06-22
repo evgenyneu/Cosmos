@@ -45,7 +45,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 2. Add `View` control into your storyboard. Set its class to `CosmosView` in the *identity inspector*. Set its *module* property to `Cosmos` if you did Carthage or CocoaPods setup.
 
-3. Customize the cosmos view appearance in the *attributes inspector*.
+3. Customize the Cosmos view appearance in the *attributes inspector*.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
 
@@ -53,7 +53,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 ## Using Cosmos in code
 
-You can also style and control the Cosmos view from your code by creating an outlet from the storyboard into your view controller. You can also instantiate a `CosmosView` in code without using the storyboard.
+You can also style and control the Cosmos view from your code by creating an outlet from the storyboard into your view controller or by creating a new instance of `CosmosView` class.
 
 ```Swift
 // Change the cosmos view rating
