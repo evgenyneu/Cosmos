@@ -174,7 +174,7 @@ Shows: ★★★★☆ (132)
   // MARK: - Touch recognition
   
   /// Closure will be called when user touches the cosmos view. The touch rating argument is passed to the closure.
-  public var touchedTheStar: ((Double)->())?
+  public var didTouchCosmos: ((Double)->())?
   
   /// Overriding the function to detect the first touch gesture.
   public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -214,7 +214,7 @@ Shows: ★★★★☆ (132)
       update()
     }
     
-    touchedTheStar?(calculatedTouchRating)
+    didTouchCosmos?(calculatedTouchRating)
   }
   
   
