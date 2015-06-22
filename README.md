@@ -69,7 +69,7 @@ view.didTouchCosmos = { rating in }
 
 ## Customization
 
-One can customize cosmos from code by changing its `settings` properties.
+One can customize Cosmos from code by changing its `settings`. See the [styling manual](https://github.com/exchangegroup/Cosmos/wiki/Styling-Cosmos) for the complete list of configuration options.
 
 ```Swift
 // Show only fully filled stars
