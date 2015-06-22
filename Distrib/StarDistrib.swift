@@ -962,8 +962,7 @@ struct StarTouch {
   - returns: The rating representing the touch location.
   
   */
-  static func touchRating(locationX: CGFloat, starsWidth: CGFloat,
-    settings: StarRatingSettings) -> Double {
+  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: StarRatingSettings) -> Double {
       
     let position = locationX / starsWidth
     let totalStars = Double(settings.totalStars)
@@ -973,6 +972,12 @@ struct StarTouch {
     if settings.fillMode != .Precise {
       correctedRating += 0.25
     }
+    
+    let starFloorNumber = floor(correctedRating)
+    let singleStarRemainder = correctedRating - starFloorNumber
+    
+    correctedRating = starFloorNumber + StarRating.starFillLevel(
+      ratingRemainder: singleStarRemainder, fillMode: settings.fillMode)
     
     correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars
     correctedRating = max(0, correctedRating) // Can't be less than zero

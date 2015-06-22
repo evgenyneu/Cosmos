@@ -26,6 +26,12 @@ struct StarTouch {
       correctedRating += 0.25
     }
     
+    let starFloorNumber = floor(correctedRating)
+    let singleStarRemainder = correctedRating - starFloorNumber
+    
+    correctedRating = starFloorNumber + StarRating.starFillLevel(
+      ratingRemainder: singleStarRemainder, fillMode: settings.fillMode)
+    
     correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars
     correctedRating = max(0, correctedRating) // Can't be less than zero
     correctedRating = max(settings.minTouchRating, correctedRating) // Can't be less than min rating

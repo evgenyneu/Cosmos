@@ -18,7 +18,7 @@ class StarTouchTests: XCTestCase {
     settings.fillMode = .Full
     settings.minTouchRating = 0
     let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
-    XCTAssertEqual(2.25, result)
+    XCTAssertEqual(2, result)
   }
   
   func testTouchRating_fullWithMoreStars() {
@@ -29,7 +29,7 @@ class StarTouchTests: XCTestCase {
     settings.minTouchRating = 0
 
     let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
-    XCTAssertEqual(200.25, result)
+    XCTAssertEqual(200, result)
   }
 
   func testTouchRating_biggerThanWidth() {
@@ -59,7 +59,7 @@ class StarTouchTests: XCTestCase {
     settings.minTouchRating = 0
     
     let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
-    XCTAssertEqual(2.25, result)
+    XCTAssertEqual(2.5, result)
   }
 
   func testTouchRating_precise() {
@@ -68,8 +68,8 @@ class StarTouchTests: XCTestCase {
     settings.fillMode = .Precise
     settings.minTouchRating = 0
     
-    let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
-    XCTAssertEqual(2, result)
+    let result = StarTouch.touchRating(215, starsWidth: 500, settings: settings)
+    XCTAssertEqual(2.15, result)
   }
 
   func testTouchRating_minRating() {

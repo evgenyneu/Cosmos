@@ -62,10 +62,11 @@ class StarTests: XCTestCase {
   func testOnDidTouch_updateTheStars() {
     star.rating = 0
     star.settings.updateOnTouch = true
+    star.settings.fillMode = .Precise
 
-    star.onDidTouch(200, starsWidth: 500)
+    star.onDidTouch(219, starsWidth: 500)
 
-    XCTAssertEqual(2.25, star.rating)
+    XCTAssertEqual(2.19, star.rating)
   }
 
   func testOnDidTouch_doNotUpdateOnTouch() {
@@ -79,14 +80,15 @@ class StarTests: XCTestCase {
 
   func testOnDidTouch_executeTheCallback() {
     var callbackRating: Double?
+    star.settings.fillMode = .Full
     
     star.touchedTheStar = { rating in
       callbackRating = rating
     }
     
-    star.onDidTouch(200, starsWidth: 500)
+    star.onDidTouch(312, starsWidth: 500)
     
-    XCTAssertEqual(2.25, callbackRating!)
+    XCTAssertEqual(3, callbackRating!)
   }
   
   func testOnDidTouch_minimumRating() {
