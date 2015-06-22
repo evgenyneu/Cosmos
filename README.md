@@ -2,7 +2,7 @@
 
 # Cosmos, a star rating control for iOS / Swift
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/star_screenshot.png' alt='Star raiting control for iOS / Swift' width='250'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Star raiting control for iOS / Swift' width='450'>
 
 This is a UI control for iOS for showing a 5-star rating or taking the rating input from the user. Cosmos is a subclass of a UIView.
 
@@ -47,9 +47,9 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 3. Customize the Cosmos view appearance in the *attributes inspector*.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/cosmos_customize_in_storyboard.png' width='480' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_customize_in_storyboard.png' width='480' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
 
 ## Using Cosmos in code
 
@@ -95,7 +95,7 @@ view.settings.updateOnTouch = true
 
 This project includes a demo iOS app.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/start-rating-view-ios-swift.png' alt='five star rating control for iOS written in Swift' width='320' >
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_star_rating.gif' alt='five star rating control for iOS written in Swift'>
 
 ## Alternative solutions
 
