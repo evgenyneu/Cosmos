@@ -9,6 +9,115 @@
 
 // ----------------------------
 //
+// CosmosDefaultSettings.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Defaults setting values.
+
+*/
+struct CosmosDefaultSettings {
+  init() {}
+  
+  static let defaultColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
+  
+  
+  // MARK: - Star settings
+  // -----------------------------
+
+  
+  /// Raiting value that is shown in the storyboard by default.
+  static let rating: Double = 3.5
+  
+  /// The total number of start to be shown.
+  static let totalStars = 5
+
+  /**
+
+  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
+
+  */
+  static let fillMode = StarFillMode.Half
+  
+  /// Distance between stars.
+  static let starMargin: Double = 5
+  
+  /// Size of the star.
+  static var starSize: Double = 20
+  
+  /// Filled star color
+  static let colorFilled = defaultColor
+  
+  /// Empty star color
+  static let colorEmpty = UIColor.clearColor()
+  
+  /// Border color of an empty star.
+  static let borderColorEmpty = defaultColor
+  
+  /// Width of the border for the empty star.
+  static let borderWidthEmpty: Double = 1
+  
+  
+  // MARK: - Text settings
+  // -----------------------------
+  
+  
+  /// Font for the text
+  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+  
+  /// Calculates the size of the default text font.
+  static var textSize: Double {
+    get {
+      return Double(textFont.pointSize)
+    }
+  }
+  
+  /// Color of the text
+  static let textColor = defaultColor
+  
+  /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
+  static let marginBetweenStarsAndText: CGFloat = 0
+  
+  /// Distance between the text and the star
+  static let textMargin: Double = 5
+  
+  
+  // MARK: - Touch settings
+  // -----------------------------
+
+  
+  /// When true the star fill level is update when user touches the star view.
+  static let updateOnTouch = false
+  
+  /// The lowest rating that user can set by touching the stars.
+  static let minTouchRating: Double = 1
+  
+  /**
+  
+  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
+  
+  */
+  static let starPoints: [CGPoint] = [
+    CGPoint(x: 49.5,  y: 0.0),
+    CGPoint(x: 60.5,  y: 35.0),
+    CGPoint(x: 99.0, y: 35.0),
+    CGPoint(x: 67.5,  y: 58.0),
+    CGPoint(x: 78.5,  y: 92.0),
+    CGPoint(x: 49.5,    y: 71.0),
+    CGPoint(x: 20.5,  y: 92.0),
+    CGPoint(x: 31.5,  y: 58.0),
+    CGPoint(x: 0.0,   y: 35.0),
+    CGPoint(x: 38.5,  y: 35.0)
+  ]
+}
+
+
+// ----------------------------
+//
 // CosmosLayerHelper.swift
 //
 // ----------------------------
@@ -498,7 +607,7 @@ Shows: ★★★★☆ (132)
     let textLayer = CosmosLayerHelper.createTextLayer(text,
       font: settings.textFont, color: settings.textColor)
     
-    let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
+    let starsSize = CosmosSize.calculateSizeToFitLayers(layers)
     
     CosmosText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
     
@@ -515,7 +624,7 @@ Shows: ★★★★☆ (132)
 
   */
   private func updateSize(layers: [CALayer]) {
-    viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
+    viewSize = CosmosSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
   }
   
@@ -576,7 +685,7 @@ Shows: ★★★★☆ (132)
   var widthOfStars: CGFloat {
     if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
       let starLayers = Array(sublayers[0..<settings.totalStars])
-      return StarRatingSize.calculateSizeToFitLayers(starLayers).width
+      return CosmosSize.calculateSizeToFitLayers(starLayers).width
     }
     
     return 0
@@ -801,7 +910,7 @@ struct StarLayer {
 
 // ----------------------------
 //
-// StarRatingDefaultSettings.swift
+// CosmosSize.swift
 //
 // ----------------------------
 
@@ -809,122 +918,13 @@ import UIKit
 
 /**
 
-Defaults setting values.
+Helper class for calculating size for the cosmos view.
 
 */
-struct CosmosDefaultSettings {
-  init() {}
-  
-  static let defaultColor = UIColor(red: 1, green: 149/255, blue: 0, alpha: 1)
-  
-  
-  // MARK: - Star settings
-  // -----------------------------
-
-  
-  /// Raiting value that is shown in the storyboard by default.
-  static let rating: Double = 3.5
-  
-  /// The total number of start to be shown.
-  static let totalStars = 5
-
-  /**
-
-  Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
-
-  */
-  static let fillMode = StarFillMode.Half
-  
-  /// Distance between stars.
-  static let starMargin: Double = 5
-  
-  /// Size of the star.
-  static var starSize: Double = 20
-  
-  /// Filled star color
-  static let colorFilled = defaultColor
-  
-  /// Empty star color
-  static let colorEmpty = UIColor.clearColor()
-  
-  /// Border color of an empty star.
-  static let borderColorEmpty = defaultColor
-  
-  /// Width of the border for the empty star.
-  static let borderWidthEmpty: Double = 1
-  
-  
-  // MARK: - Text settings
-  // -----------------------------
-  
-  
-  /// Font for the text
-  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
-  
-  /// Calculates the size of the default text font.
-  static var textSize: Double {
-    get {
-      return Double(textFont.pointSize)
-    }
-  }
-  
-  /// Color of the text
-  static let textColor = defaultColor
-  
-  /// Distance between the text and the star. The value is automatically calculated based on marginBetweenStarsAndTextRelativeToFontSize property and the font size.
-  static let marginBetweenStarsAndText: CGFloat = 0
-  
-  /// Distance between the text and the star
-  static let textMargin: Double = 5
-  
-  
-  // MARK: - Touch settings
-  // -----------------------------
-
-  
-  /// When true the star fill level is update when user touches the star view.
-  static let updateOnTouch = false
-  
-  /// The lowest rating that user can set by touching the stars.
-  static let minTouchRating: Double = 1
-  
+class CosmosSize {
   /**
   
-  Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
-  
-  */
-  static let starPoints: [CGPoint] = [
-    CGPoint(x: 49.5,  y: 0.0),
-    CGPoint(x: 60.5,  y: 35.0),
-    CGPoint(x: 99.0, y: 35.0),
-    CGPoint(x: 67.5,  y: 58.0),
-    CGPoint(x: 78.5,  y: 92.0),
-    CGPoint(x: 49.5,    y: 71.0),
-    CGPoint(x: 20.5,  y: 92.0),
-    CGPoint(x: 31.5,  y: 58.0),
-    CGPoint(x: 0.0,   y: 35.0),
-    CGPoint(x: 38.5,  y: 35.0)
-  ]
-}
-
-
-// ----------------------------
-//
-// StarRatingSize.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
-
-Helper class for calculating size fo star view.
-
-*/
-class StarRatingSize {
-  /**
-  
-  Calculates the size of star rating view. It goes through all the layers and makes size the view size is large enough to show all of them.
+  Calculates the size of the cosmos view. It goes through all the star and text layers and makes size the view size is large enough to show all of them.
   
   */
   class func calculateSizeToFitLayers(layers: [CALayer]) -> CGSize {

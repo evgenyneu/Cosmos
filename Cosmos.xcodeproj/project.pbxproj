@@ -17,7 +17,7 @@
 		2B622ED81B37BB700090D81B /* CosmosLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECE1B37BB700090D81B /* CosmosLayerHelper.swift */; };
 		2B622ED91B37BB700090D81B /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECF1B37BB700090D81B /* CosmosSettings.swift */; };
 		2B622EDA1B37BB700090D81B /* CosmosDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */; };
-		2B622EDB1B37BB700090D81B /* StarRatingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED11B37BB700090D81B /* StarRatingSize.swift */; };
+		2B622EDB1B37BB700090D81B /* CosmosSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED11B37BB700090D81B /* CosmosSize.swift */; };
 		2B622EDC1B37BB700090D81B /* StarTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED21B37BB700090D81B /* StarTouch.swift */; };
 		2B622EDF1B37BB850090D81B /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */; };
 		2B622EE31B37BBC20090D81B /* CosmosTouchTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE21B37BBC20090D81B /* CosmosTouchTargetTests.swift */; };
@@ -80,7 +80,7 @@
 		2B622ECE1B37BB700090D81B /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayerHelper.swift; sourceTree = "<group>"; };
 		2B622ECF1B37BB700090D81B /* CosmosSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettings.swift; sourceTree = "<group>"; };
 		2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDefaultSettings.swift; sourceTree = "<group>"; };
-		2B622ED11B37BB700090D81B /* StarRatingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingSize.swift; sourceTree = "<group>"; };
+		2B622ED11B37BB700090D81B /* CosmosSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSize.swift; sourceTree = "<group>"; };
 		2B622ED21B37BB700090D81B /* StarTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouch.swift; sourceTree = "<group>"; };
 		2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTarget.swift; sourceTree = "<group>"; };
 		2B622EE21B37BBC20090D81B /* CosmosTouchTargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTargetTests.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				2B622ECE1B37BB700090D81B /* CosmosLayerHelper.swift */,
 				2B622ECF1B37BB700090D81B /* CosmosSettings.swift */,
 				2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */,
-				2B622ED11B37BB700090D81B /* StarRatingSize.swift */,
+				2B622ED11B37BB700090D81B /* CosmosSize.swift */,
 				2B622ED21B37BB700090D81B /* StarTouch.swift */,
 				2B622EB21B37BAE50090D81B /* Cosmos.h */,
 				2B622EB41B37BAE50090D81B /* Info.plist */,
@@ -396,7 +396,7 @@
 				2B622ED51B37BB700090D81B /* StarFillMode.swift in Sources */,
 				2B622ED41B37BB700090D81B /* CosmosView.swift in Sources */,
 				2B622EDC1B37BB700090D81B /* StarTouch.swift in Sources */,
-				2B622EDB1B37BB700090D81B /* StarRatingSize.swift in Sources */,
+				2B622EDB1B37BB700090D81B /* CosmosSize.swift in Sources */,
 				2B622EDA1B37BB700090D81B /* CosmosDefaultSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

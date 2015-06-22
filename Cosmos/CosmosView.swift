@@ -144,7 +144,7 @@ Shows: ★★★★☆ (132)
     let textLayer = CosmosLayerHelper.createTextLayer(text,
       font: settings.textFont, color: settings.textColor)
     
-    let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
+    let starsSize = CosmosSize.calculateSizeToFitLayers(layers)
     
     CosmosText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
     
@@ -161,7 +161,7 @@ Shows: ★★★★☆ (132)
 
   */
   private func updateSize(layers: [CALayer]) {
-    viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
+    viewSize = CosmosSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
   }
   
@@ -222,7 +222,7 @@ Shows: ★★★★☆ (132)
   var widthOfStars: CGFloat {
     if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
       let starLayers = Array(sublayers[0..<settings.totalStars])
-      return StarRatingSize.calculateSizeToFitLayers(starLayers).width
+      return CosmosSize.calculateSizeToFitLayers(starLayers).width
     }
     
     return 0
