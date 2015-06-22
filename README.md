@@ -95,7 +95,7 @@ view.settings.updateOnTouch = true
 
 This project includes a demo iOS app.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_star_rating.gif' alt='five star rating control for iOS written in Swift'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_star_rating.gif' alt='five star rating control for iOS written in Swift' width='250'>
 
 ## Alternative solutions
 
