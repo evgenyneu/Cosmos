@@ -141,7 +141,7 @@ Shows: ★★★★☆ (132)
   
   */
   private func createTextLayer(text: String, layers: [CALayer]) -> CALayer {
-    let textLayer = StarRatingLayerHelper.createTextLayer(text,
+    let textLayer = CosmosLayerHelper.createTextLayer(text,
       font: settings.textFont, color: settings.textColor)
     
     let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)

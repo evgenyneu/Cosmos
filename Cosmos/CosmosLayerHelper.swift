@@ -1,7 +1,7 @@
 import UIKit
 
 /// Helper class for creating CALayer objects.
-class StarRatingLayerHelper {
+class CosmosLayerHelper {
   /**
 
   Creates a text layer for the given text string and font.
