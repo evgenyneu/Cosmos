@@ -13,7 +13,7 @@ class StarTests: XCTestCase {
   
   // MARK: - Content size
   
-  func testContentSize() {
+  func testShowContentSize() {
     star.settings.starSize = 10
     star.settings.starMargin = 4
 
@@ -28,7 +28,7 @@ class StarTests: XCTestCase {
     XCTAssertEqual(10, size.height)
   }
   
-  func testContentSizeWithText() {
+  func testShowContentSizeWithText() {
     star.settings.starSize = 10
     star.settings.starMargin = 4
     
@@ -46,6 +46,18 @@ class StarTests: XCTestCase {
     //   + 15 * 50 / 100 (margin between stars and text)
     //   + fontSize.width (width of text)
     XCTAssertEqual(66 + 8 + textSize.width, size.width)
+  }
+  
+  func testShowUpdateCurrentRating() {
+    star.show(rating: 2.13)
+    
+    XCTAssertEqual(2.13, star.currentRating)
+  }
+  
+  func testShowUpdateCurrentText() {
+    star.show(rating: 2.13, text: "🐝")
+    
+    XCTAssertEqual("🐝", star.currentText!)
   }
   
   // MARK: - Touch rating
@@ -97,6 +109,16 @@ class StarTests: XCTestCase {
     star.onDidTouch(200, starsWidth: 500)
     
     XCTAssertEqual(2.25, callbackRating!)
+  }
+  
+  func testOnDidTouch_keepShowingTheText() {
+    star.show(rating: 4, text: "🐋")
+   
+    star.settings.updateOnTouch = true
+    star.onDidTouch(200, starsWidth: 500)
+    
+    let textLayer = star.layer.sublayers!.last as! CATextLayer
+    XCTAssertEqual("🐋", textLayer.string as! String)
   }
 
 }

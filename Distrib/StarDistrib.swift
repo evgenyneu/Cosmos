@@ -470,6 +470,9 @@ struct StarRatingDefaultSettings {
   /// When true the star fill level is update when user touches the star view.
   static let updateOnTouch = false
   
+  /// The lowest rating that user can set by touching the stars.
+  static let minTouchRating: Double = 1
+  
   /**
   
   Points for drawing the star. Size is 100 by 100 pixels. Supply your points if you need to draw a different shape.
@@ -548,13 +551,6 @@ public struct StarRatingSettings {
   // MARK: - Star settings
   // -----------------------------
   
-  
-  /// Raiting value that is shown in the storyboard by default.
-  public var rating: Double = StarRatingDefaultSettings.rating
-  
-  /// Text that is shown in the storyboard.
-  public var text: String?
-  
   /// The maximum number of start to be shown.
   public var totalStars = StarRatingDefaultSettings.totalStars
   
@@ -606,7 +602,8 @@ public struct StarRatingSettings {
   /// When true the star fill level is update when user touches the star view.
   public var updateOnTouch = StarRatingDefaultSettings.updateOnTouch
   
-  
+  /// The lowest rating that user can set by touching the stars.
+  public var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating
   
   /**
   
@@ -711,8 +708,14 @@ Displays: ★★★★☆ (132)
   
   var gestureRecognizer: UIGestureRecognizer?
   
+  // Text that is currently being displayed
+  public var currentText: String?
+  
+  // Currently displayed rating
+  public var currentRating: Double = 0
+  
   @IBInspectable var rating: Double = StarRatingDefaultSettings.rating {
-    didSet { settings.rating = rating }
+    didSet { currentRating = rating }
   }
   
   @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
@@ -752,7 +755,7 @@ Displays: ★★★★☆ (132)
   }
   
   @IBInspectable var text: String? {
-    didSet { settings.text = text }
+    didSet { currentText = text }
   }
   
   @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
@@ -777,7 +780,7 @@ Displays: ★★★★☆ (132)
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
-    show(rating: settings.rating, text: settings.text)
+    show(rating: currentRating, text: currentText)
   }
   
   /// Star rating settings.
@@ -799,8 +802,8 @@ Displays: ★★★★☆ (132)
   
   */
   public func show(rating rating: Double, text: String? = nil) {
-    
-    let currenText = text ?? settings.text
+    currentRating = rating
+    currentText = text
     
     // Create star layers
     // ------------
@@ -811,8 +814,8 @@ Displays: ★★★★☆ (132)
     // Create text layer
     // ------------
 
-    if let currenText = currenText {
-      let textLayer = createTextLayer(currenText, layers: layers)
+    if let currentText = currentText {
+      let textLayer = createTextLayer(currentText, layers: layers)
       layers.append(textLayer)
     }
     
@@ -901,7 +904,7 @@ Displays: ★★★★☆ (132)
     let rating = touchRating(locationX, starsWidth: starsWidth)
     
     if settings.updateOnTouch {
-      show(rating: rating)
+      show(rating: rating, text: currentText)
     }
     
     touchedTheStar?(rating)

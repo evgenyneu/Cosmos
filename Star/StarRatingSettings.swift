@@ -11,13 +11,6 @@ public struct StarRatingSettings {
   // MARK: - Star settings
   // -----------------------------
   
-  
-  /// Raiting value that is shown in the storyboard by default.
-  public var rating: Double = StarRatingDefaultSettings.rating
-  
-  /// Text that is shown in the storyboard.
-  public var text: String?
-  
   /// The maximum number of start to be shown.
   public var totalStars = StarRatingDefaultSettings.totalStars
   

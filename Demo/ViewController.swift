@@ -31,7 +31,7 @@ class ViewController: UIViewController {
   
   private func updateRating() {
     let value = Double(ratingSlider.value)
-    starRatingViewOne.show(rating: value)
+    starRatingViewOne.show(rating: value, text: starRatingViewOne.currentText)
     starRatingViewHalf.show(rating: value)
     starRatingViewPrecise.show(rating: value)
   

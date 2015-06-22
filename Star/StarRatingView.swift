@@ -16,8 +16,14 @@ Displays: ★★★★☆ (132)
   
   var gestureRecognizer: UIGestureRecognizer?
   
+  // Text that is currently being displayed
+  public var currentText: String?
+  
+  // Currently displayed rating
+  public var currentRating: Double = 0
+  
   @IBInspectable var rating: Double = StarRatingDefaultSettings.rating {
-    didSet { settings.rating = rating }
+    didSet { currentRating = rating }
   }
   
   @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
@@ -57,7 +63,7 @@ Displays: ★★★★☆ (132)
   }
   
   @IBInspectable var text: String? {
-    didSet { settings.text = text }
+    didSet { currentText = text }
   }
   
   @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
@@ -82,7 +88,7 @@ Displays: ★★★★☆ (132)
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
-    show(rating: settings.rating, text: settings.text)
+    show(rating: currentRating, text: currentText)
   }
   
   /// Star rating settings.
@@ -104,8 +110,8 @@ Displays: ★★★★☆ (132)
   
   */
   public func show(rating rating: Double, text: String? = nil) {
-    
-    let currenText = text ?? settings.text
+    currentRating = rating
+    currentText = text
     
     // Create star layers
     // ------------
@@ -116,8 +122,8 @@ Displays: ★★★★☆ (132)
     // Create text layer
     // ------------
 
-    if let currenText = currenText {
-      let textLayer = createTextLayer(currenText, layers: layers)
+    if let currentText = currentText {
+      let textLayer = createTextLayer(currentText, layers: layers)
       layers.append(textLayer)
     }
     
@@ -206,7 +212,7 @@ Displays: ★★★★☆ (132)
     let rating = touchRating(locationX, starsWidth: starsWidth)
     
     if settings.updateOnTouch {
-      show(rating: rating)
+      show(rating: rating, text: currentText)
     }
     
     touchedTheStar?(rating)

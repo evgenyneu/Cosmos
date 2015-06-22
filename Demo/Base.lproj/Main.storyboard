@@ -126,11 +126,11 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
                                         <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="(124)"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                         <color key="value" red="0.61277707120606062" green="0.61277707120606062" blue="0.61277707120606062" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="(124)"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
