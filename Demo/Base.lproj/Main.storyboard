@@ -18,14 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE3-kT-Xhz">
+                                <rect key="frame" x="272" y="191" width="56.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000476837158" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="kq7-em-h86">
-                                <rect key="frame" x="18" y="674" width="564" height="31"/>
+                                <rect key="frame" x="18" y="344" width="564" height="31"/>
                                 <connections>
                                     <action selector="onSliderChanged:" destination="sGD-SW-CeX" eventType="valueChanged" id="L78-bH-8a0"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-6T-bH2">
-                                <rect key="frame" x="279" y="645" width="42" height="20.5"/>
+                                <rect key="frame" x="279" y="316" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -37,11 +43,40 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Half" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-kd-8Ca">
-                                <rect key="frame" x="285" y="195" width="31" height="20.5"/>
+                                <rect key="frame" x="285" y="115" width="31" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-Q3-Dv1" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="155" y="216" width="290" height="50"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3.7000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
+                                        <color key="value" red="1" green="0.30980392159999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthEmpty">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
+                                        <color key="value" red="1" green="0.30980392159999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-pS-FV2" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="223" y="75" width="154" height="20"/>
                                 <userDefinedRuntimeAttributes>
@@ -67,7 +102,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j21-ho-3LA" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="215" y="415" width="170" height="30"/>
+                                <rect key="frame" x="215" y="141" width="170" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                         <real key="value" value="3.7000000000000002"/>
@@ -84,38 +119,34 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
                                         <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
-                                        <color key="value" red="1" green="0.75686274509803919" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
-                                        <color key="value" red="1" green="0.75686274509999996" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kq7-em-h86" secondAttribute="trailing" id="12Z-nr-ctD"/>
+                            <constraint firstAttribute="centerX" secondItem="Zcm-Q3-Dv1" secondAttribute="centerX" id="2JY-vM-gal"/>
                             <constraint firstAttribute="centerX" secondItem="j21-ho-3LA" secondAttribute="centerX" id="2Qt-u6-1by"/>
-                            <constraint firstItem="j21-ho-3LA" firstAttribute="top" secondItem="QMh-kd-8Ca" secondAttribute="bottom" constant="200" id="8VC-XG-Jrj"/>
+                            <constraint firstItem="j21-ho-3LA" firstAttribute="top" secondItem="QMh-kd-8Ca" secondAttribute="bottom" constant="5" id="8VC-XG-Jrj"/>
                             <constraint firstItem="2tN-pS-FV2" firstAttribute="top" secondItem="FKg-Hv-taV" secondAttribute="bottom" constant="5" id="9sJ-I8-Ml3"/>
                             <constraint firstAttribute="centerX" secondItem="QMh-kd-8Ca" secondAttribute="centerX" id="Aef-9X-1NR"/>
                             <constraint firstItem="kq7-em-h86" firstAttribute="leading" secondItem="Fer-fB-nQw" secondAttribute="leadingMargin" id="ISv-B8-9st"/>
-                            <constraint firstItem="QMh-kd-8Ca" firstAttribute="top" secondItem="2tN-pS-FV2" secondAttribute="bottom" constant="100" id="MY4-bx-EFl"/>
+                            <constraint firstItem="QMh-kd-8Ca" firstAttribute="top" secondItem="2tN-pS-FV2" secondAttribute="bottom" constant="20" id="MY4-bx-EFl"/>
                             <constraint firstAttribute="centerX" secondItem="lo6-6T-bH2" secondAttribute="centerX" id="NkV-6N-1zY"/>
+                            <constraint firstItem="Zcm-Q3-Dv1" firstAttribute="top" secondItem="ZE3-kT-Xhz" secondAttribute="bottom" constant="5" id="Pl0-3p-ruO"/>
+                            <constraint firstItem="ZE3-kT-Xhz" firstAttribute="top" secondItem="j21-ho-3LA" secondAttribute="bottom" constant="20" id="Uxv-lu-khP"/>
                             <constraint firstAttribute="centerX" secondItem="FKg-Hv-taV" secondAttribute="centerX" constant="1" id="VG1-XT-fWI"/>
                             <constraint firstItem="kq7-em-h86" firstAttribute="top" secondItem="lo6-6T-bH2" secondAttribute="bottom" constant="8" id="YM2-ue-NN2"/>
                             <constraint firstItem="FKg-Hv-taV" firstAttribute="top" secondItem="8EV-UE-Erj" secondAttribute="bottom" constant="30" id="cQe-C8-i2i"/>
                             <constraint firstAttribute="centerX" secondItem="2tN-pS-FV2" secondAttribute="centerX" id="ca9-cU-IDH"/>
-                            <constraint firstItem="lo6-6T-bH2" firstAttribute="top" secondItem="j21-ho-3LA" secondAttribute="bottom" constant="200" id="kha-Av-ogQ"/>
+                            <constraint firstAttribute="centerX" secondItem="ZE3-kT-Xhz" secondAttribute="centerX" id="mHN-58-4EF"/>
+                            <constraint firstItem="lo6-6T-bH2" firstAttribute="top" secondItem="Zcm-Q3-Dv1" secondAttribute="bottom" constant="50" id="syf-G4-AXC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cosmosViewFull" destination="2tN-pS-FV2" id="rsh-Qr-RRO"/>
                         <outlet property="cosmosViewHalf" destination="j21-ho-3LA" id="jBD-bV-i6Q"/>
+                        <outlet property="cosmosViewPrecise" destination="Zcm-Q3-Dv1" id="XpJ-UO-Yh0"/>
                         <outlet property="ratingLabel" destination="lo6-6T-bH2" id="SRa-BB-wqv"/>
                         <outlet property="ratingSlider" destination="kq7-em-h86" id="58f-dP-Eeq"/>
                     </connections>
