@@ -2,15 +2,6 @@ import XCTest
 @testable import Cosmos
 
 class StarTouchTests: XCTestCase {
-  
-  var star: StarRatingView!
-  
-  override func setUp() {
-    super.setUp()
-    
-    star = StarRatingView()
-  }
-  
   // MARK: - Touch rating
   
   func testTouchRating_full() {

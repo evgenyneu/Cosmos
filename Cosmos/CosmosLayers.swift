@@ -6,7 +6,7 @@ import UIKit
 Colection of helper functions for creating star layers.
 
 */
-class StarRating {
+class CosmosLayers {
   /**
   
   Creates the layers for the stars.

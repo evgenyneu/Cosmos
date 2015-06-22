@@ -9,6 +9,435 @@
 
 // ----------------------------
 //
+// CosmosLayers.swift
+//
+// ----------------------------
+
+import UIKit
+
+
+/**
+
+Colection of helper functions for creating star layers.
+
+*/
+class CosmosLayers {
+  /**
+  
+  Creates the layers for the stars.
+  
+  - parameter rating: The decimal number representing the rating. Usually a number between 1 and 5
+  - parameter settings: Star view settings.
+  - returns: Array of star layers.
+  
+  */
+  class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
+
+    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.totalStars)
+
+    var starLayers = [CALayer]()
+
+    for _ in (0..<settings.totalStars) {
+      let fillLevel = starFillLevel(ratingRemainder: ratingRemander, fillMode: settings.fillMode)
+      let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
+      starLayers.append(starLayer)
+      ratingRemander--
+    }
+
+    positionStarLayers(starLayers, starMargin: settings.starMargin)
+    return starLayers
+  }
+
+  
+  /**
+  
+  Creates an layer that shows a star that can look empty, fully filled or partially filled.
+  Partially filled layer contains two sublayers.
+  
+  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
+  - parameter settings: Star view settings.
+  - returns: Layer that shows the star. The layer is displauyed in the star view.
+  
+  */
+  class func createCompositeStarLayer(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
+
+    if starFillLevel >= 1 {
+      return createStarLayer(true, settings: settings)
+    }
+
+    if starFillLevel == 0 {
+      return createStarLayer(false, settings: settings)
+    }
+
+    return createPartialStar(starFillLevel, settings: settings)
+  }
+
+  /**
+  
+  Creates a partially filled star layer with two sub-layers:
+  
+  1. The layer for the filled star on top. The fill level parameter determines the width of this layer.
+  2. The layer for the empty star below.
+  
+  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
+  - parameter settings: Star view settings.
+
+  - returns: Layer that contains the partially filled star.
+  
+  */
+  class func createPartialStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
+    let filledStar = createStarLayer(true, settings: settings)
+    let emptyStar = createStarLayer(false, settings: settings)
+
+    let parentLayer = CALayer()
+    parentLayer.contentsScale = UIScreen.mainScreen().scale
+    parentLayer.bounds = CGRect(origin: CGPoint(), size: filledStar.bounds.size)
+    parentLayer.anchorPoint = CGPoint()
+    parentLayer.addSublayer(emptyStar)
+    parentLayer.addSublayer(filledStar)
+
+    // make filled layer width smaller according to the fill level.
+    filledStar.bounds.size.width *= CGFloat(starFillLevel)
+
+    return parentLayer
+  }
+
+  /**
+
+  Returns a decimal number between 0 and 1 describing the star fill level.
+  
+  - parameter ratingRemainder: This value is passed from the loop that creates star layers. The value starts with the rating value and decremented by 1 when each star is created. For example, suppose we want to display rating of 3.5. When the first star is created the ratingRemainder parameter will be 3.5. For the second star it will be 2.5. Third: 1.5. Fourth: 0.5. Fifth: -0.5.
+  
+  - parameter fillMode: Describe how stars should be filled: full, half or precise.
+  
+  - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
+
+  */
+  class func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode) -> Double {
+      
+    var result = ratingRemainder
+    
+    if result > 1 { result = 1 }
+    if result < 0 { result = 0 }
+    
+    return roundFillLevel(result, fillMode: fillMode)
+  }
+  
+  
+  /**
+  
+  Rounds a single star's fill level according to the fill mode. "Full" mode returns 0 or 1 by using the standard decimal rounding. "Half" mode returns 0, 0.5 or 1 by rounding the decimal to closest of 3 values. "Precise" mode will return the fill level unchanged.
+  
+  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
+  
+  - parameter fillMode: Fill mode that is used to round the fill level value.
+  
+  - returns: The rounded fill level.
+  
+  */
+  class func roundFillLevel(starFillLevel: Double, fillMode: StarFillMode) -> Double {
+    switch fillMode {
+    case .Full:
+      return Double(round(starFillLevel))
+    case .Half:
+      return Double(round(starFillLevel * 2) / 2)
+    case .Precise :
+      return starFillLevel
+    }
+  }
+
+  private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
+    let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
+    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
+
+    return StarLayer.create(settings.starPoints,
+      size: settings.starSize,
+      lineWidth: settings.borderWidthEmpty,
+      fillColor: fillColor,
+      strokeColor: strokeColor)
+  }
+
+  /**
+  
+  Returns the number of filled stars for given rating.
+  
+  - parameter rating: The rating to be displayed.
+  - parameter maxNumberOfStars: Total number of stars.
+  - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
+  
+  */
+  class func numberOfFilledStars(rating: Double, totalNumberOfStars: Int) -> Double {
+    if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
+    if rating < 0 { return 0 }
+
+    return rating
+  }
+
+  /**
+  
+  Positions the star layers one after another with a margin in between.
+  
+  - parameter layers: The star layers array.
+  - parameter starMargin: Margin between stars.
+
+  */
+  class func positionStarLayers(layers: [CALayer], starMargin: Double) {
+    var positionX:CGFloat = 0
+
+    for layer in layers {
+      layer.position.x = positionX
+      positionX += layer.bounds.width + CGFloat(starMargin)
+    }
+  }
+}
+
+
+// ----------------------------
+//
+// CosmosView.swift
+//
+// ----------------------------
+
+import UIKit
+
+/*
+
+A star rating view that can be used to show customer rating for the products. On can select number of stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown to the right from the stars.
+
+Example:
+
+    cosmosView.rating = 4
+    cosmosView.text = "(123)"
+
+Shows: ★★★★☆ (132)
+
+*/
+@IBDesignable public class CosmosView: UIView {
+  // MARK: - Inspectable properties for storyboard
+  
+  /**
+  
+  The currently shown number of stars, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
+
+  */
+  @IBInspectable public var rating: Double = StarRatingDefaultSettings.rating {
+    didSet {      
+      update()
+    }
+  }
+  
+  /// Currently shown text. Set it to nil to display just the stars without text.
+  @IBInspectable public var text: String? {
+    didSet {
+      update()
+    }
+  }
+  
+  
+  @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
+    didSet { settings.totalStars = totalStars }
+  }
+  
+  @IBInspectable var starSize: Double = StarRatingDefaultSettings.starSize {
+    didSet {
+      settings.starSize = starSize
+    }
+  }
+  
+  @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
+    didSet { settings.colorFilled = colorFilled }
+  }
+  
+  @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
+    didSet { settings.colorEmpty = colorEmpty }
+  }
+  
+  @IBInspectable var borderColorEmpty: UIColor = StarRatingDefaultSettings.borderColorEmpty {
+    didSet { settings.borderColorEmpty = borderColorEmpty }
+  }
+  
+  @IBInspectable var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty {
+    didSet { settings.borderWidthEmpty = borderWidthEmpty }
+  }
+  
+  @IBInspectable var starMargin: Double = StarRatingDefaultSettings.starMargin {
+    didSet { settings.starMargin = starMargin }
+  }
+  
+  @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
+    didSet {
+      settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
+    }
+  }
+  
+  @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
+    didSet {
+      settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
+    }
+  }
+  
+  @IBInspectable var textMargin: Double = StarRatingDefaultSettings.textMargin {
+    didSet { settings.textMargin = textMargin }
+  }
+  
+  @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
+    didSet { settings.textColor = textColor }
+  }
+  
+  @IBInspectable var updateOnTouch: Bool = StarRatingDefaultSettings.updateOnTouch {
+    didSet { settings.updateOnTouch = updateOnTouch }
+  }
+  
+  @IBInspectable var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating {
+    didSet { settings.minTouchRating = minTouchRating }
+  }
+  
+  public override func prepareForInterfaceBuilder() {
+    super.prepareForInterfaceBuilder()
+    
+    update()
+  }
+  
+  /// Star rating settings.
+  public var settings = StarRatingSettings()
+  
+  /// Stores calculated size of the view. It is used as intrinsic content size.
+  private var viewSize = CGSize()
+
+  /**
+  
+  Updates the stars and optional text based on current values of `rating` and `text` properties.
+  
+  */
+  public func update() {
+    // Create star layers
+    // ------------
+    
+    var layers = CosmosLayers.createStarLayers(rating, settings: settings)
+    layer.sublayers = layers
+    
+    // Create text layer
+    // ------------
+
+    if let text = text {
+      let textLayer = createTextLayer(text, layers: layers)
+      layers.append(textLayer)
+    }
+    
+    // Update size
+    // ------------
+
+    updateSize(layers)
+  }
+  
+  /**
+  
+  Creates the text layer for the given text string.
+  
+  - parameter text: Text string for the text layer.
+  - parameter layers: Arrays of layers containing the stars.
+  
+  - returns: The newly created text layer.
+  
+  */
+  private func createTextLayer(text: String, layers: [CALayer]) -> CALayer {
+    let textLayer = StarRatingLayerHelper.createTextLayer(text,
+      font: settings.textFont, color: settings.textColor)
+    
+    let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
+    
+    StarRatingText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
+    
+    layer.addSublayer(textLayer)
+    
+    return textLayer
+  }
+  
+  /**
+
+  Updates the size to fit all the layers containing stars and text.
+  
+  - parameter layers: Array of layers containing stars and the text.
+
+  */
+  private func updateSize(layers: [CALayer]) {
+    viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
+    invalidateIntrinsicContentSize()
+  }
+  
+  /// Returns the content size to fit all the star and text layers.
+  override public func intrinsicContentSize() -> CGSize {
+    return viewSize
+  }
+  
+  
+  // MARK: - Touch recognition
+  
+  /// Closure will be called when user touches the star view. The touch rating argument is passed to the closure.
+  public var touchedTheStar: ((Double)->())?
+  
+  /// Overriding the function to detect the first touch gesture.
+  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesBegan(touches, withEvent: event)
+    
+    if let touch = touches.first {
+      let location = touch.locationInView(self).x
+      onDidTouch(location, starsWidth: widthOfStars)
+    }
+  }
+  
+  /// Overriding the function to detect touch move.
+  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesMoved(touches, withEvent: event)
+    
+    if let touch = touches.first {
+      let location = touch.locationInView(self).x
+      onDidTouch(location, starsWidth: widthOfStars)
+    }
+  }
+
+  /**
+
+  Called when the view is touched.
+
+  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
+  
+  - parameter starsWidth: The width of the stars excluding the text.
+  
+  */
+  func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
+    let calculatedTouchRating = StarTouch.touchRating(locationX, starsWidth: starsWidth,
+      settings: settings)
+    
+    if settings.updateOnTouch {
+      rating = calculatedTouchRating
+      update()
+    }
+    
+    touchedTheStar?(calculatedTouchRating)
+  }
+  
+  
+  /// Width of the stars (excluding the text). Used for calculating touch location.
+  var widthOfStars: CGFloat {
+    if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
+      let starLayers = Array(sublayers[0..<settings.totalStars])
+      return StarRatingSize.calculateSizeToFitLayers(starLayers).width
+    }
+    
+    return 0
+  }
+  
+  /// Increase the hitsize of the view if it's less than 44px for easier touching.
+  override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    let oprimizedBounds = StarTouchTarget.optimize(bounds)
+    return oprimizedBounds.contains(point)
+  }
+}
+
+
+// ----------------------------
+//
 // StarTouchTarget.swift
 //
 // ----------------------------
@@ -211,191 +640,6 @@ struct StarLayer {
   static func scaleStar(starPoints: [CGPoint], factor: Double) -> [CGPoint] {
     return starPoints.map { point in
       return CGPoint(x: point.x * CGFloat(factor), y: point.y * CGFloat(factor))
-    }
-  }
-}
-
-
-// ----------------------------
-//
-// StarRating.swift
-//
-// ----------------------------
-
-import UIKit
-
-
-/**
-
-Colection of helper functions for creating star layers.
-
-*/
-class StarRating {
-  /**
-  
-  Creates the layers for the stars.
-  
-  - parameter rating: The decimal number representing the rating. Usually a number between 1 and 5
-  - parameter settings: Star view settings.
-  - returns: Array of star layers.
-  
-  */
-  class func createStarLayers(rating: Double, settings: StarRatingSettings) -> [CALayer] {
-
-    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.totalStars)
-
-    var starLayers = [CALayer]()
-
-    for _ in (0..<settings.totalStars) {
-      let fillLevel = starFillLevel(ratingRemainder: ratingRemander, fillMode: settings.fillMode)
-      let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
-      starLayers.append(starLayer)
-      ratingRemander--
-    }
-
-    positionStarLayers(starLayers, starMargin: settings.starMargin)
-    return starLayers
-  }
-
-  
-  /**
-  
-  Creates an layer that shows a star that can look empty, fully filled or partially filled.
-  Partially filled layer contains two sublayers.
-  
-  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
-  - parameter settings: Star view settings.
-  - returns: Layer that shows the star. The layer is displauyed in the star view.
-  
-  */
-  class func createCompositeStarLayer(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
-
-    if starFillLevel >= 1 {
-      return createStarLayer(true, settings: settings)
-    }
-
-    if starFillLevel == 0 {
-      return createStarLayer(false, settings: settings)
-    }
-
-    return createPartialStar(starFillLevel, settings: settings)
-  }
-
-  /**
-  
-  Creates a partially filled star layer with two sub-layers:
-  
-  1. The layer for the filled star on top. The fill level parameter determines the width of this layer.
-  2. The layer for the empty star below.
-  
-  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
-  - parameter settings: Star view settings.
-
-  - returns: Layer that contains the partially filled star.
-  
-  */
-  class func createPartialStar(starFillLevel: Double, settings: StarRatingSettings) -> CALayer {
-    let filledStar = createStarLayer(true, settings: settings)
-    let emptyStar = createStarLayer(false, settings: settings)
-
-    let parentLayer = CALayer()
-    parentLayer.contentsScale = UIScreen.mainScreen().scale
-    parentLayer.bounds = CGRect(origin: CGPoint(), size: filledStar.bounds.size)
-    parentLayer.anchorPoint = CGPoint()
-    parentLayer.addSublayer(emptyStar)
-    parentLayer.addSublayer(filledStar)
-
-    // make filled layer width smaller according to the fill level.
-    filledStar.bounds.size.width *= CGFloat(starFillLevel)
-
-    return parentLayer
-  }
-
-  /**
-
-  Returns a decimal number between 0 and 1 describing the star fill level.
-  
-  - parameter ratingRemainder: This value is passed from the loop that creates star layers. The value starts with the rating value and decremented by 1 when each star is created. For example, suppose we want to display rating of 3.5. When the first star is created the ratingRemainder parameter will be 3.5. For the second star it will be 2.5. Third: 1.5. Fourth: 0.5. Fifth: -0.5.
-  
-  - parameter fillMode: Describe how stars should be filled: full, half or precise.
-  
-  - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
-
-  */
-  class func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode) -> Double {
-      
-    var result = ratingRemainder
-    
-    if result > 1 { result = 1 }
-    if result < 0 { result = 0 }
-    
-    return roundFillLevel(result, fillMode: fillMode)
-  }
-  
-  
-  /**
-  
-  Rounds a single star's fill level according to the fill mode. "Full" mode returns 0 or 1 by using the standard decimal rounding. "Half" mode returns 0, 0.5 or 1 by rounding the decimal to closest of 3 values. "Precise" mode will return the fill level unchanged.
-  
-  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
-  
-  - parameter fillMode: Fill mode that is used to round the fill level value.
-  
-  - returns: The rounded fill level.
-  
-  */
-  class func roundFillLevel(starFillLevel: Double, fillMode: StarFillMode) -> Double {
-    switch fillMode {
-    case .Full:
-      return Double(round(starFillLevel))
-    case .Half:
-      return Double(round(starFillLevel * 2) / 2)
-    case .Precise :
-      return starFillLevel
-    }
-  }
-
-  private class func createStarLayer(isFilled: Bool, settings: StarRatingSettings) -> CALayer {
-    let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
-    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
-
-    return StarLayer.create(settings.starPoints,
-      size: settings.starSize,
-      lineWidth: settings.borderWidthEmpty,
-      fillColor: fillColor,
-      strokeColor: strokeColor)
-  }
-
-  /**
-  
-  Returns the number of filled stars for given rating.
-  
-  - parameter rating: The rating to be displayed.
-  - parameter maxNumberOfStars: Total number of stars.
-  - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
-  
-  */
-  class func numberOfFilledStars(rating: Double, totalNumberOfStars: Int) -> Double {
-    if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
-    if rating < 0 { return 0 }
-
-    return rating
-  }
-
-  /**
-  
-  Positions the star layers one after another with a margin in between.
-  
-  - parameter layers: The star layers array.
-  - parameter starMargin: Margin between stars.
-
-  */
-  class func positionStarLayers(layers: [CALayer], starMargin: Double) {
-    var positionX:CGFloat = 0
-
-    for layer in layers {
-      layer.position.x = positionX
-      positionX += layer.bounds.width + CGFloat(starMargin)
     }
   }
 }
@@ -703,250 +947,6 @@ class StarRatingText {
 
 // ----------------------------
 //
-// StarRatingView.swift
-//
-// ----------------------------
-
-import UIKit
-
-/*
-
-A star rating view that can be used to show customer rating for the products. On can select number of stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown to the right from the stars.
-
-Example:
-
-    ratingView.rating = 4
-    ratingView.text = "(123)"
-
-Shows: ★★★★☆ (132)
-
-*/
-@IBDesignable public class StarRatingView: UIView {
-  // MARK: - Inspectable properties for storyboard
-  
-  /**
-  
-  The currently shown number of stars, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
-
-  */
-  @IBInspectable public var rating: Double = StarRatingDefaultSettings.rating {
-    didSet {      
-      update()
-    }
-  }
-  
-  /// Currently shown text. Set it to nil to display just the stars without text.
-  @IBInspectable public var text: String? {
-    didSet {
-      update()
-    }
-  }
-  
-  
-  @IBInspectable var totalStars: Int = StarRatingDefaultSettings.totalStars {
-    didSet { settings.totalStars = totalStars }
-  }
-  
-  @IBInspectable var starSize: Double = StarRatingDefaultSettings.starSize {
-    didSet {
-      settings.starSize = starSize
-    }
-  }
-  
-  @IBInspectable var colorFilled: UIColor = StarRatingDefaultSettings.colorFilled {
-    didSet { settings.colorFilled = colorFilled }
-  }
-  
-  @IBInspectable var colorEmpty: UIColor = StarRatingDefaultSettings.colorEmpty {
-    didSet { settings.colorEmpty = colorEmpty }
-  }
-  
-  @IBInspectable var borderColorEmpty: UIColor = StarRatingDefaultSettings.borderColorEmpty {
-    didSet { settings.borderColorEmpty = borderColorEmpty }
-  }
-  
-  @IBInspectable var borderWidthEmpty: Double = StarRatingDefaultSettings.borderWidthEmpty {
-    didSet { settings.borderWidthEmpty = borderWidthEmpty }
-  }
-  
-  @IBInspectable var starMargin: Double = StarRatingDefaultSettings.starMargin {
-    didSet { settings.starMargin = starMargin }
-  }
-  
-  @IBInspectable var fillMode: Int = StarRatingDefaultSettings.fillMode.rawValue {
-    didSet {
-      settings.fillMode = StarFillMode(rawValue: fillMode) ?? StarRatingDefaultSettings.fillMode
-    }
-  }
-  
-  @IBInspectable var textSize: Double = StarRatingDefaultSettings.textSize {
-    didSet {
-      settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
-    }
-  }
-  
-  @IBInspectable var textMargin: Double = StarRatingDefaultSettings.textMargin {
-    didSet { settings.textMargin = textMargin }
-  }
-  
-  @IBInspectable var textColor: UIColor = StarRatingDefaultSettings.textColor {
-    didSet { settings.textColor = textColor }
-  }
-  
-  @IBInspectable var updateOnTouch: Bool = StarRatingDefaultSettings.updateOnTouch {
-    didSet { settings.updateOnTouch = updateOnTouch }
-  }
-  
-  @IBInspectable var minTouchRating: Double = StarRatingDefaultSettings.minTouchRating {
-    didSet { settings.minTouchRating = minTouchRating }
-  }
-  
-  public override func prepareForInterfaceBuilder() {
-    super.prepareForInterfaceBuilder()
-    
-    update()
-  }
-  
-  /// Star rating settings.
-  public var settings = StarRatingSettings()
-  
-  /// Stores calculated size of the view. It is used as intrinsic content size.
-  private var viewSize = CGSize()
-
-  /**
-  
-  Updates the stars and optional text based on current values of `rating` and `text` properties.
-  
-  */
-  public func update() {
-    // Create star layers
-    // ------------
-    
-    var layers = StarRating.createStarLayers(rating, settings: settings)
-    layer.sublayers = layers
-    
-    // Create text layer
-    // ------------
-
-    if let text = text {
-      let textLayer = createTextLayer(text, layers: layers)
-      layers.append(textLayer)
-    }
-    
-    // Update size
-    // ------------
-
-    updateSize(layers)
-  }
-  
-  /**
-  
-  Creates the text layer for the given text string.
-  
-  - parameter text: Text string for the text layer.
-  - parameter layers: Arrays of layers containing the stars.
-  
-  - returns: The newly created text layer.
-  
-  */
-  private func createTextLayer(text: String, layers: [CALayer]) -> CALayer {
-    let textLayer = StarRatingLayerHelper.createTextLayer(text,
-      font: settings.textFont, color: settings.textColor)
-    
-    let starsSize = StarRatingSize.calculateSizeToFitLayers(layers)
-    
-    StarRatingText.position(textLayer, starsSize: starsSize, textMargin: settings.textMargin)
-    
-    layer.addSublayer(textLayer)
-    
-    return textLayer
-  }
-  
-  /**
-
-  Updates the size to fit all the layers containing stars and text.
-  
-  - parameter layers: Array of layers containing stars and the text.
-
-  */
-  private func updateSize(layers: [CALayer]) {
-    viewSize = StarRatingSize.calculateSizeToFitLayers(layers)
-    invalidateIntrinsicContentSize()
-  }
-  
-  /// Returns the content size to fit all the star and text layers.
-  override public func intrinsicContentSize() -> CGSize {
-    return viewSize
-  }
-  
-  
-  // MARK: - Touch recognition
-  
-  /// Closure will be called when user touches the star view. The touch rating argument is passed to the closure.
-  public var touchedTheStar: ((Double)->())?
-  
-  /// Overriding the function to detect the first touch gesture.
-  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    super.touchesBegan(touches, withEvent: event)
-    
-    if let touch = touches.first {
-      let location = touch.locationInView(self).x
-      onDidTouch(location, starsWidth: widthOfStars)
-    }
-  }
-  
-  /// Overriding the function to detect touch move.
-  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    super.touchesMoved(touches, withEvent: event)
-    
-    if let touch = touches.first {
-      let location = touch.locationInView(self).x
-      onDidTouch(location, starsWidth: widthOfStars)
-    }
-  }
-
-  /**
-
-  Called when the view is touched.
-
-  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
-  
-  - parameter starsWidth: The width of the stars excluding the text.
-  
-  */
-  func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
-    let calculatedTouchRating = StarTouch.touchRating(locationX, starsWidth: starsWidth,
-      settings: settings)
-    
-    if settings.updateOnTouch {
-      rating = calculatedTouchRating
-      update()
-    }
-    
-    touchedTheStar?(calculatedTouchRating)
-  }
-  
-  
-  /// Width of the stars (excluding the text). Used for calculating touch location.
-  var widthOfStars: CGFloat {
-    if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
-      let starLayers = Array(sublayers[0..<settings.totalStars])
-      return StarRatingSize.calculateSizeToFitLayers(starLayers).width
-    }
-    
-    return 0
-  }
-  
-  /// Increase the hitsize of the view if it's less than 44px for easier touching.
-  override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    let oprimizedBounds = StarTouchTarget.optimize(bounds)
-    return oprimizedBounds.contains(point)
-  }
-}
-
-
-// ----------------------------
-//
 // StarTouch.swift
 //
 // ----------------------------
@@ -984,7 +984,7 @@ struct StarTouch {
     let starFloorNumber = floor(correctedRating)
     let singleStarRemainder = correctedRating - starFloorNumber
     
-    correctedRating = starFloorNumber + StarRating.starFillLevel(
+    correctedRating = starFloorNumber + CosmosLayers.starFillLevel(
       ratingRemainder: singleStarRemainder, fillMode: settings.fillMode)
     
     correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars

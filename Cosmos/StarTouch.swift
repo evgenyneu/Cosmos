@@ -31,7 +31,7 @@ struct StarTouch {
     let starFloorNumber = floor(correctedRating)
     let singleStarRemainder = correctedRating - starFloorNumber
     
-    correctedRating = starFloorNumber + StarRating.starFillLevel(
+    correctedRating = starFloorNumber + CosmosLayers.starFillLevel(
       ratingRemainder: singleStarRemainder, fillMode: settings.fillMode)
     
     correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars

@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		2B622EB31B37BAE50090D81B /* Cosmos.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B622EB21B37BAE50090D81B /* Cosmos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B622EBA1B37BAE50090D81B /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B622EAF1B37BAE50090D81B /* Cosmos.framework */; };
-		2B622ED31B37BB700090D81B /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EC91B37BB700090D81B /* StarRating.swift */; };
-		2B622ED41B37BB700090D81B /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECA1B37BB700090D81B /* StarRatingView.swift */; };
+		2B622ED31B37BB700090D81B /* CosmosLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EC91B37BB700090D81B /* CosmosLayers.swift */; };
+		2B622ED41B37BB700090D81B /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECA1B37BB700090D81B /* CosmosView.swift */; };
 		2B622ED51B37BB700090D81B /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECB1B37BB700090D81B /* StarFillMode.swift */; };
 		2B622ED61B37BB700090D81B /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECC1B37BB700090D81B /* StarLayer.swift */; };
 		2B622ED71B37BB700090D81B /* StarRatingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECD1B37BB700090D81B /* StarRatingText.swift */; };
@@ -22,8 +22,8 @@
 		2B622EDF1B37BB850090D81B /* StarTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EDE1B37BB850090D81B /* StarTouchTarget.swift */; };
 		2B622EE31B37BBC20090D81B /* StarTouchTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE21B37BBC20090D81B /* StarTouchTargetTests.swift */; };
 		2B622EE51B37BBC60090D81B /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE41B37BBC60090D81B /* Round.swift */; };
-		2B622EE91B37BBD10090D81B /* StarRatingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE61B37BBD10090D81B /* StarRatingViewTests.swift */; };
-		2B622EEA1B37BBD10090D81B /* StarRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE71B37BBD10090D81B /* StarRatingTests.swift */; };
+		2B622EE91B37BBD10090D81B /* CosmosViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE61B37BBD10090D81B /* CosmosViewTests.swift */; };
+		2B622EEA1B37BBD10090D81B /* CosmosLayersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE71B37BBD10090D81B /* CosmosLayersTests.swift */; };
 		2B622EEB1B37BBD10090D81B /* StarTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE81B37BBD10090D81B /* StarTouchTests.swift */; };
 		2B622EF31B37BC120090D81B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EF21B37BC120090D81B /* AppDelegate.swift */; };
 		2B622EF81B37BC120090D81B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B622EF61B37BC120090D81B /* Main.storyboard */; };
@@ -72,8 +72,8 @@
 		2B622EB41B37BAE50090D81B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B622EB91B37BAE50090D81B /* CosmosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CosmosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B622EC01B37BAE50090D81B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B622EC91B37BB700090D81B /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
-		2B622ECA1B37BB700090D81B /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
+		2B622EC91B37BB700090D81B /* CosmosLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayers.swift; sourceTree = "<group>"; };
+		2B622ECA1B37BB700090D81B /* CosmosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosView.swift; sourceTree = "<group>"; };
 		2B622ECB1B37BB700090D81B /* StarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarFillMode.swift; sourceTree = "<group>"; };
 		2B622ECC1B37BB700090D81B /* StarLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarLayer.swift; sourceTree = "<group>"; };
 		2B622ECD1B37BB700090D81B /* StarRatingText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingText.swift; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 		2B622EDE1B37BB850090D81B /* StarTouchTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTarget.swift; sourceTree = "<group>"; };
 		2B622EE21B37BBC20090D81B /* StarTouchTargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTargetTests.swift; sourceTree = "<group>"; };
 		2B622EE41B37BBC60090D81B /* Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
-		2B622EE61B37BBD10090D81B /* StarRatingViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingViewTests.swift; sourceTree = "<group>"; };
-		2B622EE71B37BBD10090D81B /* StarRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingTests.swift; sourceTree = "<group>"; };
+		2B622EE61B37BBD10090D81B /* CosmosViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosViewTests.swift; sourceTree = "<group>"; };
+		2B622EE71B37BBD10090D81B /* CosmosLayersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayersTests.swift; sourceTree = "<group>"; };
 		2B622EE81B37BBD10090D81B /* StarTouchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTests.swift; sourceTree = "<group>"; };
 		2B622EF01B37BC120090D81B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B622EF21B37BC120090D81B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,8 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				2B622EDD1B37BB7F0090D81B /* Helpers */,
-				2B622EC91B37BB700090D81B /* StarRating.swift */,
-				2B622ECA1B37BB700090D81B /* StarRatingView.swift */,
+				2B622EC91B37BB700090D81B /* CosmosLayers.swift */,
+				2B622ECA1B37BB700090D81B /* CosmosView.swift */,
 				2B622ECB1B37BB700090D81B /* StarFillMode.swift */,
 				2B622ECC1B37BB700090D81B /* StarLayer.swift */,
 				2B622ECD1B37BB700090D81B /* StarRatingText.swift */,
@@ -171,8 +171,8 @@
 			children = (
 				2B622EE01B37BBB20090D81B /* Helpers */,
 				2B622EE11B37BBBA0090D81B /* TestHelpers */,
-				2B622EE61B37BBD10090D81B /* StarRatingViewTests.swift */,
-				2B622EE71B37BBD10090D81B /* StarRatingTests.swift */,
+				2B622EE61B37BBD10090D81B /* CosmosViewTests.swift */,
+				2B622EE71B37BBD10090D81B /* CosmosLayersTests.swift */,
 				2B622EE81B37BBD10090D81B /* StarTouchTests.swift */,
 				2B622EC01B37BAE50090D81B /* Info.plist */,
 			);
@@ -389,12 +389,12 @@
 			files = (
 				2B622ED81B37BB700090D81B /* StarRatingLayerHelper.swift in Sources */,
 				2B622ED91B37BB700090D81B /* StarRatingSettings.swift in Sources */,
-				2B622ED31B37BB700090D81B /* StarRating.swift in Sources */,
+				2B622ED31B37BB700090D81B /* CosmosLayers.swift in Sources */,
 				2B622ED61B37BB700090D81B /* StarLayer.swift in Sources */,
 				2B622EDF1B37BB850090D81B /* StarTouchTarget.swift in Sources */,
 				2B622ED71B37BB700090D81B /* StarRatingText.swift in Sources */,
 				2B622ED51B37BB700090D81B /* StarFillMode.swift in Sources */,
-				2B622ED41B37BB700090D81B /* StarRatingView.swift in Sources */,
+				2B622ED41B37BB700090D81B /* CosmosView.swift in Sources */,
 				2B622EDC1B37BB700090D81B /* StarTouch.swift in Sources */,
 				2B622EDB1B37BB700090D81B /* StarRatingSize.swift in Sources */,
 				2B622EDA1B37BB700090D81B /* StarRatingDefaultSettings.swift in Sources */,
@@ -406,8 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B622EE31B37BBC20090D81B /* StarTouchTargetTests.swift in Sources */,
-				2B622EE91B37BBD10090D81B /* StarRatingViewTests.swift in Sources */,
-				2B622EEA1B37BBD10090D81B /* StarRatingTests.swift in Sources */,
+				2B622EE91B37BBD10090D81B /* CosmosViewTests.swift in Sources */,
+				2B622EEA1B37BBD10090D81B /* CosmosLayersTests.swift in Sources */,
 				2B622EEB1B37BBD10090D81B /* StarTouchTests.swift in Sources */,
 				2B622EE51B37BBC60090D81B /* Round.swift in Sources */,
 			);
@@ -670,6 +670,7 @@
 				2B622EC51B37BAE50090D81B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B622EC61B37BAE50090D81B /* Build configuration list for PBXNativeTarget "CosmosTests" */ = {
 			isa = XCConfigurationList;
@@ -678,6 +679,7 @@
 				2B622EC81B37BAE50090D81B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B622EFF1B37BC120090D81B /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
@@ -686,6 +688,7 @@
 				2B622F011B37BC120090D81B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B622F0A1B37BD960090D81B /* Build configuration list for PBXLegacyTarget "ConcatenateSwiftFiles" */ = {
 			isa = XCConfigurationList;
@@ -694,6 +697,7 @@
 				2B622F0C1B37BD960090D81B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

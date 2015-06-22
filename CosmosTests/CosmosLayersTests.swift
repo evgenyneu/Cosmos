@@ -1,36 +1,36 @@
 import XCTest
 @testable import Cosmos
 
-class StarRatingTests: XCTestCase {
+class CosmosLayersTests: XCTestCase {
   
   // MARK: - Star fill level
   
   func testStarFillLevel_moreThanOneRemain() {
-    let result = StarRating.starFillLevel(ratingRemainder: 1.1, fillMode: .Precise)
+    let result = CosmosLayers.starFillLevel(ratingRemainder: 1.1, fillMode: .Precise)
     
     XCTAssertEqual(1, result)
   }
 
   func testStarFillLevel_negativeRemainder() {
-    let result = StarRating.starFillLevel(ratingRemainder: -0.1, fillMode: .Precise)
+    let result = CosmosLayers.starFillLevel(ratingRemainder: -0.1, fillMode: .Precise)
     
     XCTAssertEqual(0, result)
   }
   
   func testStarFillLevel_partiallyFileldPrecise() {
-    let result = StarRating.starFillLevel(ratingRemainder: 0.67, fillMode: .Precise)
+    let result = CosmosLayers.starFillLevel(ratingRemainder: 0.67, fillMode: .Precise)
     
     XCTAssertEqual(0.67, result)
   }
   
   func testStarFillLevel_partiallyFileldHalf() {
-    let result = StarRating.starFillLevel(ratingRemainder: 0.67, fillMode: .Half)
+    let result = CosmosLayers.starFillLevel(ratingRemainder: 0.67, fillMode: .Half)
     
     XCTAssertEqual(0.5, result)
   }
 
   func testStarFillLevel_partiallyFileldFull() {
-    let result = StarRating.starFillLevel(ratingRemainder: 0.67, fillMode: .Full)
+    let result = CosmosLayers.starFillLevel(ratingRemainder: 0.67, fillMode: .Full)
     
     XCTAssertEqual(1, result)
   }
@@ -38,17 +38,17 @@ class StarRatingTests: XCTestCase {
   // MARK: - Number of filled stars
   
   func testNumberOfFilledStars() {
-    let result = StarRating.numberOfFilledStars(2.6, totalNumberOfStars: 5)
+    let result = CosmosLayers.numberOfFilledStars(2.6, totalNumberOfStars: 5)
     XCTAssertEqual(2.6, result)
   }
   
   func testNumberOfFilledStars_ratingIsBiggerThanNumberOfStars() {
-    let result = StarRating.numberOfFilledStars(3.6, totalNumberOfStars: 3)
+    let result = CosmosLayers.numberOfFilledStars(3.6, totalNumberOfStars: 3)
     XCTAssertEqual(3, result)
   }
 
   func testNumberOfFilledStars_ratingIsNegative() {
-    let result = StarRating.numberOfFilledStars(-0.6, totalNumberOfStars: 5)
+    let result = CosmosLayers.numberOfFilledStars(-0.6, totalNumberOfStars: 5)
     XCTAssertEqual(0, result)
   }
 
@@ -66,7 +66,7 @@ class StarRatingTests: XCTestCase {
     
     let layers = [layerOne, layerTwo, layerThree]
       
-    StarRating.positionStarLayers(layers, starMargin: 5)
+    CosmosLayers.positionStarLayers(layers, starMargin: 5)
     
     XCTAssertEqual(0, layerOne.position.x)
     XCTAssertEqual(25, layerTwo.position.x)
@@ -83,7 +83,7 @@ class StarRatingTests: XCTestCase {
     settings.borderWidthEmpty = 1.31
     settings.colorFilled = UIColor.redColor()
 
-    let result = StarRating.createPartialStar(0.8, settings: settings)
+    let result = CosmosLayers.createPartialStar(0.8, settings: settings)
     
     XCTAssertEqual(2, result.sublayers!.count)
     
@@ -131,7 +131,7 @@ class StarRatingTests: XCTestCase {
     settings.starSize = 12
     settings.colorFilled = UIColor.yellowColor()
     
-    let result = StarRating.createCompositeStarLayer(1, settings: settings) as CALayer
+    let result = CosmosLayers.createCompositeStarLayer(1, settings: settings) as CALayer
   
     XCTAssertEqual(1, result.sublayers!.count)
 
@@ -156,7 +156,7 @@ class StarRatingTests: XCTestCase {
     settings.borderColorEmpty = UIColor.blueColor()
     settings.borderWidthEmpty = 1.31
     
-    let result = StarRating.createCompositeStarLayer(0, settings: settings) as CALayer
+    let result = CosmosLayers.createCompositeStarLayer(0, settings: settings) as CALayer
     
     XCTAssertEqual(1, result.sublayers!.count)
     
@@ -183,7 +183,7 @@ class StarRatingTests: XCTestCase {
     settings.borderWidthEmpty = 1.31
     settings.colorFilled = UIColor.yellowColor()
 
-    let result = StarRating.createCompositeStarLayer(0.2, settings: settings)
+    let result = CosmosLayers.createCompositeStarLayer(0.2, settings: settings)
     
     XCTAssertEqual(2, result.sublayers!.count)
     
@@ -233,7 +233,7 @@ class StarRatingTests: XCTestCase {
     settings.starMargin = 5
     settings.totalStars = 100 // Crazy, huh? But still way less than 100,000,000,000 to 400,000,000,000 stars in our Milky Way galaxy. 🌌
     
-    let result = StarRating.createStarLayers(3.7, settings: settings)
+    let result = CosmosLayers.createStarLayers(3.7, settings: settings)
     
     XCTAssertEqual(100, result.count)
     XCTAssertEqual(17, result.last!.bounds.width)
@@ -246,29 +246,29 @@ class StarRatingTests: XCTestCase {
   // MARK: - Round fill level
   
   func testRoundFillLevel_full() {
-    XCTAssertEqual(0,   StarRating.roundFillLevel(0,    fillMode: .Full))
-    XCTAssertEqual(0,   StarRating.roundFillLevel(0.4,  fillMode: .Full))
-    XCTAssertEqual(1,   StarRating.roundFillLevel(0.5,  fillMode: .Full))
-    XCTAssertEqual(1,   StarRating.roundFillLevel(1,    fillMode: .Full))
+    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0,    fillMode: .Full))
+    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0.4,  fillMode: .Full))
+    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(0.5,  fillMode: .Full))
+    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(1,    fillMode: .Full))
   }
   
   func testRoundFillLevel_half() {
-    XCTAssertEqual(0,   StarRating.roundFillLevel(0,    fillMode: .Half))
-    XCTAssertEqual(0,   StarRating.roundFillLevel(0.1,  fillMode: .Half))
-    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.25, fillMode: .Half))
-    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.3,  fillMode: .Half))
-    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.5,  fillMode: .Half))
-    XCTAssertEqual(0.5, StarRating.roundFillLevel(0.6,  fillMode: .Half))
-    XCTAssertEqual(1,   StarRating.roundFillLevel(0.75, fillMode: .Half))
-    XCTAssertEqual(1,   StarRating.roundFillLevel(0.9,  fillMode: .Half))
-    XCTAssertEqual(1,   StarRating.roundFillLevel(1,    fillMode: .Half))
+    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0,    fillMode: .Half))
+    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0.1,  fillMode: .Half))
+    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.25, fillMode: .Half))
+    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.3,  fillMode: .Half))
+    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.5,  fillMode: .Half))
+    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.6,  fillMode: .Half))
+    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(0.75, fillMode: .Half))
+    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(0.9,  fillMode: .Half))
+    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(1,    fillMode: .Half))
   }
   
   func testRoundFillLevel_precise() {
-    XCTAssertEqual(0,   StarRating.roundFillLevel(0,    fillMode: .Precise))
-    XCTAssertEqual(0.1, StarRating.roundFillLevel(0.1,  fillMode: .Precise))
-    XCTAssertEqual(0.25,StarRating.roundFillLevel(0.25, fillMode: .Precise))
-    XCTAssertEqual(0.9, StarRating.roundFillLevel(0.9,  fillMode: .Precise))
+    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0,    fillMode: .Precise))
+    XCTAssertEqual(0.1, CosmosLayers.roundFillLevel(0.1,  fillMode: .Precise))
+    XCTAssertEqual(0.25,CosmosLayers.roundFillLevel(0.25, fillMode: .Precise))
+    XCTAssertEqual(0.9, CosmosLayers.roundFillLevel(0.9,  fillMode: .Precise))
   }
   
 }

@@ -6,13 +6,13 @@ A star rating view that can be used to show customer rating for the products. On
 
 Example:
 
-    ratingView.rating = 4
-    ratingView.text = "(123)"
+    cosmosView.rating = 4
+    cosmosView.text = "(123)"
 
 Shows: ★★★★☆ (132)
 
 */
-@IBDesignable public class StarRatingView: UIView {
+@IBDesignable public class CosmosView: UIView {
   // MARK: - Inspectable properties for storyboard
   
   /**
@@ -113,7 +113,7 @@ Shows: ★★★★☆ (132)
     // Create star layers
     // ------------
     
-    var layers = StarRating.createStarLayers(rating, settings: settings)
+    var layers = CosmosLayers.createStarLayers(rating, settings: settings)
     layer.sublayers = layers
     
     // Create text layer

@@ -48,7 +48,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-Q3-Dv1" customClass="StarRatingView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-Q3-Dv1" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="155" y="218" width="290" height="50"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -78,7 +78,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-pS-FV2" customClass="StarRatingView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-pS-FV2" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="223" y="76" width="154" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -103,7 +103,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="(124)"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j21-ho-3LA" customClass="StarRatingView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j21-ho-3LA" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="215" y="142" width="170" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -147,11 +147,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cosmosViewFull" destination="2tN-pS-FV2" id="rsh-Qr-RRO"/>
+                        <outlet property="cosmosViewHalf" destination="j21-ho-3LA" id="jBD-bV-i6Q"/>
+                        <outlet property="cosmosViewPrecise" destination="Zcm-Q3-Dv1" id="XpJ-UO-Yh0"/>
                         <outlet property="ratingLabel" destination="lo6-6T-bH2" id="SRa-BB-wqv"/>
                         <outlet property="ratingSlider" destination="kq7-em-h86" id="58f-dP-Eeq"/>
-                        <outlet property="starRatingViewHalf" destination="j21-ho-3LA" id="XIc-BD-a1v"/>
-                        <outlet property="starRatingViewOne" destination="2tN-pS-FV2" id="a5N-bx-wSy"/>
-                        <outlet property="starRatingViewPrecise" destination="Zcm-Q3-Dv1" id="KAv-ig-x4Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkW-fN-ofA" sceneMemberID="firstResponder"/>

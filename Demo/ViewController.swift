@@ -3,11 +3,11 @@ import Cosmos
 
 class ViewController: UIViewController {
   
-  @IBOutlet weak var starRatingViewHalf: StarRatingView!
+  @IBOutlet weak var cosmosViewFull: CosmosView!
   
-  @IBOutlet weak var starRatingViewOne: StarRatingView!
+  @IBOutlet weak var cosmosViewHalf: CosmosView!
   
-  @IBOutlet weak var starRatingViewPrecise: StarRatingView!
+  @IBOutlet weak var cosmosViewPrecise: CosmosView!
   
   @IBOutlet weak var ratingSlider: UISlider!
   @IBOutlet weak var ratingLabel: UILabel!
@@ -17,9 +17,9 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     // Register touch handlers
-    starRatingViewOne.touchedTheStar = touchedTheStar
-    starRatingViewHalf.touchedTheStar = touchedTheStar
-    starRatingViewPrecise.touchedTheStar = touchedTheStar
+    cosmosViewFull.touchedTheStar = touchedTheStar
+    cosmosViewHalf.touchedTheStar = touchedTheStar
+    cosmosViewPrecise.touchedTheStar = touchedTheStar
     
     ratingSlider.value = startRating
     updateRating()
@@ -31,9 +31,9 @@ class ViewController: UIViewController {
   
   private func updateRating() {
     let value = Double(ratingSlider.value)
-    starRatingViewOne.rating = value
-    starRatingViewHalf.rating = value
-    starRatingViewPrecise.rating = value
+    cosmosViewFull.rating = value
+    cosmosViewHalf.rating = value
+    cosmosViewPrecise.rating = value
     
     self.ratingLabel.text = ViewController.formatValue(value)
   }
