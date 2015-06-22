@@ -6,7 +6,7 @@
 
 This is a UI control for iOS for showing a 5-star rating or taking the rating input from the user.
 
-* Shows stars with optional text label.
+* Shows star rating with an optional text label.
 * Can be used as a rating input control.
 * Cosmos view can be customized in the Storyboard without writing code.
 * Includes different star filling modes: full, half-filled and precise.
