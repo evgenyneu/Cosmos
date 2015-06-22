@@ -2,7 +2,7 @@
 
 # Cosmos, a star rating control for iOS / Swift
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Star raiting control for iOS / Swift' width='450'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Star raiting control for iOS / Swift' width='300'>
 
 This is a UI control for iOS for showing a 5-star rating or taking the rating input from the user. Cosmos is a subclass of a UIView.
 
