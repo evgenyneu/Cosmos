@@ -16,7 +16,7 @@ This is a UI control for iOS for showing a 5-star rating or taking the rating in
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
   alt="Binary star system of Sirius A and Sirius B (artist's impression)" width='450'>
 
-> Every one of us is, in the cosmic perspective, precious. If a human disagrees with you, let him live. In a hundred billion galaxies, you will not find another.
+> We are a way for the cosmos to know itself.
 
 *Carl Sagan, Cosmos*
 
@@ -28,7 +28,7 @@ There are three ways you can add Cosmos to your Xcode project.
 
 **Add source (iOS 7+)**
 
-Simply add [CosmosDistrib.swift](https://github.com/exchangegroup/Star/blob/master/Distrib/StarDistrib.swift) file into your Xcode project.
+Simply add [CosmosDistrib.swift](https://github.com/exchangegroup/Cosmos/edit/master/Distrib/CosmosDistrib.swift) file into your Xcode project.
 
 **Setup with Carthage (iOS 8+)**
 
