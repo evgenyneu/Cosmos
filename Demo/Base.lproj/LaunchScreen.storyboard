@@ -19,17 +19,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="tBC-a2-0r7">
-                                <rect key="frame" x="-100" y="-30" width="300" height="252"/>
+                                <rect key="frame" x="-80" y="152.5" width="580" height="487.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tBC-a2-0r7" secondAttribute="height" multiplier="1603:1347" id="qvX-WJ-tPt"/>
-                                    <constraint firstAttribute="width" constant="300" id="uTT-ty-Rge"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.040883680680667847" green="0.039581347234490111" blue="0.050820707070707072" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="tBC-a2-0r7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-100" id="4pz-XV-RIx"/>
-                            <constraint firstItem="tBC-a2-0r7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-50" id="NuM-Go-F3z"/>
+                            <constraint firstItem="tBC-a2-0r7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-80" id="4pz-XV-RIx"/>
+                            <constraint firstAttribute="trailing" secondItem="tBC-a2-0r7" secondAttribute="trailing" constant="100" id="94T-76-anM"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="tBC-a2-0r7" secondAttribute="bottom" constant="-40" id="B4L-W1-oQN"/>
                         </constraints>
                     </view>
                 </viewController>

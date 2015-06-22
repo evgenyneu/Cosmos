@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKg-Hv-taV">
-                                <rect key="frame" x="286" y="40" width="27" height="20.5"/>
+                                <rect key="frame" x="285.5" y="40" width="27" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.71764705882352942" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -136,7 +136,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="veo-Fz-sdA">
-                                <rect key="frame" x="-60" y="354" width="540" height="454"/>
+                                <rect key="frame" x="-80" y="354" width="580" height="488"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="veo-Fz-sdA" secondAttribute="height" multiplier="1603:1347" id="06v-lo-xjm"/>
                                 </constraints>
@@ -153,7 +153,7 @@
                             <constraint firstItem="kq7-em-h86" firstAttribute="leading" secondItem="Fer-fB-nQw" secondAttribute="leadingMargin" id="ISv-B8-9st"/>
                             <constraint firstItem="QMh-kd-8Ca" firstAttribute="top" secondItem="2tN-pS-FV2" secondAttribute="bottom" constant="20" id="MY4-bx-EFl"/>
                             <constraint firstAttribute="centerX" secondItem="lo6-6T-bH2" secondAttribute="centerX" id="NkV-6N-1zY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="veo-Fz-sdA" secondAttribute="trailing" constant="100" id="PfV-GC-wux"/>
+                            <constraint firstAttribute="trailing" secondItem="veo-Fz-sdA" secondAttribute="trailing" constant="100" id="PfV-GC-wux"/>
                             <constraint firstItem="Zcm-Q3-Dv1" firstAttribute="top" secondItem="ZE3-kT-Xhz" secondAttribute="bottom" constant="5" id="Pl0-3p-ruO"/>
                             <constraint firstItem="ZE3-kT-Xhz" firstAttribute="top" secondItem="j21-ho-3LA" secondAttribute="bottom" constant="20" id="Uxv-lu-khP"/>
                             <constraint firstAttribute="centerX" secondItem="FKg-Hv-taV" secondAttribute="centerX" constant="1" id="VG1-XT-fWI"/>
@@ -164,7 +164,7 @@
                             <constraint firstAttribute="centerX" secondItem="ZE3-kT-Xhz" secondAttribute="centerX" id="mHN-58-4EF"/>
                             <constraint firstItem="lo6-6T-bH2" firstAttribute="top" secondItem="Zcm-Q3-Dv1" secondAttribute="bottom" constant="40" id="syf-G4-AXC"/>
                             <constraint firstItem="veo-Fz-sdA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kq7-em-h86" secondAttribute="bottom" id="ty6-yw-Ap8"/>
-                            <constraint firstItem="veo-Fz-sdA" firstAttribute="leading" secondItem="Fer-fB-nQw" secondAttribute="leadingMargin" constant="-80" id="xc1-HN-k9I"/>
+                            <constraint firstItem="veo-Fz-sdA" firstAttribute="leading" secondItem="Fer-fB-nQw" secondAttribute="leading" constant="-80" id="xc1-HN-k9I"/>
                         </constraints>
                     </view>
                     <connections>
