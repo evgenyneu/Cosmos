@@ -37,7 +37,7 @@ struct CosmosDefaultSettings {
   static let borderWidthEmpty: Double = 1
   
   /// Background color of an empty star.
-  static let colorEmpty = UIColor.whiteColor()
+  static let colorEmpty = UIColor.clearColor()
   
   /// Background color of a filled star.
   static let colorFilled = defaultColor
