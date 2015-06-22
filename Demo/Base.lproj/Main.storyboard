@@ -72,7 +72,6 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
                                         <color key="value" red="1" green="0.30980392159999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
@@ -99,7 +98,6 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                         <color key="value" red="0.61277707120000002" green="0.61277707120000002" blue="0.61277707120000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="(124)"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -118,7 +116,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="textMargin">
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
                                         <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>

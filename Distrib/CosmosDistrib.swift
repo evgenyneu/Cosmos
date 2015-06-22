@@ -91,7 +91,7 @@ struct CosmosDefaultSettings {
 
   
   /// When true the star fill level is update when user touches the cosmos view.
-  static let updateOnTouch = false
+  static let updateOnTouch = true
   
   /// The lowest rating that user can set by touching the stars.
   static let minTouchRating: Double = 1
