@@ -5,7 +5,7 @@ import UIKit
 Functions for working with touch input.
 
 */
-struct StarTouch {
+struct CosmosTouch {
   /**
   
   Calculates the rating based on the touch location.

@@ -206,7 +206,7 @@ Shows: ★★★★☆ (132)
   
   */
   func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
-    let calculatedTouchRating = StarTouch.touchRating(locationX, starsWidth: starsWidth,
+    let calculatedTouchRating = CosmosTouch.touchRating(locationX, starsWidth: starsWidth,
       settings: settings)
     
     if settings.updateOnTouch {

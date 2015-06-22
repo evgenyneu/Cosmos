@@ -18,13 +18,13 @@
 		2B622ED91B37BB700090D81B /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECF1B37BB700090D81B /* CosmosSettings.swift */; };
 		2B622EDA1B37BB700090D81B /* CosmosDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */; };
 		2B622EDB1B37BB700090D81B /* CosmosSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED11B37BB700090D81B /* CosmosSize.swift */; };
-		2B622EDC1B37BB700090D81B /* StarTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED21B37BB700090D81B /* StarTouch.swift */; };
+		2B622EDC1B37BB700090D81B /* CosmosTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ED21B37BB700090D81B /* CosmosTouch.swift */; };
 		2B622EDF1B37BB850090D81B /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */; };
 		2B622EE31B37BBC20090D81B /* CosmosTouchTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE21B37BBC20090D81B /* CosmosTouchTargetTests.swift */; };
 		2B622EE51B37BBC60090D81B /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE41B37BBC60090D81B /* Round.swift */; };
 		2B622EE91B37BBD10090D81B /* CosmosViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE61B37BBD10090D81B /* CosmosViewTests.swift */; };
 		2B622EEA1B37BBD10090D81B /* CosmosLayersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE71B37BBD10090D81B /* CosmosLayersTests.swift */; };
-		2B622EEB1B37BBD10090D81B /* StarTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE81B37BBD10090D81B /* StarTouchTests.swift */; };
+		2B622EEB1B37BBD10090D81B /* CosmosTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EE81B37BBD10090D81B /* CosmosTouchTests.swift */; };
 		2B622EF31B37BC120090D81B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EF21B37BC120090D81B /* AppDelegate.swift */; };
 		2B622EF81B37BC120090D81B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B622EF61B37BC120090D81B /* Main.storyboard */; };
 		2B622EFA1B37BC120090D81B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B622EF91B37BC120090D81B /* Assets.xcassets */; };
@@ -81,13 +81,13 @@
 		2B622ECF1B37BB700090D81B /* CosmosSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettings.swift; sourceTree = "<group>"; };
 		2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDefaultSettings.swift; sourceTree = "<group>"; };
 		2B622ED11B37BB700090D81B /* CosmosSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSize.swift; sourceTree = "<group>"; };
-		2B622ED21B37BB700090D81B /* StarTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouch.swift; sourceTree = "<group>"; };
+		2B622ED21B37BB700090D81B /* CosmosTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouch.swift; sourceTree = "<group>"; };
 		2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTarget.swift; sourceTree = "<group>"; };
 		2B622EE21B37BBC20090D81B /* CosmosTouchTargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTargetTests.swift; sourceTree = "<group>"; };
 		2B622EE41B37BBC60090D81B /* Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		2B622EE61B37BBD10090D81B /* CosmosViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosViewTests.swift; sourceTree = "<group>"; };
 		2B622EE71B37BBD10090D81B /* CosmosLayersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayersTests.swift; sourceTree = "<group>"; };
-		2B622EE81B37BBD10090D81B /* StarTouchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTests.swift; sourceTree = "<group>"; };
+		2B622EE81B37BBD10090D81B /* CosmosTouchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTests.swift; sourceTree = "<group>"; };
 		2B622EF01B37BC120090D81B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B622EF21B37BC120090D81B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B622EF71B37BC120090D81B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				2B622ECF1B37BB700090D81B /* CosmosSettings.swift */,
 				2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */,
 				2B622ED11B37BB700090D81B /* CosmosSize.swift */,
-				2B622ED21B37BB700090D81B /* StarTouch.swift */,
+				2B622ED21B37BB700090D81B /* CosmosTouch.swift */,
 				2B622EB21B37BAE50090D81B /* Cosmos.h */,
 				2B622EB41B37BAE50090D81B /* Info.plist */,
 			);
@@ -173,7 +173,7 @@
 				2B622EE11B37BBBA0090D81B /* TestHelpers */,
 				2B622EE61B37BBD10090D81B /* CosmosViewTests.swift */,
 				2B622EE71B37BBD10090D81B /* CosmosLayersTests.swift */,
-				2B622EE81B37BBD10090D81B /* StarTouchTests.swift */,
+				2B622EE81B37BBD10090D81B /* CosmosTouchTests.swift */,
 				2B622EC01B37BAE50090D81B /* Info.plist */,
 			);
 			path = CosmosTests;
@@ -395,7 +395,7 @@
 				2B622ED71B37BB700090D81B /* CosmosText.swift in Sources */,
 				2B622ED51B37BB700090D81B /* StarFillMode.swift in Sources */,
 				2B622ED41B37BB700090D81B /* CosmosView.swift in Sources */,
-				2B622EDC1B37BB700090D81B /* StarTouch.swift in Sources */,
+				2B622EDC1B37BB700090D81B /* CosmosTouch.swift in Sources */,
 				2B622EDB1B37BB700090D81B /* CosmosSize.swift in Sources */,
 				2B622EDA1B37BB700090D81B /* CosmosDefaultSettings.swift in Sources */,
 			);
@@ -408,7 +408,7 @@
 				2B622EE31B37BBC20090D81B /* CosmosTouchTargetTests.swift in Sources */,
 				2B622EE91B37BBD10090D81B /* CosmosViewTests.swift in Sources */,
 				2B622EEA1B37BBD10090D81B /* CosmosLayersTests.swift in Sources */,
-				2B622EEB1B37BBD10090D81B /* StarTouchTests.swift in Sources */,
+				2B622EEB1B37BBD10090D81B /* CosmosTouchTests.swift in Sources */,
 				2B622EE51B37BBC60090D81B /* Round.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

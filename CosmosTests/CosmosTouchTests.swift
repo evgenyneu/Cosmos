@@ -1,14 +1,14 @@
 import XCTest
 @testable import Cosmos
 
-class StarTouchTests: XCTestCase {
+class CosmosTouchTests: XCTestCase {
   // MARK: - Touch rating
   
   func testTouchRating_full() {
     var settings = CosmosSettings()
     settings.fillMode = .Full
     settings.minTouchRating = 0
-    let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
+    let result = CosmosTouch.touchRating(200, starsWidth: 500, settings: settings)
     XCTAssertEqual(2, result)
   }
   
@@ -19,7 +19,7 @@ class StarTouchTests: XCTestCase {
     settings.totalStars = 500
     settings.minTouchRating = 0
 
-    let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
+    let result = CosmosTouch.touchRating(200, starsWidth: 500, settings: settings)
     XCTAssertEqual(200, result)
   }
 
@@ -29,7 +29,7 @@ class StarTouchTests: XCTestCase {
     settings.fillMode = .Full
     settings.minTouchRating = 0
     
-    let result = StarTouch.touchRating(600, starsWidth: 500, settings: settings)
+    let result = CosmosTouch.touchRating(600, starsWidth: 500, settings: settings)
     XCTAssertEqual(5, result)
   }
 
@@ -39,7 +39,7 @@ class StarTouchTests: XCTestCase {
     settings.fillMode = .Full
     settings.minTouchRating = 0
     
-    let result = StarTouch.touchRating(-100, starsWidth: 500, settings: settings)
+    let result = CosmosTouch.touchRating(-100, starsWidth: 500, settings: settings)
     XCTAssertEqual(0, result)
   }
 
@@ -49,7 +49,7 @@ class StarTouchTests: XCTestCase {
     settings.fillMode = .Half
     settings.minTouchRating = 0
     
-    let result = StarTouch.touchRating(200, starsWidth: 500, settings: settings)
+    let result = CosmosTouch.touchRating(200, starsWidth: 500, settings: settings)
     XCTAssertEqual(2.5, result)
   }
 
@@ -59,7 +59,7 @@ class StarTouchTests: XCTestCase {
     settings.fillMode = .Precise
     settings.minTouchRating = 0
     
-    let result = StarTouch.touchRating(215, starsWidth: 500, settings: settings)
+    let result = CosmosTouch.touchRating(215, starsWidth: 500, settings: settings)
     XCTAssertEqual(2.15, result)
   }
 
@@ -69,7 +69,7 @@ class StarTouchTests: XCTestCase {
     settings.fillMode = .Precise
     settings.minTouchRating = 1.1
     
-    let result = StarTouch.touchRating(0, starsWidth: 500, settings: settings)
+    let result = CosmosTouch.touchRating(0, starsWidth: 500, settings: settings)
     XCTAssertEqual(1.1, result)
   }
 }

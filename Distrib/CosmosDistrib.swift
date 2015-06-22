@@ -424,6 +424,43 @@ public struct CosmosSettings {
 
 // ----------------------------
 //
+// CosmosSize.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Helper class for calculating size for the cosmos view.
+
+*/
+class CosmosSize {
+  /**
+  
+  Calculates the size of the cosmos view. It goes through all the star and text layers and makes size the view size is large enough to show all of them.
+  
+  */
+  class func calculateSizeToFitLayers(layers: [CALayer]) -> CGSize {
+    var size = CGSize()
+    
+    for layer in layers {
+      if layer.frame.maxX > size.width {
+        size.width = layer.frame.maxX
+      }
+      
+      if layer.frame.maxY > size.height {
+        size.height = layer.frame.maxY
+      }
+    }
+    
+    return size
+  }
+}
+
+
+// ----------------------------
+//
 // CosmosText.swift
 //
 // ----------------------------
@@ -451,6 +488,57 @@ class CosmosText {
     layer.position.x = starsSize.width + CGFloat(textMargin)
     let yOffset = (starsSize.height - layer.bounds.height) / 2
     layer.position.y = yOffset
+  }
+}
+
+
+// ----------------------------
+//
+// CosmosTouch.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Functions for working with touch input.
+
+*/
+struct CosmosTouch {
+  /**
+  
+  Calculates the rating based on the touch location.
+  
+  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
+  
+  - parameter starsWidth: The width of the stars excluding the text.
+  
+  - returns: The rating representing the touch location.
+  
+  */
+  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: CosmosSettings) -> Double {
+      
+    let position = locationX / starsWidth
+    let totalStars = Double(settings.totalStars)
+    let actualRating = totalStars * Double(position)
+    var correctedRating = actualRating
+    
+    if settings.fillMode != .Precise {
+      correctedRating += 0.25
+    }
+    
+    let starFloorNumber = floor(correctedRating)
+    let singleStarRemainder = correctedRating - starFloorNumber
+    
+    correctedRating = starFloorNumber + CosmosLayers.starFillLevel(
+      ratingRemainder: singleStarRemainder, fillMode: settings.fillMode)
+    
+    correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars
+    correctedRating = max(0, correctedRating) // Can't be less than zero
+    correctedRating = max(settings.minTouchRating, correctedRating) // Can't be less than min rating
+        
+    return correctedRating
   }
 }
 
@@ -669,7 +757,7 @@ Shows: ★★★★☆ (132)
   
   */
   func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
-    let calculatedTouchRating = StarTouch.touchRating(locationX, starsWidth: starsWidth,
+    let calculatedTouchRating = CosmosTouch.touchRating(locationX, starsWidth: starsWidth,
       settings: settings)
     
     if settings.updateOnTouch {
@@ -904,94 +992,6 @@ struct StarLayer {
     return starPoints.map { point in
       return CGPoint(x: point.x * CGFloat(factor), y: point.y * CGFloat(factor))
     }
-  }
-}
-
-
-// ----------------------------
-//
-// CosmosSize.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
-
-Helper class for calculating size for the cosmos view.
-
-*/
-class CosmosSize {
-  /**
-  
-  Calculates the size of the cosmos view. It goes through all the star and text layers and makes size the view size is large enough to show all of them.
-  
-  */
-  class func calculateSizeToFitLayers(layers: [CALayer]) -> CGSize {
-    var size = CGSize()
-    
-    for layer in layers {
-      if layer.frame.maxX > size.width {
-        size.width = layer.frame.maxX
-      }
-      
-      if layer.frame.maxY > size.height {
-        size.height = layer.frame.maxY
-      }
-    }
-    
-    return size
-  }
-}
-
-
-// ----------------------------
-//
-// StarTouch.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
-
-Functions for working with touch input.
-
-*/
-struct StarTouch {
-  /**
-  
-  Calculates the rating based on the touch location.
-  
-  - parameter locationX: The horizontal location of the touch relative to the width of the stars.
-  
-  - parameter starsWidth: The width of the stars excluding the text.
-  
-  - returns: The rating representing the touch location.
-  
-  */
-  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: CosmosSettings) -> Double {
-      
-    let position = locationX / starsWidth
-    let totalStars = Double(settings.totalStars)
-    let actualRating = totalStars * Double(position)
-    var correctedRating = actualRating
-    
-    if settings.fillMode != .Precise {
-      correctedRating += 0.25
-    }
-    
-    let starFloorNumber = floor(correctedRating)
-    let singleStarRemainder = correctedRating - starFloorNumber
-    
-    correctedRating = starFloorNumber + CosmosLayers.starFillLevel(
-      ratingRemainder: singleStarRemainder, fillMode: settings.fillMode)
-    
-    correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars
-    correctedRating = max(0, correctedRating) // Can't be less than zero
-    correctedRating = max(settings.minTouchRating, correctedRating) // Can't be less than min rating
-        
-    return correctedRating
   }
 }
 
