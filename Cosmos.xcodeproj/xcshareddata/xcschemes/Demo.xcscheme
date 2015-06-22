@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E0C07561B32319000412D79"
-               BuildableName = "Star.framework"
-               BlueprintName = "Star"
-               ReferencedContainer = "container:Star.xcodeproj">
+               BlueprintIdentifier = "7E0C07821B32378000412D79"
+               BuildableName = "Demo.app"
+               BlueprintName = "Demo"
+               ReferencedContainer = "container:Cosmos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "7E4F8C791B3253600070F074"
                BuildableName = "ConcatenateSwiftFiles"
                BlueprintName = "ConcatenateSwiftFiles"
-               ReferencedContainer = "container:Star.xcodeproj">
+               ReferencedContainer = "container:Cosmos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,17 +40,16 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07561B32319000412D79"
-            BuildableName = "Star.framework"
-            BlueprintName = "Star"
-            ReferencedContainer = "container:Star.xcodeproj">
+            BlueprintIdentifier = "7E0C07821B32378000412D79"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Cosmos.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,15 +65,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07561B32319000412D79"
-            BuildableName = "Star.framework"
-            BlueprintName = "Star"
-            ReferencedContainer = "container:Star.xcodeproj">
+            BlueprintIdentifier = "7E0C07821B32378000412D79"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Cosmos.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -84,15 +84,16 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07561B32319000412D79"
-            BuildableName = "Star.framework"
-            BlueprintName = "Star"
-            ReferencedContainer = "container:Star.xcodeproj">
+            BlueprintIdentifier = "7E0C07821B32378000412D79"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Cosmos.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

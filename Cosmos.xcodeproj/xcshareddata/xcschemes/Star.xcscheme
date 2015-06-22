@@ -9,15 +9,29 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7E0C07561B32319000412D79"
+               BuildableName = "Cosmos.framework"
+               BlueprintName = "Cosmos"
+               ReferencedContainer = "container:Cosmos.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E0C07601B32319000412D79"
-               BuildableName = "StarTests.xctest"
-               BlueprintName = "StarTests"
-               ReferencedContainer = "container:Star.xcodeproj">
+               BlueprintIdentifier = "7E4F8C791B3253600070F074"
+               BuildableName = "ConcatenateSwiftFiles"
+               BlueprintName = "ConcatenateSwiftFiles"
+               ReferencedContainer = "container:Cosmos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,19 +40,19 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E0C07601B32319000412D79"
-               BuildableName = "StarTests.xctest"
-               BlueprintName = "StarTests"
-               ReferencedContainer = "container:Star.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7E0C07561B32319000412D79"
+            BuildableName = "Cosmos.framework"
+            BlueprintName = "Cosmos"
+            ReferencedContainer = "container:Cosmos.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -55,10 +69,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07601B32319000412D79"
-            BuildableName = "StarTests.xctest"
-            BlueprintName = "StarTests"
-            ReferencedContainer = "container:Star.xcodeproj">
+            BlueprintIdentifier = "7E0C07561B32319000412D79"
+            BuildableName = "Cosmos.framework"
+            BlueprintName = "Cosmos"
+            ReferencedContainer = "container:Cosmos.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -73,10 +87,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0C07601B32319000412D79"
-            BuildableName = "StarTests.xctest"
-            BlueprintName = "StarTests"
-            ReferencedContainer = "container:Star.xcodeproj">
+            BlueprintIdentifier = "7E0C07561B32319000412D79"
+            BuildableName = "Cosmos.framework"
+            BlueprintName = "Cosmos"
+            ReferencedContainer = "container:Cosmos.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

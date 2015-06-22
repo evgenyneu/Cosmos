@@ -16,7 +16,7 @@
 		2BF44B5D1B37B494007A84A0 /* StarTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF44B5C1B37B494007A84A0 /* StarTouch.swift */; };
 		2BF44B5F1B37B4E6007A84A0 /* StarTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF44B5E1B37B4E6007A84A0 /* StarTouchTests.swift */; };
 		7E0C075B1B32319000412D79 /* Star.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0C075A1B32319000412D79 /* Star.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E0C07621B32319000412D79 /* Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Star.framework */; };
+		7E0C07621B32319000412D79 /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Cosmos.framework */; };
 		7E0C07671B32319000412D79 /* StarRatingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07661B32319000412D79 /* StarRatingViewTests.swift */; };
 		7E0C07781B3232B400412D79 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07711B3232B400412D79 /* StarRatingView.swift */; };
 		7E0C07791B3232B400412D79 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C07721B3232B400412D79 /* StarRating.swift */; };
@@ -30,8 +30,8 @@
 		7E0C078B1B32378000412D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C07891B32378000412D79 /* Main.storyboard */; };
 		7E0C078D1B32378000412D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C078C1B32378000412D79 /* Assets.xcassets */; };
 		7E0C07901B32378000412D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C078E1B32378000412D79 /* LaunchScreen.storyboard */; };
-		7E4F8C741B32415A0070F074 /* Star.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Star.framework */; };
-		7E4F8C751B32415A0070F074 /* Star.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Star.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E4F8C741B32415A0070F074 /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Cosmos.framework */; };
+		7E4F8C751B32415A0070F074 /* Cosmos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0C07571B32319000412D79 /* Cosmos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7E4F8C751B32415A0070F074 /* Star.framework in Embed Frameworks */,
+				7E4F8C751B32415A0070F074 /* Cosmos.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,10 +74,10 @@
 		2BF44B5A1B37870C007A84A0 /* StarTouchTargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTargetTests.swift; sourceTree = "<group>"; };
 		2BF44B5C1B37B494007A84A0 /* StarTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouch.swift; sourceTree = "<group>"; };
 		2BF44B5E1B37B4E6007A84A0 /* StarTouchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarTouchTests.swift; sourceTree = "<group>"; };
-		7E0C07571B32319000412D79 /* Star.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Star.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0C07571B32319000412D79 /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C075A1B32319000412D79 /* Star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		7E0C075C1B32319000412D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E0C07611B32319000412D79 /* StarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0C07611B32319000412D79 /* Cosmos.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cosmos.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C07661B32319000412D79 /* StarRatingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingViewTests.swift; sourceTree = "<group>"; };
 		7E0C07681B32319000412D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E0C07711B3232B400412D79 /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E0C07621B32319000412D79 /* Star.framework in Frameworks */,
+				7E0C07621B32319000412D79 /* Cosmos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E4F8C741B32415A0070F074 /* Star.framework in Frameworks */,
+				7E4F8C741B32415A0070F074 /* Cosmos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +162,8 @@
 		7E0C07581B32319000412D79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C07571B32319000412D79 /* Star.framework */,
-				7E0C07611B32319000412D79 /* StarTests.xctest */,
+				7E0C07571B32319000412D79 /* Cosmos.framework */,
+				7E0C07611B32319000412D79 /* Cosmos.xctest */,
 				7E0C07831B32378000412D79 /* Demo.app */,
 			);
 			name = Products;
@@ -254,9 +254,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		7E0C07561B32319000412D79 /* Star */ = {
+		7E0C07561B32319000412D79 /* Cosmos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E0C076B1B32319000412D79 /* Build configuration list for PBXNativeTarget "Star" */;
+			buildConfigurationList = 7E0C076B1B32319000412D79 /* Build configuration list for PBXNativeTarget "Cosmos" */;
 			buildPhases = (
 				7E0C07521B32319000412D79 /* Sources */,
 				7E0C07531B32319000412D79 /* Frameworks */,
@@ -267,14 +267,14 @@
 			);
 			dependencies = (
 			);
-			name = Star;
+			name = Cosmos;
 			productName = Star;
-			productReference = 7E0C07571B32319000412D79 /* Star.framework */;
+			productReference = 7E0C07571B32319000412D79 /* Cosmos.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7E0C07601B32319000412D79 /* StarTests */ = {
+		7E0C07601B32319000412D79 /* CosmosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E0C076E1B32319000412D79 /* Build configuration list for PBXNativeTarget "StarTests" */;
+			buildConfigurationList = 7E0C076E1B32319000412D79 /* Build configuration list for PBXNativeTarget "CosmosTests" */;
 			buildPhases = (
 				7E0C075D1B32319000412D79 /* Sources */,
 				7E0C075E1B32319000412D79 /* Frameworks */,
@@ -285,9 +285,9 @@
 			dependencies = (
 				7E0C07641B32319000412D79 /* PBXTargetDependency */,
 			);
-			name = StarTests;
+			name = CosmosTests;
 			productName = StarTests;
-			productReference = 7E0C07611B32319000412D79 /* StarTests.xctest */;
+			productReference = 7E0C07611B32319000412D79 /* Cosmos.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		7E0C07821B32378000412D79 /* Demo */ = {
@@ -333,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7E0C07511B32319000412D79 /* Build configuration list for PBXProject "Star" */;
+			buildConfigurationList = 7E0C07511B32319000412D79 /* Build configuration list for PBXProject "Cosmos" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -346,8 +346,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7E0C07561B32319000412D79 /* Star */,
-				7E0C07601B32319000412D79 /* StarTests */,
+				7E0C07561B32319000412D79 /* Cosmos */,
+				7E0C07601B32319000412D79 /* CosmosTests */,
 				7E0C07821B32378000412D79 /* Demo */,
 				7E4F8C791B3253600070F074 /* ConcatenateSwiftFiles */,
 			);
@@ -426,12 +426,12 @@
 /* Begin PBXTargetDependency section */
 		7E0C07641B32319000412D79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7E0C07561B32319000412D79 /* Star */;
+			target = 7E0C07561B32319000412D79 /* Cosmos */;
 			targetProxy = 7E0C07631B32319000412D79 /* PBXContainerItemProxy */;
 		};
 		7E4F8C771B32415A0070F074 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7E0C07561B32319000412D79 /* Star */;
+			target = 7E0C07561B32319000412D79 /* Cosmos */;
 			targetProxy = 7E4F8C761B32415A0070F074 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -557,7 +557,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Star;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cosmos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -575,7 +575,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Star;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cosmos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -586,7 +586,7 @@
 				INFOPLIST_FILE = StarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.StarTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cosmos;
 			};
 			name = Debug;
 		};
@@ -596,7 +596,7 @@
 				INFOPLIST_FILE = StarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.StarTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cosmos;
 			};
 			name = Release;
 		};
@@ -654,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7E0C07511B32319000412D79 /* Build configuration list for PBXProject "Star" */ = {
+		7E0C07511B32319000412D79 /* Build configuration list for PBXProject "Cosmos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E0C07691B32319000412D79 /* Debug */,
@@ -663,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E0C076B1B32319000412D79 /* Build configuration list for PBXNativeTarget "Star" */ = {
+		7E0C076B1B32319000412D79 /* Build configuration list for PBXNativeTarget "Cosmos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E0C076C1B32319000412D79 /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E0C076E1B32319000412D79 /* Build configuration list for PBXNativeTarget "StarTests" */ = {
+		7E0C076E1B32319000412D79 /* Build configuration list for PBXNativeTarget "CosmosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E0C076F1B32319000412D79 /* Debug */,
