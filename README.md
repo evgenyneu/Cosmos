@@ -1,6 +1,6 @@
 🔨🔨🔨 This is work in progress 🔨🔨🔨
 
-# Cosoms, a star rating control for iOS / Swift
+# Cosmos, a star rating control for iOS / Swift
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/star_screenshot.png' alt='Star raiting control for iOS / Swift' width='250'>
 
