@@ -50,7 +50,7 @@ struct CosmosDefaultSettings {
   static let fillMode = StarFillMode.Full
   
   /// Raiting value that is shown in the storyboard by default.
-  static let rating: Double = 3.5
+  static let rating: Double = 2.718281828
   
   /// Distance between stars.
   static let starMargin: Double = 5
@@ -567,9 +567,7 @@ Shows: ★★★★☆ (132)
   @IBInspectable public var rating: Double = CosmosDefaultSettings.rating {
     didSet {
       if oldValue != rating {
-        if oldValue != rating {
-          setNeedsDisplay()
-        }
+        update()
       }
     }
   }
@@ -578,9 +576,7 @@ Shows: ★★★★☆ (132)
   @IBInspectable public var text: String? {
     didSet {
       if oldValue != text {
-        if oldValue != text {
-          setNeedsDisplay()
-        }
+        update()
       }
     }
   }
@@ -588,25 +584,32 @@ Shows: ★★★★☆ (132)
   /// Star rating settings.
   public var settings = CosmosSettings() {
     didSet {
-      setNeedsDisplay()
+      update()
     }
   }
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
 
-  /// Draws the stars when the view comes out of storyboard
+  /// Draws the stars when the view comes out of storyboard with default settings
   public override func awakeFromNib() {
     super.awakeFromNib()
     
     update()
   }
   
+  convenience init() {
+    self.init(frame: CGRect())
+  }
   
-  public override func drawRect(rect: CGRect) {
-    super.drawRect(rect)
-    
+  override init(frame: CGRect) {
+    super.init(frame: frame)
     update()
+    self.frame.size = intrinsicContentSize()
+  }
+  
+  required public init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
   }
   
   /**
