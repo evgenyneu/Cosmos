@@ -123,9 +123,8 @@ Here are some other star rating controls for iOS:
 
 Star is released under the [MIT License](LICENSE).
 
-***
+## 🌌⭐️🌕🚀🌠
 
 > We are a way for the cosmos to know itself.
 
 *Carl Sagan, from 1980 "Cosmos: A Personal Voyage" TV series.*
-
