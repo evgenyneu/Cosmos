@@ -14,7 +14,7 @@ This is a UI control for iOS that shows a star rating or takes rating input from
 
 > We are a way for the cosmos to know itself.
 
-**Carl Sagan, Cosmos.**
+*Carl Sagan, Cosmos.*
 
 *Picture of binary star system of Sirius A and Sirius B by [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [spacetelescope.org](http://www.spacetelescope.org/images/heic0516b/).*
 
