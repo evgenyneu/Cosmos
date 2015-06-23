@@ -1,5 +1,3 @@
-🔨🔨🔨 This is work in progress 🔨🔨🔨
-
 # Cosmos, a star rating control for iOS / Swift
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Star raiting control for iOS / Swift' width='300'>
