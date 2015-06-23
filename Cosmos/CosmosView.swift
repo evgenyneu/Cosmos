@@ -167,6 +167,12 @@ Shows: ★★★★☆ (132)
   
   /// Returns the content size to fit all the star and text layers.
   override public func intrinsicContentSize() -> CGSize {
+    if viewSize.width == 0 {
+      // View has not been drawn yet.
+      // It may happen if the view was created without changing any of its properties.
+      update()
+    }
+    
     return viewSize
   }
   
