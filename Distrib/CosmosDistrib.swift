@@ -85,7 +85,7 @@ struct CosmosDefaultSettings {
   
   
   /// Color of the text.
-  static let textColor = defaultColor
+  static let textColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
   
   /// Font for the text.
   static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
