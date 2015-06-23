@@ -567,7 +567,9 @@ Shows: ★★★★☆ (132)
   @IBInspectable public var rating: Double = CosmosDefaultSettings.rating {
     didSet {
       if oldValue != rating {
-        setNeedsDisplay()
+        if oldValue != rating {
+          setNeedsDisplay()
+        }
       }
     }
   }
@@ -576,7 +578,9 @@ Shows: ★★★★☆ (132)
   @IBInspectable public var text: String? {
     didSet {
       if oldValue != text {
-        setNeedsDisplay()
+        if oldValue != text {
+          setNeedsDisplay()
+        }
       }
     }
   }
@@ -590,25 +594,28 @@ Shows: ★★★★☆ (132)
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
-  
-  
-  init() {
-    super.init(frame: CGRect())
-  }
-  
-  /// First time update when not using storyboard (http://stackoverflow.com/a/26772950/297131)
-  required public init(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+
+  /// Draws the stars when the view comes out of storyboard
+  public override func awakeFromNib() {
+    super.awakeFromNib()
+    
     update()
   }
-
+  
+  
+  public override func drawRect(rect: CGRect) {
+    super.drawRect(rect)
+    
+    update()
+  }
+  
   /**
   
   Updates the stars and optional text based on current values of `rating` and `text` properties.
   
   */
   public func update() {
-
+    
     // Create star layers
     // ------------
     
@@ -627,12 +634,6 @@ Shows: ★★★★☆ (132)
     // ------------
 
     updateSize(layers)
-  }
-  
-  public override func drawRect(rect: CGRect) {
-    super.drawRect(rect)
-    
-    update()
   }
   
   /**
@@ -819,6 +820,7 @@ Shows: ★★★★☆ (132)
     }
   }
   
+  /// Draw the stars in interface buidler
   public override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
