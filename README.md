@@ -48,7 +48,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_ios_view_control_attributes_inspector.png' width='256' alt='Add view control in attributes inspector'>
 
 
-2) Set its class to `CosmosView` in the *identity inspector*. Set its *module* property to `Cosmos` if you did Carthage or CocoaPods setup.
+2) Set its class to `CosmosView` in the *identity inspector*. Set its *module* property to `Cosmos`.
 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
@@ -58,6 +58,9 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_customize_in_storyboard.png' width='480' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
+
+*Note*: Carthage setup method does not allow to customize Cosmos view from the storyboard, please do it from code instead.
+
 
 ## Using Cosmos in code
 
