@@ -558,12 +558,7 @@ Shows: ★★★★☆ (132)
 
 */
 @IBDesignable public class CosmosView: UIView {
-  
-  /// True if control has been updated
-  private var updated = false
-  
-  // MARK: - Inspectable properties for storyboard
-  
+    
   /**
   
   The currently shown number of stars, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
@@ -582,109 +577,14 @@ Shows: ★★★★☆ (132)
     }
   }
   
-  
-  @IBInspectable var totalStars: Int = CosmosDefaultSettings.totalStars {
-    didSet {
-      settings.totalStars = totalStars
-      update()
-    }
-  }
-  
-  @IBInspectable var starSize: Double = CosmosDefaultSettings.starSize {
-    didSet {
-      settings.starSize = starSize
-      update()
-    }
-  }
-  
-  @IBInspectable var colorFilled: UIColor = CosmosDefaultSettings.colorFilled {
-    didSet {
-      settings.colorFilled = colorFilled
-      update()
-    }
-  }
-  
-  @IBInspectable var colorEmpty: UIColor = CosmosDefaultSettings.colorEmpty {
-    didSet {
-      settings.colorEmpty = colorEmpty
-      update()
-    }
-  }
-  
-  @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
-    didSet {
-      settings.borderColorEmpty = borderColorEmpty
-      update()
-    }
-  }
-  
-  @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
-    didSet {
-      settings.borderWidthEmpty = borderWidthEmpty
-      update()
-    }
-  }
-  
-  @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
-    didSet {
-      settings.starMargin = starMargin
-      update()
-    }
-  }
-  
-  @IBInspectable var fillMode: Int = CosmosDefaultSettings.fillMode.rawValue {
-    didSet {
-      settings.fillMode = StarFillMode(rawValue: fillMode) ?? CosmosDefaultSettings.fillMode
-      update()
-    }
-  }
-  
-  @IBInspectable var textSize: Double = CosmosDefaultSettings.textSize {
-    didSet {
-      settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
-      update()
-    }
-  }
-  
-  @IBInspectable var textMargin: Double = CosmosDefaultSettings.textMargin {
-    didSet {
-      settings.textMargin = textMargin
-      update()
-    }
-  }
-  
-  @IBInspectable var textColor: UIColor = CosmosDefaultSettings.textColor {
-    didSet {
-      settings.textColor = textColor
-      update()
-    }
-  }
-  
-  @IBInspectable var updateOnTouch: Bool = CosmosDefaultSettings.updateOnTouch {
-    didSet {
-      settings.updateOnTouch = updateOnTouch
-      update()
-    }
-  }
-  
-  @IBInspectable var minTouchRating: Double = CosmosDefaultSettings.minTouchRating {
-    didSet {
-      settings.minTouchRating = minTouchRating
-      update()
-    }
-  }
-  
-  public override func prepareForInterfaceBuilder() {
-    super.prepareForInterfaceBuilder()
-    
-    update()
-  }
-  
   /// Star rating settings.
   public var settings = CosmosSettings()
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
+  
+  /// True if control has been updated
+  private var updated = false
 
   /**
   
@@ -822,6 +722,108 @@ Shows: ★★★★☆ (132)
   override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
     let oprimizedBounds = CosmosTouchTarget.optimize(bounds)
     return oprimizedBounds.contains(point)
+  }
+  
+  
+  // MARK: - Properties inspectable from the storyboard
+
+  
+  
+  @IBInspectable var totalStars: Int = CosmosDefaultSettings.totalStars {
+    didSet {
+      settings.totalStars = totalStars
+      update()
+    }
+  }
+  
+  @IBInspectable var starSize: Double = CosmosDefaultSettings.starSize {
+    didSet {
+      settings.starSize = starSize
+      update()
+    }
+  }
+  
+  @IBInspectable var colorFilled: UIColor = CosmosDefaultSettings.colorFilled {
+    didSet {
+      settings.colorFilled = colorFilled
+      update()
+    }
+  }
+  
+  @IBInspectable var colorEmpty: UIColor = CosmosDefaultSettings.colorEmpty {
+    didSet {
+      settings.colorEmpty = colorEmpty
+      update()
+    }
+  }
+  
+  @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
+    didSet {
+      settings.borderColorEmpty = borderColorEmpty
+      update()
+    }
+  }
+  
+  @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
+    didSet {
+      settings.borderWidthEmpty = borderWidthEmpty
+      update()
+    }
+  }
+  
+  @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
+    didSet {
+      settings.starMargin = starMargin
+      update()
+    }
+  }
+  
+  @IBInspectable var fillMode: Int = CosmosDefaultSettings.fillMode.rawValue {
+    didSet {
+      settings.fillMode = StarFillMode(rawValue: fillMode) ?? CosmosDefaultSettings.fillMode
+      update()
+    }
+  }
+  
+  @IBInspectable var textSize: Double = CosmosDefaultSettings.textSize {
+    didSet {
+      settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
+      update()
+    }
+  }
+  
+  @IBInspectable var textMargin: Double = CosmosDefaultSettings.textMargin {
+    didSet {
+      settings.textMargin = textMargin
+      update()
+    }
+  }
+  
+  @IBInspectable var textColor: UIColor = CosmosDefaultSettings.textColor {
+    didSet {
+      settings.textColor = textColor
+      update()
+    }
+  }
+  
+  @IBInspectable var updateOnTouch: Bool = CosmosDefaultSettings.updateOnTouch {
+    didSet {
+      settings.updateOnTouch = updateOnTouch
+      update()
+    }
+  }
+  
+  @IBInspectable var minTouchRating: Double = CosmosDefaultSettings.minTouchRating {
+    didSet {
+      settings.minTouchRating = minTouchRating
+      update()
+    }
+  }
+  
+  public override func prepareForInterfaceBuilder() {
+    super.prepareForInterfaceBuilder()
+    
+    update()
   }
 }
 
