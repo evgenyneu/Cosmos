@@ -62,9 +62,9 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 ## Using Cosmos in code
 
-You can also style and control the Cosmos view from your code by creating an outlet in your view controller or by creating a new instance of `CosmosView` class.
-
 Add `import Cosmos` to your source code if you used Carthage or CocoaPods setup methods.
+
+You can also style and control the Cosmos view from your code by creating an outlet in your view controller. Alternatively, one can  instantiate `CosmosView` class and add it to the view manually without using Storyboard.
 
 
 ```Swift
