@@ -18,6 +18,7 @@ class CosmosViewTests: XCTestCase {
     obj.settings.starMargin = 4
 
     obj.rating = 4
+    obj.update()
     
     let size = obj.intrinsicContentSize()
     
@@ -37,6 +38,7 @@ class CosmosViewTests: XCTestCase {
     
     obj.rating = 4
     obj.text = "123"
+    obj.update()
     
     let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(15)]
     let textSize = NSString(string: "123").sizeWithAttributes(sizeAttributes)
@@ -82,7 +84,7 @@ class CosmosViewTests: XCTestCase {
     var callbackRating: Double?
     obj.settings.fillMode = .Full
     
-    obj.touchedTheStar = { rating in
+    obj.didTouchCosmos = { rating in
       callbackRating = rating
     }
     

@@ -20,26 +20,31 @@ Shows: ★★★★☆ (132)
 
   */
   @IBInspectable public var rating: Double = CosmosDefaultSettings.rating {
-    didSet {      
-      update()
+    didSet {
+      if oldValue != rating {
+        setNeedsDisplay()
+      }
     }
   }
   
   /// Currently shown text. Set it to nil to display just the stars without text.
   @IBInspectable public var text: String? {
     didSet {
-      update()
+      if oldValue != text {
+        setNeedsDisplay()
+      }
     }
   }
   
   /// Star rating settings.
-  public var settings = CosmosSettings()
+  public var settings = CosmosSettings() {
+    didSet {
+      setNeedsDisplay()
+    }
+  }
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
-  
-  /// True if control has been updated
-  private var updated = false
 
   /**
   
@@ -47,8 +52,7 @@ Shows: ★★★★☆ (132)
   
   */
   public func update() {
-    updated = true
-    
+        
     // Create star layers
     // ------------
     
@@ -67,6 +71,12 @@ Shows: ★★★★☆ (132)
     // ------------
 
     updateSize(layers)
+  }
+  
+  public override func drawRect(rect: CGRect) {
+    super.drawRect(rect)
+    
+    update()
   }
   
   /**
@@ -106,12 +116,6 @@ Shows: ★★★★☆ (132)
   
   /// Returns the content size to fit all the star and text layers.
   override public func intrinsicContentSize() -> CGSize {
-    if !updated {
-      // View has not been drawn yet.
-      // It may happen if the view was created without changing any of its properties.
-      update()
-    }
-    
     return viewSize
   }
   
@@ -156,7 +160,6 @@ Shows: ★★★★☆ (132)
     
     if settings.updateOnTouch {
       rating = calculatedTouchRating
-      update()
     }
     
     didTouchCosmos?(calculatedTouchRating)
@@ -181,97 +184,82 @@ Shows: ★★★★☆ (132)
   
   
   // MARK: - Properties inspectable from the storyboard
-
-  
   
   @IBInspectable var totalStars: Int = CosmosDefaultSettings.totalStars {
     didSet {
       settings.totalStars = totalStars
-      update()
     }
   }
   
   @IBInspectable var starSize: Double = CosmosDefaultSettings.starSize {
     didSet {
       settings.starSize = starSize
-      update()
     }
   }
   
   @IBInspectable var colorFilled: UIColor = CosmosDefaultSettings.colorFilled {
     didSet {
       settings.colorFilled = colorFilled
-      update()
     }
   }
   
   @IBInspectable var colorEmpty: UIColor = CosmosDefaultSettings.colorEmpty {
     didSet {
       settings.colorEmpty = colorEmpty
-      update()
     }
   }
   
   @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
     didSet {
       settings.borderColorEmpty = borderColorEmpty
-      update()
     }
   }
   
   @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
     didSet {
       settings.borderWidthEmpty = borderWidthEmpty
-      update()
     }
   }
   
   @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
     didSet {
       settings.starMargin = starMargin
-      update()
     }
   }
   
   @IBInspectable var fillMode: Int = CosmosDefaultSettings.fillMode.rawValue {
     didSet {
       settings.fillMode = StarFillMode(rawValue: fillMode) ?? CosmosDefaultSettings.fillMode
-      update()
     }
   }
   
   @IBInspectable var textSize: Double = CosmosDefaultSettings.textSize {
     didSet {
       settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
-      update()
     }
   }
   
   @IBInspectable var textMargin: Double = CosmosDefaultSettings.textMargin {
     didSet {
       settings.textMargin = textMargin
-      update()
     }
   }
   
   @IBInspectable var textColor: UIColor = CosmosDefaultSettings.textColor {
     didSet {
       settings.textColor = textColor
-      update()
     }
   }
   
   @IBInspectable var updateOnTouch: Bool = CosmosDefaultSettings.updateOnTouch {
     didSet {
       settings.updateOnTouch = updateOnTouch
-      update()
     }
   }
   
   @IBInspectable var minTouchRating: Double = CosmosDefaultSettings.minTouchRating {
     didSet {
       settings.minTouchRating = minTouchRating
-      update()
     }
   }
   
