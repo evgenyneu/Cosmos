@@ -45,6 +45,17 @@ Shows: ★★★★☆ (132)
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
   private var viewSize = CGSize()
+  
+  
+  init() {
+    super.init(frame: CGRect())
+  }
+  
+  /// First time update when not using storyboard (http://stackoverflow.com/a/26772950/297131)
+  required public init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    update()
+  }
 
   /**
   
@@ -52,7 +63,7 @@ Shows: ★★★★☆ (132)
   
   */
   public func update() {
-        
+
     // Create star layers
     // ------------
     
