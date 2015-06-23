@@ -1,8 +1,8 @@
-# Cosmos, a star rating control for iOS / Swift
+# Cosmos, a star rating control for iOS
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Star raiting control for iOS / Swift' width='300'>
 
-This is a UI control for iOS that shows a star rating or takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users post those inescapable 1-star reviews!
+This is a UI control for iOS written in Swift. It shows a star rating and takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users post those inescapable 1-star reviews!
 
 * Shows star rating with an optional text label.
 * Can be used as a rating input control.
