@@ -13,12 +13,15 @@ class CosmosViewTests: XCTestCase {
   
   // MARK: - Content size
   
+  func testCalculateViewSizeOnInit() {
+    XCTAssertEqual(CGSize(width: 120, height: 20), obj.frame.size)
+  }
+  
   func testShowContentSize() {
     obj.settings.starSize = 10
     obj.settings.starMargin = 4
 
     obj.rating = 4
-    obj.update()
     
     let size = obj.intrinsicContentSize()
     
@@ -38,7 +41,6 @@ class CosmosViewTests: XCTestCase {
     
     obj.rating = 4
     obj.text = "123"
-    obj.update()
     
     let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(15)]
     let textSize = NSString(string: "123").sizeWithAttributes(sizeAttributes)
