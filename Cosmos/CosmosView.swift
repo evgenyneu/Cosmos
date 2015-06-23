@@ -34,61 +34,61 @@ Shows: ★★★★☆ (132)
   }
   
   
-  @IBInspectable var totalStars: Int = CosmosDefaultSettings.totalStars {
+  @IBInspectable public var totalStars: Int = CosmosDefaultSettings.totalStars {
     didSet { settings.totalStars = totalStars }
   }
   
-  @IBInspectable var starSize: Double = CosmosDefaultSettings.starSize {
+  @IBInspectable public var starSize: Double = CosmosDefaultSettings.starSize {
     didSet {
       settings.starSize = starSize
     }
   }
   
-  @IBInspectable var colorFilled: UIColor = CosmosDefaultSettings.colorFilled {
+  @IBInspectable public var colorFilled: UIColor = CosmosDefaultSettings.colorFilled {
     didSet { settings.colorFilled = colorFilled }
   }
   
-  @IBInspectable var colorEmpty: UIColor = CosmosDefaultSettings.colorEmpty {
+  @IBInspectable public var colorEmpty: UIColor = CosmosDefaultSettings.colorEmpty {
     didSet { settings.colorEmpty = colorEmpty }
   }
   
-  @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
+  @IBInspectable public var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
     didSet { settings.borderColorEmpty = borderColorEmpty }
   }
   
-  @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
+  @IBInspectable public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
     didSet { settings.borderWidthEmpty = borderWidthEmpty }
   }
   
-  @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
+  @IBInspectable public var starMargin: Double = CosmosDefaultSettings.starMargin {
     didSet { settings.starMargin = starMargin }
   }
   
-  @IBInspectable var fillMode: Int = CosmosDefaultSettings.fillMode.rawValue {
+  @IBInspectable public var fillMode: Int = CosmosDefaultSettings.fillMode.rawValue {
     didSet {
       settings.fillMode = StarFillMode(rawValue: fillMode) ?? CosmosDefaultSettings.fillMode
     }
   }
   
-  @IBInspectable var textSize: Double = CosmosDefaultSettings.textSize {
+  @IBInspectable public var textSize: Double = CosmosDefaultSettings.textSize {
     didSet {
       settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
     }
   }
   
-  @IBInspectable var textMargin: Double = CosmosDefaultSettings.textMargin {
+  @IBInspectable public var textMargin: Double = CosmosDefaultSettings.textMargin {
     didSet { settings.textMargin = textMargin }
   }
   
-  @IBInspectable var textColor: UIColor = CosmosDefaultSettings.textColor {
+  @IBInspectable public var textColor: UIColor = CosmosDefaultSettings.textColor {
     didSet { settings.textColor = textColor }
   }
   
-  @IBInspectable var updateOnTouch: Bool = CosmosDefaultSettings.updateOnTouch {
+  @IBInspectable public var updateOnTouch: Bool = CosmosDefaultSettings.updateOnTouch {
     didSet { settings.updateOnTouch = updateOnTouch }
   }
   
-  @IBInspectable var minTouchRating: Double = CosmosDefaultSettings.minTouchRating {
+  @IBInspectable public var minTouchRating: Double = CosmosDefaultSettings.minTouchRating {
     didSet { settings.minTouchRating = minTouchRating }
   }
   
