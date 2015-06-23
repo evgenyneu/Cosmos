@@ -48,7 +48,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_ios_view_control_attributes_inspector.png' width='256' alt='Add view control in attributes inspector'>
 
 
-2) Set its class to `CosmosView` in the *identity inspector*. Set its *module* property to `Cosmos`.
+2) Set its class to `CosmosView` in the *identity inspector*. Set its *module* property to `Cosmos` if you used CocoaPods setup method.
 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
