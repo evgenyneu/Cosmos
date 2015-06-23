@@ -2,11 +2,6 @@
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Star raiting control for iOS / Swift' width='300'>
 
-> We are a way for the cosmos to know itself.
-
-*Carl Sagan, from 1980 "Cosmos: A Personal Voyage" TV series.*
-
-
 This is a UI control for iOS that shows a star rating or takes rating input from the user. Cosmos is a subclass of a UIView. Let your users post those inescapable 1-star reviews!
 
 * Shows star rating with an optional text label.
@@ -18,6 +13,10 @@ This is a UI control for iOS that shows a star rating or takes rating input from
   alt="Binary star system of Sirius A and Sirius B (artist's impression)" width='450'>
 
 *Picture of binary star system of Sirius A and Sirius B by [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [spacetelescope.org](http://www.spacetelescope.org/images/heic0516b/).*
+
+> We are a way for the cosmos to know itself.
+
+*Carl Sagan, from 1980 "Cosmos: A Personal Voyage" TV series.*
 
 ## Setup
 
