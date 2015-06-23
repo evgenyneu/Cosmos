@@ -9,6 +9,8 @@ This is a UI control for iOS that shows a star rating or takes rating input from
 * Cosmos view can be customized in the Storyboard without writing code.
 * Includes different star filling modes: full, half-filled and precise.
 
+***
+
 <img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
   alt="Binary star system of Sirius A and Sirius B (artist's impression)" width='450'>
 
