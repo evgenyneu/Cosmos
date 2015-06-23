@@ -71,13 +71,13 @@ Add `import Cosmos` to your source code if you used Carthage or CocoaPods setup 
 
 ```Swift
 // Change the cosmos view rating
-view.rating = 4
+cosmosView.rating = 4
 
 // Change the text
-view.text = "(123)"
+cosmosView.text = "(123)"
 
 // Receive user input
-view.didTouchCosmos = { rating in }
+cosmosView.didTouchCosmos = { rating in }
 ```
 
 
@@ -87,22 +87,22 @@ One can customize Cosmos from code by changing its `settings`. See the [Cosmos c
 
 ```Swift
 // Show only fully filled stars
-view.settings.fillMode = .Full
+cosmosView.settings.fillMode = .Full
 
 // Change the size of the stars
-view.settings.starSize = 30
+cosmosView.settings.starSize = 30
 
 // Set the distance between stars
-view.settings.starMargin = 5
+cosmosView.settings.starMargin = 5
 
 // Set the color of a filled star
-view.settings.colorFilled = UIColor.orangeColor()
+cosmosView.settings.colorFilled = UIColor.orangeColor()
 
 // Set the border color of an empty star
-view.settings.borderColorEmpty = UIColor.orangeColor()
+cosmosView.settings.borderColorEmpty = UIColor.orangeColor()
 
 // Change the rating when the view is touched
-view.settings.updateOnTouch = true
+cosmosView.settings.updateOnTouch = true
 ```
 
 ## Demo app
