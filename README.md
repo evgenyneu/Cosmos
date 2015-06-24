@@ -1,5 +1,12 @@
 # Cosmos, a star rating control for iOS
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/Cosmos.svg?style=flat)][cocoadocs]
+[![License](https://img.shields.io/cocoapods/l/Cosmos.svg?style=flat)][LICENSE]
+[![Platform](https://img.shields.io/cocoapods/p/Cosmos.svg?style=flat)][cocoadocs]
+[cocoadocs]: http://cocoadocs.org/docsets/Cosmos
+[carthage]: https://github.com/Carthage/Carthage
+
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Cosmos, star rating control for iOS / Swift' width='300'>
 
 This is a UI control for iOS written in Swift. It shows a star rating and takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users post those inescapable 1-star reviews!
