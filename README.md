@@ -128,7 +128,7 @@ Here are some other star rating controls for iOS:
 
 ## License
 
-Star is released under the [MIT License](LICENSE).
+Cosmos is released under the [MIT License](LICENSE).
 
 ## 🌌⭐️🌕🚀🌠
 
