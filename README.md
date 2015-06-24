@@ -2,7 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/Cosmos.svg?style=flat)][cocoadocs]
-[![License](https://img.shields.io/cocoapods/l/Cosmos.svg?style=flat)][LICENSE]
+[![License](https://img.shields.io/cocoapods/l/Cosmos.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/Cosmos.svg?style=flat)][cocoadocs]
 [cocoadocs]: http://cocoadocs.org/docsets/Cosmos
 [carthage]: https://github.com/Carthage/Carthage
