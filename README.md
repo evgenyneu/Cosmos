@@ -10,7 +10,7 @@ This is a UI control for iOS written in Swift. It shows a star rating and takes 
 * Includes different star filling modes: full, half-filled and precise.
 
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Star/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
   alt="Binary star system of Sirius A and Sirius B (artist's impression)" width='450'>
 
 *Picture of binary star system of Sirius A and Sirius B by [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [spacetelescope.org](http://www.spacetelescope.org/images/heic0516b/).*
