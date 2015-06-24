@@ -45,7 +45,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 ## Usage
 
 
-1) Drag `View` object from the Object Library into your storyboard.
+1) Drag `View` object from the *Object Library* into your storyboard.
 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_ios_view_control_attributes_inspector.png' width='256' alt='Add view control in attributes inspector'>
