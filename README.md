@@ -22,7 +22,7 @@ There are three ways you can add Cosmos to your Xcode project.
 
 **Add source (iOS 7+)**
 
-Simply add [CosmosDistrib.swift](https://github.com/exchangegroup/Cosmos/edit/master/Distrib/CosmosDistrib.swift) file into your Xcode project.
+Simply add [CosmosDistrib.swift](https://github.com/exchangegroup/Cosmos/blob/master/Distrib/CosmosDistrib.swift) file into your Xcode project.
 
 **Setup with Carthage (iOS 8+)**
 
