@@ -885,7 +885,7 @@ public enum StarFillMode: Int {
   /// Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6.
   case Half = 1
   
-  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. By default the fill rate is not applied linearly but corrected (see correctFillLevelForPreciseMode setting).
+  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. 
   case Precise = 2
 }
 
