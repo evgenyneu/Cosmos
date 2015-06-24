@@ -147,7 +147,7 @@ class CosmosLayers {
   Returns the number of filled stars for given rating.
   
   - parameter rating: The rating to be displayed.
-  - parameter maxNumberOfStars: Total number of stars.
+  - parameter totalNumberOfStars: Total number of stars.
   - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
   
   */

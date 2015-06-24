@@ -306,7 +306,7 @@ class CosmosLayers {
   Returns the number of filled stars for given rating.
   
   - parameter rating: The rating to be displayed.
-  - parameter maxNumberOfStars: Total number of stars.
+  - parameter totalNumberOfStars: Total number of stars.
   - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
   
   */
@@ -545,9 +545,9 @@ struct CosmosTouch {
 
 import UIKit
 
-/*
+/**
 
-A star rating view that can be used to show customer rating for the products. On can select number of stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown to the right from the stars.
+A star rating view that can be used to show customer rating for the products. On can select number of stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown on the right side.
 
 Example:
 
@@ -885,7 +885,7 @@ public enum StarFillMode: Int {
   /// Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6.
   case Half = 1
   
-  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. 
+  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. By default the fill rate is not applied linearly but corrected (see correctFillLevelForPreciseMode setting).
   case Precise = 2
 }
 
