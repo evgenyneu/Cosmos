@@ -547,7 +547,7 @@ import UIKit
 
 /**
 
-A star rating view that can be used to show customer rating for the products. On can select number of stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown on the right side.
+A star rating view that can be used to show customer rating for the products. On can select stars by tapping on them when updateOnTouch settings is true. An optional text can be supplied that is shown on the right side.
 
 Example:
 
@@ -608,7 +608,7 @@ Shows: ★★★★☆ (132)
     self.frame.size = intrinsicContentSize()
   }
   
-  required public init(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
   
