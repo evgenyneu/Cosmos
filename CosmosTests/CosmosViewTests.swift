@@ -1,5 +1,5 @@
 import XCTest
-@testable import Cosmos
+import Cosmos
 
 class CosmosViewTests: XCTestCase {
   

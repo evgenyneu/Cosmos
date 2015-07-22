@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-@testable import Cosmos
+import Cosmos
 
 class CosmosTouchTargetTests: XCTestCase {
   func testIncreaseTheBounds() {

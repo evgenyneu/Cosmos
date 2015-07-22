@@ -1,5 +1,5 @@
 import XCTest
-@testable import Cosmos
+import Cosmos
 
 class CosmosTouchTests: XCTestCase {
   // MARK: - Touch rating

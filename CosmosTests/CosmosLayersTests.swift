@@ -1,5 +1,5 @@
 import XCTest
-@testable import Cosmos
+import Cosmos
 
 class CosmosLayersTests: XCTestCase {
   
@@ -64,7 +64,7 @@ class CosmosLayersTests: XCTestCase {
     let layerThree = CALayer()
     layerThree.bounds = CGRect(origin: CGPoint(), size: CGSize(width: 20, height: 2))
     
-    let layers = [layerOne, layerTwo, layerThree]
+    let layers: [CALayer] = [layerOne, layerTwo, layerThree]
       
     CosmosLayers.positionStarLayers(layers, starMargin: 5)
     
@@ -96,7 +96,7 @@ class CosmosLayersTests: XCTestCase {
     // Check empty container layer
     // ------------------
     
-    let emptyContainerLayer = result.sublayers![0] as CALayer
+    let emptyContainerLayer = result.sublayers![0] as! CALayer
     XCTAssertEqual(19, emptyContainerLayer.bounds.size.width)
     XCTAssertEqual(19, emptyContainerLayer.bounds.size.height)
 
@@ -104,14 +104,14 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let emptyShapeLayer = emptyContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!)!)
+    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!)!)
     XCTAssertEqual(1.31, emptyShapeLayer.lineWidth)
     
     // Check filled container layer
     // ------------------
     
-    let filledContainerLayer = result.sublayers![1] as CALayer
+    let filledContainerLayer = result.sublayers![1] as! CALayer
     XCTAssertEqual(19 * 0.8, filledContainerLayer.bounds.size.width)
     XCTAssertEqual(19, filledContainerLayer.bounds.size.height)
     
@@ -119,8 +119,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let filledShapeLayer = filledContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: filledShapeLayer.fillColor!)!)
+    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!)!)
     XCTAssertEqual(1.31, filledShapeLayer.lineWidth)
   }
   
@@ -145,8 +145,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let filledShapeLayer = result.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!)!)
+    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!)!)
   }
 
   func testCreateCompositeStarLayer_emptyStar() {
@@ -170,8 +170,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let emptyShapeLayer = result.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!)!)
+    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!)!)
     XCTAssertEqual(1.31, emptyShapeLayer.lineWidth)
   }
 
@@ -196,7 +196,7 @@ class CosmosLayersTests: XCTestCase {
     // Check empty container layer
     // ------------------
     
-    let emptyContainerLayer = result.sublayers![0] as CALayer
+    let emptyContainerLayer = result.sublayers![0] as! CALayer
     XCTAssertEqual(14, emptyContainerLayer.bounds.size.width)
     XCTAssertEqual(14, emptyContainerLayer.bounds.size.height)
     
@@ -204,14 +204,14 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let emptyShapeLayer = emptyContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!)!)
+    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!)!)
     XCTAssertEqual(1.31, emptyShapeLayer.lineWidth)
     
     // Check filled container layer
     // ------------------
     
-    let filledContainerLayer = result.sublayers![1] as CALayer
+    let filledContainerLayer = result.sublayers![1] as! CALayer
     XCTAssertEqual(14 * 0.2, filledContainerLayer.bounds.size.width)
     XCTAssertEqual(14, filledContainerLayer.bounds.size.height)
     
@@ -219,8 +219,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let filledShapeLayer = filledContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!)!)
+    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!)!)
     XCTAssertEqual(1.31, filledShapeLayer.lineWidth)
 
   }
