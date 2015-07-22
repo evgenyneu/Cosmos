@@ -42,6 +42,11 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
     use_frameworks!
     pod 'Cosmos', '~> 1.0'
 
+
+**Setup in Xcode 6 / Swift 1.2 project**
+
+Cosmos is written in Swift 2.0 and requires Xcode 7. Use the [previous version of the library](https://github.com/exchangegroup/Cosmos/wiki/Swift-1.2-setup) in Xcode 6 projects.
+
 ## Usage
 
 
