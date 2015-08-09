@@ -61,7 +61,7 @@ Cosmos is written in Swift 2.0 and requires Xcode 7. Use the [previous version o
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
 
 
-3) Customize the Cosmos view appearance in the *Attributes Inspector*. If storyboard does not show the stars click *Refresh All Views** from the **Editor** menu.
+3) Customize the Cosmos view appearance in the *Attributes Inspector*. If storyboard does not show the stars click *Refresh All Views** from the *Editor* menu.
 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_customize_in_storyboard.png' width='480' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
