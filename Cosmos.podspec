@@ -17,4 +17,8 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png"
   s.source_files = "Cosmos/**/*.swift"
   s.ios.deployment_target = "8.0"
+
+  s.subspec 'Distrib' do |ss|
+    ss.source_files = 'Distrib/CosmosDistrib.swift'
+  end
 end
