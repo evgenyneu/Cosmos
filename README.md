@@ -68,6 +68,9 @@ Cosmos is written in Swift 2.0 and requires Xcode 7. Use the [previous version o
 
 *Note*: Carthage setup method does not allow to customize Cosmos view from the storyboard, please do it from code instead.
 
+4) Clear the **Adjust Scroll View Insets** checkbox in the *Attribute Inspector* of your View Controller.
+
+<img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Screenshots/cosmos_customize_in_storyboard.png' width='480' alt='Clear "Adjust Scroll View Insets" in your View Controller.'>
 
 ## Using Cosmos in code
 
