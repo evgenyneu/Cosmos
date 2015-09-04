@@ -679,6 +679,11 @@ Shows: ★★★★☆ (132)
     return viewSize
   }
   
+  func setupAccessibility() {
+    self.isAccessibilityElement = true
+    self.accessibilityLabel = "Start rating"
+    self.accessibilityTraits = UIAccessibilityTraitNone  // UIAccessibilityTraitAllowsDirectInteraction
+  }
   
   // MARK: - Touch recognition
   

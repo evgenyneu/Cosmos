@@ -103,4 +103,12 @@ class CosmosViewTests: XCTestCase {
     
     XCTAssertEqual(0.9, obj.rating)
   }
+  
+  // MARK: Accessibility
+  
+  func testSetupAccessibility() {
+    XCTAssert(obj.isAccessibilityElement)
+    obj.rating = 2
+    XCTAssertEqual("Rating 2 out of 5", obj.accessibilityLabel)
+  }
 }
