@@ -637,6 +637,11 @@ Shows: ★★★★☆ (132)
     // ------------
 
     updateSize(layers)
+    
+    // Update accesibility
+    // ------------
+
+    updateAccessibility()
   }
   
   /**
@@ -679,10 +684,15 @@ Shows: ★★★★☆ (132)
     return viewSize
   }
   
-  func setupAccessibility() {
+  private func updateAccessibility() {
     self.isAccessibilityElement = true
-    self.accessibilityLabel = "Start rating"
-    self.accessibilityTraits = UIAccessibilityTraitNone  // UIAccessibilityTraitAllowsDirectInteraction
+    
+    let isInteger = (rating * 10) % 10 == 0
+    
+    let accessibilityRating = isInteger ? "\(Int(rating))" : "\(Double(round(10 * rating)/10))"
+    
+    self.accessibilityLabel = "Rating \(accessibilityRating) out of \(settings.totalStars) stars"
+    self.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently | UIAccessibilityTraitAllowsDirectInteraction // settings.updateOnTouch ? UIAccessibilityTraitAllowsDirectInteraction :UIAccessibilityTraitNone
   }
   
   // MARK: - Touch recognition

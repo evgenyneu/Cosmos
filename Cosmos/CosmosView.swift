@@ -142,10 +142,12 @@ Shows: ★★★★☆ (132)
   private func updateAccessibility() {
     self.isAccessibilityElement = true
     
-    let accessibilityRating = rating 
+    let isInteger = (rating * 10) % 10 == 0
     
-    self.accessibilityLabel = "Rating \(rating) out of \(settings.totalStars)"
-    self.accessibilityTraits = UIAccessibilityTraitNone  // UIAccessibilityTraitAllowsDirectInteraction
+    let accessibilityRating = isInteger ? "\(Int(rating))" : "\(Double(round(10 * rating)/10))"
+    
+    self.accessibilityLabel = "Rating \(accessibilityRating) out of \(settings.totalStars) stars"
+    self.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently | UIAccessibilityTraitAllowsDirectInteraction // settings.updateOnTouch ? UIAccessibilityTraitAllowsDirectInteraction :UIAccessibilityTraitNone
   }
   
   // MARK: - Touch recognition
