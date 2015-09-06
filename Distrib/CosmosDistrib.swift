@@ -177,7 +177,8 @@ class CosmosLayers {
   */
   class func createStarLayers(rating: Double, settings: CosmosSettings) -> [CALayer] {
 
-    var ratingRemander = numberOfFilledStars(rating, totalNumberOfStars: settings.totalStars)
+    var ratingRemander = CosmosRating.numberOfFilledStars(rating,
+      totalNumberOfStars: settings.totalStars)
 
     var starLayers = [CALayer]()
 
@@ -258,22 +259,6 @@ class CosmosLayers {
       lineWidth: settings.borderWidthEmpty,
       fillColor: fillColor,
       strokeColor: strokeColor)
-  }
-
-  /**
-  
-  Returns the number of filled stars for given rating.
-  
-  - parameter rating: The rating to be displayed.
-  - parameter totalNumberOfStars: Total number of stars.
-  - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
-  
-  */
-  class func numberOfFilledStars(rating: Double, totalNumberOfStars: Int) -> Double {
-    if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
-    if rating < 0 { return 0 }
-
-    return rating
   }
 
   /**
@@ -381,6 +366,22 @@ struct CosmosRating {
     displayedRating = max(0, displayedRating) // Can't be less than zero
     
     return displayedRating
+  }
+  
+  /**
+  
+  Returns the number of filled stars for given rating.
+  
+  - parameter rating: The rating to be displayed.
+  - parameter totalNumberOfStars: Total number of stars.
+  - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
+  
+  */
+  static func numberOfFilledStars(rating: Double, totalNumberOfStars: Int) -> Double {
+    if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
+    if rating < 0 { return 0 }
+    
+    return rating
   }
 }
 

@@ -79,4 +79,20 @@ struct CosmosRating {
     
     return displayedRating
   }
+  
+  /**
+  
+  Returns the number of filled stars for given rating.
+  
+  - parameter rating: The rating to be displayed.
+  - parameter totalNumberOfStars: Total number of stars.
+  - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
+  
+  */
+  static func numberOfFilledStars(rating: Double, totalNumberOfStars: Int) -> Double {
+    if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
+    if rating < 0 { return 0 }
+    
+    return rating
+  }
 }

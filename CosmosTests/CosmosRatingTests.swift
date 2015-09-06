@@ -87,5 +87,22 @@ class CosmosDisplayedRatingTests: XCTestCase {
     XCTAssertEqual(0.25,CosmosRating.roundFillLevel(0.25, fillMode: .Precise))
     XCTAssertEqual(0.9, CosmosRating.roundFillLevel(0.9,  fillMode: .Precise))
   }
+  
+  // MARK: - Number of filled stars
+  
+  func testNumberOfFilledStars() {
+    let result = CosmosRating.numberOfFilledStars(2.6, totalNumberOfStars: 5)
+    XCTAssertEqual(2.6, result)
+  }
+  
+  func testNumberOfFilledStars_ratingIsBiggerThanNumberOfStars() {
+    let result = CosmosRating.numberOfFilledStars(3.6, totalNumberOfStars: 3)
+    XCTAssertEqual(3, result)
+  }
+  
+  func testNumberOfFilledStars_ratingIsNegative() {
+    let result = CosmosRating.numberOfFilledStars(-0.6, totalNumberOfStars: 5)
+    XCTAssertEqual(0, result)
+  }
 }
 

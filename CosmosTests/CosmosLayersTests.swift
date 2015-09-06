@@ -2,24 +2,6 @@ import XCTest
 @testable import Cosmos
 
 class CosmosLayersTests: XCTestCase {
-  
-  // MARK: - Number of filled stars
-  
-  func testNumberOfFilledStars() {
-    let result = CosmosLayers.numberOfFilledStars(2.6, totalNumberOfStars: 5)
-    XCTAssertEqual(2.6, result)
-  }
-  
-  func testNumberOfFilledStars_ratingIsBiggerThanNumberOfStars() {
-    let result = CosmosLayers.numberOfFilledStars(3.6, totalNumberOfStars: 3)
-    XCTAssertEqual(3, result)
-  }
-
-  func testNumberOfFilledStars_ratingIsNegative() {
-    let result = CosmosLayers.numberOfFilledStars(-0.6, totalNumberOfStars: 5)
-    XCTAssertEqual(0, result)
-  }
-
   // MARK: - Position star layers
   
   func testPositionStarLayers() {
