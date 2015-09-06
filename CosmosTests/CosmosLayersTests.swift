@@ -3,38 +3,6 @@ import XCTest
 
 class CosmosLayersTests: XCTestCase {
   
-  // MARK: - Star fill level
-  
-  func testStarFillLevel_moreThanOneRemain() {
-    let result = CosmosLayers.starFillLevel(ratingRemainder: 1.1, fillMode: .Precise)
-    
-    XCTAssertEqual(1, result)
-  }
-
-  func testStarFillLevel_negativeRemainder() {
-    let result = CosmosLayers.starFillLevel(ratingRemainder: -0.1, fillMode: .Precise)
-    
-    XCTAssertEqual(0, result)
-  }
-  
-  func testStarFillLevel_partiallyFileldPrecise() {
-    let result = CosmosLayers.starFillLevel(ratingRemainder: 0.67, fillMode: .Precise)
-    
-    XCTAssertEqual(0.67, result)
-  }
-  
-  func testStarFillLevel_partiallyFileldHalf() {
-    let result = CosmosLayers.starFillLevel(ratingRemainder: 0.67, fillMode: .Half)
-    
-    XCTAssertEqual(0.5, result)
-  }
-
-  func testStarFillLevel_partiallyFileldFull() {
-    let result = CosmosLayers.starFillLevel(ratingRemainder: 0.67, fillMode: .Full)
-    
-    XCTAssertEqual(1, result)
-  }
-  
   // MARK: - Number of filled stars
   
   func testNumberOfFilledStars() {
@@ -242,33 +210,4 @@ class CosmosLayersTests: XCTestCase {
     //   + 99 * 5 (margin between stars)
     XCTAssertEqual(Double(99 * 17 + 99 * 5), Double(result.last!.position.x))
   }
-  
-  // MARK: - Round fill level
-  
-  func testRoundFillLevel_full() {
-    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0,    fillMode: .Full))
-    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0.4,  fillMode: .Full))
-    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(0.5,  fillMode: .Full))
-    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(1,    fillMode: .Full))
-  }
-  
-  func testRoundFillLevel_half() {
-    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0,    fillMode: .Half))
-    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0.1,  fillMode: .Half))
-    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.25, fillMode: .Half))
-    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.3,  fillMode: .Half))
-    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.5,  fillMode: .Half))
-    XCTAssertEqual(0.5, CosmosLayers.roundFillLevel(0.6,  fillMode: .Half))
-    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(0.75, fillMode: .Half))
-    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(0.9,  fillMode: .Half))
-    XCTAssertEqual(1,   CosmosLayers.roundFillLevel(1,    fillMode: .Half))
-  }
-  
-  func testRoundFillLevel_precise() {
-    XCTAssertEqual(0,   CosmosLayers.roundFillLevel(0,    fillMode: .Precise))
-    XCTAssertEqual(0.1, CosmosLayers.roundFillLevel(0.1,  fillMode: .Precise))
-    XCTAssertEqual(0.25,CosmosLayers.roundFillLevel(0.25, fillMode: .Precise))
-    XCTAssertEqual(0.9, CosmosLayers.roundFillLevel(0.9,  fillMode: .Precise))
-  }
-  
 }

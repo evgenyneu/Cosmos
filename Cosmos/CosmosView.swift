@@ -146,8 +146,14 @@ Shows: ★★★★☆ (132)
     
     let accessibilityRating = isInteger ? "\(Int(rating))" : "\(Double(round(10 * rating)/10))"
     
-    self.accessibilityLabel = "Rating \(accessibilityRating) out of \(settings.totalStars) stars"
-    self.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently | UIAccessibilityTraitAllowsDirectInteraction // settings.updateOnTouch ? UIAccessibilityTraitAllowsDirectInteraction :UIAccessibilityTraitNone
+    self.accessibilityLabel = "Rating"
+//    self.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently | UIAccessibilityTraitAllowsDirectInteraction // settings.updateOnTouch ? UIAccessibilityTraitAllowsDirectInteraction :UIAccessibilityTraitNone
+    
+    accessibilityTraits = UIAccessibilityTraitNone
+    self.accessibilityValue = "\(accessibilityRating)"
+    
+//    UIAccessibilityPostNotification( UIAccessibilityAnnouncementNotification, "String 1")
+
   }
   
   // MARK: - Touch recognition

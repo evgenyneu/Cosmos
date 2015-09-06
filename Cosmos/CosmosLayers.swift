@@ -23,7 +23,10 @@ class CosmosLayers {
     var starLayers = [CALayer]()
 
     for _ in (0..<settings.totalStars) {
-      let fillLevel = starFillLevel(ratingRemainder: ratingRemander, fillMode: settings.fillMode)
+      
+      let fillLevel = CosmosRating.starFillLevel(ratingRemainder: ratingRemander,
+        fillMode: settings.fillMode)
+      
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
       starLayers.append(starLayer)
       ratingRemander--
@@ -85,50 +88,6 @@ class CosmosLayers {
     filledStar.bounds.size.width *= CGFloat(starFillLevel)
 
     return parentLayer
-  }
-
-  /**
-
-  Returns a decimal number between 0 and 1 describing the star fill level.
-  
-  - parameter ratingRemainder: This value is passed from the loop that creates star layers. The value starts with the rating value and decremented by 1 when each star is created. For example, suppose we want to display rating of 3.5. When the first star is created the ratingRemainder parameter will be 3.5. For the second star it will be 2.5. Third: 1.5. Fourth: 0.5. Fifth: -0.5.
-  
-  - parameter fillMode: Describe how stars should be filled: full, half or precise.
-  
-  - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
-
-  */
-  class func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode) -> Double {
-      
-    var result = ratingRemainder
-    
-    if result > 1 { result = 1 }
-    if result < 0 { result = 0 }
-    
-    return roundFillLevel(result, fillMode: fillMode)
-  }
-  
-  
-  /**
-  
-  Rounds a single star's fill level according to the fill mode. "Full" mode returns 0 or 1 by using the standard decimal rounding. "Half" mode returns 0, 0.5 or 1 by rounding the decimal to closest of 3 values. "Precise" mode will return the fill level unchanged.
-  
-  - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
-  
-  - parameter fillMode: Fill mode that is used to round the fill level value.
-  
-  - returns: The rounded fill level.
-  
-  */
-  class func roundFillLevel(starFillLevel: Double, fillMode: StarFillMode) -> Double {
-    switch fillMode {
-    case .Full:
-      return Double(round(starFillLevel))
-    case .Half:
-      return Double(round(starFillLevel * 2) / 2)
-    case .Precise :
-      return starFillLevel
-    }
   }
 
   private class func createStarLayer(isFilled: Bool, settings: CosmosSettings) -> CALayer {
