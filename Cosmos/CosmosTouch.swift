@@ -28,14 +28,9 @@ struct CosmosTouch {
       correctedRating += 0.25
     }
     
-    let starFloorNumber = floor(correctedRating)
-    let singleStarRemainder = correctedRating - starFloorNumber
+    correctedRating = CosmosRating.displayedRatingFromPreciseRating(correctedRating,
+      fillMode: settings.fillMode, totalStars: settings.totalStars)
     
-    correctedRating = starFloorNumber + CosmosRating.starFillLevel(
-      ratingRemainder: singleStarRemainder, fillMode: settings.fillMode)
-    
-    correctedRating = min(totalStars, correctedRating) // Can't go bigger than number of stars
-    correctedRating = max(0, correctedRating) // Can't be less than zero
     correctedRating = max(settings.minTouchRating, correctedRating) // Can't be less than min rating
         
     return correctedRating
