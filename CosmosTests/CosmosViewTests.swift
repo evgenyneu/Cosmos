@@ -104,32 +104,15 @@ class CosmosViewTests: XCTestCase {
     XCTAssertEqual(0.9, obj.rating)
   }
   
-  // MARK: Accessibility
-  
-//  func testAccessibility() {
-//    XCTAssert(obj.isAccessibilityElement)
-//    obj.rating = 2
-//    obj.settings.updateOnTouch = false
-//    XCTAssertEqual("Rating 2 out of 5 stars", obj.accessibilityLabel)
-//    XCTAssertEqual(UIAccessibilityTraitNone, obj.accessibilityTraits)
-//  }
-//  
-//  func testAccessibility_whenTouchable() {
-//    XCTAssert(obj.isAccessibilityElement)
-//    obj.rating = 2
-//    obj.settings.updateOnTouch = true
-//    XCTAssertEqual("Rating 2 out of 5 stars", obj.accessibilityLabel)
-//    XCTAssertEqual(UIAccessibilityTraitAllowsDirectInteraction, obj.accessibilityTraits)
-//  }
-//  
-//  func testAccessibility_label() {
-//    obj.rating = 2
-//    XCTAssertEqual("Rating 2 out of 5 stars", obj.accessibilityLabel)
-//    
-//    obj.rating = 2.5
-//    XCTAssertEqual("Rating 2.5 out of 5 stars", obj.accessibilityLabel)
-//    
-//    obj.rating = 4.5111
-//    XCTAssertEqual("Rating 4.5 out of 5 stars", obj.accessibilityLabel)
-//  }
+  // MARK: Accesibility
+
+  func testAccessibility() {
+    XCTAssert(obj.isAccessibilityElement)
+    obj.rating = 2.6
+    obj.settings.fillMode = .Half
+    obj.settings.updateOnTouch = false
+    XCTAssertEqual("Rating", obj.accessibilityLabel)
+    XCTAssertEqual("2.5", obj.accessibilityValue)
+    XCTAssertEqual(UIAccessibilityTraitNone, obj.accessibilityTraits)
+  }
 }

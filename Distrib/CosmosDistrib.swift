@@ -9,6 +9,42 @@
 
 // ----------------------------
 //
+// CosmosAccessibility.swift
+//
+// ----------------------------
+
+/**
+
+Functions for making cosmos view accessible.
+
+*/
+struct CosmosAccessibility {
+  /**
+  
+  Makes the view accesible by settings its label and using rating as value.
+  
+  */
+  static func update(view: UIView, rating: Double, settings: CosmosSettings) {
+    view.isAccessibilityElement = true
+    view.accessibilityTraits = UIAccessibilityTraitNone
+    view.accessibilityLabel = "Rating"
+    view.accessibilityValue = accessiblityValue(view, rating: rating, settings: settings)
+  }
+  
+  static func accessiblityValue(view: UIView, rating: Double, settings: CosmosSettings) -> String {
+    let accessibilityRating = CosmosRating.displayedRatingFromPreciseRating(rating,
+      fillMode: settings.fillMode, totalStars: settings.totalStars)
+    
+    let isInteger = (accessibilityRating * 10) % 10 == 0
+    
+    return isInteger ?
+      "\(Int(accessibilityRating))" : "\(Double(round(10 * accessibilityRating)/10))"
+  }
+}
+
+
+// ----------------------------
+//
 // CosmosDefaultSettings.swift
 //
 // ----------------------------
@@ -730,20 +766,7 @@ Shows: ★★★★☆ (132)
   }
   
   private func updateAccessibility() {
-    self.isAccessibilityElement = true
-    
-    let isInteger = (rating * 10) % 10 == 0
-    
-    let accessibilityRating = isInteger ? "\(Int(rating))" : "\(Double(round(10 * rating)/10))"
-    
-    self.accessibilityLabel = "Rating"
-//    self.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently | UIAccessibilityTraitAllowsDirectInteraction // settings.updateOnTouch ? UIAccessibilityTraitAllowsDirectInteraction :UIAccessibilityTraitNone
-    
-    accessibilityTraits = UIAccessibilityTraitNone
-    self.accessibilityValue = "\(accessibilityRating)"
-    
-//    UIAccessibilityPostNotification( UIAccessibilityAnnouncementNotification, "String 1")
-
+    CosmosAccessibility.update(self, rating: rating, settings: settings)
   }
   
   // MARK: - Touch recognition

@@ -140,20 +140,7 @@ Shows: ★★★★☆ (132)
   }
   
   private func updateAccessibility() {
-    self.isAccessibilityElement = true
-    
-    let isInteger = (rating * 10) % 10 == 0
-    
-    let accessibilityRating = isInteger ? "\(Int(rating))" : "\(Double(round(10 * rating)/10))"
-    
-    self.accessibilityLabel = "Rating"
-//    self.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently | UIAccessibilityTraitAllowsDirectInteraction // settings.updateOnTouch ? UIAccessibilityTraitAllowsDirectInteraction :UIAccessibilityTraitNone
-    
-    accessibilityTraits = UIAccessibilityTraitNone
-    self.accessibilityValue = "\(accessibilityRating)"
-    
-//    UIAccessibilityPostNotification( UIAccessibilityAnnouncementNotification, "String 1")
-
+    CosmosAccessibility.update(self, rating: rating, settings: settings)
   }
   
   // MARK: - Touch recognition
