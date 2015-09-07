@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "Cosmos"
-  s.version     = "1.0.18"
+  s.version     = "1.0.19"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/exchangegroup/Cosmos"
   s.summary     = "5-star rating control written in Swift"
@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
                    * Can be used as a rating input control.
                    * Cosmos view can be customized in the Storyboard without writing code.
                    * Includes different star filling modes: full, half-filled and precise.
+                   * Cosmos is accessible and works with voice-over.
                    DESC
   s.authors     = { "Evgenii Neumerzhitckii" => "sausageskin@gmail.com" }
   s.source      = { :git => "https://github.com/exchangegroup/Cosmos.git", :tag => s.version }
