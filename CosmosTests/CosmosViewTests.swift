@@ -115,4 +115,56 @@ class CosmosViewTests: XCTestCase {
     XCTAssertEqual("2.5", obj.accessibilityValue)
     XCTAssertEqual(UIAccessibilityTraitNone, obj.accessibilityTraits)
   }
+  
+  func testAccessibilityIncrement() {
+    obj.rating = 3.6
+    obj.settings.fillMode = .Half
+  
+    obj.accessibilityIncrement()
+    
+    XCTAssertEqual(4.0, obj.rating)
+    XCTAssertEqual("4", obj.accessibilityValue)
+    
+    obj.accessibilityIncrement()
+    XCTAssertEqual(4.5, obj.rating)
+    
+    obj.accessibilityIncrement()
+    XCTAssertEqual(5, obj.rating)
+    
+    obj.accessibilityIncrement()
+    XCTAssertEqual(5, obj.rating)
+    XCTAssertEqual("5", obj.accessibilityValue)
+    
+    obj.settings.totalStars = 7
+    obj.accessibilityIncrement()
+    XCTAssertEqual(5.5, obj.rating)
+    XCTAssertEqual("5.5", obj.accessibilityValue)
+  }
+  
+  func testAccessibilityDecrement() {
+    obj.rating = 2.6
+    obj.settings.fillMode = .Half
+    
+    obj.accessibilityDecrement()
+    
+    XCTAssertEqual(2.5, obj.rating)
+    XCTAssertEqual("2.5", obj.accessibilityValue)
+    
+    obj.accessibilityDecrement()
+    obj.accessibilityDecrement()
+    obj.accessibilityDecrement()
+    
+    XCTAssertEqual(1, obj.rating)
+    XCTAssertEqual("1", obj.accessibilityValue)
+    
+    obj.accessibilityDecrement()
+    XCTAssertEqual(1, obj.rating)
+    XCTAssertEqual("1", obj.accessibilityValue)
+    
+    obj.settings.minTouchRating = 0
+    
+    obj.accessibilityDecrement()
+    XCTAssertEqual(0.5, obj.rating)
+    XCTAssertEqual("0.5", obj.accessibilityValue)
+  }
 }

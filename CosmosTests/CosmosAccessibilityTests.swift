@@ -103,6 +103,12 @@ class CosmosAccessibilityTests: XCTestCase {
     
     result = CosmosAccessibility.accessibilityIncrement(5.1, settings: settings)
     XCTAssertEqual("0.0", "\(result)")
+    
+    // ---
+    
+    settings.totalStars = 6
+    result = CosmosAccessibility.accessibilityIncrement(5.1, settings: settings)
+    XCTAssertEqual("0.9", "\(result)")
   }
   
   func testIncrement_half() {

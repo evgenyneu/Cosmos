@@ -833,14 +833,14 @@ Shows: ★★★★☆ (132)
   
   public override func accessibilityIncrement() {
     super.accessibilityIncrement()
-    rating += 0.5
-    print("increment")
+    
+    rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
   }
   
   public override func accessibilityDecrement() {
     super.accessibilityDecrement()
-    rating -= 0.5
-    print("decrement")
+    
+    rating -= CosmosAccessibility.accessibilityDecrement(rating, settings: settings)
   }
   
   // MARK: - Touch recognition
