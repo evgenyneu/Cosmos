@@ -80,87 +80,92 @@ class CosmosAccessibilityTests: XCTestCase {
   // MARK: - Increment
   
   func testIncrement_full() {
-    var result = CosmosAccessibility.accessibilityIncrement(4.7, fillMode: .Full, totalStars: 5)
-    XCTAssertEqual("0.3", "\(result)")
+    settings.fillMode = .Full
+    
+    var result = CosmosAccessibility.accessibilityIncrement(4.7, settings: settings)
     
     // ---
 
-    result = CosmosAccessibility.accessibilityIncrement(4.1, fillMode: .Full, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(4.1, settings: settings)
     XCTAssertEqual("0.9", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(4, fillMode: .Full, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(4, settings: settings)
     XCTAssertEqual("1.0", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(5, fillMode: .Full, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(5, settings: settings)
     XCTAssertEqual("0.0", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(5.1, fillMode: .Full, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(5.1, settings: settings)
     XCTAssertEqual("0.0", "\(result)")
   }
   
   func testIncrement_half() {
-    var result = CosmosAccessibility.accessibilityIncrement(4.2, fillMode: .Half, totalStars: 5)
+    settings.fillMode = .Half
+    
+    var result = CosmosAccessibility.accessibilityIncrement(4.2, settings: settings)
     XCTAssertEqual("0.3", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(4.5, fillMode: .Half, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(4.5, settings: settings)
     XCTAssertEqual("0.5", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(2, fillMode: .Half, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(2, settings: settings)
     XCTAssertEqual("0.5", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(4.8, fillMode: .Half, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(4.8, settings: settings)
     XCTAssertEqual("0.2", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(5, fillMode: .Half, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(5, settings: settings)
     XCTAssertEqual("0.0", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(5.7, fillMode: .Half, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(5.7, settings: settings)
     XCTAssertEqual("0.0", "\(result)")
   }
-  
+
   func testIncrement_precise() {
-    var result = CosmosAccessibility.accessibilityIncrement(4.2, fillMode: .Precise, totalStars: 5)
+    settings.fillMode = .Precise
+
+    var result = CosmosAccessibility.accessibilityIncrement(4.2, settings: settings)
     XCTAssertEqual("0.3", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(4.5, fillMode: .Precise, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(4.5, settings: settings)
     XCTAssertEqual("0.5", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(2, fillMode: .Precise, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(2, settings: settings)
     XCTAssertEqual("0.5", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(4.8, fillMode: .Precise, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(4.8, settings: settings)
     XCTAssertEqual("0.2", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(5, fillMode: .Precise, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(5, settings: settings)
     XCTAssertEqual("0.0", "\(result)")
     
     // ---
     
-    result = CosmosAccessibility.accessibilityIncrement(5.7, fillMode: .Precise, totalStars: 5)
+    result = CosmosAccessibility.accessibilityIncrement(5.7, settings: settings)
     XCTAssertEqual("0.0", "\(result)")
   }
   
@@ -186,7 +191,7 @@ class CosmosAccessibilityTests: XCTestCase {
     // ---
     
     result = CosmosAccessibility.accessibilityDecrement(1, settings: settings)
-    XCTAssertEqual("1.0", "\(result)")
+    XCTAssertEqual("0.0", "\(result)")
     
     // ---
     
@@ -201,6 +206,45 @@ class CosmosAccessibilityTests: XCTestCase {
   
   func testDecrement_half() {
     settings.fillMode = .Half
+    settings.minTouchRating = 1
+    
+    var result = CosmosAccessibility.accessibilityDecrement(4.2, settings: settings)
+    XCTAssertEqual("0.2", "\(result)")
+    
+    // ---
+    
+    result = CosmosAccessibility.accessibilityDecrement(4.8, settings: settings)
+    XCTAssertEqual("0.3", "\(result)")
+    
+    // ---
+    
+    result = CosmosAccessibility.accessibilityDecrement(5, settings: settings)
+    XCTAssertEqual("0.5", "\(result)")
+    
+    // ---
+    
+    result = CosmosAccessibility.accessibilityDecrement(1.5, settings: settings)
+    XCTAssertEqual("0.5", "\(result)")
+    
+    // ---
+    
+    result = CosmosAccessibility.accessibilityDecrement(1.0, settings: settings)
+    XCTAssertEqual("0.0", "\(result)")
+    
+    // ---
+    
+    settings.minTouchRating = 0
+    result = CosmosAccessibility.accessibilityDecrement(1.0, settings: settings)
+    XCTAssertEqual("0.5", "\(result)")
+    
+    // ---
+    
+    result = CosmosAccessibility.accessibilityDecrement(0.0, settings: settings)
+    XCTAssertEqual("0.0", "\(result)")
+  }
+  
+  func testDecrement_precise() {
+    settings.fillMode = .Precise
     settings.minTouchRating = 1
     
     var result = CosmosAccessibility.accessibilityDecrement(4.2, settings: settings)

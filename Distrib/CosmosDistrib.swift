@@ -65,12 +65,10 @@ struct CosmosAccessibility {
   rating is incremented by 0.5.
   
   */
-  static func accessibilityIncrement(rating: Double, fillMode: StarFillMode,
-    totalStars: Int) -> Double {
-      
+  static func accessibilityIncrement(rating: Double, settings: CosmosSettings) -> Double {
     var increment: Double = 0
       
-    switch fillMode {
+    switch settings.fillMode {
     case .Full:
       increment = ceil(rating) - rating
       if increment == 0 { increment = 1 }
@@ -80,13 +78,12 @@ struct CosmosAccessibility {
       if increment == 0 { increment = 0.5 }      
     }
     
-    if rating >= Double(totalStars) { increment = 0 }
+    if rating >= Double(settings.totalStars) { increment = 0 }
             
     return increment
   }
   
   static func accessibilityDecrement(rating: Double, settings: CosmosSettings) -> Double {
-    
     var increment: Double = 0
     
     switch settings.fillMode {
