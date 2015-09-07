@@ -862,16 +862,30 @@ Shows: ★★★★☆ (132)
     update()
   }
   
-  convenience init() {
+  
+  /**
+
+  Initializes and returns a newly allocated cosmos view object.
+  
+  */
+  convenience public init() {
     self.init(frame: CGRect())
   }
   
-  override init(frame: CGRect) {
+  /**
+
+  Initializes and returns a newly allocated cosmos view object with the specified frame rectangle.
+
+  - parameter frame: The frame rectangle for the view.
+  
+  */
+  override public init(frame: CGRect) {
     super.init(frame: frame)
     update()
     self.frame.size = intrinsicContentSize()
   }
   
+  /// Initializes and returns a newly allocated cosmos view object.
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
@@ -954,12 +968,14 @@ Shows: ★★★★☆ (132)
     CosmosAccessibility.update(self, rating: rating, text: text, settings: settings)
   }
   
+  /// Called by the system in accessibility voice-over mode when the value is incremented by the user.
   public override func accessibilityIncrement() {
     super.accessibilityIncrement()
     
     rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
   }
   
+  /// Called by the system in accessibility voice-over mode when the value is decremented by the user.
   public override func accessibilityDecrement() {
     super.accessibilityDecrement()
     
@@ -1171,7 +1187,7 @@ public enum StarFillMode: Int {
   /// Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6.
   case Half = 1
   
-  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2. By default the fill rate is not applied linearly but corrected (see correctFillLevelForPreciseMode setting).
+  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2.
   case Precise = 2
 }
 
