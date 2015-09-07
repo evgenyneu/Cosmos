@@ -15,6 +15,7 @@ This is a UI control for iOS written in Swift. It shows a star rating and takes 
 * Can be used as a rating input control.
 * Cosmos view can be customized in the Storyboard without writing code.
 * Includes different star filling modes: full, half-filled and precise.
+* Cosmos is accessible and works with voice-over.
 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Cosmos/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
