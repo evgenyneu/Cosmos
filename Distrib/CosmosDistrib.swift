@@ -26,19 +26,82 @@ struct CosmosAccessibility {
   */
   static func update(view: UIView, rating: Double, settings: CosmosSettings) {
     view.isAccessibilityElement = true
-    view.accessibilityTraits = UIAccessibilityTraitNone
+    
+    view.accessibilityTraits = settings.updateOnTouch ?
+      UIAccessibilityTraitAdjustable :UIAccessibilityTraitNone
+    
     view.accessibilityLabel = "Rating"
-    view.accessibilityValue = accessiblityValue(view, rating: rating, settings: settings)
+    view.accessibilityValue = accessibilityValue(view, rating: rating, settings: settings)
   }
   
-  static func accessiblityValue(view: UIView, rating: Double, settings: CosmosSettings) -> String {
+  /**
+  
+  Returns the rating that is used as accessibility value.
+  The accessibility value depends on the star fill mode.
+
+  For example, if rating is 4.6 and fill mode is .Half the value will be 4.5. And if the fill mode
+  if .Full the value will be 5.
+  
+  */
+  static func accessibilityValue(view: UIView, rating: Double, settings: CosmosSettings) -> String {
     let accessibilityRating = CosmosRating.displayedRatingFromPreciseRating(rating,
       fillMode: settings.fillMode, totalStars: settings.totalStars)
     
+    // Omit decimals if the value is an integer
     let isInteger = (accessibilityRating * 10) % 10 == 0
     
-    return isInteger ?
-      "\(Int(accessibilityRating))" : "\(Double(round(10 * accessibilityRating)/10))"
+    if isInteger {
+      return "\(Int(accessibilityRating))"
+    } else {
+      // Only show a single decimal place
+      let roundedToFirstDecimalPlace = Double( round(10 * accessibilityRating) / 10 )
+      return "\(roundedToFirstDecimalPlace)"
+    }
+  }
+  
+  /**
+
+  Returns the amount of increment for the rating. When .Half and .Precise fill modes are used the
+  rating is incremented by 0.5.
+  
+  */
+  static func accessibilityIncrement(rating: Double, fillMode: StarFillMode,
+    totalStars: Int) -> Double {
+      
+    var increment: Double = 0
+      
+    switch fillMode {
+    case .Full:
+      increment = ceil(rating) - rating
+      if increment == 0 { increment = 1 }
+
+    case .Half, .Precise:
+      increment = (ceil(rating * 2) - rating * 2) / 2
+      if increment == 0 { increment = 0.5 }      
+    }
+    
+    if rating >= Double(totalStars) { increment = 0 }
+            
+    return increment
+  }
+  
+  static func accessibilityDecrement(rating: Double, settings: CosmosSettings) -> Double {
+    
+    var increment: Double = 0
+    
+    switch settings.fillMode {
+    case .Full:
+      increment = rating - floor(rating)
+      if increment == 0 { increment = 1 }
+      
+    case .Half, .Precise:
+      increment = (rating * 2 - floor(rating * 2)) / 2
+      if increment == 0 { increment = 0.5 }
+    }
+    
+    if rating <= settings.minTouchRating { increment = 0 }
+    
+    return increment
   }
 }
 
@@ -765,8 +828,22 @@ Shows: ★★★★☆ (132)
     return viewSize
   }
   
+  // MARK: - Accessibility
+  
   private func updateAccessibility() {
     CosmosAccessibility.update(self, rating: rating, settings: settings)
+  }
+  
+  public override func accessibilityIncrement() {
+    super.accessibilityIncrement()
+    rating += 0.5
+    print("increment")
+  }
+  
+  public override func accessibilityDecrement() {
+    super.accessibilityDecrement()
+    rating -= 0.5
+    print("decrement")
   }
   
   // MARK: - Touch recognition

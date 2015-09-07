@@ -139,8 +139,22 @@ Shows: ★★★★☆ (132)
     return viewSize
   }
   
+  // MARK: - Accessibility
+  
   private func updateAccessibility() {
     CosmosAccessibility.update(self, rating: rating, settings: settings)
+  }
+  
+  public override func accessibilityIncrement() {
+    super.accessibilityIncrement()
+    rating += 0.5
+    print("increment")
+  }
+  
+  public override func accessibilityDecrement() {
+    super.accessibilityDecrement()
+    rating -= 0.5
+    print("decrement")
   }
   
   // MARK: - Touch recognition
