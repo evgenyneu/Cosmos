@@ -15,7 +15,7 @@ struct CosmosAccessibility {
     view.accessibilityTraits = settings.updateOnTouch ?
       UIAccessibilityTraitAdjustable :UIAccessibilityTraitNone
     
-    var accessibilityLabel = "Rating"
+    var accessibilityLabel = NSLocalizedString("Rating", comment: "Star rating control")
     
     if let text = text where text != "" {
       accessibilityLabel += " \(text)"
