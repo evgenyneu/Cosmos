@@ -142,7 +142,7 @@ Shows: ★★★★☆ (132)
   // MARK: - Accessibility
   
   private func updateAccessibility() {
-    CosmosAccessibility.update(self, rating: rating, settings: settings)
+    CosmosAccessibility.update(self, rating: rating, text: text, settings: settings)
   }
   
   public override func accessibilityIncrement() {

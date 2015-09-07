@@ -15,65 +15,75 @@ class CosmosAccessibilityTests: XCTestCase {
   
   // MARK: - Accesibility value
   
-  func testAccesibilityEnabled() {
-    CosmosAccessibility.update(view, rating: 5, settings: settings)
+  func testAccesibilityLabel() {
+    CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     
     XCTAssert(view.isAccessibilityElement)
+    XCTAssertEqual("Rating", view.accessibilityLabel)
+  }
+  
+  func testAccesibilityLabelWithText() {
+    CosmosAccessibility.update(view, rating: 5, text: "123", settings: settings)
+    
+    XCTAssert(view.isAccessibilityElement)
+    XCTAssertEqual("Rating 123", view.accessibilityLabel)
   }
   
   func testAccesibilityTrait_none() {
     settings.updateOnTouch = false
-    CosmosAccessibility.update(view, rating: 5, settings: settings)
+    CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
 
     XCTAssertEqual(UIAccessibilityTraitNone, view.accessibilityTraits)
   }
   
   func testAccesibilityTrait_adjustable() {
     settings.updateOnTouch = true
-    CosmosAccessibility.update(view, rating: 5, settings: settings)
+    CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     
     XCTAssertEqual(UIAccessibilityTraitAdjustable, view.accessibilityTraits)
   }
   
+  // MARK: Accessibility value
+  
   func testAccesibilityValue_full() {
     settings.fillMode = .Full
 
-    CosmosAccessibility.update(view, rating: 5, settings: settings)
+    CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
     
-    CosmosAccessibility.update(view, rating: 4.5, settings: settings)
+    CosmosAccessibility.update(view, rating: 4.5, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
     
-    CosmosAccessibility.update(view, rating: 4.2, settings: settings)
+    CosmosAccessibility.update(view, rating: 4.2, text: nil, settings: settings)
     XCTAssertEqual("4", view.accessibilityValue)
     
-    CosmosAccessibility.update(view, rating: 6, settings: settings)
+    CosmosAccessibility.update(view, rating: 6, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
   }
   
   func testAccesibilityValue_half() {
     settings.fillMode = .Half
 
-    CosmosAccessibility.update(view, rating: 5, settings: settings)
+    CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
     
-    CosmosAccessibility.update(view, rating: 4.6, settings: settings)
+    CosmosAccessibility.update(view, rating: 4.6, text: nil, settings: settings)
     XCTAssertEqual("4.5", view.accessibilityValue)
     
-    CosmosAccessibility.update(view, rating: 4.2, settings: settings)
+    CosmosAccessibility.update(view, rating: 4.2, text: nil, settings: settings)
     XCTAssertEqual("4", view.accessibilityValue)
   }
   
   func testAccesibilityValue_precise() {
     settings.fillMode = .Precise
     
-    CosmosAccessibility.update(view, rating: 5, settings: settings)
+    CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
     
-    CosmosAccessibility.update(view, rating: 4.632, settings: settings)
+    CosmosAccessibility.update(view, rating: 4.632, text: nil, settings: settings)
     XCTAssertEqual("4.6", view.accessibilityValue)
     
-    CosmosAccessibility.update(view, rating: 4.212, settings: settings)
+    CosmosAccessibility.update(view, rating: 4.212, text: nil, settings: settings)
     XCTAssertEqual("4.2", view.accessibilityValue)
   }
   
