@@ -70,7 +70,7 @@ class CosmosViewTests: XCTestCase {
 
     obj.onDidTouch(219, starsWidth: 500)
 
-    XCTAssertEqual(2.19, obj.rating)
+    XCTAssertEqual(2.19, Helpers.roundToPlaces(obj.rating, places: 2))
   }
 
   func testOnDidTouch_doNotUpdateOnTouch() {

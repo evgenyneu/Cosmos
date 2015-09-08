@@ -60,7 +60,7 @@ class CosmosTouchTests: XCTestCase {
     settings.minTouchRating = 0
     
     let result = CosmosTouch.touchRating(215, starsWidth: 500, settings: settings)
-    XCTAssertEqual(2.15, result)
+    XCTAssertEqual(2.15, Helpers.roundToPlaces(result, places: 2))
   }
 
   func testTouchRating_minRating() {
