@@ -1024,8 +1024,16 @@ Shows: ★★★★☆ (132)
       rating = calculatedTouchRating
     }
     
+    if calculatedTouchRating == previousRatingForDidTouchCallback {
+      // Do not call didTouchCosmos if rating has not changed
+      return
+    }
+    
     didTouchCosmos?(calculatedTouchRating)
+    previousRatingForDidTouchCallback = calculatedTouchRating
   }
+  
+  private var previousRatingForDidTouchCallback: Double = -123.192
   
   
   /// Width of the stars (excluding the text). Used for calculating touch location.

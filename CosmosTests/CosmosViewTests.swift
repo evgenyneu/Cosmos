@@ -95,6 +95,26 @@ class CosmosViewTests: XCTestCase {
     XCTAssertEqual(3, callbackRating!)
   }
   
+  func testOnDidTouch_executeTheCallbackOnce_whenRatingRemainsTheSame() {
+    obj.settings.fillMode = .Full
+    
+    var closureCalledTimes = 0
+    
+    obj.didTouchCosmos = { rating in
+      closureCalledTimes += 1
+    }
+    
+    obj.onDidTouch(312, starsWidth: 500)
+    
+    // Rating has not changed
+    obj.onDidTouch(312, starsWidth: 500)
+    XCTAssertEqual(1, closureCalledTimes)
+    
+    // Change the rating
+    obj.onDidTouch(112, starsWidth: 500)
+    XCTAssertEqual(2, closureCalledTimes)
+  }
+  
   func testOnDidTouch_minimumRating() {
     obj.settings.minTouchRating = 0.9
     obj.settings.updateOnTouch = true
