@@ -196,13 +196,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uTL-IH-Ifc" customClass="PerformanceTableViewCell" customModule="Demo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="performanceTableViewCell" id="uTL-IH-Ifc" customClass="PerformanceTableViewCell" customModule="Demo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uTL-IH-Ifc" id="yeE-LT-rrb">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lC3-Cm-KjQ" customClass="CosmosView" customModule="Demo" customModuleProvider="target">
+                                            <rect key="frame" x="240" y="12" width="120" height="20"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lC3-Cm-KjQ" firstAttribute="centerX" secondItem="yeE-LT-rrb" secondAttribute="centerX" id="7lG-VK-jIh"/>
+                                        <constraint firstItem="lC3-Cm-KjQ" firstAttribute="centerY" secondItem="yeE-LT-rrb" secondAttribute="centerY" id="agM-tQ-g2L"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cosmosView" destination="lC3-Cm-KjQ" id="8fg-Ma-dOF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
