@@ -34,14 +34,14 @@ Simply add [CosmosDistrib.swift](https://github.com/exchangegroup/Cosmos/blob/ma
 
 **Setup with Carthage (iOS 8+)**
 
-Alternatively, add `github "exchangegroup/Cosmos" ~> 1.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "exchangegroup/Cosmos" ~> 1.1` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    pod 'Cosmos', '~> 1.0'
+    pod 'Cosmos', '~> 1.1'
 
 **Setup in Xcode 6 / Swift 1.2 project**
 
