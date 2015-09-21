@@ -19,6 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="veo-Fz-sdA">
+                                <rect key="frame" x="-80" y="152" width="580" height="488"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="veo-Fz-sdA" secondAttribute="height" multiplier="1603:1347" id="06v-lo-xjm"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE3-kT-Xhz">
                                 <rect key="frame" x="272" y="226" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -108,12 +114,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="veo-Fz-sdA">
-                                <rect key="frame" x="-80" y="401" width="580" height="488"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="veo-Fz-sdA" secondAttribute="height" multiplier="1603:1347" id="06v-lo-xjm"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-pS-FV2" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="223" y="110" width="154" height="20"/>
                                 <userDefinedRuntimeAttributes>
@@ -163,7 +163,6 @@
                             <constraint firstAttribute="centerX" secondItem="2tN-pS-FV2" secondAttribute="centerX" id="ca9-cU-IDH"/>
                             <constraint firstAttribute="centerX" secondItem="ZE3-kT-Xhz" secondAttribute="centerX" id="mHN-58-4EF"/>
                             <constraint firstItem="lo6-6T-bH2" firstAttribute="top" secondItem="Zcm-Q3-Dv1" secondAttribute="bottom" constant="40" id="syf-G4-AXC"/>
-                            <constraint firstItem="veo-Fz-sdA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kq7-em-h86" secondAttribute="bottom" id="ty6-yw-Ap8"/>
                             <constraint firstItem="veo-Fz-sdA" firstAttribute="leading" secondItem="Fer-fB-nQw" secondAttribute="leading" constant="-80" id="xc1-HN-k9I"/>
                         </constraints>
                     </view>
