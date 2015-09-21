@@ -225,7 +225,7 @@
                                         <constraint firstItem="lC3-Cm-KjQ" firstAttribute="centerY" secondItem="yeE-LT-rrb" secondAttribute="centerY" id="agM-tQ-g2L"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="cosmosView" destination="lC3-Cm-KjQ" id="8fg-Ma-dOF"/>
                                 </connections>

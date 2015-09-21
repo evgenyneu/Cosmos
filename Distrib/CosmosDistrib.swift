@@ -870,7 +870,6 @@ Shows: ★★★★☆ (132)
   */
   convenience public init() {
     self.init(frame: CGRect())
-    improveDrawingPerformace()
   }
   
   /**
@@ -884,13 +883,11 @@ Shows: ★★★★☆ (132)
     super.init(frame: frame)
     update()
     self.frame.size = intrinsicContentSize()
-    improveDrawingPerformace()
   }
   
   /// Initializes and returns a newly allocated cosmos view object.
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    improveDrawingPerformace()
   }
   
   /**
@@ -923,16 +920,6 @@ Shows: ★★★★☆ (132)
     // ------------
 
     updateAccessibility()
-  }
-  
-  /**
-  
-  Set shouldRasterize to true. This will ask the layer to be rendered to a bitmap and using this bitmap as a cache when displaying the view instead re-rendering the complex stars each frame.
-  
-  */
-  private func improveDrawingPerformace() {
-    layer.shouldRasterize = true
-    layer.rasterizationScale = UIScreen.mainScreen().scale
   }
   
   /**
@@ -1251,31 +1238,11 @@ struct StarLayer {
     let path = createStarPath(starPoints, size: size)
       
     let shapeLayer = createShapeLayer(path.CGPath, lineWidth: lineWidth,
-      fillColor: fillColor, strokeColor: strokeColor)
+      fillColor: fillColor, strokeColor: strokeColor, size: size)
       
-    let maskLayer = createMaskLayer(path.CGPath)
-    
-    containerLayer.mask = maskLayer
     containerLayer.addSublayer(shapeLayer)
     
     return containerLayer
-  }
-  
-  /**
-  
-  Creates a mask layer with the given path shape. The purpose of the mask layer is to prevent the shape's stroke to go over the shape's edges.
-  
-  - parameter path: The star shape path.
-  
-  - returns: New mask layer.
-
-  */
-  static func createMaskLayer(path: CGPath) -> CALayer {
-    let layer = CAShapeLayer()
-    layer.anchorPoint = CGPoint()
-    layer.contentsScale = UIScreen.mainScreen().scale
-    layer.path = path
-    return layer
   }
   
   /**
@@ -1293,13 +1260,17 @@ struct StarLayer {
   - returns: New shape layer.
   
   */
-  static func createShapeLayer(path: CGPath, lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
+  static func createShapeLayer(path: CGPath, lineWidth: Double, fillColor: UIColor,
+    strokeColor: UIColor, size: Double) -> CALayer {
+      
     let layer = CAShapeLayer()
     layer.anchorPoint = CGPoint()
     layer.contentsScale = UIScreen.mainScreen().scale
     layer.strokeColor = strokeColor.CGColor
     layer.fillColor = fillColor.CGColor
     layer.lineWidth = CGFloat(lineWidth)
+    layer.bounds.size = CGSize(width: size, height: size)
+    layer.masksToBounds = true
     layer.path = path
     return layer
   }

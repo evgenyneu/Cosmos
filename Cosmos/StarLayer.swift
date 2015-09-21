@@ -30,31 +30,11 @@ struct StarLayer {
     let path = createStarPath(starPoints, size: size)
       
     let shapeLayer = createShapeLayer(path.CGPath, lineWidth: lineWidth,
-      fillColor: fillColor, strokeColor: strokeColor)
+      fillColor: fillColor, strokeColor: strokeColor, size: size)
       
-    let maskLayer = createMaskLayer(path.CGPath)
-    
-    containerLayer.mask = maskLayer
     containerLayer.addSublayer(shapeLayer)
     
     return containerLayer
-  }
-  
-  /**
-  
-  Creates a mask layer with the given path shape. The purpose of the mask layer is to prevent the shape's stroke to go over the shape's edges.
-  
-  - parameter path: The star shape path.
-  
-  - returns: New mask layer.
-
-  */
-  static func createMaskLayer(path: CGPath) -> CALayer {
-    let layer = CAShapeLayer()
-    layer.anchorPoint = CGPoint()
-    layer.contentsScale = UIScreen.mainScreen().scale
-    layer.path = path
-    return layer
   }
   
   /**
@@ -72,13 +52,17 @@ struct StarLayer {
   - returns: New shape layer.
   
   */
-  static func createShapeLayer(path: CGPath, lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
+  static func createShapeLayer(path: CGPath, lineWidth: Double, fillColor: UIColor,
+    strokeColor: UIColor, size: Double) -> CALayer {
+      
     let layer = CAShapeLayer()
     layer.anchorPoint = CGPoint()
     layer.contentsScale = UIScreen.mainScreen().scale
     layer.strokeColor = strokeColor.CGColor
     layer.fillColor = fillColor.CGColor
     layer.lineWidth = CGFloat(lineWidth)
+    layer.bounds.size = CGSize(width: size, height: size)
+    layer.masksToBounds = true
     layer.path = path
     return layer
   }

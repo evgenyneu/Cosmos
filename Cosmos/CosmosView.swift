@@ -61,7 +61,6 @@ Shows: ★★★★☆ (132)
   */
   convenience public init() {
     self.init(frame: CGRect())
-    improveDrawingPerformace()
   }
   
   /**
@@ -75,13 +74,11 @@ Shows: ★★★★☆ (132)
     super.init(frame: frame)
     update()
     self.frame.size = intrinsicContentSize()
-    improveDrawingPerformace()
   }
   
   /// Initializes and returns a newly allocated cosmos view object.
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    improveDrawingPerformace()
   }
   
   /**
@@ -114,16 +111,6 @@ Shows: ★★★★☆ (132)
     // ------------
 
     updateAccessibility()
-  }
-  
-  /**
-  
-  Set shouldRasterize to true. This will ask the layer to be rendered to a bitmap and using this bitmap as a cache when displaying the view instead re-rendering the complex stars each frame.
-  
-  */
-  private func improveDrawingPerformace() {
-    layer.shouldRasterize = true
-    layer.rasterizationScale = UIScreen.mainScreen().scale
   }
   
   /**
