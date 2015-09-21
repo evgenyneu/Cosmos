@@ -64,6 +64,7 @@ struct StarLayer {
     layer.bounds.size = CGSize(width: size, height: size)
     layer.masksToBounds = true
     layer.path = path
+    layer.opaque = true
     return layer
   }
   
@@ -80,6 +81,7 @@ struct StarLayer {
     layer.anchorPoint = CGPoint()
     layer.masksToBounds = true
     layer.bounds.size = CGSize(width: size, height: size)
+    layer.opaque = true
     return layer
   }
   

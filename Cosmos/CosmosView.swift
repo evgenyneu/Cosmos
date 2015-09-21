@@ -74,11 +74,24 @@ Shows: ★★★★☆ (132)
     super.init(frame: frame)
     update()
     self.frame.size = intrinsicContentSize()
+    
+    improvePerformance()
   }
   
   /// Initializes and returns a newly allocated cosmos view object.
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    
+    improvePerformance()
+  }
+  
+  /// Change view settings for faster drawing
+  private func improvePerformance() {
+    /// Cache the view into a bitmap instead of redrawing the stars each time
+    layer.shouldRasterize = true
+    layer.rasterizationScale = UIScreen.mainScreen().scale
+    
+    opaque = true
   }
   
   /**
