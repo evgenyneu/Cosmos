@@ -70,7 +70,7 @@ class CosmosLayersTests: XCTestCase {
     
     let filledShapeLayer = filledContainerLayer.sublayers![0] as! CAShapeLayer
     XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
     XCTAssertEqual(1.31, filledShapeLayer.lineWidth)
   }
   
@@ -96,7 +96,7 @@ class CosmosLayersTests: XCTestCase {
     
     let filledShapeLayer = result.sublayers![0] as! CAShapeLayer
     XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
   }
 
   func testCreateCompositeStarLayer_emptyStar() {
@@ -170,7 +170,7 @@ class CosmosLayersTests: XCTestCase {
     
     let filledShapeLayer = filledContainerLayer.sublayers![0] as! CAShapeLayer
     XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.clearColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
     XCTAssertEqual(1.31, filledShapeLayer.lineWidth)
 
   }
