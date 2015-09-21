@@ -11,7 +11,8 @@ class PerformanceTableViewController: UITableViewController {
     cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       
     if let cell = tableView.dequeueReusableCellWithIdentifier("performanceTableViewCell") as? PerformanceTableViewCell  {
-      cell.update(2.3)
+      let rating: Double = Double(indexPath.row) / 99 * 5
+      cell.update(rating)
       return cell
     }
       
