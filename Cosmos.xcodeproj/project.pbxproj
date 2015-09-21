@@ -35,6 +35,8 @@
 		2B622F0F1B37BE780090D81B /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */; };
 		2BC473551B9D3F4900BDF89F /* CosmosLocalizedRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC473541B9D3F4900BDF89F /* CosmosLocalizedRatingTests.swift */; settings = {ASSET_TAGS = (); }; };
 		2BC473571B9D3F9400BDF89F /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC473561B9D3F9400BDF89F /* CosmosLocalizedRating.swift */; settings = {ASSET_TAGS = (); }; };
+		2BC696811BAF996F00576887 /* PerformanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC696801BAF996F00576887 /* PerformanceTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2BC696841BAF9A4700576887 /* PerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC696831BAF9A4700576887 /* PerformanceTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		7E089C6C1B9CF6AE00F11623 /* CosmosAccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E089C6B1B9CF6AE00F11623 /* CosmosAccessibilityTests.swift */; settings = {ASSET_TAGS = (); }; };
 		7E089C6E1B9CF7AC00F11623 /* CosmosRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E089C6D1B9CF7AC00F11623 /* CosmosRatingTests.swift */; settings = {ASSET_TAGS = (); }; };
 		7E089C701B9CF8FC00F11623 /* CosmosRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E089C6F1B9CF8FC00F11623 /* CosmosRating.swift */; settings = {ASSET_TAGS = (); }; };
@@ -105,6 +107,8 @@
 		2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		2BC473541B9D3F4900BDF89F /* CosmosLocalizedRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLocalizedRatingTests.swift; sourceTree = "<group>"; };
 		2BC473561B9D3F9400BDF89F /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLocalizedRating.swift; sourceTree = "<group>"; };
+		2BC696801BAF996F00576887 /* PerformanceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTableViewController.swift; sourceTree = "<group>"; };
+		2BC696831BAF9A4700576887 /* PerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTableViewCell.swift; sourceTree = "<group>"; };
 		7E089C6B1B9CF6AE00F11623 /* CosmosAccessibilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosAccessibilityTests.swift; sourceTree = "<group>"; };
 		7E089C6D1B9CF7AC00F11623 /* CosmosRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosRatingTests.swift; sourceTree = "<group>"; };
 		7E089C6F1B9CF8FC00F11623 /* CosmosRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosRating.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 				7E4295531B38C6FF00C66E9F /* graphics */,
 				2B622EF21B37BC120090D81B /* AppDelegate.swift */,
 				2B622F021B37BC270090D81B /* ViewController.swift */,
+				2BC696831BAF9A4700576887 /* PerformanceTableViewCell.swift */,
+				2BC696801BAF996F00576887 /* PerformanceTableViewController.swift */,
 				2B622EF61B37BC120090D81B /* Main.storyboard */,
 				2B622EF91B37BC120090D81B /* Assets.xcassets */,
 				2B622EFB1B37BC120090D81B /* LaunchScreen.storyboard */,
@@ -456,6 +462,8 @@
 				2B622F031B37BC270090D81B /* ViewController.swift in Sources */,
 				2B622EF31B37BC120090D81B /* AppDelegate.swift in Sources */,
 				2B622F0F1B37BE780090D81B /* CosmosDistrib.swift in Sources */,
+				2BC696841BAF9A4700576887 /* PerformanceTableViewCell.swift in Sources */,
+				2BC696811BAF996F00576887 /* PerformanceTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
