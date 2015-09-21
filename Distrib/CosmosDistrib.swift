@@ -137,7 +137,7 @@ struct CosmosDefaultSettings {
   static let borderColorEmpty = defaultColor
   
   /// Width of the border for the empty star.
-  static let borderWidthEmpty: Double = 1
+  static let borderWidthEmpty: Double = 1 / Double(UIScreen.mainScreen().scale)
   
   /// Background color of an empty star.
   static let colorEmpty = UIColor.clearColor()
@@ -355,7 +355,7 @@ class CosmosLayers {
 
   private class func createStarLayer(isFilled: Bool, settings: CosmosSettings) -> CALayer {
     let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
-    let strokeColor = isFilled ? UIColor.clearColor() : settings.borderColorEmpty
+    let strokeColor = isFilled ? settings.colorFilled : settings.borderColorEmpty
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
@@ -1235,7 +1235,7 @@ struct StarLayer {
     lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
       
     let containerLayer = createContainerLayer(size)
-    let path = createStarPath(starPoints, size: size)
+    let path = createStarPath(starPoints, size: size, lineWidth: lineWidth)
       
     let shapeLayer = createShapeLayer(path.CGPath, lineWidth: lineWidth,
       fillColor: fillColor, strokeColor: strokeColor, size: size)
@@ -1302,8 +1302,11 @@ struct StarLayer {
   - returns: New shape path.
   
   */
-  static func createStarPath(starPoints: [CGPoint], size: Double) -> UIBezierPath {
-    let points = scaleStar(starPoints, factor: size / 100)
+  static func createStarPath(starPoints: [CGPoint], size: Double, var lineWidth: Double) -> UIBezierPath {
+    lineWidth += ceil(lineWidth * 0.3)
+    let sizeWithoutLineWidth = size - lineWidth * 2
+    
+    let points = scaleStar(starPoints, factor: sizeWithoutLineWidth / 100, lineWidth: lineWidth)
     let path = UIBezierPath()
     path.moveToPoint(points[0])
     let remainingPoints = Array(points[1..<points.count])
@@ -1327,9 +1330,12 @@ struct StarLayer {
   - returns: The scaled shape.
   
   */
-  static func scaleStar(starPoints: [CGPoint], factor: Double) -> [CGPoint] {
+  static func scaleStar(starPoints: [CGPoint], factor: Double, lineWidth: Double) -> [CGPoint] {
     return starPoints.map { point in
-      return CGPoint(x: point.x * CGFloat(factor), y: point.y * CGFloat(factor))
+      return CGPoint(
+        x: point.x * CGFloat(factor) + CGFloat(lineWidth),
+        y: point.y * CGFloat(factor) + CGFloat(lineWidth)
+      )
     }
   }
 }
