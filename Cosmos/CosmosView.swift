@@ -177,6 +177,8 @@ Shows: ★★★★☆ (132)
     super.accessibilityIncrement()
     
     rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
+    didTouchCosmos?(rating)
+    didFinishTouchingCosmos?(rating)
   }
   
   /// Called by the system in accessibility voice-over mode when the value is decremented by the user.
@@ -184,6 +186,8 @@ Shows: ★★★★☆ (132)
     super.accessibilityDecrement()
     
     rating -= CosmosAccessibility.accessibilityDecrement(rating, settings: settings)
+    didTouchCosmos?(rating)
+    didFinishTouchingCosmos?(rating)
   }
   
   // MARK: - Touch recognition

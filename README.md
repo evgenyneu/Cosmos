@@ -85,7 +85,12 @@ cosmosView.rating = 4
 cosmosView.text = "(123)"
 
 // Receive user input
+
+// A closure that is called when user touches
 cosmosView.didTouchCosmos = { rating in }
+
+// Called when user lifts the finger from the view
+cosmosView.didFinishTouchingCosmos = { rating in }
 ```
 
 
