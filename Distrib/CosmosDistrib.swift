@@ -1000,6 +1000,9 @@ Shows: ★★★★☆ (132)
   /// Closure will be called when user touches the cosmos view. The touch rating argument is passed to the closure.
   public var didTouchCosmos: ((Double)->())?
   
+  /// Closure will be called when the user lifts finger from the cosmos view. The touch rating argument is passed to the closure.
+  public var didFinishTouchingCosmos: ((Double)->())?
+  
   /// Overriding the function to detect the first touch gesture.
   public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     super.touchesBegan(touches, withEvent: event)
@@ -1018,6 +1021,13 @@ Shows: ★★★★☆ (132)
       let location = touch.locationInView(self).x
       onDidTouch(location, starsWidth: widthOfStars)
     }
+  }
+  
+  /// Detecting event when the user lifts their finger.
+  public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    super.touchesEnded(touches, withEvent: event)
+    
+    didFinishTouchingCosmos?(rating)
   }
 
   /**

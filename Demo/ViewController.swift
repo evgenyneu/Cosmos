@@ -17,9 +17,13 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     // Register touch handlers
-    cosmosViewFull.didTouchCosmos = touchedTheStar
-    cosmosViewHalf.didTouchCosmos = touchedTheStar
-    cosmosViewPrecise.didTouchCosmos = touchedTheStar
+    cosmosViewFull.didTouchCosmos = didTouchCosmos
+    cosmosViewHalf.didTouchCosmos = didTouchCosmos
+    cosmosViewPrecise.didTouchCosmos = didTouchCosmos
+    
+    cosmosViewFull.didFinishTouchingCosmos = didFinishTouchingCosmos
+    cosmosViewHalf.didFinishTouchingCosmos = didFinishTouchingCosmos
+    cosmosViewPrecise.didFinishTouchingCosmos = didFinishTouchingCosmos
     
     ratingSlider.value = startRating
     updateRating()
@@ -42,8 +46,15 @@ class ViewController: UIViewController {
     return String(format: "%.2f", value)
   }
   
-  private func touchedTheStar(rating: Double) {
+  private func didTouchCosmos(rating: Double) {
+    ratingSlider.value = Float(rating)
+    ratingLabel.text = ViewController.formatValue(rating)
+    ratingLabel.textColor = UIColor(red: 133/255, green: 116/255, blue: 154/255, alpha: 1)
+  }
+  
+  private func didFinishTouchingCosmos(rating: Double) {
     ratingSlider.value = Float(rating)
     self.ratingLabel.text = ViewController.formatValue(rating)
+    ratingLabel.textColor = UIColor(red: 183/255, green: 186/255, blue: 204/255, alpha: 1)
   }
 }
