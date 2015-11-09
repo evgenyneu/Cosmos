@@ -87,7 +87,8 @@ cosmosView.text = "(123)"
 // A closure that is called when user changes the rating by touching the view
 cosmosView.didTouchCosmos = { rating in }
 
-// Called when user lifts the finger from the view
+// Called when user lifts the finger from the view.
+// This may be a good place to save the rating in the database or send to the server.
 cosmosView.didFinishTouchingCosmos = { rating in }
 ```
 
