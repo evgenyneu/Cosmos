@@ -84,7 +84,7 @@ cosmosView.rating = 4
 // Change the text
 cosmosView.text = "(123)"
 
-// Called when user lifts the finger from the view.
+// Called when user finishes changing the rating by lifting the finger from the view.
 // This may be a good place to save the rating in the database or send to the server.
 cosmosView.didFinishTouchingCosmos = { rating in }
 
