@@ -84,8 +84,6 @@ cosmosView.rating = 4
 // Change the text
 cosmosView.text = "(123)"
 
-// Receive user input
-
 // A closure that is called when user changes the rating by touching the view
 cosmosView.didTouchCosmos = { rating in }
 
