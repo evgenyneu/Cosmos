@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "Cosmos"
-  s.version     = "1.1.3"
+  s.version     = "1.1.4"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/marketplacer/Cosmos"
   s.summary     = "5-star rating control written in Swift"
@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png"
   s.source_files = "Cosmos/**/*.swift"
   s.ios.deployment_target = "8.0"
+  s.tvos.deployment_target = "9.0"
 end
