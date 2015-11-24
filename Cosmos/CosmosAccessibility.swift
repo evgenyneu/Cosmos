@@ -1,3 +1,5 @@
+import UIKit
+
 /**
 
 Functions for making cosmos view accessible.
