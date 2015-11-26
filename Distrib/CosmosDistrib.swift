@@ -13,6 +13,8 @@
 //
 // ----------------------------
 
+import UIKit
+
 /**
 
 Functions for making cosmos view accessible.
@@ -388,6 +390,8 @@ class CosmosLayers {
 // CosmosLocalizedRating.swift
 //
 // ----------------------------
+
+import Foundation
 
 /**
 

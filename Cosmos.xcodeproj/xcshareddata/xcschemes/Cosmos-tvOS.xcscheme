@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7E646DAD1C04438B00048339"
-               BuildableName = "Cosmos-tvOS.framework"
+               BuildableName = "Cosmos.framework"
                BlueprintName = "Cosmos-tvOS"
                ReferencedContainer = "container:Cosmos.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E646DAD1C04438B00048339"
-            BuildableName = "Cosmos-tvOS.framework"
+            BuildableName = "Cosmos.framework"
             BlueprintName = "Cosmos-tvOS"
             ReferencedContainer = "container:Cosmos.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E646DAD1C04438B00048339"
-            BuildableName = "Cosmos-tvOS.framework"
+            BuildableName = "Cosmos.framework"
             BlueprintName = "Cosmos-tvOS"
             ReferencedContainer = "container:Cosmos.xcodeproj">
          </BuildableReference>
