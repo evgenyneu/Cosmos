@@ -11,6 +11,7 @@ struct CosmosAccessibility {
   Makes the view accesible by settings its label and using rating as value.
   
   */
+    
   static func update(view: UIView, rating: Double, text: String?, settings: CosmosSettings) {
     view.isAccessibilityElement = true
     

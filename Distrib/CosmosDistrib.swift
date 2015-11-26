@@ -13,6 +13,8 @@
 //
 // ----------------------------
 
+import UIKit
+
 /**
 
 Functions for making cosmos view accessible.
@@ -24,6 +26,7 @@ struct CosmosAccessibility {
   Makes the view accesible by settings its label and using rating as value.
   
   */
+    
   static func update(view: UIView, rating: Double, text: String?, settings: CosmosSettings) {
     view.isAccessibilityElement = true
     
@@ -388,6 +391,8 @@ class CosmosLayers {
 // CosmosLocalizedRating.swift
 //
 // ----------------------------
+
+import Foundation
 
 /**
 
