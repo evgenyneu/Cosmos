@@ -133,6 +133,7 @@ Here are some other star rating controls for iOS:
 * [dyang/DYRateView](https://github.com/dyang/DYRateView)
 * [erndev/EDStarRating](https://github.com/erndev/EDStarRating)
 * [hugocampossousa/HCSStarRatingView](https://github.com/hugocampossousa/HCSStarRatingView)
+* [shuhrat10/STRatingControl](https://github.com/shuhrat10/STRatingControl)
 * [strekfus/FloatRatingView](https://github.com/strekfus/FloatRatingView)
 * [yanguango/ASStarRatingView](https://github.com/yanguango/ASStarRatingView)
 
