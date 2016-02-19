@@ -18,7 +18,7 @@ public struct CosmosSettings {
   public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty
   
   /// Border color of an filled star.
-  public var borderColorFilled = UIColor.clearColor()
+  public var borderColorFilled = CosmosDefaultSettings.borderColorFilled
   
   /// Width of the border for the filled star.
   public var borderWidthFilled: Double = CosmosDefaultSettings.borderWidthFilled
