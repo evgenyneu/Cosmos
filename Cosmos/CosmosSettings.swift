@@ -18,10 +18,10 @@ public struct CosmosSettings {
     /// Width of the border for the empty star.
     public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty
     
-    /// Border color of an empty star.
+    /// Border color of an filled star.
     public var borderColorFilled = UIColor.clearColor()
     
-    /// Width of the border for the empty star.
+    /// Width of the border for the filled star.
     public var borderWidthFilled: Double = 0.0
 
   /// Background color of an empty star.
