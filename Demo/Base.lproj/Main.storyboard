@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="00b-He-Ncz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="00b-He-Ncz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -21,21 +21,18 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="veo-Fz-sdA">
                                 <rect key="frame" x="-80" y="152" width="580" height="488"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="veo-Fz-sdA" secondAttribute="height" multiplier="1603:1347" id="06v-lo-xjm"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Precise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE3-kT-Xhz">
                                 <rect key="frame" x="272" y="226" width="57" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.71764705882352942" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.7000000476837158" minValue="-1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="kq7-em-h86">
                                 <rect key="frame" x="18" y="371" width="564" height="31"/>
-                                <animations/>
                                 <color key="tintColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="minimumTrackTintColor" red="0.13110154751471231" green="0.15358960386264187" blue="0.21540496084425187" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" red="0.71764705882352942" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,28 +43,24 @@
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-6T-bH2">
                                 <rect key="frame" x="279" y="342" width="42" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.71764705882352942" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKg-Hv-taV">
                                 <rect key="frame" x="286" y="84" width="27" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.71764705882352942" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Half" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-kd-8Ca">
                                 <rect key="frame" x="285" y="150" width="31" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.71764705882352942" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-Q3-Dv1" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="154" y="252" width="293" height="53"/>
-                                <animations/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                         <real key="value" value="3.7000000000000002"/>
@@ -97,7 +90,6 @@
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j21-ho-3LA" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="215" y="176" width="170" height="30"/>
-                                <animations/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                         <real key="value" value="3.7000000000000002"/>
@@ -124,7 +116,6 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-pS-FV2" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="223" y="110" width="154" height="20"/>
-                                <animations/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                         <real key="value" value="3.7000000000000002"/>
@@ -148,7 +139,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kq7-em-h86" secondAttribute="trailing" id="12Z-nr-ctD"/>
@@ -200,7 +190,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="H1h-E2-Ksw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.77647058820000003" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -214,7 +203,6 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lC3-Cm-KjQ" customClass="CosmosView" customModule="Demo" customModuleProvider="target">
                                             <rect key="frame" x="240" y="12" width="120" height="20"/>
-                                            <animations/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
                                                     <integer key="value" value="2"/>
@@ -229,13 +217,11 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstItem="lC3-Cm-KjQ" firstAttribute="centerX" secondItem="yeE-LT-rrb" secondAttribute="centerX" id="7lG-VK-jIh"/>
                                         <constraint firstItem="lC3-Cm-KjQ" firstAttribute="centerY" secondItem="yeE-LT-rrb" secondAttribute="centerY" id="agM-tQ-g2L"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="cosmosView" destination="lC3-Cm-KjQ" id="8fg-Ma-dOF"/>
@@ -260,7 +246,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="8he-un-54V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="tintColor" red="0.77647058820000003" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

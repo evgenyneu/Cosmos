@@ -135,12 +135,17 @@ struct CosmosDefaultSettings {
   // MARK: - Star settings
   // -----------------------------
 
-  
-  /// Border color of an empty star.
-  static let borderColorEmpty = defaultColor
-  
-  /// Width of the border for the empty star.
-  static let borderWidthEmpty: Double = 1 / Double(UIScreen.mainScreen().scale)
+    
+    /// Border color of an empty star.
+    static let borderColorEmpty = defaultColor
+    
+    /// Width of the border for the empty star.
+    static let borderWidthEmpty: Double = 1 / Double(UIScreen.mainScreen().scale)
+    /// Border color of an filled star.
+    static let borderColorFilled = defaultColor
+    
+    /// Width of the border for the filled star.
+    static let borderWidthFilled: Double = 1 / Double(UIScreen.mainScreen().scale)
   
   /// Background color of an empty star.
   static let colorEmpty = UIColor.clearColor()
@@ -358,11 +363,11 @@ class CosmosLayers {
 
   private class func createStarLayer(isFilled: Bool, settings: CosmosSettings) -> CALayer {
     let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
-    let strokeColor = isFilled ? settings.colorFilled : settings.borderColorEmpty
+    let strokeColor = isFilled ? settings.borderColorFilled : settings.borderColorEmpty
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
-      lineWidth: settings.borderWidthEmpty,
+        lineWidth: isFilled ? settings.borderWidthFilled : settings.borderWidthEmpty,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }
@@ -628,13 +633,18 @@ public struct CosmosSettings {
   
   // MARK: - Star settings
   // -----------------------------
-  
-  
+    
   /// Border color of an empty star.
   public var borderColorEmpty = CosmosDefaultSettings.borderColorEmpty
   
   /// Width of the border for the empty star.
   public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty
+  
+  /// Border color of an filled star.
+  public var borderColorFilled = UIColor.clearColor()
+  
+  /// Width of the border for the filled star.
+  public var borderWidthFilled: Double = CosmosDefaultSettings.borderWidthFilled
 
   /// Background color of an empty star.
   public var colorEmpty = CosmosDefaultSettings.colorEmpty
@@ -1109,19 +1119,31 @@ Shows: ★★★★☆ (132)
     didSet {
       settings.colorEmpty = colorEmpty
     }
-  }
-  
-  @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
-    didSet {
-      settings.borderColorEmpty = borderColorEmpty
     }
-  }
-  
-  @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
-    didSet {
-      settings.borderWidthEmpty = borderWidthEmpty
+    
+    @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
+        didSet {
+            settings.borderColorEmpty = borderColorEmpty
+        }
     }
-  }
+    
+    @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
+        didSet {
+            settings.borderWidthEmpty = borderWidthEmpty
+        }
+    }
+    
+    @IBInspectable var borderColorFilled: UIColor = CosmosDefaultSettings.borderColorFilled {
+        didSet {
+            settings.borderColorFilled = borderColorFilled
+        }
+    }
+    
+    @IBInspectable var borderWidthFilled: Double = CosmosDefaultSettings.borderWidthFilled {
+        didSet {
+            settings.borderWidthFilled = borderWidthFilled
+        }
+    }
   
   @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
     didSet {
