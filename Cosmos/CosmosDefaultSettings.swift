@@ -14,12 +14,17 @@ struct CosmosDefaultSettings {
   // MARK: - Star settings
   // -----------------------------
 
-  
-  /// Border color of an empty star.
-  static let borderColorEmpty = defaultColor
-  
-  /// Width of the border for the empty star.
-  static let borderWidthEmpty: Double = 1 / Double(UIScreen.mainScreen().scale)
+    
+    /// Border color of an empty star.
+    static let borderColorEmpty = defaultColor
+    
+    /// Width of the border for the empty star.
+    static let borderWidthEmpty: Double = 1 / Double(UIScreen.mainScreen().scale)
+    /// Border color of an empty star.
+    static let borderColorFilled = defaultColor
+    
+    /// Width of the border for the empty star.
+    static let borderWidthFilled: Double = 1 / Double(UIScreen.mainScreen().scale)
   
   /// Background color of an empty star.
   static let colorEmpty = UIColor.clearColor()

@@ -295,19 +295,31 @@ Shows: ★★★★☆ (132)
     didSet {
       settings.colorEmpty = colorEmpty
     }
-  }
-  
-  @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
-    didSet {
-      settings.borderColorEmpty = borderColorEmpty
     }
-  }
-  
-  @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
-    didSet {
-      settings.borderWidthEmpty = borderWidthEmpty
+    
+    @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
+        didSet {
+            settings.borderColorEmpty = borderColorEmpty
+        }
     }
-  }
+    
+    @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
+        didSet {
+            settings.borderWidthEmpty = borderWidthEmpty
+        }
+    }
+    
+    @IBInspectable var borderColorFilled: UIColor = CosmosDefaultSettings.borderColorFilled {
+        didSet {
+            settings.borderColorFilled = borderColorFilled
+        }
+    }
+    
+    @IBInspectable var borderWidthFilled: Double = CosmosDefaultSettings.borderWidthFilled {
+        didSet {
+            settings.borderWidthFilled = borderWidthFilled
+        }
+    }
   
   @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
     didSet {
