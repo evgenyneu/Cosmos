@@ -6,12 +6,18 @@
 
 * Renamed color and border properties to make them start with words 'Empty' and 'Filled'. This is done to distinguish the fields visually in the attributes inspector. Attribute inspector shows only the start of a long name and fills the rest with "dot dot dot". For example, field names  "Border color empty" and "Border color filled" both looked like "Border color..." and it was impossible to tell which one is which. Now they look like "Filled border..." and "Empty border..." and we can tell them apart in the attributes inspector.
 
-  **Upgrade guide from versions prior to 1.2.0**. Rename the fields the following way if you used them in code. One will also need to set their colors in the attributes inspector.
+  ## Upgrade guide from versions prior to 1.2.0
 
-  * `borderColorEmpty` -> `emptyBorderColor`
-  * `borderWidthEmpty` -> `emptyBorderWidth`
-  * `colorEmpty` -> `emptyColor`
-  * `colorFilled` -> `filledColor`
+  Rename the fields the following way if you used them in code.
+
+  * Rename `borderColorEmpty` to `emptyBorderColor`.
+  * Rename `borderWidthEmpty` to `emptyBorderWidth`.
+  * Rename `colorEmpty` to `emptyColor`.
+  * Rename `colorFilled` to `filledColor`.
+  * If you used attributes inspector to set the colors and widths you will need to set them again.
+  * You may also need to fix the warnings by removing the values for the old names like 'Color Filled' and 'Color Empty'.
+  * You will most likely need to set the the field `filledBorderColor` to be the same as your `colorFilled` to retain the previous look of the star.
+  * If you used a different border width you may need to set `filledBorderWidth` as well.
 
 
 ## 1.1.4 (2015-11-25)
