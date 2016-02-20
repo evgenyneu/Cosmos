@@ -109,10 +109,13 @@ cosmosView.settings.starSize = 30
 cosmosView.settings.starMargin = 5
 
 // Set the color of a filled star
-cosmosView.settings.colorFilled = UIColor.orangeColor()
+cosmosView.settings.filledColor = UIColor.orangeColor()
 
 // Set the border color of an empty star
-cosmosView.settings.borderColorEmpty = UIColor.orangeColor()
+cosmosView.settings.emptyBorderColor = UIColor.orangeColor()
+
+// Set the border color of a filled star
+cosmosView.settings.filledBorderColor = UIColor.orangeColor()
 
 // Change the rating when the view is touched
 cosmosView.settings.updateOnTouch = true
@@ -123,6 +126,10 @@ cosmosView.settings.updateOnTouch = true
 This project includes a demo iOS app.
 
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating.gif' alt='five star rating control for iOS written in Swift' width='250'>
+
+## Version 1.2 upgrade guide
+
+Please read the (changelog)[https://github.com/marketplacer/Cosmos/blob/master/CHANGELOG.md#120-2016-02-20] to upgrade to 1.2 version of Cosmos.
 
 ## Alternative solutions
 
@@ -136,6 +143,12 @@ Here are some other star rating controls for iOS:
 * [shuhrat10/STRatingControl](https://github.com/shuhrat10/STRatingControl)
 * [strekfus/FloatRatingView](https://github.com/strekfus/FloatRatingView)
 * [yanguango/ASStarRatingView](https://github.com/yanguango/ASStarRatingView)
+
+## Thanks 👍
+
+* [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
+* [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
+* [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
 
 
 ## License
