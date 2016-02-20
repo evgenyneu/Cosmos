@@ -13,7 +13,7 @@
   * Rename `colorEmpty` to `emptyColor`.
   * Rename `colorFilled` to `filledColor`.
   * If you used storyboard to set the colors and widths you will need to set them again.
-  * You may also need to fix the warnings by removing the values for the old properties in the storyboard like 'Color Filled' and 'Color Empty'.
+  * You may also need to fix the warnings by removing the values for the old properties like 'Color Filled' and 'Color Empty'. It can be done in the identity inspector for the view.
   * You will most likely need to set the the field `filledBorderColor` to be the same as your `colorFilled` to retain the previous look of the star.
   * If you used a non-default border width you may need to set `filledBorderWidth` as well.
 

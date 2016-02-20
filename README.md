@@ -53,7 +53,7 @@ Cosmos is written in Swift 2.0 and requires Xcode 7. Use the [previous version o
 1) Drag `View` object from the *Object Library* into your storyboard.
 
 
-<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_ios_view_control_attributes_inspector.png' width='256' alt='Add view control in attributes inspector'>
+<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_ios_view_control_attributes_inspector_2.png' width='300' alt='Add view control in attributes inspector'>
 
 
 2) Set the view's class to `CosmosView` in the *Identity Inspector*. Set its *module* property to `Cosmos` if you used Carthage or CocoaPods setup methods.
