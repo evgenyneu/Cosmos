@@ -146,6 +146,8 @@ Here are some other star rating controls for iOS:
 
 ## Thanks 👍
 
+We would like to thank the following people for their valuable contributions.
+
 * [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
 * [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
