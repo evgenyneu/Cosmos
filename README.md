@@ -129,7 +129,7 @@ This project includes a demo iOS app.
 
 ## Version 1.2 upgrade guide
 
-Please reffer to the the [changelog instructions](https://github.com/marketplacer/Cosmos/blob/master/CHANGELOG.md#120-2016-02-20) to upgrade to 1.2 version of Cosmos.
+Please refer to the [changelog instructions](https://github.com/marketplacer/Cosmos/blob/master/CHANGELOG.md#120-2016-02-20) to upgrade from versions of Cosmos prior to 1.2.
 
 ## Alternative solutions
 
