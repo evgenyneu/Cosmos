@@ -92,12 +92,12 @@ class CosmosLayers {
   }
 
   private class func createStarLayer(isFilled: Bool, settings: CosmosSettings) -> CALayer {
-    let fillColor = isFilled ? settings.colorFilled : settings.colorEmpty
-    let strokeColor = isFilled ? settings.colorFilled : settings.borderColorEmpty
+    let fillColor = isFilled ? settings.filledColor : settings.emptyColor
+    let strokeColor = isFilled ? settings.filledBorderColor : settings.emptyBorderColor
 
     return StarLayer.create(settings.starPoints,
       size: settings.starSize,
-      lineWidth: settings.borderWidthEmpty,
+      lineWidth: isFilled ? settings.filledBorderWidth : settings.emptyBorderWidth,
       fillColor: fillColor,
       strokeColor: strokeColor)
   }

@@ -10,19 +10,24 @@ public struct CosmosSettings {
   
   // MARK: - Star settings
   // -----------------------------
-  
-  
+    
   /// Border color of an empty star.
-  public var borderColorEmpty = CosmosDefaultSettings.borderColorEmpty
+  public var emptyBorderColor = CosmosDefaultSettings.emptyBorderColor
   
-  /// Width of the border for the empty star.
-  public var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty
+  /// Width of the border for empty star.
+  public var emptyBorderWidth: Double = CosmosDefaultSettings.emptyBorderWidth
+  
+  /// Border color of a filled star.
+  public var filledBorderColor = CosmosDefaultSettings.filledBorderColor
+  
+  /// Width of the border for a filled star.
+  public var filledBorderWidth: Double = CosmosDefaultSettings.filledBorderWidth
 
   /// Background color of an empty star.
-  public var colorEmpty = CosmosDefaultSettings.colorEmpty
+  public var emptyColor = CosmosDefaultSettings.emptyColor
   
   /// Background color of a filled star.
-  public var colorFilled = CosmosDefaultSettings.colorFilled
+  public var filledColor = CosmosDefaultSettings.filledColor
   
   /**
   

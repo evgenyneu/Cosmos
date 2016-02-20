@@ -34,18 +34,18 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 **Setup with Carthage (iOS 8+)**
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 1.1` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 1.2` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    pod 'Cosmos', '~> 1.1'
+    pod 'Cosmos', '~> 1.2'
 
 **Setup in Xcode 6 / Swift 1.2 project**
 
-Cosmos is written in Swift 2.0 and requires Xcode 7. Use the [previous version of the library](https://github.com/marketplacer/Cosmos/wiki/Swift-1.2-setup) in Xcode 6 projects. Thanks to [nickhart](https://github.com/nickhart) for making the Xcode 6 version.
+Cosmos is written in Swift 2.0 and requires Xcode 7 or newer. Use the [previous version of the library](https://github.com/marketplacer/Cosmos/wiki/Swift-1.2-setup) in Xcode 6 projects.
 
 ## Usage
 
@@ -65,7 +65,7 @@ Cosmos is written in Swift 2.0 and requires Xcode 7. Use the [previous version o
 3) Customize the Cosmos view appearance in the *Attributes Inspector*. If storyboard does not show the stars click **Refresh All Views** from the **Editor** menu.
 
 
-<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_customize_in_storyboard.png' width='480' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
+<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_ios_view_control_attributes_inspector_2.png' width='502' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
 
 *Note*: Carthage setup method does not allow to customize Cosmos view from the storyboard, please do it from code instead.
 
@@ -109,10 +109,13 @@ cosmosView.settings.starSize = 30
 cosmosView.settings.starMargin = 5
 
 // Set the color of a filled star
-cosmosView.settings.colorFilled = UIColor.orangeColor()
+cosmosView.settings.filledColor = UIColor.orangeColor()
 
 // Set the border color of an empty star
-cosmosView.settings.borderColorEmpty = UIColor.orangeColor()
+cosmosView.settings.emptyBorderColor = UIColor.orangeColor()
+
+// Set the border color of a filled star
+cosmosView.settings.filledBorderColor = UIColor.orangeColor()
 
 // Change the rating when the view is touched
 cosmosView.settings.updateOnTouch = true
@@ -123,6 +126,10 @@ cosmosView.settings.updateOnTouch = true
 This project includes a demo iOS app.
 
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating.gif' alt='five star rating control for iOS written in Swift' width='250'>
+
+## Version 1.2 upgrade guide
+
+Please refer to the [changelog instructions](https://github.com/marketplacer/Cosmos/blob/master/CHANGELOG.md#120-2016-02-20) to upgrade from versions of Cosmos prior to 1.2.
 
 ## Alternative solutions
 
@@ -136,6 +143,14 @@ Here are some other star rating controls for iOS:
 * [shuhrat10/STRatingControl](https://github.com/shuhrat10/STRatingControl)
 * [strekfus/FloatRatingView](https://github.com/strekfus/FloatRatingView)
 * [yanguango/ASStarRatingView](https://github.com/yanguango/ASStarRatingView)
+
+## Thanks 👍
+
+We would like to thank the following people for their valuable contributions.
+
+* [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
+* [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
+* [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
 
 
 ## License

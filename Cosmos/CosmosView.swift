@@ -285,29 +285,41 @@ Shows: ★★★★☆ (132)
     }
   }
   
-  @IBInspectable var colorFilled: UIColor = CosmosDefaultSettings.colorFilled {
+  @IBInspectable var filledColor: UIColor = CosmosDefaultSettings.filledColor {
     didSet {
-      settings.colorFilled = colorFilled
+      settings.filledColor = filledColor
     }
   }
   
-  @IBInspectable var colorEmpty: UIColor = CosmosDefaultSettings.colorEmpty {
+  @IBInspectable var emptyColor: UIColor = CosmosDefaultSettings.emptyColor {
     didSet {
-      settings.colorEmpty = colorEmpty
+      settings.emptyColor = emptyColor
     }
-  }
-  
-  @IBInspectable var borderColorEmpty: UIColor = CosmosDefaultSettings.borderColorEmpty {
-    didSet {
-      settings.borderColorEmpty = borderColorEmpty
     }
-  }
-  
-  @IBInspectable var borderWidthEmpty: Double = CosmosDefaultSettings.borderWidthEmpty {
-    didSet {
-      settings.borderWidthEmpty = borderWidthEmpty
+    
+    @IBInspectable var emptyBorderColor: UIColor = CosmosDefaultSettings.emptyBorderColor {
+        didSet {
+            settings.emptyBorderColor = emptyBorderColor
+        }
     }
-  }
+    
+    @IBInspectable var emptyBorderWidth: Double = CosmosDefaultSettings.emptyBorderWidth {
+        didSet {
+            settings.emptyBorderWidth = emptyBorderWidth
+        }
+    }
+    
+    @IBInspectable var filledBorderColor: UIColor = CosmosDefaultSettings.filledBorderColor {
+        didSet {
+            settings.filledBorderColor = filledBorderColor
+        }
+    }
+    
+    @IBInspectable var filledBorderWidth: Double = CosmosDefaultSettings.filledBorderWidth {
+        didSet {
+            settings.filledBorderWidth = filledBorderWidth
+        }
+    }
   
   @IBInspectable var starMargin: Double = CosmosDefaultSettings.starMargin {
     didSet {
