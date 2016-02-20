@@ -12,7 +12,7 @@
   * Rename `borderWidthEmpty` to `emptyBorderWidth`.
   * Rename `colorEmpty` to `emptyColor`.
   * Rename `colorFilled` to `filledColor`.
-  * If you used attributes inspector to set the colors and widths you will need to set them again.
+  * If you used storyboard to set the colors and widths you will need to set them again.
   * You may also need to fix the warnings by removing the values for the old names like 'Color Filled' and 'Color Empty'.
   * You will most likely need to set the the field `filledBorderColor` to be the same as your `colorFilled` to retain the previous look of the star.
   * If you used a non-default border width you may need to set `filledBorderWidth` as well.
