@@ -65,7 +65,7 @@ Cosmos is written in Swift 2.0 and requires Xcode 7 or newer. Use the [previous 
 3) Customize the Cosmos view appearance in the *Attributes Inspector*. If storyboard does not show the stars click **Refresh All Views** from the **Editor** menu.
 
 
-<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_ios_view_control_attributes_inspector_2.png' width='502' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
+<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_customize_in_storyboard_2.png' width='502' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
 
 *Note*: Carthage setup method does not allow to customize Cosmos view from the storyboard, please do it from code instead.
 
