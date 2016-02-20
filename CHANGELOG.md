@@ -6,7 +6,7 @@
 
 * Renamed color and border properties to make them start with words 'Empty' and 'Filled'. This is done to distinguish the fields visually in the attributes inspector. Attribute inspector shows only the start of a long name filling the rest with "dot, dot, dot". For example, field names  "Border color empty" and "Border color filled" both looked like "Border color..." and it was impossible to tell which one is which. Now they look like "Filled border..." and "Empty border..." and we can tell them apart in the attributes inspector.
 
-  **Upgrade guide**. Rename the fields the following way if you used them in code. One will also need to set their colors in the attributes inspector.
+  **Upgrade guide from version prior to 1.2.0**. Rename the fields the following way if you used them in code. One will also need to set their colors in the attributes inspector.
 
   * `borderColorEmpty` -> `emptyBorderColor`
   * `borderWidthEmpty` -> `emptyBorderWidth`
