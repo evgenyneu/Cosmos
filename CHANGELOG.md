@@ -8,8 +8,6 @@
 
   ## Upgrade guide from versions prior to 1.2.0
 
-  Rename the fields the following way if you used them in code.
-
   * Rename `borderColorEmpty` to `emptyBorderColor`.
   * Rename `borderWidthEmpty` to `emptyBorderWidth`.
   * Rename `colorEmpty` to `emptyColor`.
