@@ -34,18 +34,18 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 **Setup with Carthage (iOS 8+)**
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 1.1` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 1.2` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    pod 'Cosmos', '~> 1.1'
+    pod 'Cosmos', '~> 1.2'
 
 **Setup in Xcode 6 / Swift 1.2 project**
 
-Cosmos is written in Swift 2.0 and requires Xcode 7. Use the [previous version of the library](https://github.com/marketplacer/Cosmos/wiki/Swift-1.2-setup) in Xcode 6 projects. Thanks to [nickhart](https://github.com/nickhart) for making the Xcode 6 version.
+Cosmos is written in Swift 2.0 and requires Xcode 7 or newer. Use the [previous version of the library](https://github.com/marketplacer/Cosmos/wiki/Swift-1.2-setup) in Xcode 6 projects.
 
 ## Usage
 
