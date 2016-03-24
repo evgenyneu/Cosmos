@@ -30,7 +30,7 @@ class CosmosLayers {
       
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
       starLayers.append(starLayer)
-      ratingRemander--
+      ratingRemander -= 1
     }
 
     positionStarLayers(starLayers, starMargin: settings.starMargin)

@@ -1,5 +1,9 @@
 # Cosmos version history
 
+## 1.2.2 (2016-03-24)
+
+Fix stuff that was deprecated in Swift 2.2 in order to avoid warnings in Xcode 7.3.
+
 ## 1.2.0 (2016-02-20)
 
 * [augmentedworks](https://github.com/augmentedworks) added two new fields `filledBorderColor` and `filledBorderWidth`. Before the color of the border and the filling were the same for the filled star. Now we can make them different.

@@ -96,11 +96,15 @@ struct StarLayer {
   - returns: New shape path.
   
   */
-  static func createStarPath(starPoints: [CGPoint], size: Double, var lineWidth: Double) -> UIBezierPath {
-    lineWidth += ceil(lineWidth * 0.3)
-    let sizeWithoutLineWidth = size - lineWidth * 2
+  static func createStarPath(starPoints: [CGPoint], size: Double,
+                             lineWidth: Double) -> UIBezierPath {
     
-    let points = scaleStar(starPoints, factor: sizeWithoutLineWidth / 100, lineWidth: lineWidth)
+    let lineWidthLocal = lineWidth + ceil(lineWidth * 0.3)
+    let sizeWithoutLineWidth = size - lineWidthLocal * 2
+    
+    let points = scaleStar(starPoints, factor: sizeWithoutLineWidth / 100,
+                           lineWidth: lineWidthLocal)
+    
     let path = UIBezierPath()
     path.moveToPoint(points[0])
     let remainingPoints = Array(points[1..<points.count])
