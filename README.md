@@ -99,6 +99,10 @@ cosmosView.didTouchCosmos = { rating in }
 One can customize Cosmos from code by changing its `settings`. See the [Cosmos configuration manual](https://github.com/marketplacer/Cosmos/wiki/Cosmos-configuration) for the complete list of configuration options.
 
 ```Swift
+// Do not change rating when touched.
+// Useful when you need just too show stars and not take use input.
+cosmosView.settings.updateOnTouch = false
+
 // Show only fully filled stars
 cosmosView.settings.fillMode = .Full
 
@@ -116,10 +120,8 @@ cosmosView.settings.emptyBorderColor = UIColor.orangeColor()
 
 // Set the border color of a filled star
 cosmosView.settings.filledBorderColor = UIColor.orangeColor()
-
-// Change the rating when the view is touched
-cosmosView.settings.updateOnTouch = true
 ```
+
 
 ## Demo app
 
