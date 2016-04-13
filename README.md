@@ -12,7 +12,7 @@
 This is a UI control for iOS and tvOS written in Swift. It shows a star rating and takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users post those inescapable 1-star reviews!
 
 * Shows star rating with an optional text label.
-* Can be used as a rating input control.
+* Can be used as a rating input control (iOS only).
 * Cosmos view can be customized in the Storyboard without writing code.
 * Includes different star filling modes: full, half-filled and precise.
 * Cosmos is accessible and works with voice-over.
