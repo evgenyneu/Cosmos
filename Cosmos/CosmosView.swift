@@ -365,7 +365,9 @@ Shows: ★★★★☆ (132)
   
   /// Draw the stars in interface buidler
   public override func prepareForInterfaceBuilder() {
-    super.prepareForInterfaceBuilder()
+    if #available(iOS 8.0, *) {
+      super.prepareForInterfaceBuilder()
+    }
     
     update()
   }
