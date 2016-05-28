@@ -52,7 +52,7 @@ Cosmos is written in Swift 2.0 and requires Xcode 7 or newer. Use the [previous 
 
 **iOS 7 support**
 
-Please use the [separate iOS 7 setup methods](https://github.com/marketplacer/Cosmos/wiki/iOS-7-support) if you need to support iOS 7.
+Please use the [separate iOS 7 setup method](https://github.com/marketplacer/Cosmos/wiki/iOS-7-support) if you need to support iOS 7.
 
 ## Usage
 
