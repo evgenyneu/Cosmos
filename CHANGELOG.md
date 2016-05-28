@@ -1,5 +1,9 @@
 # Cosmos version history
 
+## 1.2.3 (2016-05-28)
+
+Fix [the issue](https://github.com/marketplacer/Cosmos/pull/27) with uploading of a TVOS app to iTunes Connect by setting EMBEDDED_CONTENT_CONTAINS_SWIFT to NO in tvOS target of the library.
+
 ## 1.2.2 (2016-03-24)
 
 Fix stuff that was deprecated in Swift 2.2 in order to avoid warnings in Xcode 7.3.
