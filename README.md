@@ -68,6 +68,8 @@ Please use the [separate iOS 7 setup method](https://github.com/marketplacer/Cos
 
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_storyboard_class_3.png' width='259' alt='Add Cosmos rating view to the storyboard'>
 
+*tvOS note*: read the collowing [setup instaructions for tvOS](https://github.com/marketplacer/Cosmos/wiki/tvOS-CocoaPods-error) if you see errors at this stage.
+
 
 3) Customize the Cosmos view appearance in the *Attributes Inspector*. If storyboard does not show the stars click **Refresh All Views** from the **Editor** menu.
 
