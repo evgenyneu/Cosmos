@@ -28,7 +28,7 @@ This is a UI control for iOS and tvOS written in Swift. It shows a star rating a
 
 There are three ways you can add Cosmos to your Xcode project.
 
-**Add source (iOS 7+)**
+**Add source (iOS 8+)**
 
 Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/master/Distrib/CosmosDistrib.swift) file into your Xcode project.
 
