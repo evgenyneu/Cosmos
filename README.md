@@ -41,7 +41,7 @@ Alternatively, add `github "marketplacer/Cosmos" ~> 1.2` to your Cartfile and ru
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    target "Your target name"
+    target 'UsingCosmosTvOS'
     pod 'Cosmos', '~> 1.2'
 
 **Setup in Xcode 6 / Swift 1.2 project**
