@@ -7,7 +7,7 @@ The function is used in pointInside(point: CGPoint, withEvent event: UIEvent?) o
 
 */
 struct CosmosTouchTarget {
-  static func optimize(bounds: CGRect) -> CGRect {
+  static func optimize(_ bounds: CGRect) -> CGRect {
     let recommendedHitSize: CGFloat = 44
     
     var hitWidthIncrease:CGFloat = recommendedHitSize - bounds.width
@@ -16,9 +16,8 @@ struct CosmosTouchTarget {
     if hitWidthIncrease < 0 { hitWidthIncrease = 0 }
     if hitHeightIncrease < 0 { hitHeightIncrease = 0 }
     
-    let extendedBounds: CGRect = CGRectInset(bounds,
-      -hitWidthIncrease / 2,
-      -hitHeightIncrease / 2)
+    let extendedBounds: CGRect = bounds.insetBy(dx: -hitWidthIncrease / 2,
+      dy: -hitHeightIncrease / 2)
     
     return extendedBounds
   }

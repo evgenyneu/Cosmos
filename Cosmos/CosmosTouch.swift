@@ -17,14 +17,14 @@ struct CosmosTouch {
   - returns: The rating representing the touch location.
   
   */
-  static func touchRating(locationX: CGFloat, starsWidth: CGFloat, settings: CosmosSettings) -> Double {
+  static func touchRating(_ locationX: CGFloat, starsWidth: CGFloat, settings: CosmosSettings) -> Double {
       
     let position = locationX / starsWidth
     let totalStars = Double(settings.totalStars)
     let actualRating = totalStars * Double(position)
     var correctedRating = actualRating
     
-    if settings.fillMode != .Precise {
+    if settings.fillMode != .precise {
       correctedRating += 0.25
     }
     

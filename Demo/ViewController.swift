@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     updateRating()
   }
   
-  @IBAction func onSliderChanged(sender: AnyObject) {
+  @IBAction func onSliderChanged(_ sender: AnyObject) {
     updateRating()
   }
   
@@ -42,17 +42,17 @@ class ViewController: UIViewController {
     self.ratingLabel.text = ViewController.formatValue(value)
   }
   
-  private class func formatValue(value: Double) -> String {
+  private class func formatValue(_ value: Double) -> String {
     return String(format: "%.2f", value)
   }
   
-  private func didTouchCosmos(rating: Double) {
+  private func didTouchCosmos(_ rating: Double) {
     ratingSlider.value = Float(rating)
     ratingLabel.text = ViewController.formatValue(rating)
     ratingLabel.textColor = UIColor(red: 133/255, green: 116/255, blue: 154/255, alpha: 1)
   }
   
-  private func didFinishTouchingCosmos(rating: Double) {
+  private func didFinishTouchingCosmos(_ rating: Double) {
     ratingSlider.value = Float(rating)
     self.ratingLabel.text = ViewController.formatValue(rating)
     ratingLabel.textColor = UIColor(red: 183/255, green: 186/255, blue: 204/255, alpha: 1)

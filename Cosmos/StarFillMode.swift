@@ -7,11 +7,11 @@ Defines how the star is filled when the rating is not an integer number. For exa
 */
 public enum StarFillMode: Int {
   /// Show only fully filled stars. For example, fourth star will be empty for 3.2.
-  case Full = 0
+  case full = 0
   
   /// Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6.
-  case Half = 1
+  case half = 1
   
   /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2.
-  case Precise = 2
+  case precise = 2
 }

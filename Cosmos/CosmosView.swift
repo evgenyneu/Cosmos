@@ -89,9 +89,9 @@ Shows: ★★★★☆ (132)
   private func improvePerformance() {
     /// Cache the view into a bitmap instead of redrawing the stars each time
     layer.shouldRasterize = true
-    layer.rasterizationScale = UIScreen.mainScreen().scale
+    layer.rasterizationScale = UIScreen.main().scale
     
-    opaque = true
+    isOpaque = true
   }
   
   /**
@@ -136,7 +136,7 @@ Shows: ★★★★☆ (132)
   - returns: The newly created text layer.
   
   */
-  private func createTextLayer(text: String, layers: [CALayer]) -> CALayer {
+  private func createTextLayer(_ text: String, layers: [CALayer]) -> CALayer {
     let textLayer = CosmosLayerHelper.createTextLayer(text,
       font: settings.textFont, color: settings.textColor)
     
@@ -156,7 +156,7 @@ Shows: ★★★★☆ (132)
   - parameter layers: Array of layers containing stars and the text.
 
   */
-  private func updateSize(layers: [CALayer]) {
+  private func updateSize(_ layers: [CALayer]) {
     viewSize = CosmosSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
   }
@@ -199,28 +199,28 @@ Shows: ★★★★☆ (132)
   public var didFinishTouchingCosmos: ((Double)->())?
   
   /// Overriding the function to detect the first touch gesture.
-  public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    super.touchesBegan(touches, withEvent: event)
+  public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
     
     if let touch = touches.first {
-      let location = touch.locationInView(self).x
+      let location = touch.location(in: self).x
       onDidTouch(location, starsWidth: widthOfStars)
     }
   }
   
   /// Overriding the function to detect touch move.
-  public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    super.touchesMoved(touches, withEvent: event)
+  public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesMoved(touches, with: event)
     
     if let touch = touches.first {
-      let location = touch.locationInView(self).x
+      let location = touch.location(in: self).x
       onDidTouch(location, starsWidth: widthOfStars)
     }
   }
   
   /// Detecting event when the user lifts their finger.
-  public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    super.touchesEnded(touches, withEvent: event)
+  public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesEnded(touches, with: event)
     
     didFinishTouchingCosmos?(rating)
   }
@@ -234,7 +234,7 @@ Shows: ★★★★☆ (132)
   - parameter starsWidth: The width of the stars excluding the text.
   
   */
-  func onDidTouch(locationX: CGFloat, starsWidth: CGFloat) {
+  func onDidTouch(_ locationX: CGFloat, starsWidth: CGFloat) {
     let calculatedTouchRating = CosmosTouch.touchRating(locationX, starsWidth: starsWidth,
       settings: settings)
     
@@ -265,7 +265,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Increase the hitsize of the view if it's less than 44px for easier touching.
-  override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+  override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
     let oprimizedBounds = CosmosTouchTarget.optimize(bounds)
     return oprimizedBounds.contains(point)
   }
@@ -335,7 +335,7 @@ Shows: ★★★★☆ (132)
   
   @IBInspectable var textSize: Double = CosmosDefaultSettings.textSize {
     didSet {
-      settings.textFont = settings.textFont.fontWithSize(CGFloat(textSize))
+      settings.textFont = settings.textFont.withSize(CGFloat(textSize))
     }
   }
   

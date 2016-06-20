@@ -12,7 +12,7 @@ struct CosmosAccessibility {
   
   */
     
-  static func update(view: UIView, rating: Double, text: String?, settings: CosmosSettings) {
+  static func update(_ view: UIView, rating: Double, text: String?, settings: CosmosSettings) {
     view.isAccessibilityElement = true
     
     view.accessibilityTraits = settings.updateOnTouch ?
@@ -38,12 +38,12 @@ struct CosmosAccessibility {
   if .Full the value will be 5.
   
   */
-  static func accessibilityValue(view: UIView, rating: Double, settings: CosmosSettings) -> String {
+  static func accessibilityValue(_ view: UIView, rating: Double, settings: CosmosSettings) -> String {
     let accessibilityRating = CosmosRating.displayedRatingFromPreciseRating(rating,
       fillMode: settings.fillMode, totalStars: settings.totalStars)
     
     // Omit decimals if the value is an integer
-    let isInteger = (accessibilityRating * 10) % 10 == 0
+    let isInteger = (accessibilityRating * 10).truncatingRemainder(dividingBy: 10) == 0
     
     if isInteger {
       return "\(Int(accessibilityRating))"
@@ -60,15 +60,15 @@ struct CosmosAccessibility {
   rating is incremented by 0.5.
   
   */
-  static func accessibilityIncrement(rating: Double, settings: CosmosSettings) -> Double {
+  static func accessibilityIncrement(_ rating: Double, settings: CosmosSettings) -> Double {
     var increment: Double = 0
       
     switch settings.fillMode {
-    case .Full:
+    case .full:
       increment = ceil(rating) - rating
       if increment == 0 { increment = 1 }
 
-    case .Half, .Precise:
+    case .half, .precise:
       increment = (ceil(rating * 2) - rating * 2) / 2
       if increment == 0 { increment = 0.5 }      
     }
@@ -78,15 +78,15 @@ struct CosmosAccessibility {
     return increment
   }
   
-  static func accessibilityDecrement(rating: Double, settings: CosmosSettings) -> Double {
+  static func accessibilityDecrement(_ rating: Double, settings: CosmosSettings) -> Double {
     var increment: Double = 0
     
     switch settings.fillMode {
-    case .Full:
+    case .full:
       increment = rating - floor(rating)
       if increment == 0 { increment = 1 }
       
-    case .Half, .Precise:
+    case .half, .precise:
       increment = (rating * 2 - floor(rating * 2)) / 2
       if increment == 0 { increment = 0.5 }
     }
