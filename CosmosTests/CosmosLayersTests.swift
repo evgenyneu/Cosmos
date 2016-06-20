@@ -29,12 +29,12 @@ class CosmosLayersTests: XCTestCase {
     var settings = CosmosSettings()
     settings.starSize = 19
     
-    settings.emptyColor = UIColor.purpleColor()
-    settings.emptyBorderColor = UIColor.blueColor()
+    settings.emptyColor = UIColor.purple()
+    settings.emptyBorderColor = UIColor.blue()
     settings.emptyBorderWidth = 1.31
     
-    settings.filledColor = UIColor.redColor()
-    settings.filledBorderColor = UIColor.cyanColor()
+    settings.filledColor = UIColor.red()
+    settings.filledBorderColor = UIColor.cyan()
     settings.filledBorderWidth = 1.72
 
     let result = CosmosLayers.createPartialStar(0.8, settings: settings)
@@ -58,8 +58,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let emptyShapeLayer = emptyContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.purple(), UIColor(cgColor: emptyShapeLayer.fillColor!))
+    XCTAssertEqual(UIColor.blue(), UIColor(cgColor: emptyShapeLayer.strokeColor!))
     XCTAssertEqual(1.31, emptyShapeLayer.lineWidth)
     
     // Check filled container layer
@@ -73,8 +73,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let filledShapeLayer = filledContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.redColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.cyanColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.red(), UIColor(cgColor: filledShapeLayer.fillColor!))
+    XCTAssertEqual(UIColor.cyan(), UIColor(cgColor: filledShapeLayer.strokeColor!))
     XCTAssertEqual(1.72, filledShapeLayer.lineWidth)
   }
   
@@ -83,10 +83,10 @@ class CosmosLayersTests: XCTestCase {
   func testCreateCompositeStarLayer_fullStar() {
     var settings = CosmosSettings()
     settings.starSize = 12
-    settings.filledColor = UIColor.yellowColor()
-    settings.filledBorderColor = UIColor.greenColor()
-    settings.emptyColor = UIColor.redColor()
-    settings.emptyBorderColor = UIColor.grayColor()
+    settings.filledColor = UIColor.yellow()
+    settings.filledBorderColor = UIColor.green()
+    settings.emptyColor = UIColor.red()
+    settings.emptyBorderColor = UIColor.gray()
 
     
     let result = CosmosLayers.createCompositeStarLayer(1, settings: settings) as CALayer
@@ -103,15 +103,15 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let filledShapeLayer = result.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.greenColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.yellow(), UIColor(cgColor: filledShapeLayer.fillColor!))
+    XCTAssertEqual(UIColor.green(), UIColor(cgColor: filledShapeLayer.strokeColor!))
   }
 
   func testCreateCompositeStarLayer_emptyStar() {
     var settings = CosmosSettings()
     settings.starSize = 61
-    settings.emptyColor = UIColor.purpleColor()
-    settings.emptyBorderColor = UIColor.blueColor()
+    settings.emptyColor = UIColor.purple()
+    settings.emptyBorderColor = UIColor.blue()
     settings.emptyBorderWidth = 1.31
     
     let result = CosmosLayers.createCompositeStarLayer(0, settings: settings) as CALayer
@@ -128,8 +128,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let emptyShapeLayer = result.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.purple(), UIColor(cgColor: emptyShapeLayer.fillColor!))
+    XCTAssertEqual(UIColor.blue(), UIColor(cgColor: emptyShapeLayer.strokeColor!))
     XCTAssertEqual(1.31, emptyShapeLayer.lineWidth)
   }
 
@@ -137,12 +137,12 @@ class CosmosLayersTests: XCTestCase {
     var settings = CosmosSettings()
     settings.starSize = 14
     
-    settings.emptyColor = UIColor.purpleColor()
-    settings.emptyBorderColor = UIColor.blueColor()
+    settings.emptyColor = UIColor.purple()
+    settings.emptyBorderColor = UIColor.blue()
     settings.emptyBorderWidth = 1.31
     
-    settings.filledColor = UIColor.yellowColor()
-    settings.filledBorderColor = UIColor.magentaColor()
+    settings.filledColor = UIColor.yellow()
+    settings.filledBorderColor = UIColor.magenta()
     settings.filledBorderWidth = 0.41
 
     let result = CosmosLayers.createCompositeStarLayer(0.2, settings: settings)
@@ -166,8 +166,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let emptyShapeLayer = emptyContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.purpleColor(), UIColor(CGColor: emptyShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.blueColor(), UIColor(CGColor: emptyShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.purple(), UIColor(cgColor: emptyShapeLayer.fillColor!))
+    XCTAssertEqual(UIColor.blue(), UIColor(cgColor: emptyShapeLayer.strokeColor!))
     XCTAssertEqual(1.31, emptyShapeLayer.lineWidth)
     
     // Check filled container layer
@@ -181,8 +181,8 @@ class CosmosLayersTests: XCTestCase {
     // ------------------
     
     let filledShapeLayer = filledContainerLayer.sublayers![0] as! CAShapeLayer
-    XCTAssertEqual(UIColor.yellowColor(), UIColor(CGColor: filledShapeLayer.fillColor!))
-    XCTAssertEqual(UIColor.magentaColor(), UIColor(CGColor: filledShapeLayer.strokeColor!))
+    XCTAssertEqual(UIColor.yellow(), UIColor(cgColor: filledShapeLayer.fillColor!))
+    XCTAssertEqual(UIColor.magenta(), UIColor(cgColor: filledShapeLayer.strokeColor!))
     XCTAssertEqual(0.41, filledShapeLayer.lineWidth)
 
   }

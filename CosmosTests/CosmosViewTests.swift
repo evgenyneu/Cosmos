@@ -36,7 +36,7 @@ class CosmosViewTests: XCTestCase {
     obj.settings.starSize = 10
     obj.settings.starMargin = 4
     
-    obj.settings.textFont = UIFont.systemFontOfSize(15)
+    obj.settings.textFont = UIFont.systemFont(ofSize: 15)
     obj.settings.textMargin = 8
     
     obj.rating = 4
