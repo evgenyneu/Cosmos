@@ -1,5 +1,5 @@
 //
-// Star rating control written in Swift for iOS.
+// Star rating control written in Swift for iOS and tvOS.
 //
 // https://github.com/marketplacer/Cosmos
 //
