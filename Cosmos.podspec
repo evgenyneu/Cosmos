@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
   s.name        = "Cosmos"
-  s.version     = "1.2.3"
+  s.version     = "2.0.0"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/marketplacer/Cosmos"
   s.summary     = "5-star rating control written in Swift"
   s.description  = <<-DESC
-                   This is a UI control for iOS that shows a 5-star rating or takes rating input from the user. Cosmos is a subclass of a UIView. Let your users see and post beautiful 3-star reviews!
+                   This is a UI control for iOS and tvOS that shows a 5-star rating or takes rating input from the user. Cosmos is a subclass of a UIView. Let your users see and post beautiful 3-star reviews!
 
                    * Shows star rating with an optional text label.
-                   * Can be used as a rating input control.
+                   * Can be used as a rating input control (iOS only).
                    * Cosmos view can be customized in the Storyboard without writing code.
                    * Includes different star filling modes: full, half-filled and precise.
                    * Cosmos is accessible and works with voice-over.
