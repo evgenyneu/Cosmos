@@ -49,8 +49,8 @@ struct CosmosAccessibility {
   Returns the rating that is used as accessibility value.
   The accessibility value depends on the star fill mode.
 
-  For example, if rating is 4.6 and fill mode is .Half the value will be 4.5. And if the fill mode
-  if .Full the value will be 5.
+  For example, if rating is 4.6 and fill mode is .half the value will be 4.5. And if the fill mode
+  if .full the value will be 5.
   
   */
   static func accessibilityValue(_ view: UIView, rating: Double, settings: CosmosSettings) -> String {
@@ -71,7 +71,7 @@ struct CosmosAccessibility {
   
   /**
 
-  Returns the amount of increment for the rating. When .Half and .Precise fill modes are used the
+  Returns the amount of increment for the rating. When .half and .precise fill modes are used the
   rating is incremented by 0.5.
   
   */
@@ -571,7 +571,7 @@ struct CosmosRating {
   /**
   
   Helper function for calculating the rating that is displayed to the user
-  taking into account the star fill mode. For example, if the fill mode is .Half and precise rating is 4.6, the displayed rating will be 4.5. And if the fill mode is .Full the displayed rating will be 5.
+  taking into account the star fill mode. For example, if the fill mode is .half and precise rating is 4.6, the displayed rating will be 4.5. And if the fill mode is .full the displayed rating will be 5.
   
   - parameter preciseRating: Precise rating value, like 4.8237
   

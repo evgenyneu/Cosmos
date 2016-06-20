@@ -54,7 +54,7 @@ struct CosmosRating {
   /**
   
   Helper function for calculating the rating that is displayed to the user
-  taking into account the star fill mode. For example, if the fill mode is .Half and precise rating is 4.6, the displayed rating will be 4.5. And if the fill mode is .Full the displayed rating will be 5.
+  taking into account the star fill mode. For example, if the fill mode is .half and precise rating is 4.6, the displayed rating will be 4.5. And if the fill mode is .full the displayed rating will be 5.
   
   - parameter preciseRating: Precise rating value, like 4.8237
   

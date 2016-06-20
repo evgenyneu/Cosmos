@@ -46,7 +46,7 @@ class CosmosAccessibilityTests: XCTestCase {
   // MARK: Accessibility value
   
   func testAccesibilityValue_full() {
-    settings.fillMode = .Full
+    settings.fillMode = .full
 
     CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
@@ -62,7 +62,7 @@ class CosmosAccessibilityTests: XCTestCase {
   }
   
   func testAccesibilityValue_half() {
-    settings.fillMode = .Half
+    settings.fillMode = .half
 
     CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
@@ -75,7 +75,7 @@ class CosmosAccessibilityTests: XCTestCase {
   }
   
   func testAccesibilityValue_precise() {
-    settings.fillMode = .Precise
+    settings.fillMode = .precise
     
     CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     XCTAssertEqual("5", view.accessibilityValue)
@@ -90,7 +90,7 @@ class CosmosAccessibilityTests: XCTestCase {
   // MARK: - Increment
   
   func testIncrement_full() {
-    settings.fillMode = .Full
+    settings.fillMode = .full
     
     var result = CosmosAccessibility.accessibilityIncrement(4.7, settings: settings)
     
@@ -122,7 +122,7 @@ class CosmosAccessibilityTests: XCTestCase {
   }
   
   func testIncrement_half() {
-    settings.fillMode = .Half
+    settings.fillMode = .half
     
     var result = CosmosAccessibility.accessibilityIncrement(4.2, settings: settings)
     XCTAssertEqual("0.3", "\(result)")
@@ -154,7 +154,7 @@ class CosmosAccessibilityTests: XCTestCase {
   }
 
   func testIncrement_precise() {
-    settings.fillMode = .Precise
+    settings.fillMode = .precise
 
     var result = CosmosAccessibility.accessibilityIncrement(4.2, settings: settings)
     XCTAssertEqual("0.3", "\(result)")
@@ -188,7 +188,7 @@ class CosmosAccessibilityTests: XCTestCase {
   // MARK: - Decrement
   
   func testDecrement_full() {
-    settings.fillMode = .Full
+    settings.fillMode = .full
     settings.minTouchRating = 1
     
     var result = CosmosAccessibility.accessibilityDecrement(4.7, settings: settings)
@@ -221,7 +221,7 @@ class CosmosAccessibilityTests: XCTestCase {
   }
   
   func testDecrement_half() {
-    settings.fillMode = .Half
+    settings.fillMode = .half
     settings.minTouchRating = 1
     
     var result = CosmosAccessibility.accessibilityDecrement(4.2, settings: settings)
@@ -260,7 +260,7 @@ class CosmosAccessibilityTests: XCTestCase {
   }
   
   func testDecrement_precise() {
-    settings.fillMode = .Precise
+    settings.fillMode = .precise
     settings.minTouchRating = 1
     
     var result = CosmosAccessibility.accessibilityDecrement(4.2, settings: settings)

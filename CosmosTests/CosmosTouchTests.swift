@@ -6,7 +6,7 @@ class CosmosTouchTests: XCTestCase {
   
   func testTouchRating_full() {
     var settings = CosmosSettings()
-    settings.fillMode = .Full
+    settings.fillMode = .full
     settings.minTouchRating = 0
     let result = CosmosTouch.touchRating(200, starsWidth: 500, settings: settings)
     XCTAssertEqual(2, result)
@@ -15,7 +15,7 @@ class CosmosTouchTests: XCTestCase {
   func testTouchRating_fullWithMoreStars() {
     var settings = CosmosSettings()
 
-    settings.fillMode = .Full
+    settings.fillMode = .full
     settings.totalStars = 500
     settings.minTouchRating = 0
 
@@ -26,7 +26,7 @@ class CosmosTouchTests: XCTestCase {
   func testTouchRating_biggerThanWidth() {
     var settings = CosmosSettings()
     
-    settings.fillMode = .Full
+    settings.fillMode = .full
     settings.minTouchRating = 0
     
     let result = CosmosTouch.touchRating(600, starsWidth: 500, settings: settings)
@@ -36,7 +36,7 @@ class CosmosTouchTests: XCTestCase {
   func testTouchRating_lessThanWidth() {
     var settings = CosmosSettings()
     
-    settings.fillMode = .Full
+    settings.fillMode = .full
     settings.minTouchRating = 0
     
     let result = CosmosTouch.touchRating(-100, starsWidth: 500, settings: settings)
@@ -46,7 +46,7 @@ class CosmosTouchTests: XCTestCase {
   func testTouchRating_half() {
     var settings = CosmosSettings()
     
-    settings.fillMode = .Half
+    settings.fillMode = .half
     settings.minTouchRating = 0
     
     let result = CosmosTouch.touchRating(200, starsWidth: 500, settings: settings)
@@ -56,7 +56,7 @@ class CosmosTouchTests: XCTestCase {
   func testTouchRating_precise() {
     var settings = CosmosSettings()
     
-    settings.fillMode = .Precise
+    settings.fillMode = .precise
     settings.minTouchRating = 0
     
     let result = CosmosTouch.touchRating(215, starsWidth: 500, settings: settings)
@@ -66,7 +66,7 @@ class CosmosTouchTests: XCTestCase {
   func testTouchRating_minRating() {
     var settings = CosmosSettings()
     
-    settings.fillMode = .Precise
+    settings.fillMode = .precise
     settings.minTouchRating = 1.1
     
     let result = CosmosTouch.touchRating(0, starsWidth: 500, settings: settings)

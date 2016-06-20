@@ -19,7 +19,7 @@ class CosmosAccessibilityCallbacksTests: XCTestCase {
     }
     
     obj.rating = 3.6
-    obj.settings.fillMode = .Half
+    obj.settings.fillMode = .half
     
     obj.accessibilityIncrement()
     
@@ -34,7 +34,7 @@ class CosmosAccessibilityCallbacksTests: XCTestCase {
     }
     
     obj.rating = 3.6
-    obj.settings.fillMode = .Half
+    obj.settings.fillMode = .half
     
     obj.accessibilityDecrement()
     
@@ -49,7 +49,7 @@ class CosmosAccessibilityCallbacksTests: XCTestCase {
     }
     
     obj.rating = 3.6
-    obj.settings.fillMode = .Half
+    obj.settings.fillMode = .half
     
     obj.accessibilityIncrement()
     
@@ -64,7 +64,7 @@ class CosmosAccessibilityCallbacksTests: XCTestCase {
     }
     
     obj.rating = 3.6
-    obj.settings.fillMode = .Half
+    obj.settings.fillMode = .half
     
     obj.accessibilityDecrement()
     

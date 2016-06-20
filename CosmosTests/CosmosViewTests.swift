@@ -66,7 +66,7 @@ class CosmosViewTests: XCTestCase {
   func testOnDidTouch_updateTheStars() {
     obj.rating = 0
     obj.settings.updateOnTouch = true
-    obj.settings.fillMode = .Precise
+    obj.settings.fillMode = .precise
 
     obj.onDidTouch(219, starsWidth: 500)
 
@@ -84,7 +84,7 @@ class CosmosViewTests: XCTestCase {
 
   func testOnDidTouch_executeTheCallback() {
     var callbackRating: Double?
-    obj.settings.fillMode = .Full
+    obj.settings.fillMode = .full
     
     obj.didTouchCosmos = { rating in
       callbackRating = rating
@@ -96,7 +96,7 @@ class CosmosViewTests: XCTestCase {
   }
   
   func testOnDidTouch_executeTheCallbackOnce_whenRatingRemainsTheSame() {
-    obj.settings.fillMode = .Full
+    obj.settings.fillMode = .full
     
     var closureCalledTimes = 0
     
@@ -129,7 +129,7 @@ class CosmosViewTests: XCTestCase {
   func testAccessibility() {
     XCTAssert(obj.isAccessibilityElement)
     obj.rating = 2.6
-    obj.settings.fillMode = .Half
+    obj.settings.fillMode = .half
     obj.settings.updateOnTouch = false
     XCTAssertEqual("Rating", obj.accessibilityLabel)
     XCTAssertEqual("2.5", obj.accessibilityValue)
@@ -138,7 +138,7 @@ class CosmosViewTests: XCTestCase {
   
   func testAccessibilityIncrement() {
     obj.rating = 3.6
-    obj.settings.fillMode = .Half
+    obj.settings.fillMode = .half
   
     obj.accessibilityIncrement()
     
@@ -163,7 +163,7 @@ class CosmosViewTests: XCTestCase {
   
   func testAccessibilityDecrement() {
     obj.rating = 2.6
-    obj.settings.fillMode = .Half
+    obj.settings.fillMode = .half
     
     obj.accessibilityDecrement()
     
