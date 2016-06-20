@@ -18,16 +18,16 @@ struct CosmosDefaultSettings {
   static let emptyBorderColor = defaultColor
   
   /// Width of the border for the empty star.
-  static let emptyBorderWidth: Double = 1 / Double(UIScreen.mainScreen().scale)
+  static let emptyBorderWidth: Double = 1 / Double(UIScreen.main().scale)
   
   /// Border color of a filled star.
   static let filledBorderColor = defaultColor
   
   /// Width of the border for a filled star.
-  static let filledBorderWidth: Double = 1 / Double(UIScreen.mainScreen().scale)
+  static let filledBorderWidth: Double = 1 / Double(UIScreen.main().scale)
   
   /// Background color of an empty star.
-  static let emptyColor = UIColor.clearColor()
+  static let emptyColor = UIColor.clear()
   
   /// Background color of a filled star.
   static let filledColor = defaultColor
@@ -37,7 +37,7 @@ struct CosmosDefaultSettings {
   Defines how the star is filled when the rating value is not an integer value. It can either show full stars, half stars or stars partially filled according to the rating value.
 
   */
-  static let fillMode = StarFillMode.Full
+  static let fillMode = StarFillMode.full
   
   /// Rating value that is shown in the storyboard by default.
   static let rating: Double = 2.718281828
@@ -78,7 +78,7 @@ struct CosmosDefaultSettings {
   static let textColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
   
   /// Font for the text.
-  static let textFont = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+  static let textFont = UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote)
   
   /// Distance between the text and the stars.
   static let textMargin: Double = 5

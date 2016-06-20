@@ -18,7 +18,7 @@ struct CosmosRating {
   - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
   
   */
-  static func starFillLevel(ratingRemainder ratingRemainder: Double, fillMode: StarFillMode) -> Double {
+  static func starFillLevel(ratingRemainder: Double, fillMode: StarFillMode) -> Double {
     
     var result = ratingRemainder
     
@@ -39,13 +39,13 @@ struct CosmosRating {
   - returns: The rounded fill level.
   
   */
-  static func roundFillLevel(starFillLevel: Double, fillMode: StarFillMode) -> Double {
+  static func roundFillLevel(_ starFillLevel: Double, fillMode: StarFillMode) -> Double {
     switch fillMode {
-    case .Full:
+    case .full:
       return Double(round(starFillLevel))
-    case .Half:
+    case .half:
       return Double(round(starFillLevel * 2) / 2)
-    case .Precise :
+    case .precise :
       return starFillLevel
     }
   }
@@ -54,7 +54,7 @@ struct CosmosRating {
   /**
   
   Helper function for calculating the rating that is displayed to the user
-  taking into account the star fill mode. For example, if the fill mode is .Half and precise rating is 4.6, the displayed rating will be 4.5. And if the fill mode is .Full the displayed rating will be 5.
+  taking into account the star fill mode. For example, if the fill mode is .half and precise rating is 4.6, the displayed rating will be 4.5. And if the fill mode is .full the displayed rating will be 5.
   
   - parameter preciseRating: Precise rating value, like 4.8237
   
@@ -65,7 +65,7 @@ struct CosmosRating {
   - returns: Returns rating that is displayed to the user taking into account the star fill mode.
   
   */
-  static func displayedRatingFromPreciseRating(preciseRating: Double,
+  static func displayedRatingFromPreciseRating(_ preciseRating: Double,
     fillMode: StarFillMode, totalStars: Int) -> Double {
       
     let starFloorNumber = floor(preciseRating)
@@ -89,7 +89,7 @@ struct CosmosRating {
   - returns: Number of filled stars. If rating is biggen than the total number of stars (usually 5) it returns the maximum number of stars.
   
   */
-  static func numberOfFilledStars(rating: Double, totalNumberOfStars: Int) -> Double {
+  static func numberOfFilledStars(_ rating: Double, totalNumberOfStars: Int) -> Double {
     if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
     if rating < 0 { return 0 }
     

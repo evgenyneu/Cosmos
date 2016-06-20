@@ -24,29 +24,30 @@ This is a UI control for iOS and tvOS written in Swift. It shows a star rating a
 *Picture of binary star system of Sirius A and Sirius B by [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [spacetelescope.org](http://www.spacetelescope.org/images/heic0516b/).*
 
 
-## Setup
+## Setup (Swift 3.0)
 
 There are three ways you can add Cosmos to your Xcode project.
 
-**Add source (iOS 8+)**
+#### Add source (iOS 8+)
 
 Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/master/Distrib/CosmosDistrib.swift) file into your Xcode project.
 
-**Setup with Carthage (iOS 8+)**
+#### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 1.2` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 2.0` to your Cartfile and run `carthage update`.
 
-**Setup with CocoaPods (iOS 8+)**
+#### Setup with CocoaPods (iOS 8+)
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 1.2'
+    pod 'Cosmos', '~> 2.0'
 
-**Setup in Xcode 6 / Swift 1.2 project**
+#### Legacy Swift versions
 
-Cosmos is written in Swift 2.0 and requires Xcode 7 or newer. Use the [previous version of the library](https://github.com/marketplacer/Cosmos/wiki/Swift-1.2-setup) in Xcode 6 projects.
+Setup a [previous version](https://github.com/marketplacer/Cosmos/wiki/Legacy-Swift-versions) of the library if you use an older version of Swift.
+
 
 **iOS 7 support**
 
@@ -106,12 +107,13 @@ cosmosView.didTouchCosmos = { rating in }
 One can customize Cosmos from code by changing its `settings`. See the [Cosmos configuration manual](https://github.com/marketplacer/Cosmos/wiki/Cosmos-configuration) for the complete list of configuration options.
 
 ```Swift
-// Do not change rating when touched.
-// Use if you need just to show the stars.
+// Do not change rating when touched
+// Use if you need just to show the stars without getting user's input
 cosmosView.settings.updateOnTouch = false
 
 // Show only fully filled stars
-cosmosView.settings.fillMode = .Full
+cosmosView.settings.fillMode = .full
+// Other fill modes: .half, .precise
 
 // Change the size of the stars
 cosmosView.settings.starSize = 30
@@ -120,13 +122,13 @@ cosmosView.settings.starSize = 30
 cosmosView.settings.starMargin = 5
 
 // Set the color of a filled star
-cosmosView.settings.filledColor = UIColor.orangeColor()
+cosmosView.settings.filledColor = UIColor.orange()
 
 // Set the border color of an empty star
-cosmosView.settings.emptyBorderColor = UIColor.orangeColor()
+cosmosView.settings.emptyBorderColor = UIColor.orange()
 
 // Set the border color of a filled star
-cosmosView.settings.filledBorderColor = UIColor.orangeColor()
+cosmosView.settings.filledBorderColor = UIColor.orange()
 ```
 
 

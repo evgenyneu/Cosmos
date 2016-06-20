@@ -17,7 +17,7 @@ class CosmosText {
   - parameter textMargin: The distance between the stars and the text.
   
   */
-  class func position(layer: CALayer, starsSize: CGSize, textMargin: Double) {
+  class func position(_ layer: CALayer, starsSize: CGSize, textMargin: Double) {
     layer.position.x = starsSize.width + CGFloat(textMargin)
     let yOffset = (starsSize.height - layer.bounds.height) / 2
     layer.position.y = yOffset

@@ -48,7 +48,7 @@ struct CosmosLocalizedRating {
   ]
   
   static var ratingTranslation: String {
-    let languages = preferredLanguages(NSLocale.preferredLanguages())
+    let languages = preferredLanguages(Locale.preferredLanguages())
     return ratingInPreferredLanguage(languages)
   }
   
@@ -59,7 +59,7 @@ struct CosmosLocalizedRating {
   - parameter language: ISO 639-1 language code. Example: 'en'.
   
   */
-  static func translation(language: String) -> String? {
+  static func translation(_ language: String) -> String? {
     return localizedRatings[language]
   }
   
@@ -76,7 +76,7 @@ struct CosmosLocalizedRating {
   - returns: Translation for the preferred language.
   
   */
-  static func translationInPreferredLanguage(preferredLanguages: [String],
+  static func translationInPreferredLanguage(_ preferredLanguages: [String],
     localizedText: [String: String],
     fallbackTranslation: String) -> String {
     
@@ -89,19 +89,19 @@ struct CosmosLocalizedRating {
     return fallbackTranslation
   }
   
-  static func ratingInPreferredLanguage(preferredLanguages: [String]) -> String {
+  static func ratingInPreferredLanguage(_ preferredLanguages: [String]) -> String {
     return translationInPreferredLanguage(preferredLanguages,
       localizedText: localizedRatings,
       fallbackTranslation: defaultText)
   }
   
-  static func preferredLanguages(preferredLocales: [String]) -> [String] {
+  static func preferredLanguages(_ preferredLocales: [String]) -> [String] {
     return preferredLocales.map { element in
       
-      let dashSeparated = element.componentsSeparatedByString("-")
+      let dashSeparated = element.components(separatedBy: "-")
       if dashSeparated.count > 1 { return dashSeparated[0] }
       
-      let underscoreSeparated = element.componentsSeparatedByString("_")
+      let underscoreSeparated = element.components(separatedBy: "_")
       if underscoreSeparated.count > 1 { return underscoreSeparated[0] }
       
       return element

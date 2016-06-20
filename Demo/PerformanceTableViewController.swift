@@ -7,11 +7,11 @@ class PerformanceTableViewController: UITableViewController {
   
   // MARK: - UITableViewDataSource
   
-  override func tableView(tableView: UITableView,
-    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  override func tableView(_ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
-    if let cell = tableView.dequeueReusableCellWithIdentifier("performanceTableViewCell") as? PerformanceTableViewCell  {
-      let rating: Double = Double(indexPath.row) / 99 * 5
+    if let cell = tableView.dequeueReusableCell(withIdentifier: "performanceTableViewCell") as? PerformanceTableViewCell  {
+      let rating: Double = Double((indexPath as NSIndexPath).row) / 99 * 5
       cell.update(rating)
       return cell
     }
@@ -19,7 +19,7 @@ class PerformanceTableViewController: UITableViewController {
     return UITableViewCell()
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 100
   }
 }
