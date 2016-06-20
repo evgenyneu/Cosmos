@@ -49,10 +49,6 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 Setup a [previous version](https://github.com/marketplacer/Cosmos/wiki/Legacy-Swift-versions) of the library if you use an older version of Swift.
 
 
-#### iOS 7 support
-
-Please use the [separate iOS 7 setup method](https://github.com/marketplacer/Cosmos/wiki/iOS-7-support) if you need to support iOS 7.
-
 ## Usage
 
 
