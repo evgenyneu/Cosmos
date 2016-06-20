@@ -111,7 +111,8 @@ One can customize Cosmos from code by changing its `settings`. See the [Cosmos c
 cosmosView.settings.updateOnTouch = false
 
 // Show only fully filled stars
-cosmosView.settings.fillMode = .full // Other: .half, .precise
+cosmosView.settings.fillMode = .full
+// Other fill modes: .half, .precise
 
 // Change the size of the stars
 cosmosView.settings.starSize = 30
