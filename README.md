@@ -107,7 +107,7 @@ One can customize Cosmos from code by changing its `settings`. See the [Cosmos c
 
 ```Swift
 // Do not change rating when touched.
-// Use if you need just to show the stars.
+// Use if you need just to show the stars without getting user's input.
 cosmosView.settings.updateOnTouch = false
 
 // Show only fully filled stars
