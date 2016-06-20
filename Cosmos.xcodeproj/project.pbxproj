@@ -426,6 +426,7 @@
 					};
 					2B622EB81B37BAE50090D81B = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 					2B622EEF1B37BC120090D81B = {
 						CreatedOnToolsVersion = 7.0;
@@ -736,6 +737,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.CosmosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -747,6 +749,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.CosmosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

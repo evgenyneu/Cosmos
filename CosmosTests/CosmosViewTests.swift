@@ -42,8 +42,8 @@ class CosmosViewTests: XCTestCase {
     obj.rating = 4
     obj.text = "123"
     
-    let sizeAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(15)]
-    let textSize = NSString(string: "123").sizeWithAttributes(sizeAttributes)
+    let sizeAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15)]
+    let textSize = NSString(string: "123").size(attributes: sizeAttributes)
     
     let size = obj.intrinsicContentSize()
     
