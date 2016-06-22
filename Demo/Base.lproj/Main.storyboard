@@ -210,7 +210,6 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
                                                     <integer key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
                                                     <color key="value" red="0.77647058823529413" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
