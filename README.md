@@ -132,7 +132,12 @@ cosmosView.settings.filledBorderColor = UIColor.orange()
 
 This project includes a demo iOS app.
 
-<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating.gif' alt='five star rating control for iOS written in Swift' width='250'>
+<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating.gif' alt='Five star rating control for iOS written in Swift' width='250'>
+
+#### Using cosmos in a table view
+
+<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating_swift_performance.gif' alt='Using cosmos in a table view' width='250'>
+
 
 ## Version 1.2 upgrade guide
 
