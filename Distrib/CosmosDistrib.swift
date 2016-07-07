@@ -447,7 +447,7 @@ struct CosmosLocalizedRating {
   ]
   
   static var ratingTranslation: String {
-    let languages = preferredLanguages(Locale.preferredLanguages())
+    let languages = preferredLanguages(Locale.preferredLanguages)
     return ratingInPreferredLanguage(languages)
   }
   
