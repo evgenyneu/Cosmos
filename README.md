@@ -24,7 +24,7 @@ This is a UI control for iOS and tvOS written in Swift. It shows a star rating a
 *Picture of binary star system of Sirius A and Sirius B by [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [spacetelescope.org](http://www.spacetelescope.org/images/heic0516b/).*
 
 
-## Setup (Swift 3.0)
+## Setup (Swift 3.0 / Xcode 8 beta 2)
 
 There are three ways you can add Cosmos to your Xcode project.
 
