@@ -24,7 +24,7 @@ This is a UI control for iOS and tvOS written in Swift. It shows a star rating a
 *Picture of binary star system of Sirius A and Sirius B by [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [spacetelescope.org](http://www.spacetelescope.org/images/heic0516b/).*
 
 
-## Setup (Swift 3.0 / Xcode 8 beta 2)
+## Setup (Swift 3.0 / Xcode 8)
 
 There are three ways you can add Cosmos to your Xcode project.
 
@@ -34,7 +34,7 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 3.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 4.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -160,6 +160,7 @@ Here are some other star rating controls for iOS:
 
 We would like to thank the following people for their valuable contributions.
 
+* [ali-zahedi](https://github.com/ali-zahedi) update to Swift 3.0.
 * [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
 * [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
