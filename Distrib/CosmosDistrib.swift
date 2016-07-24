@@ -35,7 +35,7 @@ struct CosmosAccessibility {
     
     var accessibilityLabel = CosmosLocalizedRating.ratingTranslation
     
-    if let text = text where text != "" {
+    if let text = text, text != "" {
       accessibilityLabel += " \(text)"
     }
     
@@ -1080,7 +1080,7 @@ Shows: ★★★★☆ (132)
   
   /// Width of the stars (excluding the text). Used for calculating touch location.
   var widthOfStars: CGFloat {
-    if let sublayers = self.layer.sublayers where settings.totalStars <= sublayers.count {
+    if let sublayers = self.layer.sublayers, settings.totalStars <= sublayers.count {
       let starLayers = Array(sublayers[0..<settings.totalStars])
       return CosmosSize.calculateSizeToFitLayers(starLayers).width
     }

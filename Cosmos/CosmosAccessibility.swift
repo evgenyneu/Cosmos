@@ -20,7 +20,7 @@ struct CosmosAccessibility {
     
     var accessibilityLabel = CosmosLocalizedRating.ratingTranslation
     
-    if let text = text , text != "" {
+    if let text = text, text != "" {
       accessibilityLabel += " \(text)"
     }
     
