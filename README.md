@@ -160,7 +160,7 @@ Here are some other star rating controls for iOS:
 
 We would like to thank the following people for their valuable contributions.
 
-* [ali-zahedi](https://github.com/ali-zahedi) update to Swift 3.0.
+* [ali-zahedi](https://github.com/ali-zahedi) for updating to the latest version of Swift 3.0.
 * [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
 * [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
