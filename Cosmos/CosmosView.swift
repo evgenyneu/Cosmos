@@ -73,7 +73,7 @@ Shows: ★★★★☆ (132)
   override public init(frame: CGRect) {
     super.init(frame: frame)
     update()
-    self.frame.size = intrinsicContentSize()
+    self.frame.size = intrinsicContentSize
     
     improvePerformance()
   }
@@ -89,7 +89,7 @@ Shows: ★★★★☆ (132)
   private func improvePerformance() {
     /// Cache the view into a bitmap instead of redrawing the stars each time
     layer.shouldRasterize = true
-    layer.rasterizationScale = UIScreen.main().scale
+    layer.rasterizationScale = UIScreen.main.scale
     
     isOpaque = true
   }
@@ -162,7 +162,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Returns the content size to fit all the star and text layers.
-  override public func intrinsicContentSize() -> CGSize {
+  override public var intrinsicContentSize:CGSize {
     return viewSize
   }
   

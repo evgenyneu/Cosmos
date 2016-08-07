@@ -79,7 +79,7 @@ class CosmosLayers {
     let emptyStar = createStarLayer(false, settings: settings)
 
     let parentLayer = CALayer()
-    parentLayer.contentsScale = UIScreen.main().scale
+    parentLayer.contentsScale = UIScreen.main.scale
     parentLayer.bounds = CGRect(origin: CGPoint(), size: filledStar.bounds.size)
     parentLayer.anchorPoint = CGPoint()
     parentLayer.addSublayer(emptyStar)

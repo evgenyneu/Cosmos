@@ -139,16 +139,16 @@ struct CosmosDefaultSettings {
   static let emptyBorderColor = defaultColor
   
   /// Width of the border for the empty star.
-  static let emptyBorderWidth: Double = 1 / Double(UIScreen.main().scale)
+  static let emptyBorderWidth: Double = 1 / Double(UIScreen.main.scale)
   
   /// Border color of a filled star.
   static let filledBorderColor = defaultColor
   
   /// Width of the border for a filled star.
-  static let filledBorderWidth: Double = 1 / Double(UIScreen.main().scale)
+  static let filledBorderWidth: Double = 1 / Double(UIScreen.main.scale)
   
   /// Background color of an empty star.
-  static let emptyColor = UIColor.clear()
+  static let emptyColor = UIColor.clear
   
   /// Background color of a filled star.
   static let filledColor = defaultColor
@@ -255,7 +255,7 @@ class CosmosLayerHelper {
     layer.font = CGFont(font.fontName)
     layer.fontSize = font.pointSize
     layer.foregroundColor = color.cgColor
-    layer.contentsScale = UIScreen.main().scale
+    layer.contentsScale = UIScreen.main.scale
     
     return layer
   }
@@ -349,7 +349,7 @@ class CosmosLayers {
     let emptyStar = createStarLayer(false, settings: settings)
 
     let parentLayer = CALayer()
-    parentLayer.contentsScale = UIScreen.main().scale
+    parentLayer.contentsScale = UIScreen.main.scale
     parentLayer.bounds = CGRect(origin: CGPoint(), size: filledStar.bounds.size)
     parentLayer.anchorPoint = CGPoint()
     parentLayer.addSublayer(emptyStar)
@@ -897,7 +897,7 @@ Shows: ★★★★☆ (132)
   override public init(frame: CGRect) {
     super.init(frame: frame)
     update()
-    self.frame.size = intrinsicContentSize()
+    self.frame.size = intrinsicContentSize
     
     improvePerformance()
   }
@@ -913,7 +913,7 @@ Shows: ★★★★☆ (132)
   private func improvePerformance() {
     /// Cache the view into a bitmap instead of redrawing the stars each time
     layer.shouldRasterize = true
-    layer.rasterizationScale = UIScreen.main().scale
+    layer.rasterizationScale = UIScreen.main.scale
     
     isOpaque = true
   }
@@ -986,7 +986,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Returns the content size to fit all the star and text layers.
-  override public func intrinsicContentSize() -> CGSize {
+  override public var intrinsicContentSize:CGSize {
     return viewSize
   }
   
@@ -1318,7 +1318,7 @@ struct StarLayer {
       
     let layer = CAShapeLayer()
     layer.anchorPoint = CGPoint()
-    layer.contentsScale = UIScreen.main().scale
+    layer.contentsScale = UIScreen.main.scale
     layer.strokeColor = strokeColor.cgColor
     layer.fillColor = fillColor.cgColor
     layer.lineWidth = CGFloat(lineWidth)
@@ -1338,7 +1338,7 @@ struct StarLayer {
   */
   static func createContainerLayer(_ size: Double) -> CALayer {
     let layer = CALayer()
-    layer.contentsScale = UIScreen.main().scale
+    layer.contentsScale = UIScreen.main.scale
     layer.anchorPoint = CGPoint()
     layer.masksToBounds = true
     layer.bounds.size = CGSize(width: size, height: size)
