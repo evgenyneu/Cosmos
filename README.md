@@ -118,13 +118,13 @@ cosmosView.settings.starSize = 30
 cosmosView.settings.starMargin = 5
 
 // Set the color of a filled star
-cosmosView.settings.filledColor = UIColor.orange()
+cosmosView.settings.filledColor = UIColor.orange
 
 // Set the border color of an empty star
-cosmosView.settings.emptyBorderColor = UIColor.orange()
+cosmosView.settings.emptyBorderColor = UIColor.orange
 
 // Set the border color of a filled star
-cosmosView.settings.filledBorderColor = UIColor.orange()
+cosmosView.settings.filledBorderColor = UIColor.orange
 ```
 
 
