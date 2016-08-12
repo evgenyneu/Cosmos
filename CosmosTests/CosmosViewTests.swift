@@ -23,7 +23,7 @@ class CosmosViewTests: XCTestCase {
 
     obj.rating = 4
     
-    let size = obj.intrinsicContentSize()
+    let size = obj.intrinsicContentSize
     
     // 5 * 10 (width of 5 stars)
     //   + 4 * 6 (4 margins between stars)
@@ -45,7 +45,7 @@ class CosmosViewTests: XCTestCase {
     let sizeAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15)]
     let textSize = NSString(string: "123").size(attributes: sizeAttributes)
     
-    let size = obj.intrinsicContentSize()
+    let size = obj.intrinsicContentSize
     
     // 58 (width of 5 stars)
     //   + 15 * 50 / 100 (margin between stars and text)
