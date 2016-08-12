@@ -162,6 +162,7 @@ We would like to thank the following people for their valuable contributions.
 
 * [ali-zahedi](https://github.com/ali-zahedi) for updating to the latest version of Swift 3.0.
 * [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
+* [craiggrummitt](https://github.com/craiggrummitt) for Xcode 8 beta 4 support.
 * [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
 
