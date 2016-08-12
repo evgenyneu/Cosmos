@@ -57,7 +57,7 @@ struct StarLayer {
       
     let layer = CAShapeLayer()
     layer.anchorPoint = CGPoint()
-    layer.contentsScale = UIScreen.main().scale
+    layer.contentsScale = UIScreen.main.scale
     layer.strokeColor = strokeColor.cgColor
     layer.fillColor = fillColor.cgColor
     layer.lineWidth = CGFloat(lineWidth)
@@ -77,7 +77,7 @@ struct StarLayer {
   */
   static func createContainerLayer(_ size: Double) -> CALayer {
     let layer = CALayer()
-    layer.contentsScale = UIScreen.main().scale
+    layer.contentsScale = UIScreen.main.scale
     layer.anchorPoint = CGPoint()
     layer.masksToBounds = true
     layer.bounds.size = CGSize(width: size, height: size)
