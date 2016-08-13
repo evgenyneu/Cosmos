@@ -42,7 +42,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 5.0'
+    pod 'Cosmos', git: 'https://github.com/marketplacer/Cosmos.git', tag: '5.0.0'
 
 #### Legacy Swift versions
 
