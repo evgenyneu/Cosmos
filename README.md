@@ -34,7 +34,7 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 4.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 5.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
