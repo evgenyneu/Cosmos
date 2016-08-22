@@ -21,7 +21,7 @@ class CosmosLayerHelper {
     layer.anchorPoint = CGPoint()
     
     layer.string = text
-    layer.font = CGFont(font.fontName)
+    layer.font = CGFont(font.fontName as CFString)
     layer.fontSize = font.pointSize
     layer.foregroundColor = color.cgColor
     layer.contentsScale = UIScreen.main.scale
