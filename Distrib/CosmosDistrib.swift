@@ -199,7 +199,7 @@ struct CosmosDefaultSettings {
   static let textColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
   
   /// Font for the text.
-  static let textFont = UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote)
+  static let textFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.footnote)
   
   /// Distance between the text and the stars.
   static let textMargin: Double = 5
@@ -252,7 +252,7 @@ class CosmosLayerHelper {
     layer.anchorPoint = CGPoint()
     
     layer.string = text
-    layer.font = CGFont(font.fontName)
+    layer.font = CGFont(font.fontName as CFString)
     layer.fontSize = font.pointSize
     layer.foregroundColor = color.cgColor
     layer.contentsScale = UIScreen.main.scale
