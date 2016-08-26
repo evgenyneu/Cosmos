@@ -1,5 +1,9 @@
 # Cosmos version history
 
+## 6.0.0 (2016-08-27)
+
+Update to Xcode 8 beta 6 version of Swift, thanks to [JimiSmith](https://github.com/JimiSmith).
+
 ## 5.0.0 (2016-08-13)
 
 Update to Xcode 8 beta 4/5 version of Swift, thanks to [craiggrummitt](https://github.com/craiggrummitt).
