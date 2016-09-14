@@ -18,7 +18,7 @@ struct CosmosRating {
   - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
   
   */
-  static func starFillLevel(ratingRemainder: Double, fillMode: StarFillMode) -> Double {
+  static func starFillLevel(_ ratingRemainder: Double, fillMode: StarFillMode) -> Double {
     
     var result = ratingRemainder
     
@@ -72,7 +72,7 @@ struct CosmosRating {
     let singleStarRemainder = preciseRating - starFloorNumber
     
     var displayedRating = starFloorNumber + starFillLevel(
-      ratingRemainder: singleStarRemainder, fillMode: fillMode)
+      singleStarRemainder, fillMode: fillMode)
       
     displayedRating = min(Double(totalStars), displayedRating) // Can't go bigger than number of stars
     displayedRating = max(0, displayedRating) // Can't be less than zero
