@@ -58,6 +58,7 @@
 		7E646DC21C04440B00048339 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECC1B37BB700090D81B /* StarLayer.swift */; };
 		7E646DC41C04441400048339 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */; };
 		7EE834C11B9D0270007BFDD2 /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */; };
+		7EF4F8251D91E97F00799197 /* CosmosSettingsObjCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		7E646DB01C04438B00048339 /* Cosmos-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cosmos-tvOS.h"; sourceTree = "<group>"; };
 		7E646DB21C04438B00048339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosAccessibility.swift; sourceTree = "<group>"; };
+		7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettingsObjCBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 			children = (
 				7E4295531B38C6FF00C66E9F /* graphics */,
 				2B622EF21B37BC120090D81B /* AppDelegate.swift */,
+				7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */,
 				2B622F021B37BC270090D81B /* ViewController.swift */,
 				2BC696831BAF9A4700576887 /* PerformanceTableViewCell.swift */,
 				2BC696801BAF996F00576887 /* PerformanceTableViewController.swift */,
@@ -543,6 +546,7 @@
 				2B622EF31B37BC120090D81B /* AppDelegate.swift in Sources */,
 				2B622F0F1B37BE780090D81B /* CosmosDistrib.swift in Sources */,
 				2BC696841BAF9A4700576887 /* PerformanceTableViewCell.swift in Sources */,
+				7EF4F8251D91E97F00799197 /* CosmosSettingsObjCBridge.swift in Sources */,
 				2BC696811BAF996F00576887 /* PerformanceTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
