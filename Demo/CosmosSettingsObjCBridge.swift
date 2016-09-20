@@ -17,10 +17,11 @@ import UIKit
  - (void)viewDidLoad {
  [super viewDidLoad];
  
- [AukObjCBridge setupWithScrollView: self.scrollView];
- [AukObjCBridge showWithUrl: @"https://bit.ly/auk_image" inScrollView: self.scrollView];
- [AukObjCBridge showWithUrl: @"https://bit.ly/moa_image" inScrollView: self.scrollView];
- }
+ [CosmosSettingsObjCBridge setStarSize:30 inCosmosView:self.cosmosView];
+ [CosmosSettingsObjCBridge setFillMode: 0 inCosmosView: self.cosmosView];
+ [CosmosSettingsObjCBridge setFilledColor: [UIColor redColor] inCosmosView:self.cosmosView];
+ [CosmosSettingsObjCBridge setUpdateOnTouch: NO inCosmosView:self.cosmosView];
+ 
  */
 @objc public class CosmosSettingsObjCBridge: NSObject {
   
@@ -29,13 +30,14 @@ import UIKit
    
    Set the star fill mode. A fill mode defines how the star is filled when the rating value is not a whole integer. It can either show full stars, half stars or stars partially filled according to the rating value.
    
-   - parameter value: Value of the fill mode.
+   - parameter value: Value of the fill mode. 0: full, 1: half, 2: precise.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
-  */
-  public class func setFillMode(value: StarFillMode, inCosmosView cosmosView: CosmosView) {
-    cosmosView.settings.fillMode = value;
+   */
+  public class func setFillMode(_ value: Int, inCosmosView cosmosView: CosmosView) {
+    guard let fillMode = StarFillMode(rawValue: value) else { return }
+    cosmosView.settings.fillMode = fillMode;
   }
   
   /**
@@ -45,8 +47,8 @@ import UIKit
    - parameter cosmosView: A CosmosView object.
    
    */
-  public class func getFillMode(_ cosmosView: CosmosView) -> StarFillMode {
-    return cosmosView.settings.fillMode;
+  public class func getFillMode(_ cosmosView: CosmosView) -> Int {
+    return cosmosView.settings.fillMode.rawValue;
   }
   
   
@@ -57,10 +59,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setUpdateOnTouch(value: Bool, inCosmosView cosmosView: CosmosView) {
+  public class func setUpdateOnTouch(_ value: Bool, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.updateOnTouch = value;
   }
   
@@ -82,10 +84,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setStarSize(value: Double, inCosmosView cosmosView: CosmosView) {
+  public class func setStarSize(_ value: Double, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.starSize = value;
   }
   
@@ -106,10 +108,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setTotalStars(value: Int, inCosmosView cosmosView: CosmosView) {
+  public class func setTotalStars(_ value: Int, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.totalStars = value;
   }
   
@@ -123,19 +125,19 @@ import UIKit
   public class func getTotalStars(_ cosmosView: CosmosView) -> Int {
     return cosmosView.settings.totalStars;
   }
-
+  
   
   
   /**
    
-   Set the distance between stars. 
+   Set the distance between stars.
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setStarMargin(value: Double, inCosmosView cosmosView: CosmosView) {
+  public class func setStarMargin(_ value: Double, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.starMargin = value;
   }
   
@@ -157,10 +159,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setFilledColor(value: UIColor, inCosmosView cosmosView: CosmosView) {
+  public class func setFilledColor(_ value: UIColor, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.filledColor = value;
   }
   
@@ -182,10 +184,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setEmptyColor(value: UIColor, inCosmosView cosmosView: CosmosView) {
+  public class func setEmptyColor(_ value: UIColor, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.emptyColor = value;
   }
   
@@ -207,10 +209,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setFilledBorderWidth(value: Double, inCosmosView cosmosView: CosmosView) {
+  public class func setFilledBorderWidth(_ value: Double, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.filledBorderWidth = value;
   }
   
@@ -232,10 +234,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setFilledBorderColor(value: UIColor, inCosmosView cosmosView: CosmosView) {
+  public class func setFilledBorderColor(_ value: UIColor, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.filledBorderColor = value;
   }
   
@@ -257,10 +259,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setEmptyBorderWidth(value: Double, inCosmosView cosmosView: CosmosView) {
+  public class func setEmptyBorderWidth(_ value: Double, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.emptyBorderWidth = value;
   }
   
@@ -282,10 +284,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setEmptyBorderColor(value: UIColor, inCosmosView cosmosView: CosmosView) {
+  public class func setEmptyBorderColor(_ value: UIColor, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.emptyBorderColor = value;
   }
   
@@ -307,10 +309,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setTextColor(value: UIColor, inCosmosView cosmosView: CosmosView) {
+  public class func setTextColor(_ value: UIColor, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.textColor = value;
   }
   
@@ -333,10 +335,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setTextFont(value: UIFont, inCosmosView cosmosView: CosmosView) {
+  public class func setTextFont(_ value: UIFont, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.textFont = value;
   }
   
@@ -358,10 +360,10 @@ import UIKit
    
    - parameter value: The value of the setting.
    
-   - parameter inCosmosView: A CosmosView object.
+   - parameter cosmosView: A CosmosView object.
    
    */
-  public class func setTextMargin(value: Double, inCosmosView cosmosView: CosmosView) {
+  public class func setTextMargin(_ value: Double, inCosmosView cosmosView: CosmosView) {
     cosmosView.settings.textMargin = value;
   }
   
