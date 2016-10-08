@@ -12,14 +12,14 @@ Example:
 Shows: ★★★★☆ (132)
 
 */
-@IBDesignable public class CosmosView: UIView {
+@IBDesignable open class CosmosView: UIView {
     
   /**
   
   The currently shown number of stars, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
 
   */
-  @IBInspectable public var rating: Double = CosmosDefaultSettings.rating {
+  @IBInspectable open var rating: Double = CosmosDefaultSettings.rating {
     didSet {
       if oldValue != rating {
         update()
@@ -28,7 +28,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Currently shown text. Set it to nil to display just the stars without text.
-  @IBInspectable public var text: String? {
+  @IBInspectable open var text: String? {
     didSet {
       if oldValue != text {
         update()
@@ -37,7 +37,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Star rating settings.
-  public var settings = CosmosSettings() {
+  open var settings = CosmosSettings() {
     didSet {
       update()
     }
@@ -47,7 +47,7 @@ Shows: ★★★★☆ (132)
   private var viewSize = CGSize()
 
   /// Draws the stars when the view comes out of storyboard with default settings
-  public override func awakeFromNib() {
+  open override func awakeFromNib() {
     super.awakeFromNib()
     
     update()
@@ -99,7 +99,7 @@ Shows: ★★★★☆ (132)
   Updates the stars and optional text based on current values of `rating` and `text` properties.
   
   */
-  public func update() {
+  open func update() {
     
     // Create star layers
     // ------------
@@ -162,7 +162,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Returns the content size to fit all the star and text layers.
-  override public var intrinsicContentSize:CGSize {
+  override open var intrinsicContentSize:CGSize {
     return viewSize
   }
   
@@ -173,7 +173,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Called by the system in accessibility voice-over mode when the value is incremented by the user.
-  public override func accessibilityIncrement() {
+  open override func accessibilityIncrement() {
     super.accessibilityIncrement()
     
     rating += CosmosAccessibility.accessibilityIncrement(rating, settings: settings)
@@ -182,7 +182,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Called by the system in accessibility voice-over mode when the value is decremented by the user.
-  public override func accessibilityDecrement() {
+  open override func accessibilityDecrement() {
     super.accessibilityDecrement()
     
     rating -= CosmosAccessibility.accessibilityDecrement(rating, settings: settings)
@@ -193,13 +193,13 @@ Shows: ★★★★☆ (132)
   // MARK: - Touch recognition
   
   /// Closure will be called when user touches the cosmos view. The touch rating argument is passed to the closure.
-  public var didTouchCosmos: ((Double)->())?
+  open var didTouchCosmos: ((Double)->())?
   
   /// Closure will be called when the user lifts finger from the cosmos view. The touch rating argument is passed to the closure.
-  public var didFinishTouchingCosmos: ((Double)->())?
+  open var didFinishTouchingCosmos: ((Double)->())?
   
   /// Overriding the function to detect the first touch gesture.
-  public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+  open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
     
     if let touch = touches.first {
@@ -209,7 +209,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Overriding the function to detect touch move.
-  public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+  open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesMoved(touches, with: event)
     
     if let touch = touches.first {
@@ -219,7 +219,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Detecting event when the user lifts their finger.
-  public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+  open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesEnded(touches, with: event)
     
     didFinishTouchingCosmos?(rating)
@@ -265,7 +265,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Increase the hitsize of the view if it's less than 44px for easier touching.
-  override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+  override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
     let oprimizedBounds = CosmosTouchTarget.optimize(bounds)
     return oprimizedBounds.contains(point)
   }
@@ -364,7 +364,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Draw the stars in interface buidler
-  public override func prepareForInterfaceBuilder() {
+  open override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
     
     update()

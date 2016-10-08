@@ -1,5 +1,10 @@
 # Cosmos version history
 
+
+## 7.0.0 (2016-10-08)
+
+Change `public` access modifiers of the `CosmosView` to `open` to allow subclassing [0x7fffffff](https://github.com/0x7fffffff).
+
 ## 6.0.0 (2016-08-27)
 
 Update to Xcode 8 beta 6 version of Swift, thanks to [JimiSmith](https://github.com/JimiSmith).
