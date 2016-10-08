@@ -3,7 +3,7 @@
 
 ## 7.0.0 (2016-10-08)
 
-Change `public` access modifiers of the `CosmosView` to `open` to allow subclassing [0x7fffffff](https://github.com/0x7fffffff).
+Change `public` access-level modifiers of the `CosmosView` to `open` to allow subclassing [0x7fffffff](https://github.com/0x7fffffff).
 
 ## 6.0.0 (2016-08-27)
 

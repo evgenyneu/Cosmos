@@ -163,6 +163,7 @@ Here are some other star rating controls for iOS:
 
 We would like to thank the following people for their valuable contributions.
 
+* [0x7fffffff](https://github.com/0x7fffffff) for changing `public` access-level modifiers to `open`.
 * [ali-zahedi](https://github.com/ali-zahedi) for updating to the latest version of Swift 3.0.
 * [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
 * [craiggrummitt](https://github.com/craiggrummitt) for Xcode 8 beta 4 support.
