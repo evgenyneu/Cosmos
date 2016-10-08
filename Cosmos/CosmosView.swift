@@ -19,7 +19,7 @@ Shows: ★★★★☆ (132)
   The currently shown number of stars, usually between 1 and 5. If the value is decimal the stars will be shown according to the Fill Mode setting.
 
   */
-  @IBInspectable public var rating: Double = CosmosDefaultSettings.rating {
+  @IBInspectable open var rating: Double = CosmosDefaultSettings.rating {
     didSet {
       if oldValue != rating {
         update()
@@ -28,7 +28,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Currently shown text. Set it to nil to display just the stars without text.
-  @IBInspectable public var text: String? {
+  @IBInspectable open var text: String? {
     didSet {
       if oldValue != text {
         update()
@@ -37,7 +37,7 @@ Shows: ★★★★☆ (132)
   }
   
   /// Star rating settings.
-  public var settings = CosmosSettings() {
+  open var settings = CosmosSettings() {
     didSet {
       update()
     }
@@ -99,7 +99,7 @@ Shows: ★★★★☆ (132)
   Updates the stars and optional text based on current values of `rating` and `text` properties.
   
   */
-  public func update() {
+  open func update() {
     
     // Create star layers
     // ------------
@@ -193,10 +193,10 @@ Shows: ★★★★☆ (132)
   // MARK: - Touch recognition
   
   /// Closure will be called when user touches the cosmos view. The touch rating argument is passed to the closure.
-  public var didTouchCosmos: ((Double)->())?
+  open var didTouchCosmos: ((Double)->())?
   
   /// Closure will be called when the user lifts finger from the cosmos view. The touch rating argument is passed to the closure.
-  public var didFinishTouchingCosmos: ((Double)->())?
+  open var didFinishTouchingCosmos: ((Double)->())?
   
   /// Overriding the function to detect the first touch gesture.
   open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
