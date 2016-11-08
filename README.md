@@ -30,21 +30,19 @@ There are three ways you can add Cosmos to your Xcode project.
 
 **Add source (iOS 8+)**
 
-Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/master/Distrib/CosmosDistrib.swift) file into your Xcode project.
+Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/swift-2.3/Distrib/CosmosDistrib.swift) file into your Xcode project.
 
 **Setup with Carthage (iOS 8+)**
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 1.2` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" == 0.0.1` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    
-    target "Your app target name" do
-      pod 'Cosmos', '~> 1.2'
-    end
+    target 'Your target name'
+    pod 'Cosmos', '0.0.1'
 
 **Setup in Xcode 6 / Swift 1.2 project**
 
