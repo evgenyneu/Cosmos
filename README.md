@@ -128,6 +128,10 @@ cosmosView.settings.emptyBorderColor = UIColor.orange
 cosmosView.settings.filledBorderColor = UIColor.orange
 ```
 
+## Using Cosmos in a scroll/table view
+
+[Here](https://github.com/marketplacer/Cosmos/wiki/Using-Cosmos-in-a-scroll-view) is how to use Cosmos in a scroll view or a table view.
+
 ## Using Cosmos settings from Objective-C
 
 [This manual](https://github.com/marketplacer/Cosmos/wiki/Using-Cosmos-settings-in-Objective-C) describes how to set/read Cosmos settings in Objective-C apps.
