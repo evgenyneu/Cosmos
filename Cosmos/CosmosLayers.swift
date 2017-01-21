@@ -16,7 +16,7 @@ class CosmosLayers {
   - returns: Array of star layers.
   
   */
-  class func createStarLayers(_ rating: Double, settings: CosmosSettings) -> [CALayer] {
+  class func createStarLayers(_ rating: Double, settings: CosmosSettings, isRightToLeft: Bool) -> [CALayer] {
 
     var ratingRemander = CosmosRating.numberOfFilledStars(rating,
       totalNumberOfStars: settings.totalStars)
@@ -28,11 +28,12 @@ class CosmosLayers {
       let fillLevel = CosmosRating.starFillLevel(ratingRemainder: ratingRemander,
         fillMode: settings.fillMode)
       
-      let starLayer = createCompositeStarLayer(fillLevel, settings: settings)
+      let starLayer = createCompositeStarLayer(fillLevel, settings: settings, isRightToLeft: isRightToLeft)
       starLayers.append(starLayer)
       ratingRemander -= 1
     }
-
+    
+    if isRightToLeft { starLayers.reverse() }
     positionStarLayers(starLayers, starMargin: settings.starMargin)
     return starLayers
   }
@@ -45,10 +46,11 @@ class CosmosLayers {
   
   - parameter starFillLevel: Decimal number between 0 and 1 describing the star fill level.
   - parameter settings: Star view settings.
-  - returns: Layer that shows the star. The layer is displauyed in the cosmos view.
+  - returns: Layer that shows the star. The layer is displayed in the cosmos view.
   
   */
-  class func createCompositeStarLayer(_ starFillLevel: Double, settings: CosmosSettings) -> CALayer {
+  class func createCompositeStarLayer(_ starFillLevel: Double,
+                                      settings: CosmosSettings, isRightToLeft: Bool) -> CALayer {
 
     if starFillLevel >= 1 {
       return createStarLayer(true, settings: settings)
@@ -58,7 +60,7 @@ class CosmosLayers {
       return createStarLayer(false, settings: settings)
     }
 
-    return createPartialStar(starFillLevel, settings: settings)
+    return createPartialStar(starFillLevel, settings: settings, isRightToLeft: isRightToLeft)
   }
 
   /**
@@ -74,9 +76,10 @@ class CosmosLayers {
   - returns: Layer that contains the partially filled star.
   
   */
-  class func createPartialStar(_ starFillLevel: Double, settings: CosmosSettings) -> CALayer {
+  class func createPartialStar(_ starFillLevel: Double, settings: CosmosSettings, isRightToLeft: Bool) -> CALayer {
     let filledStar = createStarLayer(true, settings: settings)
     let emptyStar = createStarLayer(false, settings: settings)
+
 
     let parentLayer = CALayer()
     parentLayer.contentsScale = UIScreen.main.scale
@@ -84,7 +87,13 @@ class CosmosLayers {
     parentLayer.anchorPoint = CGPoint()
     parentLayer.addSublayer(emptyStar)
     parentLayer.addSublayer(filledStar)
-
+    
+    if isRightToLeft {
+      // Flip the star horizontally for a right-to-left language
+      let rotation = CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)
+      filledStar.transform = CATransform3DTranslate(rotation, -filledStar.bounds.size.width, 0, 0)
+    }
+    
     // make filled layer width smaller according to the fill level.
     filledStar.bounds.size.width *= CGFloat(starFillLevel)
 

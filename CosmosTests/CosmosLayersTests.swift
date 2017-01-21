@@ -37,7 +37,7 @@ class CosmosLayersTests: XCTestCase {
     settings.filledBorderColor = UIColor.cyan
     settings.filledBorderWidth = 1.72
 
-    let result = CosmosLayers.createPartialStar(0.8, settings: settings)
+    let result = CosmosLayers.createPartialStar(0.8, settings: settings, isRightToLeft: false)
     
     XCTAssertEqual(2, result.sublayers!.count)
     
@@ -89,7 +89,7 @@ class CosmosLayersTests: XCTestCase {
     settings.emptyBorderColor = UIColor.gray
 
     
-    let result = CosmosLayers.createCompositeStarLayer(1, settings: settings) as CALayer
+    let result = CosmosLayers.createCompositeStarLayer(1, settings: settings, isRightToLeft: false) as CALayer
   
     XCTAssertEqual(1, result.sublayers!.count)
 
@@ -114,7 +114,7 @@ class CosmosLayersTests: XCTestCase {
     settings.emptyBorderColor = UIColor.blue
     settings.emptyBorderWidth = 1.31
     
-    let result = CosmosLayers.createCompositeStarLayer(0, settings: settings) as CALayer
+    let result = CosmosLayers.createCompositeStarLayer(0, settings: settings, isRightToLeft: false) as CALayer
     
     XCTAssertEqual(1, result.sublayers!.count)
     
@@ -145,7 +145,7 @@ class CosmosLayersTests: XCTestCase {
     settings.filledBorderColor = UIColor.magenta
     settings.filledBorderWidth = 0.41
 
-    let result = CosmosLayers.createCompositeStarLayer(0.2, settings: settings)
+    let result = CosmosLayers.createCompositeStarLayer(0.2, settings: settings, isRightToLeft: false)
     
     XCTAssertEqual(2, result.sublayers!.count)
     
@@ -191,11 +191,12 @@ class CosmosLayersTests: XCTestCase {
   
   func testCreateStarLayers() {
     var settings = CosmosSettings()
+    settings.fillMode = .precise
     settings.starSize = 17
     settings.starMargin = 5
     settings.totalStars = 100 // Crazy, huh? But still way less than 100,000,000,000 to 400,000,000,000 stars in our Milky Way galaxy. 🌌
     
-    let result = CosmosLayers.createStarLayers(3.7, settings: settings)
+    let result = CosmosLayers.createStarLayers(3.7, settings: settings, isRightToLeft: false)
     
     XCTAssertEqual(100, result.count)
     XCTAssertEqual(17, result.last!.bounds.width)
@@ -203,5 +204,28 @@ class CosmosLayersTests: XCTestCase {
     // 100 * 10 (width of the stars)
     //   + 99 * 5 (margin between stars)
     XCTAssertEqual(Double(99 * 17 + 99 * 5), Double(result.last!.position.x))
+    
+    // Order is left-to-right, the fourth star is partial - contains two layers
+    XCTAssertEqual(2, result[3].sublayers!.count)
+  }
+  
+  func testCreateStarLayers_rightToLeft() {
+    var settings = CosmosSettings()
+    settings.fillMode = .precise
+    settings.starSize = 17
+    settings.starMargin = 5
+    settings.totalStars = 100
+    
+    let result = CosmosLayers.createStarLayers(3.7, settings: settings, isRightToLeft: true)
+    
+    XCTAssertEqual(100, result.count)
+    XCTAssertEqual(17, result.last!.bounds.width)
+    
+    // 100 * 10 (width of the stars)
+    //   + 99 * 5 (margin between stars)
+    XCTAssertEqual(Double(99 * 17 + 99 * 5), Double(result.last!.position.x))
+    
+    // Order is left-to-right, the fourth star from the end is partial - contains two layers
+    XCTAssertEqual(2, result[96].sublayers!.count)
   }
 }

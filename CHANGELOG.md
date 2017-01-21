@@ -1,5 +1,11 @@
 # Cosmos version history
 
+## 8.0.0 (2017-01-22)
+
+* Improved star touch precision which is now within 1 AU.
+
+* Added right-to-left language support (thanks, [tarek903](https://github.com/tarek903)). We may need to add non-linear language support in the future (waiting for a pull request from heptapods).
+
 
 ## 7.0.0 (2016-10-08)
 

@@ -16,6 +16,7 @@ This is a UI control for iOS and tvOS written in Swift. It shows a star rating a
 * Cosmos view can be customized in the Storyboard without writing code.
 * Includes different star filling modes: full, half-filled and precise.
 * Cosmos is accessible and works with voice-over.
+* Supports right-to-left languages.
 
 
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Drawings/1280px-Sirius_A_and_B_artwork.jpg'
@@ -34,7 +35,7 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 7.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 8.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -42,7 +43,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 7.0'
+    pod 'Cosmos', '~> 8.0'
 
 #### Legacy Swift versions
 

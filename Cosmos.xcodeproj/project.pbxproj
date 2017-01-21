@@ -57,6 +57,7 @@
 		7E646DC11C04440B00048339 /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECB1B37BB700090D81B /* StarFillMode.swift */; };
 		7E646DC21C04440B00048339 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECC1B37BB700090D81B /* StarLayer.swift */; };
 		7E646DC41C04441400048339 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */; };
+		7EE7F1E11E33254800995862 /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE7F1E01E33254800995862 /* RightToLeft.swift */; };
 		7EE834C11B9D0270007BFDD2 /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */; };
 		7EF4F8251D91E97F00799197 /* CosmosSettingsObjCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		7E646DAE1C04438B00048339 /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E646DB01C04438B00048339 /* Cosmos-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cosmos-tvOS.h"; sourceTree = "<group>"; };
 		7E646DB21C04438B00048339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EE7F1E01E33254800995862 /* RightToLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeft.swift; sourceTree = "<group>"; };
 		7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosAccessibility.swift; sourceTree = "<group>"; };
 		7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettingsObjCBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */,
+				7EE7F1E01E33254800995862 /* RightToLeft.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				2B622EDB1B37BB700090D81B /* CosmosSize.swift in Sources */,
 				2BC473571B9D3F9400BDF89F /* CosmosLocalizedRating.swift in Sources */,
 				2B622EDA1B37BB700090D81B /* CosmosDefaultSettings.swift in Sources */,
+				7EE7F1E11E33254800995862 /* RightToLeft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
