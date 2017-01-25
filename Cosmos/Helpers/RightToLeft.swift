@@ -11,7 +11,7 @@ struct RightToLeft {
       return UIView.userInterfaceLayoutDirection(
         for: view.semanticContentAttribute) == .rightToLeft
     } else {
-      return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+      return false
     }
   }
 }
