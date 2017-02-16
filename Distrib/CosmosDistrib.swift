@@ -884,7 +884,7 @@ Example:
     cosmosView.rating = 4
     cosmosView.text = "(123)"
 
-Shows: ★★★★☆ (132)
+Shows: ★★★★☆ (123)
 
 */
 @IBDesignable open class CosmosView: UIView {
