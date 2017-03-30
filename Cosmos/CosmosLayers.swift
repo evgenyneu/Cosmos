@@ -90,7 +90,7 @@ class CosmosLayers {
     
     if isRightToLeft {
       // Flip the star horizontally for a right-to-left language
-      let rotation = CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)
+      let rotation = CATransform3DMakeRotation(CGFloat(Double.pi), 0, 1, 0)
       filledStar.transform = CATransform3DTranslate(rotation, -filledStar.bounds.size.width, 0, 0)
     }
     
