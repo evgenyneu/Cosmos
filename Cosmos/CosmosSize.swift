@@ -15,8 +15,13 @@ class CosmosSize {
     var size = CGSize()
     
     for layer in layers {
-        size.width = max(size.width, layer.frame.maxX)
-        size.height = max(size.height, layer.frame.maxY)
+      if layer.frame.maxX > size.width {
+        size.width = layer.frame.maxX
+      }
+      
+      if layer.frame.maxY > size.height {
+        size.height = layer.frame.maxY
+      }
     }
     
     return size
