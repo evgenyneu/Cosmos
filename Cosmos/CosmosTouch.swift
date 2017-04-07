@@ -53,7 +53,7 @@ struct CosmosTouch {
   static func preciseRating(position: Double, numberOfStars: Int,
                             starSize: Double, starMargin: Double) -> Double {
     
-    guard position >= 0 else { return 0 }
+    if position < 0 { return 0 }
     var positionRemainder = position;
     
     // Calculate the number of times the star with a margin fits the position
@@ -67,8 +67,13 @@ struct CosmosTouch {
     // This will be the added partial part of the rating
     
     positionRemainder -= rating * (starSize + starMargin)
-
-    rating += (positionRemainder > starSize) ? 1 : positionRemainder / starSize
+    
+    if positionRemainder > starSize
+    {
+      rating += 1
+    } else {
+      rating += positionRemainder / starSize
+    }
     
     return rating
   }
