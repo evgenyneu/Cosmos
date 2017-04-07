@@ -1,5 +1,9 @@
 # Cosmos version history
 
+## 9.0.0 (2017-04-08)
+
+* Update to Swift 3.1 ([wagnersouz4](https://github.com/wagnersouz4)).
+
 ## 8.0.0 (2017-01-22)
 
 * Improved star touch precision which is now within 1 AU.

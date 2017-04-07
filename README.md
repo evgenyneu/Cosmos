@@ -1,11 +1,9 @@
 # Cosmos, a star rating control for iOS and tvOS
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
-[![CocoaPods Version](https://img.shields.io/cocoapods/v/Cosmos.svg?style=flat)][cocoadocs]
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/Cosmos.svg?style=flat)](http://cocoadocs.org/docsets/Cosmos)
 [![License](https://img.shields.io/cocoapods/l/Cosmos.svg?style=flat)](LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/Cosmos.svg?style=flat)][cocoadocs]
-[cocoadocs]: http://cocoadocs.org/docsets/Cosmos
-[carthage]: https://github.com/Carthage/Carthage
+[![Platform](https://img.shields.io/cocoapods/p/Cosmos.svg?style=flat)](http://cocoadocs.org/docsets/Cosmos)
 
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Cosmos, star rating control for iOS / Swift' width='300'>
 
@@ -35,7 +33,7 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 8.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 9.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -43,7 +41,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 8.0'
+    pod 'Cosmos', '~> 9.0'
 
 #### Legacy Swift versions
 
@@ -175,6 +173,7 @@ We would like to thank the following people for their valuable contributions.
 * [JimiSmith](https://github.com/JimiSmith) for Xcode 8 beta 6 support.
 * [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
+* [wagnersouz4](https://github.com/wagnersouz4) for Swift 3.1 update.
 
 
 ## License
