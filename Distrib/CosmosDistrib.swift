@@ -1293,9 +1293,12 @@ struct CosmosTouchTarget {
   static func optimize(_ bounds: CGRect) -> CGRect {
     let recommendedHitSize: CGFloat = 44
     
-    let hitWidthIncrease: CGFloat = max(recommendedHitSize - bounds.width, 0)
-    let hitHeightIncrease: CGFloat = max(recommendedHitSize - bounds.height, 0)
-
+    var hitWidthIncrease:CGFloat = recommendedHitSize - bounds.width
+    var hitHeightIncrease:CGFloat = recommendedHitSize - bounds.height
+    
+    if hitWidthIncrease < 0 { hitWidthIncrease = 0 }
+    if hitHeightIncrease < 0 { hitHeightIncrease = 0 }
+    
     let extendedBounds: CGRect = bounds.insetBy(dx: -hitWidthIncrease / 2,
       dy: -hitHeightIncrease / 2)
     
