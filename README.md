@@ -103,7 +103,7 @@ One needs to manually update the size of the cosmos view if it is used without A
 cosmos.frame.size = cosmos.intrinsicContentSize
 ```
 
-This is not necessary if you use Storyboard or if you create Auto Layout constraints to position the view.
+This is not necessary if you use Auto Layout constraints to position the view.
 
 ## Customization
 
