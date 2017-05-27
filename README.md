@@ -95,7 +95,15 @@ cosmosView.didFinishTouchingCosmos = { rating in }
 // This can be used to update UI as the rating is being changed by moving a finger.
 cosmosView.didTouchCosmos = { rating in }
 ```
+### Usage in code without Auto Layout
 
+One needs to manually update the size of the cosmos view if it is used without Auto Layout constraints. This will ensure that the width and height of the view matches the size of the stars inside the view:
+
+```Swift
+cosmos.frame.size = cosmos.intrinsicContentSize
+```
+
+This is not necessary if you use Storyboard or if you create Auto Layout constraints to position the view.
 
 ## Customization
 
