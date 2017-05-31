@@ -295,7 +295,7 @@ class CosmosLayers {
 
     for _ in (0..<settings.totalStars) {
       
-      let fillLevel = CosmosRating.starFillLevel(ratingRemainder: ratingRemander,
+      let fillLevel = CosmosRating.starFillLevel(ratingRemander,
         fillMode: settings.fillMode)
       
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings, isRightToLeft: isRightToLeft)
@@ -370,7 +370,7 @@ class CosmosLayers {
     return parentLayer
   }
 
-  private class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings) -> CALayer {
+  fileprivate class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings) -> CALayer {
     let fillColor = isFilled ? settings.filledColor : settings.emptyColor
     let strokeColor = isFilled ? settings.filledBorderColor : settings.emptyBorderColor
 
@@ -544,7 +544,7 @@ struct CosmosRating {
   - returns: Decimal value between 0 and 1 describing the star fill level. 1 is a fully filled star. 0 is an empty star. 0.5 is a half-star.
   
   */
-  static func starFillLevel(ratingRemainder: Double, fillMode: StarFillMode) -> Double {
+  static func starFillLevel(_ ratingRemainder: Double, fillMode: StarFillMode) -> Double {
     
     var result = ratingRemainder
     
@@ -598,7 +598,7 @@ struct CosmosRating {
     let singleStarRemainder = preciseRating - starFloorNumber
     
     var displayedRating = starFloorNumber + starFillLevel(
-      ratingRemainder: singleStarRemainder, fillMode: fillMode)
+      singleStarRemainder, fillMode: fillMode)
       
     displayedRating = min(Double(totalStars), displayedRating) // Can't go bigger than number of stars
     displayedRating = max(0, displayedRating) // Can't be less than zero
@@ -919,7 +919,7 @@ Shows: ★★★★☆ (123)
   }
   
   /// Stores calculated size of the view. It is used as intrinsic content size.
-  private var viewSize = CGSize()
+  fileprivate var viewSize = CGSize()
 
   /// Draws the stars when the view comes out of storyboard with default settings
   open override func awakeFromNib() {
@@ -961,7 +961,7 @@ Shows: ★★★★☆ (123)
   }
   
   /// Change view settings for faster drawing
-  private func improvePerformance() {
+  fileprivate func improvePerformance() {
     /// Cache the view into a bitmap instead of redrawing the stars each time
     layer.shouldRasterize = true
     layer.rasterizationScale = UIScreen.main.scale
@@ -1017,7 +1017,7 @@ Shows: ★★★★☆ (123)
   - returns: The newly created text layer.
   
   */
-  private func createTextLayer(_ text: String, layers: [CALayer]) -> CALayer {
+  fileprivate func createTextLayer(_ text: String, layers: [CALayer]) -> CALayer {
     let textLayer = CosmosLayerHelper.createTextLayer(text,
       font: settings.textFont, color: settings.textColor)
     
@@ -1066,7 +1066,7 @@ Shows: ★★★★☆ (123)
   - parameter layers: Array of layers containing stars and the text.
 
   */
-  private func updateSize(_ layers: [CALayer]) {
+  fileprivate func updateSize(_ layers: [CALayer]) {
     viewSize = CosmosSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
   }
@@ -1078,7 +1078,7 @@ Shows: ★★★★☆ (123)
   
   // MARK: - Accessibility
   
-  private func updateAccessibility() {
+  fileprivate func updateAccessibility() {
     CosmosAccessibility.update(self, rating: rating, text: text, settings: settings)
   }
   
@@ -1165,7 +1165,7 @@ Shows: ★★★★☆ (123)
     previousRatingForDidTouchCallback = calculatedTouchRating
   }
   
-  private var previousRatingForDidTouchCallback: Double = -123.192
+  fileprivate var previousRatingForDidTouchCallback: Double = -123.192
   
   /// Increase the hitsize of the view if it's less than 44px for easier touching.
   override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
