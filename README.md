@@ -43,6 +43,15 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
     target 'Your target name'
     pod 'Cosmos', '~> 9.0'
 
+#### Swift 4.0 / Xcode 9.0 beta version
+
+*Branch:* swift-4.0
+
+* *File:* [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/swift-4.0/Distrib/CosmosDistrib.swift)
+* *Carthage:* `github "marketplacer/Cosmos" "swift-4.0"`
+* *CocoaPods:* `pod 'Cosmos', :git => 'https://github.com/marketplacer/Cosmos.git', :branch => 'swift-4.0'`
+
+
 #### Legacy Swift versions
 
 Setup a [previous version](https://github.com/marketplacer/Cosmos/wiki/Legacy-Swift-versions) of the library if you use an older version of Swift.
