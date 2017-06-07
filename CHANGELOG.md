@@ -1,5 +1,11 @@
 # Cosmos version history
 
+
+## 10.0.0 (2017-06-07)
+
+* Automatically resize the frame of the CosmosView to include the starts when it is used without Auto Layout. Thanks to [paoloq](https://github.com/paoloq) for reporting the issue and suggesting a solution.
+
+
 ## 9.0.0 (2017-04-08)
 
 * Update to Swift 3.1 ([wagnersouz4](https://github.com/wagnersouz4)).

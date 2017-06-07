@@ -948,8 +948,6 @@ Shows: ★★★★☆ (123)
   override public init(frame: CGRect) {
     super.init(frame: frame)
     update()
-    self.frame.size = intrinsicContentSize
-    
     improvePerformance()
   }
   
@@ -1069,6 +1067,10 @@ Shows: ★★★★☆ (123)
   private func updateSize(_ layers: [CALayer]) {
     viewSize = CosmosSize.calculateSizeToFitLayers(layers)
     invalidateIntrinsicContentSize()
+
+    // Stretch the view to include all stars and the text.
+    // Needed when used without Auto Layout to receive touches for all stars.
+    frame.size = intrinsicContentSize
   }
   
   /// Returns the content size to fit all the star and text layers.
