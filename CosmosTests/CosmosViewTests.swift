@@ -32,6 +32,21 @@ class CosmosViewTests: XCTestCase {
     XCTAssertEqual(10, size.height)
   }
   
+  func testUpdateFrameSize_whenSettingsChange() {
+    obj.settings.starSize = 10
+    obj.settings.starMargin = 4
+    obj.rating = 4
+    
+    // 5 * 10 (width of 5 stars)
+    //   + 4 * 6 (4 margins between stars)
+    XCTAssertEqual(66, obj.frame.width)
+    
+    obj.settings.starSize = 20
+    // 5 * 20 (width of 5 stars)
+    //   + 4 * 6 (4 margins between stars)
+    XCTAssertEqual(116, obj.frame.width)
+  }
+  
   func testShowContentSizeWithText() {
     obj.settings.starSize = 10
     obj.settings.starMargin = 4

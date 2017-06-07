@@ -33,7 +33,7 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 9.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 10.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -41,7 +41,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 9.0'
+    pod 'Cosmos', '~> 10.0'
 
 #### Swift 4.0 / Xcode 9.0 beta version
 
@@ -104,15 +104,7 @@ cosmosView.didFinishTouchingCosmos = { rating in }
 // This can be used to update UI as the rating is being changed by moving a finger.
 cosmosView.didTouchCosmos = { rating in }
 ```
-### Usage in code without Auto Layout
 
-One needs to manually update the size of the cosmos view if it is used without Auto Layout constraints. This will ensure that the width and height of the view matches the size of the stars inside the view:
-
-```Swift
-cosmos.frame.size = cosmos.intrinsicContentSize
-```
-
-This is not necessary if you use Auto Layout constraints to position the view.
 
 ## Customization
 
@@ -191,6 +183,7 @@ We would like to thank the following people for their valuable contributions.
 * [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
 * [wagnersouz4](https://github.com/wagnersouz4) for Swift 3.1 update.
+* [paoloq](https://github.com/paoloq) for reporting the CosmoView frame size issue when the view is used without Auto Layout.
 
 
 ## License
