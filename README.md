@@ -183,7 +183,7 @@ We would like to thank the following people for their valuable contributions.
 * [nickhart](https://github.com/nickhart) for adding compatibility with Xcode 6.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
 * [wagnersouz4](https://github.com/wagnersouz4) for Swift 3.1 update.
-* [paoloq](https://github.com/paoloq) for reporting the CosmoView frame size issue when it is used without Auto Layout.
+* [paoloq](https://github.com/paoloq) for reporting the CosmoView frame size issue when the view is used without Auto Layout.
 
 
 ## License
