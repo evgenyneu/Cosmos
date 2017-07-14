@@ -154,10 +154,6 @@ This project includes a demo iOS app.
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating_swift_performance.gif' alt='Using cosmos in a table view' width='250'>
 
 
-## Version 1.2 upgrade guide
-
-Please refer to the [changelog instructions](https://github.com/marketplacer/Cosmos/blob/master/CHANGELOG.md#120-2016-02-20) to upgrade from versions of Cosmos prior to 1.2.
-
 ## Alternative solutions
 
 Here are some other star rating controls for iOS:
