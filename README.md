@@ -135,9 +135,11 @@ cosmosView.settings.emptyBorderColor = UIColor.orange
 cosmosView.settings.filledBorderColor = UIColor.orange
 ```
 
+
+
 ## Supplying images for the stars
 
-One can supply custom images for the stars, both in the Storyboard and from code.
+By default Cosmos draws the stars from array of points. Alternatively, one can supply custom images for the stars, both in the Storyboard and from code.
 
 #### From the Storyboard
 
