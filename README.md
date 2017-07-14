@@ -135,6 +135,25 @@ cosmosView.settings.emptyBorderColor = UIColor.orange
 cosmosView.settings.filledBorderColor = UIColor.orange
 ```
 
+## Supplying images for the stars
+
+One can supply custom images for the stars, both in the Storyboard and from code.
+
+#### From the Storyboard
+
+<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_ios_supplying_images_storyboard.png' width='514' alt='Supplying an image for a star in Xcode.'>
+
+#### From code
+
+```Swift
+// Image for the filled star
+cosmosView.settings.filledImage = UIImage(named: "GoldStarFilled")
+
+// Image for the empty star
+cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
+```
+
+
 ## Using Cosmos in a scroll/table view
 
 [Here](https://github.com/marketplacer/Cosmos/wiki/Using-Cosmos-in-a-scroll-view) is how to use Cosmos in a scroll view or a table view.
