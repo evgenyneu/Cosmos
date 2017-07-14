@@ -137,7 +137,7 @@ cosmosView.settings.filledBorderColor = UIColor.orange
 
 ## Supplying images for the stars
 
-One can supply custom images for the stars, both in the Storyboard and from code.
+One can supply custom images for the stars, both in the Storyboard and from code. A image of a golden star with rounded corners used in the demo app is available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/show-image/graphics/Stars/GoldStar)
 
 #### From the Storyboard
 
@@ -171,6 +171,11 @@ This project includes a demo iOS app.
 #### Using cosmos in a table view
 
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating_swift_performance.gif' alt='Using cosmos in a table view' width='250'>
+
+
+#### Displaying stars from images
+
+<img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_star_rating_from_image.png' alt='Displaying stars from images' width='250'>
 
 
 ## Alternative solutions
