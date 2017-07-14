@@ -25,9 +25,6 @@ class ViewController: UIViewController {
     cosmosViewHalf.didFinishTouchingCosmos = didFinishTouchingCosmos
     cosmosViewPrecise.didFinishTouchingCosmos = didFinishTouchingCosmos
     
-    cosmosViewPrecise.settings.filledImage = UIImage(named: "GoldStarFilled")
-    cosmosViewPrecise.settings.emptyImage = UIImage(named: "GoldStarEmpty")
-    
     ratingSlider.value = startRating
     updateRating()
   }
