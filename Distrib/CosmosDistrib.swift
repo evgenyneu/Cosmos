@@ -684,6 +684,15 @@ public struct CosmosSettings {
   /// The maximum number of stars to be shown.
   public var totalStars = CosmosDefaultSettings.totalStars
   
+  // MARK: - Star image settings
+  // -----------------------------
+  
+  /**
+  
+  Image used for the filled portion of the star. By default the star is drawn from the starPoint array unless an image is supplied.
+  
+  */
+  public var filledImage: UIImage? = nil
   
   // MARK: - Text settings
   // -----------------------------
@@ -1265,6 +1274,12 @@ Shows: ★★★★☆ (123)
   @IBInspectable var minTouchRating: Double = CosmosDefaultSettings.minTouchRating {
     didSet {
       settings.minTouchRating = minTouchRating
+    }
+  }
+  
+  @IBInspectable var filledImage: UIImage? {
+    didSet {
+      settings.filledImage = filledImage
     }
   }
   

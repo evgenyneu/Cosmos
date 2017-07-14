@@ -249,6 +249,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -344,6 +345,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GoldStar" width="181" height="175"/>
         <image name="launch_screen.png" width="1603" height="1347"/>
     </resources>
 </document>
