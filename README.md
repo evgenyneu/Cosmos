@@ -141,11 +141,11 @@ cosmosView.settings.filledBorderColor = UIColor.orange
 
 By default, Cosmos draws the stars from an array of points. Alternatively, one can supply custom images for the stars, both in the Storyboard and from code.
 
-#### From the Storyboard
+#### Using star images from the Storyboard
 
 <img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_ios_supplying_images_storyboard.png' width='514' alt='Supplying an image for a star in Xcode.'>
 
-#### From code
+#### Using star images from code
 
 ```Swift
 // Set image for the filled star
@@ -156,7 +156,7 @@ cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
 ```
 
 
-#### Star image file
+#### Download star image file
 
 Images for the golden star with rounded corners used in the demo app are available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/show-image/graphics/Stars/GoldStar).
 
