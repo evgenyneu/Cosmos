@@ -139,7 +139,7 @@ cosmosView.settings.filledBorderColor = UIColor.orange
 
 ## Supplying images for the stars
 
-By default Cosmos draws the stars from array of points. Alternatively, one can supply custom images for the stars, both in the Storyboard and from code.
+By default, Cosmos draws the stars from array of points. Alternatively, one can supply custom images for the stars, both in the Storyboard and from code.
 
 #### From the Storyboard
 
@@ -158,7 +158,7 @@ cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
 
 #### Star image file
 
-A image of a golden star with rounded corners used in the demo app is available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/show-image/graphics/Stars/GoldStar). Feel free to use it in your app.
+Images of for the golden star with rounded corners used in the demo app are available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/show-image/graphics/Stars/GoldStar).
 
 <img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_star_rating_from_image.png' alt='Displaying stars from images' width='350'>
 
