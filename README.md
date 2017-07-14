@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/Cosmos.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/Cosmos.svg?style=flat)](http://cocoadocs.org/docsets/Cosmos)
 
-<img src='https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/cosmos_star_rating_control_for_ios_swift.png' alt='Cosmos, star rating control for iOS / Swift' width='300'> <img src='https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/cosmos_star_rating_from_image.png' alt='Displaying stars from images' width='300'>
+<img src='https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/cosmos_star_rating_control_for_ios_swift.png' alt='Cosmos, star rating control for iOS / Swift' width='300'>
 
 This is a UI control for iOS and tvOS written in Swift. It shows a star rating and takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users post those inescapable 1-star reviews!
 
