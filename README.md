@@ -156,9 +156,9 @@ cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
 
 #### Star image file source
 
-A image of a golden star with rounded corners used in the demo app is available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/show-image/graphics/Stars/GoldStar)
+A image of a golden star with rounded corners used in the demo app is available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/show-image/graphics/Stars/GoldStar). Feel free to use it in your app.
 
-<img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_star_rating_from_image.png' alt='Displaying stars from images' width='400'>
+<img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_star_rating_from_image.png' alt='Displaying stars from images' width='350'>
 
 
 ## Using Cosmos in a scroll/table view
