@@ -57,10 +57,17 @@ public struct CosmosSettings {
   
   /**
   
-  Image used for the filled portion of the star. By default the star is drawn from the starPoint array unless an image is supplied.
+  Image used for the filled portion of the star. By default the star is drawn from the array of points unless an image is supplied.
   
   */
   public var filledImage: UIImage? = nil
+  
+  /**
+   
+   Image used for the empty portion of the star. By default the star is drawn from the array of points unless an image is supplied.
+   
+   */
+  public var emptyImage: UIImage? = nil
   
   // MARK: - Text settings
   // -----------------------------
