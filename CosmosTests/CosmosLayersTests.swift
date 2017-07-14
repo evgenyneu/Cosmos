@@ -228,4 +228,117 @@ class CosmosLayersTests: XCTestCase {
     // Order is left-to-right, the fourth star from the end is partial - contains two layers
     XCTAssertEqual(2, result[96].sublayers!.count)
   }
+  
+  // MARK: - Create star layers with images
+  
+  func testCreateStarLayers_filledImage() {
+    var settings = CosmosSettings()
+    settings.fillMode = .precise
+    settings.starSize = 17
+    settings.starMargin = 5
+    settings.filledImage = CosmosTest.uiImageFromFile("35px.jpg")
+    
+    let result = CosmosLayers.createStarLayers(3.7, settings: settings, isRightToLeft: false)
+
+    
+    // First star
+    // --------
+
+    // The first star is filled - contains one layer with star from an image
+    var starLayer = result[0]
+    XCTAssertEqual(1, starLayer.sublayers?.count)
+    
+    // The image layer should contain one sublayer that shows the image
+    var starImage = starLayer.sublayers?[0]
+    let image = starImage!.contents as! CGImage
+    
+    // Check the image is shown
+    XCTAssertEqual(35, image.width)
+    
+    
+    // Last star
+    // --------
+    
+    // The last star is empty - contains one layer with drawn star
+    starLayer = result[4]
+    XCTAssertEqual(1, starLayer.sublayers?.count)
+    
+    // The image layer should contain one sublayer that draws the image
+    starImage = starLayer.sublayers?[0]
+    XCTAssertNil(starImage!.contents)
+    XCTAssert(starImage is CAShapeLayer)
+  }
+  
+  func testCreateStarLayers_emptyImage() {
+    var settings = CosmosSettings()
+    settings.fillMode = .precise
+    settings.starSize = 17
+    settings.starMargin = 5
+    settings.emptyImage = CosmosTest.uiImageFromFile("67px.png")
+    
+    let result = CosmosLayers.createStarLayers(3.7, settings: settings, isRightToLeft: false)
+    
+    
+    // First star
+    // --------
+    
+    // The first star is filled - contains one layer that draws the image
+    var starLayer = result[0]
+    XCTAssertEqual(1, starLayer.sublayers?.count)
+    
+    // The image layer should contain one sublayer that shows the image
+    var starImage = starLayer.sublayers?[0]
+    XCTAssertNil(starImage!.contents)
+    XCTAssert(starImage is CAShapeLayer)
+    
+    
+    // Last star
+    // --------
+    
+    // The last star is empty - contains one layer
+    starLayer = result[4]
+    XCTAssertEqual(1, starLayer.sublayers?.count)
+  
+    // The image layer should contain one sublayer that shows the image
+    starImage = starLayer.sublayers?[0]
+    let image = starImage!.contents as! CGImage
+    
+    // Check the image is shown
+    XCTAssertEqual(67, image.width)
+  }
+  
+  func testCreateStarLayers_drawStarIfImageIsNotSpecified() {
+    var settings = CosmosSettings()
+    settings.fillMode = .precise
+    settings.starSize = 17
+    settings.starMargin = 5
+    
+    let result = CosmosLayers.createStarLayers(3.7, settings: settings, isRightToLeft: false)
+    
+    
+    // Filled star
+    // --------
+
+    // The first star is filled - contains one layer
+    let firstStar = result[0]
+    XCTAssertEqual(1, firstStar.sublayers?.count)
+    
+    // The image layer should contain one sublayer that draws the image
+    let firstStarImage = firstStar.sublayers?[0]
+    XCTAssertNil(firstStarImage!.contents)
+    XCTAssert(firstStarImage is CAShapeLayer)
+    
+    
+    // Empty star
+    // --------
+    
+    // The last star is empty - contains one layer
+    let lastStar = result[4]
+    XCTAssertEqual(1, lastStar.sublayers?.count)
+    
+    // The image layer should contain one sublayer that draws the image
+    let lastStarImage = lastStar.sublayers?[0]
+    XCTAssertNil(lastStarImage!.contents)
+    XCTAssert(lastStarImage is CAShapeLayer)
+  }
 }

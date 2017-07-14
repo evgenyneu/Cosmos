@@ -58,6 +58,10 @@
 		7E646DC11C04440B00048339 /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECB1B37BB700090D81B /* StarFillMode.swift */; };
 		7E646DC21C04440B00048339 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622ECC1B37BB700090D81B /* StarLayer.swift */; };
 		7E646DC41C04441400048339 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622EDE1B37BB850090D81B /* CosmosTouchTarget.swift */; };
+		7EE20BE61F18AEEF00D1ECD3 /* CosmosTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE20BE51F18AEEF00D1ECD3 /* CosmosTest.swift */; };
+		7EE20BED1F18AFD600D1ECD3 /* 35px.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EE20BEA1F18AFD600D1ECD3 /* 35px.jpg */; };
+		7EE20BEE1F18AFD600D1ECD3 /* 67px.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE20BEB1F18AFD600D1ECD3 /* 67px.png */; };
+		7EE20BEF1F18AFD600D1ECD3 /* 96px.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE20BEC1F18AFD600D1ECD3 /* 96px.png */; };
 		7EE7F1E11E33254800995862 /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE7F1E01E33254800995862 /* RightToLeft.swift */; };
 		7EE834C11B9D0270007BFDD2 /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */; };
 		7EF4F8251D91E97F00799197 /* CosmosSettingsObjCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */; };
@@ -136,6 +140,10 @@
 		7E646DAE1C04438B00048339 /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E646DB01C04438B00048339 /* Cosmos-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cosmos-tvOS.h"; sourceTree = "<group>"; };
 		7E646DB21C04438B00048339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EE20BE51F18AEEF00D1ECD3 /* CosmosTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTest.swift; sourceTree = "<group>"; };
+		7EE20BEA1F18AFD600D1ECD3 /* 35px.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 35px.jpg; sourceTree = "<group>"; };
+		7EE20BEB1F18AFD600D1ECD3 /* 67px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 67px.png; sourceTree = "<group>"; };
+		7EE20BEC1F18AFD600D1ECD3 /* 96px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 96px.png; sourceTree = "<group>"; };
 		7EE7F1E01E33254800995862 /* RightToLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeft.swift; sourceTree = "<group>"; };
 		7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosAccessibility.swift; sourceTree = "<group>"; };
 		7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettingsObjCBridge.swift; sourceTree = "<group>"; };
@@ -225,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				2B622EE01B37BBB20090D81B /* Helpers */,
+				7EE20BE91F18AFA200D1ECD3 /* Images */,
 				2B622EE11B37BBBA0090D81B /* TestHelpers */,
 				7E089C6B1B9CF6AE00F11623 /* CosmosAccessibilityTests.swift */,
 				7E0C39691BF0072C006AB7AE /* CosmosAccessibilityCallbacksTests.swift */,
@@ -250,6 +259,7 @@
 		2B622EE01B37BBB20090D81B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7EE20BE51F18AEEF00D1ECD3 /* CosmosTest.swift */,
 				2B622EE21B37BBC20090D81B /* CosmosTouchTargetTests.swift */,
 			);
 			path = Helpers;
@@ -303,6 +313,16 @@
 				7E646DB21C04438B00048339 /* Info.plist */,
 			);
 			path = "Cosmos-tvOS";
+			sourceTree = "<group>";
+		};
+		7EE20BE91F18AFA200D1ECD3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7EE20BEA1F18AFD600D1ECD3 /* 35px.jpg */,
+				7EE20BEB1F18AFD600D1ECD3 /* 67px.png */,
+				7EE20BEC1F18AFD600D1ECD3 /* 96px.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +501,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE20BEF1F18AFD600D1ECD3 /* 96px.png in Resources */,
+				7EE20BEE1F18AFD600D1ECD3 /* 67px.png in Resources */,
+				7EE20BED1F18AFD600D1ECD3 /* 35px.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +561,7 @@
 				2B622EEA1B37BBD10090D81B /* CosmosLayersTests.swift in Sources */,
 				2BC473551B9D3F4900BDF89F /* CosmosLocalizedRatingTests.swift in Sources */,
 				2B622EEB1B37BBD10090D81B /* CosmosTouchTests.swift in Sources */,
+				7EE20BE61F18AEEF00D1ECD3 /* CosmosTest.swift in Sources */,
 				7E089C6E1B9CF7AC00F11623 /* CosmosRatingTests.swift in Sources */,
 				2B622EE51B37BBC60090D81B /* Round.swift in Sources */,
 			);
