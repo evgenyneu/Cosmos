@@ -1,6 +1,11 @@
 # Cosmos version history
 
 
+## 11.0.0 (2017-07-14)
+
+* Added ability to specify images for the stars.
+
+
 ## 10.0.0 (2017-06-07)
 
 * Automatically resize the frame of the CosmosView to include the starts when it is used without Auto Layout. Thanks to [paoloq](https://github.com/paoloq) for reporting the issue and suggesting a solution.

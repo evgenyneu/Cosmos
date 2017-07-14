@@ -393,6 +393,18 @@ Shows: ★★★★☆ (123)
     }
   }
   
+  @IBInspectable var filledImage: UIImage? {
+    didSet {
+      settings.filledImage = filledImage
+    }
+  }
+  
+  @IBInspectable var emptyImage: UIImage? {
+    didSet {
+      settings.emptyImage = emptyImage
+    }
+  }
+  
   /// Draw the stars in interface buidler
   open override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()

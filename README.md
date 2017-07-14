@@ -33,7 +33,7 @@ Simply add [CosmosDistrib.swift](https://github.com/marketplacer/Cosmos/blob/mas
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/Cosmos" ~> 10.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/Cosmos" ~> 11.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -41,7 +41,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 10.0'
+    pod 'Cosmos', '~> 11.0'
 
 #### Swift 4.0 / Xcode 9.0 beta version
 
@@ -135,6 +135,34 @@ cosmosView.settings.emptyBorderColor = UIColor.orange
 cosmosView.settings.filledBorderColor = UIColor.orange
 ```
 
+
+
+## Supplying images for the stars
+
+By default, Cosmos draws the stars from an array of points. Alternatively, one can supply custom images for the stars, both in the Storyboard and from code.
+
+#### Using star images from the Storyboard
+
+<img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_ios_supplying_images_storyboard.png' width='514' alt='Supplying an image for a star in Xcode.'>
+
+#### Using star images from code
+
+```Swift
+// Set image for the filled star
+cosmosView.settings.filledImage = UIImage(named: "GoldStarFilled")
+
+// Set image for the empty star
+cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
+```
+
+
+#### Download star image files
+
+Images for the golden star with rounded corners used in the demo app are available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/show-image/graphics/Stars/GoldStar).
+
+<img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_star_rating_from_image.png' alt='Displaying stars from images' width='350'>
+
+
 ## Using Cosmos in a scroll/table view
 
 [Here](https://github.com/marketplacer/Cosmos/wiki/Using-Cosmos-in-a-scroll-view) is how to use Cosmos in a scroll view or a table view.
@@ -152,6 +180,7 @@ This project includes a demo iOS app.
 #### Using cosmos in a table view
 
 <img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_star_rating_swift_performance.gif' alt='Using cosmos in a table view' width='250'>
+
 
 
 ## Alternative solutions

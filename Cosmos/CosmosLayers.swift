@@ -94,13 +94,20 @@ class CosmosLayers {
       filledStar.transform = CATransform3DTranslate(rotation, -filledStar.bounds.size.width, 0, 0)
     }
     
-    // make filled layer width smaller according to the fill level.
+    // Make filled layer width smaller according to the fill level
     filledStar.bounds.size.width *= CGFloat(starFillLevel)
 
     return parentLayer
   }
 
   private class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings) -> CALayer {
+    if let image = isFilled ? settings.filledImage : settings.emptyImage {
+      // Create a layer that shows a star from an image
+      return StarLayer.create(image: image, size: settings.starSize)
+    }
+    
+    // Create a layer that draws a star from an array of points
+    
     let fillColor = isFilled ? settings.filledColor : settings.emptyColor
     let strokeColor = isFilled ? settings.filledBorderColor : settings.emptyBorderColor
 

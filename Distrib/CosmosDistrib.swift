@@ -364,13 +364,20 @@ class CosmosLayers {
       filledStar.transform = CATransform3DTranslate(rotation, -filledStar.bounds.size.width, 0, 0)
     }
     
-    // make filled layer width smaller according to the fill level.
+    // Make filled layer width smaller according to the fill level
     filledStar.bounds.size.width *= CGFloat(starFillLevel)
 
     return parentLayer
   }
 
   private class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings) -> CALayer {
+    if let image = isFilled ? settings.filledImage : settings.emptyImage {
+      // Create a layer that shows a star from an image
+      return StarLayer.create(image: image, size: settings.starSize)
+    }
+    
+    // Create a layer that draws a star from an array of points
+    
     let fillColor = isFilled ? settings.filledColor : settings.emptyColor
     let strokeColor = isFilled ? settings.filledBorderColor : settings.emptyBorderColor
 
@@ -684,6 +691,22 @@ public struct CosmosSettings {
   /// The maximum number of stars to be shown.
   public var totalStars = CosmosDefaultSettings.totalStars
   
+  // MARK: - Star image settings
+  // -----------------------------
+  
+  /**
+  
+  Image used for the filled portion of the star. By default the star is drawn from the array of points unless an image is supplied.
+  
+  */
+  public var filledImage: UIImage? = nil
+  
+  /**
+   
+   Image used for the empty portion of the star. By default the star is drawn from the array of points unless an image is supplied.
+   
+   */
+  public var emptyImage: UIImage? = nil
   
   // MARK: - Text settings
   // -----------------------------
@@ -1268,6 +1291,18 @@ Shows: ★★★★☆ (123)
     }
   }
   
+  @IBInspectable var filledImage: UIImage? {
+    didSet {
+      settings.filledImage = filledImage
+    }
+  }
+  
+  @IBInspectable var emptyImage: UIImage? {
+    didSet {
+      settings.emptyImage = emptyImage
+    }
+  }
+  
   /// Draw the stars in interface buidler
   open override func prepareForInterfaceBuilder() {
     super.prepareForInterfaceBuilder()
@@ -1400,6 +1435,26 @@ struct StarLayer {
       fillColor: fillColor, strokeColor: strokeColor, size: size)
       
     containerLayer.addSublayer(shapeLayer)
+    
+    return containerLayer
+  }
+
+  /**
+
+  Creates the star layer from an image
+
+  - parameter image: a star image to be shown.
+
+  - parameter size: The width and height of the layer. The image is scaled to fit the layer.
+
+  */
+  static func create(image: UIImage, size: Double) -> CALayer {
+    let containerLayer = createContainerLayer(size)
+    let imageLayer = createContainerLayer(size)
+
+    containerLayer.addSublayer(imageLayer)
+    imageLayer.contents = image.cgImage
+    imageLayer.contentsGravity = kCAGravityResizeAspect
     
     return containerLayer
   }
