@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
                    DESC
   s.authors     = { "Evgenii Neumerzhitckii" => "sausageskin@gmail.com" }
   s.source      = { :git => "https://github.com/evgenyneu/Cosmos.git", :tag => s.version }
-  s.screenshots  = "https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/star_screenshot_dark.png"
+  s.screenshots  = "https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Screenshots/cosmos_star_rating_control_for_ios_swift_in_space.png"
   s.source_files = "Cosmos/**/*.swift"
   s.ios.deployment_target = "8.0"
   s.tvos.deployment_target = "9.0"
