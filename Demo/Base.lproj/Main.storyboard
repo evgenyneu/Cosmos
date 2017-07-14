@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="00b-He-Ncz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="00b-He-Ncz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -181,6 +181,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="nuy-Pp-5E9">
                         <barButtonItem key="backBarButtonItem" title=" " id="4vy-d6-Uae"/>
+                        <barButtonItem key="leftBarButtonItem" title="Image" id="X6W-Yi-qQg">
+                            <connections>
+                                <segue destination="iUp-WR-PZX" kind="show" id="bsO-P7-IWv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Performance" id="3eY-8F-icO">
                             <connections>
                                 <segue destination="eZf-L0-MOw" kind="show" id="faN-Hy-6tU"/>
@@ -198,6 +203,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkW-fN-ofA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="945" y="312"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nlT-JK-Akw">
+            <objects>
+                <viewController id="iUp-WR-PZX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pak-4d-cv2"/>
+                        <viewControllerLayoutGuide type="bottom" id="fBy-e5-5Uh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mds-Ba-Toz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vW1-jH-1bu" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="41" y="297" width="293" height="53"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="0.7280883789" green="0.74664461609999999" blue="0.99924099450000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" red="0.7280883789" green="0.74664461609999999" blue="0.99924099450000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" red="0.7280883789" green="0.74664461609999999" blue="0.99924099450000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStarFilled"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="GoldStarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="53"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.039215686270000001" green="0.039215686270000001" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vW1-jH-1bu" firstAttribute="centerY" secondItem="Mds-Ba-Toz" secondAttribute="centerY" constant="-10" id="gwu-W4-LAq"/>
+                            <constraint firstItem="vW1-jH-1bu" firstAttribute="centerX" secondItem="Mds-Ba-Toz" secondAttribute="centerX" id="vhx-Od-lId"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TLd-27-aLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="1010"/>
         </scene>
         <!--Performance Table View Controller-->
         <scene sceneID="kaj-rJ-DsL">
@@ -280,6 +346,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GoldStarEmpty" width="53" height="51"/>
+        <image name="GoldStarFilled" width="53" height="51"/>
         <image name="launch_screen.png" width="1603" height="1347"/>
     </resources>
 </document>

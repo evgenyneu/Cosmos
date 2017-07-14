@@ -36,6 +36,26 @@ struct StarLayer {
     
     return containerLayer
   }
+
+  /**
+
+  Creates the star layer from an image
+
+  - parameter image: a star image to be shown.
+
+  - parameter size: The width and height of the layer. The image is scaled to fit the layer.
+
+  */
+  static func create(image: UIImage, size: Double) -> CALayer {
+    let containerLayer = createContainerLayer(size)
+    let imageLayer = createContainerLayer(size)
+
+    containerLayer.addSublayer(imageLayer)
+    imageLayer.contents = image.cgImage
+    imageLayer.contentsGravity = kCAGravityResizeAspect
+    
+    return containerLayer
+  }
   
   /**
   
