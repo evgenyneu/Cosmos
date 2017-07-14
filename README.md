@@ -146,10 +146,10 @@ One can supply custom images for the stars, both in the Storyboard and from code
 #### From code
 
 ```Swift
-// Image for the filled star
+// Set image for the filled star
 cosmosView.settings.filledImage = UIImage(named: "GoldStarFilled")
 
-// Image for the empty star
+// Set image for the empty star
 cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
 ```
 
