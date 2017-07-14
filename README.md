@@ -141,7 +141,7 @@ One can supply custom images for the stars, both in the Storyboard and from code
 
 #### From the Storyboard
 
-<img src='https://raw.githubusercontent.com/marketplacer/Cosmos/master/graphics/Screenshots/cosmos_ios_supplying_images_storyboard.png' width='514' alt='Supplying an image for a star in Xcode.'>
+<img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_ios_supplying_images_storyboard.png' width='514' alt='Supplying an image for a star in Xcode.'>
 
 #### From code
 
