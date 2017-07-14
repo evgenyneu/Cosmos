@@ -143,7 +143,7 @@ By default, Cosmos draws the stars from an array of points. Alternatively, one c
 
 #### Using star images from the Storyboard
 
-<img src='https://github.com/evgenyneu/Cosmos/raw/show-image/graphics/Screenshots/cosmos_ios_supplying_images_storyboard.png' width='514' alt='Supplying an image for a star in Xcode.'>
+<img src='https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/cosmos_ios_supplying_images_storyboard.png' width='514' alt='Supplying an image for a star in Xcode.'>
 
 #### Using star images from code
 
