@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/Cosmos.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/Cosmos.svg?style=flat)](http://cocoadocs.org/docsets/Cosmos)
 
-<img src='https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Screenshots/star_screenshot_dark.png' alt='Cosmos, star rating control for iOS / Swift' width='300'>
+<img src='https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/cosmos_star_rating_control_for_ios_swift_space.png' alt='Cosmos, star rating control for iOS / Swift' width='350'>
 
 This is a UI control for iOS and tvOS written in Swift. It shows a star rating and takes rating input from the user. Cosmos is a subclass of a UIView that will allow your users post those inescapable 1-star reviews!
 
@@ -158,9 +158,7 @@ cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
 
 #### Download star image files
 
-Images for the golden star used in the demo app are available in [Sketch and PNG formats](https://github.com/evgenyneu/Cosmos/tree/master/graphics/Stars/GoldStar). Contributions for other star images are very welcome: add vector images to `/graphics/Stars/` directory and submit a pull request.
-
-<img src='https://github.com/evgenyneu/Cosmos/raw/master/graphics/Screenshots/cosmos_star_rating_from_image.png' alt='Displaying stars from images' width='350'>
+Images for the golden star used in the demo app are available in [here](https://github.com/evgenyneu/Cosmos/tree/master/graphics/Stars/GoldStar). Contributions for other star images are very welcome: add vector images to `/graphics/Stars/` directory and submit a pull request.
 
 
 ## Using Cosmos in a scroll/table view
