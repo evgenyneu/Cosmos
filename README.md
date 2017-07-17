@@ -83,7 +83,7 @@ Setup a [previous version](https://github.com/evgenyneu/Cosmos/wiki/Legacy-Swift
 
 ## Positioning the Cosmos view
 
-One can position the Cosmos view using Auto Layout constaints. The width and height of the view is determined automatically based on the size of its content -- stars and text. Therefore, there is no need to set width/height constaints on the Cosmos view.
+One can position the Cosmos view using Auto Layout constaints. The width and height of the view is determined automatically based on the size of its content - stars and text. Therefore, there is no need to set width/height constaints on the Cosmos view.
 
 ## Using Cosmos in code
 
