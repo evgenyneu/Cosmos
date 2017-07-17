@@ -81,6 +81,9 @@ Setup a [previous version](https://github.com/evgenyneu/Cosmos/wiki/Legacy-Swift
 
 *Note*: Carthage setup method does not allow to customize Cosmos view from the storyboard, please do it from code instead.
 
+## Positioning the Cosmos view
+
+One can position the Cosmos view using Auto Layout constaints. Note that the width and height of the view is determined by the size of the stars and text. Therefore, there is no need to set width/height constaints on the Cosmos view.
 
 ## Using Cosmos in code
 
