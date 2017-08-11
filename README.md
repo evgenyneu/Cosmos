@@ -157,7 +157,7 @@ cosmosView.settings.filledImage = UIImage(named: "GoldStarFilled")
 // Set image for the empty star
 cosmosView.settings.emptyImage = UIImage(named: "GoldStarEmpty")
 ```
-Note: you need to have the images for the filled and empty star in your project for the above mentioned code to work.
+Note: you need to have the images for the filled and empty star in your project for this code to work.
 
 #### Download star image files
 
