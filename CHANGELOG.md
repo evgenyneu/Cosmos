@@ -1,6 +1,11 @@
 # Cosmos version history
 
 
+## 12.0.0 (2017-09-23)
+
+* Update for Swift 4.0 and Xcode 9.0.
+
+
 ## 11.0.0 (2017-07-14)
 
 * Added ability to specify images for the stars.

@@ -33,7 +33,7 @@ Simply add [CosmosDistrib.swift](https://github.com/evgenyneu/Cosmos/blob/master
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/Cosmos" ~> 11.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/Cosmos" ~> 12.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -41,15 +41,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 11.0'
-
-#### Swift 4.0 / Xcode 9.0 beta version
-
-*Branch:* swift-4.0
-
-* *File:* [CosmosDistrib.swift](https://github.com/evgenyneu/Cosmos/blob/swift-4.0/Distrib/CosmosDistrib.swift)
-* *Carthage:* `github "evgenyneu/Cosmos" "swift-4.0"`
-* *CocoaPods:* `pod 'Cosmos', :git => 'https://github.com/evgenyneu/Cosmos.git', :branch => 'swift-4.0'`
+    pod 'Cosmos', '~> 12.0'
 
 
 #### Legacy Swift versions
