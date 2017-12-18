@@ -9,6 +9,198 @@
 
 // ----------------------------
 //
+// StarFillMode.swift
+//
+// ----------------------------
+
+import Foundation
+
+/**
+
+Defines how the star is filled when the rating is not an integer number. For example, if rating is 4.6 and the fill more is Half, the star will appear to be half filled.
+
+*/
+public enum StarFillMode: Int {
+  /// Show only fully filled stars. For example, fourth star will be empty for 3.2.
+  case full = 0
+  
+  /// Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6.
+  case half = 1
+  
+  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2.
+  case precise = 2
+}
+
+
+// ----------------------------
+//
+// StarLayer.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Creates a layer with a single star in it.
+
+*/
+struct StarLayer {
+  /**
+  
+  Creates a square layer with given size and draws the star shape in it.
+  
+  - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.
+  
+  - parameter size: The width and height of the layer. The star shape is scaled to fill the size of the layer.
+  
+  - parameter lineWidth: The width of the star stroke.
+  
+  - parameter fillColor: Star shape fill color. Fill color is invisible if it is a clear color.
+  
+  - parameter strokeColor: Star shape stroke color. Stroke is invisible if it is a clear color.
+  
+  - returns: New layer containing the star shape.
+  
+  */
+  static func create(_ starPoints: [CGPoint], size: Double,
+    lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
+      
+    let containerLayer = createContainerLayer(size)
+    let path = createStarPath(starPoints, size: size, lineWidth: lineWidth)
+      
+    let shapeLayer = createShapeLayer(path.cgPath, lineWidth: lineWidth,
+      fillColor: fillColor, strokeColor: strokeColor, size: size)
+      
+    containerLayer.addSublayer(shapeLayer)
+    
+    return containerLayer
+  }
+
+  /**
+
+  Creates the star layer from an image
+
+  - parameter image: a star image to be shown.
+
+  - parameter size: The width and height of the layer. The image is scaled to fit the layer.
+
+  */
+  static func create(image: UIImage, size: Double) -> CALayer {
+    let containerLayer = createContainerLayer(size)
+    let imageLayer = createContainerLayer(size)
+
+    containerLayer.addSublayer(imageLayer)
+    imageLayer.contents = image.cgImage
+    imageLayer.contentsGravity = kCAGravityResizeAspect
+    
+    return containerLayer
+  }
+  
+  /**
+  
+  Creates the star shape layer.
+  
+  - parameter path: The star shape path.
+  
+  - parameter lineWidth: The width of the star stroke.
+  
+  - parameter fillColor: Star shape fill color. Fill color is invisible if it is a clear color.
+  
+  - parameter strokeColor: Star shape stroke color. Stroke is invisible if it is a clear color.
+  
+  - returns: New shape layer.
+  
+  */
+  static func createShapeLayer(_ path: CGPath, lineWidth: Double, fillColor: UIColor,
+    strokeColor: UIColor, size: Double) -> CALayer {
+      
+    let layer = CAShapeLayer()
+    layer.anchorPoint = CGPoint()
+    layer.contentsScale = UIScreen.main.scale
+    layer.strokeColor = strokeColor.cgColor
+    layer.fillColor = fillColor.cgColor
+    layer.lineWidth = CGFloat(lineWidth)
+    layer.bounds.size = CGSize(width: size, height: size)
+    layer.masksToBounds = true
+    layer.path = path
+    layer.isOpaque = true
+    return layer
+  }
+  
+  /**
+  
+  Creates a layer that will contain the shape layer.
+  
+  - returns: New container layer.
+  
+  */
+  static func createContainerLayer(_ size: Double) -> CALayer {
+    let layer = CALayer()
+    layer.contentsScale = UIScreen.main.scale
+    layer.anchorPoint = CGPoint()
+    layer.masksToBounds = true
+    layer.bounds.size = CGSize(width: size, height: size)
+    layer.isOpaque = true
+    return layer
+  }
+  
+  /**
+  
+  Creates a path for the given star points and size. The star points specify a shape of size 100 by 100. The star shape will be scaled if the size parameter is not 100. For exampe, if size parameter is 200 the shape will be scaled by 2.
+  
+  - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.
+  
+  - parameter size: Specifies the size of the shape to return.
+  
+  - returns: New shape path.
+  
+  */
+  static func createStarPath(_ starPoints: [CGPoint], size: Double,
+                             lineWidth: Double) -> UIBezierPath {
+    
+    let lineWidthLocal = lineWidth + ceil(lineWidth * 0.3)
+    let sizeWithoutLineWidth = size - lineWidthLocal * 2
+    
+    let points = scaleStar(starPoints, factor: sizeWithoutLineWidth / 100,
+                           lineWidth: lineWidthLocal)
+    
+    let path = UIBezierPath()
+    path.move(to: points[0])
+    let remainingPoints = Array(points[1..<points.count])
+    
+    for point in remainingPoints {
+      path.addLine(to: point)
+    }
+    
+    path.close()
+    return path
+  }
+  
+  /**
+  
+  Scale the star points by the given factor.
+  
+  - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.  
+  
+  - parameter factor: The factor by which the star points are scaled. For example, if it is 0.5 the output points will define the shape twice as small as the original.
+  
+  - returns: The scaled shape.
+  
+  */
+  static func scaleStar(_ starPoints: [CGPoint], factor: Double, lineWidth: Double) -> [CGPoint] {
+    return starPoints.map { point in
+      return CGPoint(
+        x: point.x * CGFloat(factor) + CGFloat(lineWidth),
+        y: point.y * CGFloat(factor) + CGFloat(lineWidth)
+      )
+    }
+  }
+}
+
+
+// ----------------------------
+//
 // CosmosAccessibility.swift
 //
 // ----------------------------
@@ -109,6 +301,39 @@ struct CosmosAccessibility {
     if rating <= settings.minTouchRating { increment = 0 }
     
     return increment
+  }
+}
+
+
+// ----------------------------
+//
+// CosmosText.swift
+//
+// ----------------------------
+
+
+
+import UIKit
+
+/**
+
+Positions the text layer to the right of the stars.
+
+*/
+class CosmosText {
+  /**
+  
+  Positions the text layer to the right from the stars. Text is aligned to the center of the star superview vertically.
+  
+  - parameter layer: The text layer to be positioned.
+  - parameter starsSize: The size of the star superview.
+  - parameter textMargin: The distance between the stars and the text.
+  
+  */
+  class func position(_ layer: CALayer, starsSize: CGSize, textMargin: Double) {
+    layer.position.x = starsSize.width + CGFloat(textMargin)
+    let yOffset = (starsSize.height - layer.bounds.height) / 2
+    layer.position.y = yOffset
   }
 }
 
@@ -225,39 +450,37 @@ struct CosmosDefaultSettings {
 
 // ----------------------------
 //
-// CosmosLayerHelper.swift
+// CosmosSize.swift
 //
 // ----------------------------
 
 import UIKit
 
-/// Helper class for creating CALayer objects.
-class CosmosLayerHelper {
-  /**
+/**
 
-  Creates a text layer for the given text string and font.
+Helper class for calculating size for the cosmos view.
+
+*/
+class CosmosSize {
+  /**
   
-  - parameter text: The text shown in the layer.
-  - parameter font: The text font. It is also used to calculate the layer bounds.
-  - parameter color: Text color.
-  
-  - returns: New text layer.
+  Calculates the size of the cosmos view. It goes through all the star and text layers and makes size the view size is large enough to show all of them.
   
   */
-  class func createTextLayer(_ text: String, font: UIFont, color: UIColor) -> CATextLayer {
-    let size = NSString(string: text).size(withAttributes: [NSAttributedStringKey.font: font])
+  class func calculateSizeToFitLayers(_ layers: [CALayer]) -> CGSize {
+    var size = CGSize()
     
-    let layer = CATextLayer()
-    layer.bounds = CGRect(origin: CGPoint(), size: size)
-    layer.anchorPoint = CGPoint()
+    for layer in layers {
+      if layer.frame.maxX > size.width {
+        size.width = layer.frame.maxX
+      }
+      
+      if layer.frame.maxY > size.height {
+        size.height = layer.frame.maxY
+      }
+    }
     
-    layer.string = text
-    layer.font = CGFont(font.fontName as CFString)
-    layer.fontSize = font.pointSize
-    layer.foregroundColor = color.cgColor
-    layer.contentsScale = UIScreen.main.scale
-    
-    return layer
+    return size
   }
 }
 
@@ -527,6 +750,133 @@ struct CosmosLocalizedRating {
 
 // ----------------------------
 //
+// CosmosLayerHelper.swift
+//
+// ----------------------------
+
+import UIKit
+
+/// Helper class for creating CALayer objects.
+class CosmosLayerHelper {
+  /**
+
+  Creates a text layer for the given text string and font.
+  
+  - parameter text: The text shown in the layer.
+  - parameter font: The text font. It is also used to calculate the layer bounds.
+  - parameter color: Text color.
+  
+  - returns: New text layer.
+  
+  */
+  class func createTextLayer(_ text: String, font: UIFont, color: UIColor) -> CATextLayer {
+    let size = NSString(string: text).size(withAttributes: [NSAttributedStringKey.font: font])
+    
+    let layer = CATextLayer()
+    layer.bounds = CGRect(origin: CGPoint(), size: size)
+    layer.anchorPoint = CGPoint()
+    
+    layer.string = text
+    layer.font = CGFont(font.fontName as CFString)
+    layer.fontSize = font.pointSize
+    layer.foregroundColor = color.cgColor
+    layer.contentsScale = UIScreen.main.scale
+    
+    return layer
+  }
+}
+
+
+// ----------------------------
+//
+// CosmosTouch.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Functions for working with touch input.
+
+*/
+struct CosmosTouch {
+  /**
+  
+  Calculates the rating based on the touch location.
+  
+  - parameter position: The horizontal location of the touch relative to the width of the stars.
+   
+  - returns: The rating representing the touch location.
+  
+  */
+  static func touchRating(_ position: CGFloat, settings: CosmosSettings) -> Double {
+    var rating = preciseRating(
+      position: Double(position),
+      numberOfStars: settings.totalStars,
+      starSize: settings.starSize,
+      starMargin: settings.starMargin)
+    
+    if settings.fillMode == .half {
+      rating += 0.20
+    }
+    
+    if settings.fillMode == .full {
+      rating += 0.45
+    }
+    
+    rating = CosmosRating.displayedRatingFromPreciseRating(rating,
+      fillMode: settings.fillMode, totalStars: settings.totalStars)
+    
+    rating = max(settings.minTouchRating, rating) // Can't be less than min rating
+        
+    return rating
+  }
+  
+  
+  /**
+   
+  Returns the precise rating based on the touch position.
+   
+  - parameter position: The horizontal location of the touch relative to the width of the stars.
+  - parameter numberOfStars: Total number of stars, filled and full.
+  - parameter starSize: The width of a star.
+  - parameter starSize: Margin between stars.
+  - returns: The precise rating.
+   
+  */
+  static func preciseRating(position: Double, numberOfStars: Int,
+                            starSize: Double, starMargin: Double) -> Double {
+    
+    if position < 0 { return 0 }
+    var positionRemainder = position;
+    
+    // Calculate the number of times the star with a margin fits the position
+    // This will be the whole part of the rating
+    var rating: Double = Double(Int(position / (starSize + starMargin)))
+    
+    // If rating is grater than total number of stars - return maximum rating
+    if Int(rating) > numberOfStars { return Double(numberOfStars) }
+    
+    // Calculate what portion of the last star does the position correspond to
+    // This will be the added partial part of the rating
+    
+    positionRemainder -= rating * (starSize + starMargin)
+    
+    if positionRemainder > starSize
+    {
+      rating += 1
+    } else {
+      rating += positionRemainder / starSize
+    }
+    
+    return rating
+  }
+}
+
+
+// ----------------------------
+//
 // CosmosRating.swift
 //
 // ----------------------------
@@ -734,7 +1084,7 @@ public struct CosmosSettings {
 
 // ----------------------------
 //
-// CosmosSize.swift
+// CosmosTouchTarget.swift
 //
 // ----------------------------
 
@@ -742,150 +1092,49 @@ import UIKit
 
 /**
 
-Helper class for calculating size for the cosmos view.
+Helper function to make sure bounds are big enought to be used as touch target.
+The function is used in pointInside(point: CGPoint, withEvent event: UIEvent?) of UIImageView.
 
 */
-class CosmosSize {
-  /**
-  
-  Calculates the size of the cosmos view. It goes through all the star and text layers and makes size the view size is large enough to show all of them.
-  
-  */
-  class func calculateSizeToFitLayers(_ layers: [CALayer]) -> CGSize {
-    var size = CGSize()
+struct CosmosTouchTarget {
+  static func optimize(_ bounds: CGRect) -> CGRect {
+    let recommendedHitSize: CGFloat = 44
     
-    for layer in layers {
-      if layer.frame.maxX > size.width {
-        size.width = layer.frame.maxX
-      }
-      
-      if layer.frame.maxY > size.height {
-        size.height = layer.frame.maxY
-      }
-    }
+    var hitWidthIncrease:CGFloat = recommendedHitSize - bounds.width
+    var hitHeightIncrease:CGFloat = recommendedHitSize - bounds.height
     
-    return size
+    if hitWidthIncrease < 0 { hitWidthIncrease = 0 }
+    if hitHeightIncrease < 0 { hitHeightIncrease = 0 }
+    
+    let extendedBounds: CGRect = bounds.insetBy(dx: -hitWidthIncrease / 2,
+      dy: -hitHeightIncrease / 2)
+    
+    return extendedBounds
   }
 }
 
 
 // ----------------------------
 //
-// CosmosText.swift
-//
-// ----------------------------
-
-
-
-import UIKit
-
-/**
-
-Positions the text layer to the right of the stars.
-
-*/
-class CosmosText {
-  /**
-  
-  Positions the text layer to the right from the stars. Text is aligned to the center of the star superview vertically.
-  
-  - parameter layer: The text layer to be positioned.
-  - parameter starsSize: The size of the star superview.
-  - parameter textMargin: The distance between the stars and the text.
-  
-  */
-  class func position(_ layer: CALayer, starsSize: CGSize, textMargin: Double) {
-    layer.position.x = starsSize.width + CGFloat(textMargin)
-    let yOffset = (starsSize.height - layer.bounds.height) / 2
-    layer.position.y = yOffset
-  }
-}
-
-
-// ----------------------------
-//
-// CosmosTouch.swift
+// RightToLeft.swift
 //
 // ----------------------------
 
 import UIKit
 
 /**
-
-Functions for working with touch input.
-
-*/
-struct CosmosTouch {
-  /**
-  
-  Calculates the rating based on the touch location.
-  
-  - parameter position: The horizontal location of the touch relative to the width of the stars.
-   
-  - returns: The rating representing the touch location.
-  
-  */
-  static func touchRating(_ position: CGFloat, settings: CosmosSettings) -> Double {
-    var rating = preciseRating(
-      position: Double(position),
-      numberOfStars: settings.totalStars,
-      starSize: settings.starSize,
-      starMargin: settings.starMargin)
-    
-    if settings.fillMode == .half {
-      rating += 0.20
-    }
-    
-    if settings.fillMode == .full {
-      rating += 0.45
-    }
-    
-    rating = CosmosRating.displayedRatingFromPreciseRating(rating,
-      fillMode: settings.fillMode, totalStars: settings.totalStars)
-    
-    rating = max(settings.minTouchRating, rating) // Can't be less than min rating
-        
-    return rating
-  }
-  
-  
-  /**
-   
-  Returns the precise rating based on the touch position.
-   
-  - parameter position: The horizontal location of the touch relative to the width of the stars.
-  - parameter numberOfStars: Total number of stars, filled and full.
-  - parameter starSize: The width of a star.
-  - parameter starSize: Margin between stars.
-  - returns: The precise rating.
-   
-  */
-  static func preciseRating(position: Double, numberOfStars: Int,
-                            starSize: Double, starMargin: Double) -> Double {
-    
-    if position < 0 { return 0 }
-    var positionRemainder = position;
-    
-    // Calculate the number of times the star with a margin fits the position
-    // This will be the whole part of the rating
-    var rating: Double = Double(Int(position / (starSize + starMargin)))
-    
-    // If rating is grater than total number of stars - return maximum rating
-    if Int(rating) > numberOfStars { return Double(numberOfStars) }
-    
-    // Calculate what portion of the last star does the position correspond to
-    // This will be the added partial part of the rating
-    
-    positionRemainder -= rating * (starSize + starMargin)
-    
-    if positionRemainder > starSize
-    {
-      rating += 1
+ 
+ Helper functions for dealing with right-to-left languages.
+ 
+ */
+struct RightToLeft {
+  static func isRightToLeft(_ view: UIView) -> Bool {
+    if #available(iOS 9.0, *) {
+      return UIView.userInterfaceLayoutDirection(
+        for: view.semanticContentAttribute) == .rightToLeft
     } else {
-      rating += positionRemainder / starSize
+      return false
     }
-    
-    return rating
   }
 }
 
@@ -1166,6 +1415,18 @@ Shows: ★★★★☆ (123)
   }
 
   /**
+   
+   Detecting event when the touches are cancelled (can happen in a scroll view).
+   Behave as if user has lifted their finger.
+   
+   */
+  open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesCancelled(touches, with: event)
+    
+    didFinishTouchingCosmos?(rating)
+  }
+
+  /**
 
   Called when the view is touched.
 
@@ -1308,255 +1569,6 @@ Shows: ★★★★☆ (123)
     super.prepareForInterfaceBuilder()
     
     update()
-  }
-}
-
-
-// ----------------------------
-//
-// CosmosTouchTarget.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
-
-Helper function to make sure bounds are big enought to be used as touch target.
-The function is used in pointInside(point: CGPoint, withEvent event: UIEvent?) of UIImageView.
-
-*/
-struct CosmosTouchTarget {
-  static func optimize(_ bounds: CGRect) -> CGRect {
-    let recommendedHitSize: CGFloat = 44
-    
-    var hitWidthIncrease:CGFloat = recommendedHitSize - bounds.width
-    var hitHeightIncrease:CGFloat = recommendedHitSize - bounds.height
-    
-    if hitWidthIncrease < 0 { hitWidthIncrease = 0 }
-    if hitHeightIncrease < 0 { hitHeightIncrease = 0 }
-    
-    let extendedBounds: CGRect = bounds.insetBy(dx: -hitWidthIncrease / 2,
-      dy: -hitHeightIncrease / 2)
-    
-    return extendedBounds
-  }
-}
-
-
-// ----------------------------
-//
-// RightToLeft.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
- 
- Helper functions for dealing with right-to-left languages.
- 
- */
-struct RightToLeft {
-  static func isRightToLeft(_ view: UIView) -> Bool {
-    if #available(iOS 9.0, *) {
-      return UIView.userInterfaceLayoutDirection(
-        for: view.semanticContentAttribute) == .rightToLeft
-    } else {
-      return false
-    }
-  }
-}
-
-
-// ----------------------------
-//
-// StarFillMode.swift
-//
-// ----------------------------
-
-import Foundation
-
-/**
-
-Defines how the star is filled when the rating is not an integer number. For example, if rating is 4.6 and the fill more is Half, the star will appear to be half filled.
-
-*/
-public enum StarFillMode: Int {
-  /// Show only fully filled stars. For example, fourth star will be empty for 3.2.
-  case full = 0
-  
-  /// Show fully filled and half-filled stars. For example, fourth star will be half filled for 3.6.
-  case half = 1
-  
-  /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2.
-  case precise = 2
-}
-
-
-// ----------------------------
-//
-// StarLayer.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
-
-Creates a layer with a single star in it.
-
-*/
-struct StarLayer {
-  /**
-  
-  Creates a square layer with given size and draws the star shape in it.
-  
-  - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.
-  
-  - parameter size: The width and height of the layer. The star shape is scaled to fill the size of the layer.
-  
-  - parameter lineWidth: The width of the star stroke.
-  
-  - parameter fillColor: Star shape fill color. Fill color is invisible if it is a clear color.
-  
-  - parameter strokeColor: Star shape stroke color. Stroke is invisible if it is a clear color.
-  
-  - returns: New layer containing the star shape.
-  
-  */
-  static func create(_ starPoints: [CGPoint], size: Double,
-    lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
-      
-    let containerLayer = createContainerLayer(size)
-    let path = createStarPath(starPoints, size: size, lineWidth: lineWidth)
-      
-    let shapeLayer = createShapeLayer(path.cgPath, lineWidth: lineWidth,
-      fillColor: fillColor, strokeColor: strokeColor, size: size)
-      
-    containerLayer.addSublayer(shapeLayer)
-    
-    return containerLayer
-  }
-
-  /**
-
-  Creates the star layer from an image
-
-  - parameter image: a star image to be shown.
-
-  - parameter size: The width and height of the layer. The image is scaled to fit the layer.
-
-  */
-  static func create(image: UIImage, size: Double) -> CALayer {
-    let containerLayer = createContainerLayer(size)
-    let imageLayer = createContainerLayer(size)
-
-    containerLayer.addSublayer(imageLayer)
-    imageLayer.contents = image.cgImage
-    imageLayer.contentsGravity = kCAGravityResizeAspect
-    
-    return containerLayer
-  }
-  
-  /**
-  
-  Creates the star shape layer.
-  
-  - parameter path: The star shape path.
-  
-  - parameter lineWidth: The width of the star stroke.
-  
-  - parameter fillColor: Star shape fill color. Fill color is invisible if it is a clear color.
-  
-  - parameter strokeColor: Star shape stroke color. Stroke is invisible if it is a clear color.
-  
-  - returns: New shape layer.
-  
-  */
-  static func createShapeLayer(_ path: CGPath, lineWidth: Double, fillColor: UIColor,
-    strokeColor: UIColor, size: Double) -> CALayer {
-      
-    let layer = CAShapeLayer()
-    layer.anchorPoint = CGPoint()
-    layer.contentsScale = UIScreen.main.scale
-    layer.strokeColor = strokeColor.cgColor
-    layer.fillColor = fillColor.cgColor
-    layer.lineWidth = CGFloat(lineWidth)
-    layer.bounds.size = CGSize(width: size, height: size)
-    layer.masksToBounds = true
-    layer.path = path
-    layer.isOpaque = true
-    return layer
-  }
-  
-  /**
-  
-  Creates a layer that will contain the shape layer.
-  
-  - returns: New container layer.
-  
-  */
-  static func createContainerLayer(_ size: Double) -> CALayer {
-    let layer = CALayer()
-    layer.contentsScale = UIScreen.main.scale
-    layer.anchorPoint = CGPoint()
-    layer.masksToBounds = true
-    layer.bounds.size = CGSize(width: size, height: size)
-    layer.isOpaque = true
-    return layer
-  }
-  
-  /**
-  
-  Creates a path for the given star points and size. The star points specify a shape of size 100 by 100. The star shape will be scaled if the size parameter is not 100. For exampe, if size parameter is 200 the shape will be scaled by 2.
-  
-  - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.
-  
-  - parameter size: Specifies the size of the shape to return.
-  
-  - returns: New shape path.
-  
-  */
-  static func createStarPath(_ starPoints: [CGPoint], size: Double,
-                             lineWidth: Double) -> UIBezierPath {
-    
-    let lineWidthLocal = lineWidth + ceil(lineWidth * 0.3)
-    let sizeWithoutLineWidth = size - lineWidthLocal * 2
-    
-    let points = scaleStar(starPoints, factor: sizeWithoutLineWidth / 100,
-                           lineWidth: lineWidthLocal)
-    
-    let path = UIBezierPath()
-    path.move(to: points[0])
-    let remainingPoints = Array(points[1..<points.count])
-    
-    for point in remainingPoints {
-      path.addLine(to: point)
-    }
-    
-    path.close()
-    return path
-  }
-  
-  /**
-  
-  Scale the star points by the given factor.
-  
-  - parameter starPoints: Array of points for drawing a closed shape. The size of enclosing rectangle is 100 by 100.  
-  
-  - parameter factor: The factor by which the star points are scaled. For example, if it is 0.5 the output points will define the shape twice as small as the original.
-  
-  - returns: The scaled shape.
-  
-  */
-  static func scaleStar(_ starPoints: [CGPoint], factor: Double, lineWidth: Double) -> [CGPoint] {
-    return starPoints.map { point in
-      return CGPoint(
-        x: point.x * CGFloat(factor) + CGFloat(lineWidth),
-        y: point.y * CGFloat(factor) + CGFloat(lineWidth)
-      )
-    }
   }
 }
 

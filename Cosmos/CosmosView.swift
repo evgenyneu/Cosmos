@@ -268,6 +268,18 @@ Shows: ★★★★☆ (123)
   }
 
   /**
+   
+   Detecting event when the touches are cancelled (can happen in a scroll view).
+   Behave as if user has lifted their finger.
+   
+   */
+  open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesCancelled(touches, with: event)
+    
+    didFinishTouchingCosmos?(rating)
+  }
+
+  /**
 
   Called when the view is touched.
 
