@@ -1,6 +1,12 @@
 # Cosmos version history
 
 
+
+## 13.0.0 (2017-12-18)
+
+* Call `didFinishTouchingCosmos` when touches are canceled (this can happen if user scrolls Cosmos in a scroll view).
+
+
 ## 12.0.0 (2017-09-23)
 
 * Update for Swift 4.0 and Xcode 9.0.
