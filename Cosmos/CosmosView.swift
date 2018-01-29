@@ -37,7 +37,7 @@ Shows: ★★★★☆ (123)
   }
   
   /// Star rating settings.
-  open var settings = CosmosSettings() {
+  open var settings: CosmosSettings = .default {
     didSet {
       update()
     }
@@ -52,17 +52,16 @@ Shows: ★★★★☆ (123)
     
     update()
   }
-  
-  
+
   /**
 
   Initializes and returns a newly allocated cosmos view object.
   
   */
-  convenience public init() {
+  convenience public init(settings: CosmosSettings = .default) {
     self.init(frame: CGRect())
   }
-  
+
   /**
 
   Initializes and returns a newly allocated cosmos view object with the specified frame rectangle.
