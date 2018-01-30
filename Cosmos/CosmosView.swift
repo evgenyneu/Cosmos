@@ -58,8 +58,8 @@ Shows: ★★★★☆ (123)
   Initializes and returns a newly allocated cosmos view object.
   
   */
-  convenience public init(settings: CosmosSettings = .default) {
-    self.init(frame: CGRect())
+  public convenience init(settings: CosmosSettings = .default) {
+    self.init(frame: .zero, settings: settings)
   }
 
   /**
@@ -69,8 +69,13 @@ Shows: ★★★★☆ (123)
   - parameter frame: The frame rectangle for the view.
   
   */
-  override public init(frame: CGRect) {
+  override public convenience init(frame: CGRect) {
+    self.init(frame: frame, settings: .default)
+  }
+
+  public init(frame: CGRect, settings: CosmosSettings) {
     super.init(frame: frame)
+    self.settings = settings
     update()
     improvePerformance()
   }
