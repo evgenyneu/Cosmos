@@ -2,14 +2,7 @@ import XCTest
 @testable import Cosmos
 
 class CosmosSettingsTests: XCTestCase {
-  
   var obj: CosmosView!
-  
-  override func setUp() {
-    super.setUp()
-  }
-  
-  // MARK: - Content size
   
   func testInitializeWithSettings() {
     var settings = CosmosSettings()
