@@ -33,7 +33,7 @@ Simply add [CosmosDistrib.swift](https://github.com/evgenyneu/Cosmos/blob/master
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/Cosmos" ~> 13.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/Cosmos" ~> 14.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -41,7 +41,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 13.0'
+    pod 'Cosmos', '~> 14.0'
 
 
 #### Legacy Swift versions
@@ -202,6 +202,7 @@ We would like to thank the following people for their valuable contributions.
 * [staticdreams](https://github.com/staticdreams) for bringing tvOS support.
 * [wagnersouz4](https://github.com/wagnersouz4) for Swift 3.1 update.
 * [paoloq](https://github.com/paoloq) for reporting the CosmoView frame size issue when the view is used without Auto Layout.
+* [danshevluk](https://github.com/danshevluk) for adding ability to reuse settings in multiple cosmos views.
 
 
 ## License

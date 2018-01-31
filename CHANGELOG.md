@@ -1,5 +1,8 @@
 # Cosmos version history
 
+## 14.0.0 (2018-01-31)
+
+* Added ability to reuse settings in multiple cosmos views.
 
 
 ## 13.0.0 (2017-12-18)
