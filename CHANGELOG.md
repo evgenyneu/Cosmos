@@ -1,5 +1,11 @@
 # Cosmos version history
 
+
+## 15.0.0 (2018-02-16)
+
+* Added 'prepareForReuse' function to help recycle Cosmos views in table cells. Thanks [xrayman](https://github.com/xrayman).
+
+
 ## 14.0.0 (2018-01-31)
 
 * Added ability to reuse settings in multiple cosmos views.

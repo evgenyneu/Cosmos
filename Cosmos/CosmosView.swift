@@ -207,6 +207,18 @@ Shows: ★★★★☆ (123)
     return viewSize
   }
   
+  /**
+   
+  Prepares the Cosmos view for reuse in a table view cell.
+  If the cosmos view is used in a table view cell, call this method after the
+  cell is dequeued. Alternatively, override UITableViewCell's prepareForReuse method and call
+  this method from there.
+   
+  */
+  open func prepareForReuse() {
+    previousRatingForDidTouchCallback = -123.192
+  }
+  
   // MARK: - Accessibility
   
   private func updateAccessibility() {
