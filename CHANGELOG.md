@@ -3,7 +3,7 @@
 
 ## 15.0.0 (2018-02-16)
 
-* Added `prepareForReuse` function to help recycle Cosmos views in table cells. Thanks [xrayman](https://github.com/xrayman).
+* Added `prepareForReuse` function to help recycle Cosmos views in table cells.
 
 
 ## 14.0.0 (2018-01-31)
