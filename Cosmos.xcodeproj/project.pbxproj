@@ -66,6 +66,7 @@
 		7EE7F1E11E33254800995862 /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE7F1E01E33254800995862 /* RightToLeft.swift */; };
 		7EE834C11B9D0270007BFDD2 /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */; };
 		7EF4F8251D91E97F00799197 /* CosmosSettingsObjCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */; };
+		89C3109920A625B1001FCA22 /* CosmosView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 2B622ECA1B37BB700090D81B /* CosmosView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B622EB31B37BAE50090D81B /* Cosmos.h in Headers */,
+				89C3109920A625B1001FCA22 /* CosmosView.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
