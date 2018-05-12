@@ -192,7 +192,7 @@ Here are some other star rating controls for iOS:
 
 We would like to thank the following people for their valuable contributions.
 
-* [jsahoo](https://github.com/jsahoo) for additing ability to customize the Cosmos view from the interface build with Carthage setup method.
+* [jsahoo](https://github.com/jsahoo) for additing ability to customize the Cosmos view from the interface builder with Carthage setup method.
 * [0x7fffffff](https://github.com/0x7fffffff) for changing `public` access-level modifiers to `open`.
 * [ali-zahedi](https://github.com/ali-zahedi) for updating to the latest version of Swift 3.0.
 * [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
