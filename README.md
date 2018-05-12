@@ -33,7 +33,7 @@ Simply add [CosmosDistrib.swift](https://github.com/evgenyneu/Cosmos/blob/master
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/Cosmos" ~> 15.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/Cosmos" ~> 16.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -41,7 +41,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 15.0'
+    pod 'Cosmos', '~> 16.0'
 
 
 #### Legacy Swift versions
@@ -71,7 +71,6 @@ Setup a [previous version](https://github.com/evgenyneu/Cosmos/wiki/Legacy-Swift
 
 <img src='https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Screenshots/cosmos_customize_in_storyboard_2.png' width='502' alt='Customize cosmos appearance in the attributes inspector in Xcode.'>
 
-*Note*: Carthage setup method does not allow to customize Cosmos view from the storyboard, please do it from code instead.
 
 ## Positioning the Cosmos view
 
@@ -193,6 +192,7 @@ Here are some other star rating controls for iOS:
 
 We would like to thank the following people for their valuable contributions.
 
+* [jsahoo](https://github.com/jsahoo) for additing ability to customize the Cosmos view from the interface build with Carthage setup method.
 * [0x7fffffff](https://github.com/0x7fffffff) for changing `public` access-level modifiers to `open`.
 * [ali-zahedi](https://github.com/ali-zahedi) for updating to the latest version of Swift 3.0.
 * [augmentedworks](https://github.com/augmentedworks) for adding borders to filled stars.
