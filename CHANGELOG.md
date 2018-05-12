@@ -2,7 +2,7 @@
 
 ## 16.0.0 (2018-05-12)
 
-* Added ability to customize the Cosmos view from the interface build with Carthage setup method ([jsahoo](https://github.com/jsahoo)).
+* Added ability to customize the Cosmos view from the interface builder with Carthage setup method ([jsahoo](https://github.com/jsahoo)).
 
 
 ## 15.0.0 (2018-02-16)
