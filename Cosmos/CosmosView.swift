@@ -246,10 +246,10 @@ Shows: ★★★★☆ (123)
   // MARK: - Touch recognition
   
   /// Closure will be called when user touches the cosmos view. The touch rating argument is passed to the closure.
-  open var didTouchCosmos: ((Double)->())?
+  @objc open var didTouchCosmos: ((Double)->())?
   
   /// Closure will be called when the user lifts finger from the cosmos view. The touch rating argument is passed to the closure.
-  open var didFinishTouchingCosmos: ((Double)->())?
+  @objc  open var didFinishTouchingCosmos: ((Double)->())?
   
   /// Overriding the function to detect the first touch gesture.
   open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
