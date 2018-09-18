@@ -33,14 +33,14 @@ class CosmosAccessibilityTests: XCTestCase {
     settings.updateOnTouch = false
     CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
 
-    XCTAssertEqual(UIAccessibilityTraitNone, view.accessibilityTraits)
+    XCTAssertEqual(UIAccessibilityTraits.none, view.accessibilityTraits)
   }
   
   func testAccesibilityTrait_adjustable() {
     settings.updateOnTouch = true
     CosmosAccessibility.update(view, rating: 5, text: nil, settings: settings)
     
-    XCTAssertEqual(UIAccessibilityTraitAdjustable, view.accessibilityTraits)
+    XCTAssertEqual(UIAccessibilityTraits.adjustable, view.accessibilityTraits)
   }
   
   // MARK: Accessibility value
