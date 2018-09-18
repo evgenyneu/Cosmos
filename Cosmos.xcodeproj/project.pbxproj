@@ -31,7 +31,6 @@
 		2B622EFD1B37BC120090D81B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B622EFB1B37BC120090D81B /* LaunchScreen.storyboard */; };
 		2B622F031B37BC270090D81B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622F021B37BC270090D81B /* ViewController.swift */; };
 		2B622F041B37BC6B0090D81B /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B622EAF1B37BAE50090D81B /* Cosmos.framework */; };
-		2B622F051B37BC6B0090D81B /* Cosmos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B622EAF1B37BAE50090D81B /* Cosmos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B622F0F1B37BE780090D81B /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */; };
 		2BC473551B9D3F4900BDF89F /* CosmosLocalizedRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC473541B9D3F4900BDF89F /* CosmosLocalizedRatingTests.swift */; };
 		2BC473571B9D3F9400BDF89F /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC473561B9D3F9400BDF89F /* CosmosLocalizedRating.swift */; };
@@ -67,6 +66,7 @@
 		7EE834C11B9D0270007BFDD2 /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */; };
 		7EF4F8251D91E97F00799197 /* CosmosSettingsObjCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4F8241D91E97F00799197 /* CosmosSettingsObjCBridge.swift */; };
 		89C3109920A625B1001FCA22 /* CosmosView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 2B622ECA1B37BB700090D81B /* CosmosView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		96E598D02150D8470065C4B0 /* Cosmos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B622EAF1B37BAE50090D81B /* Cosmos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +93,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2B622F051B37BC6B0090D81B /* Cosmos.framework in Embed Frameworks */,
+				96E598D02150D8470065C4B0 /* Cosmos.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +449,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Marketplacer;
 				TargetAttributes = {
 					2B622EAE1B37BAE50090D81B = {
@@ -656,12 +656,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -713,12 +715,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
