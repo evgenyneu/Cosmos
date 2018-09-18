@@ -14,7 +14,7 @@ class CosmosLayerHelper {
   
   */
   class func createTextLayer(_ text: String, font: UIFont, color: UIColor) -> CATextLayer {
-    let size = NSString(string: text).size(withAttributes: [NSAttributedStringKey.font: font])
+    let size = NSString(string: text).size(withAttributes: [NSAttributedString.Key.font: font])
     
     let layer = CATextLayer()
     layer.bounds = CGRect(origin: CGPoint(), size: size)

@@ -52,7 +52,7 @@ struct StarLayer {
 
     containerLayer.addSublayer(imageLayer)
     imageLayer.contents = image.cgImage
-    imageLayer.contentsGravity = kCAGravityResizeAspect
+    imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
     
     return containerLayer
   }

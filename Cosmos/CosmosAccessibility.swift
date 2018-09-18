@@ -16,7 +16,7 @@ struct CosmosAccessibility {
     view.isAccessibilityElement = true
     
     view.accessibilityTraits = settings.updateOnTouch ?
-      UIAccessibilityTraitAdjustable :UIAccessibilityTraitNone
+      UIAccessibilityTraits.adjustable :UIAccessibilityTraits.none
     
     var accessibilityLabel = CosmosLocalizedRating.ratingTranslation
     
