@@ -281,8 +281,9 @@ struct CosmosAccessibility {
     }
     
     if rating >= Double(settings.totalStars) { increment = 0 }
-            
-    return increment
+
+    let roundedToFirstDecimalPlace = Double( round(10 * increment) / 10 )
+    return roundedToFirstDecimalPlace
   }
   
   static func accessibilityDecrement(_ rating: Double, settings: CosmosSettings) -> Double {
@@ -299,8 +300,9 @@ struct CosmosAccessibility {
     }
     
     if rating <= settings.minTouchRating { increment = 0 }
-    
-    return increment
+
+    let roundedToFirstDecimalPlace = Double( round(10 * increment) / 10 )
+    return roundedToFirstDecimalPlace
   }
 }
 
