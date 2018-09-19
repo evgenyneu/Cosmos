@@ -1,5 +1,11 @@
 # Cosmos version history
 
+
+## 17.0.0 (2018-09-19)
+
+* Update for Swift 4.2 and Xcode 10.0 ([chlumik](https://github.com/chlumik)).
+
+
 ## 16.0.0 (2018-05-12)
 
 * Added ability to customize the Cosmos view from the interface builder with Carthage setup method ([jsahoo](https://github.com/jsahoo)).
