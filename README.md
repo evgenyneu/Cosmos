@@ -24,7 +24,7 @@ This is a UI control for iOS and tvOS written in Swift. It shows a star rating a
 
 ## Video tutorial
 
-Thanks to rebeloper for creating this amazing [video tutorial](https://www.youtube.com/watch?v=Y4A_y29cy7Q) that shows how to use and customize Cosmos from code.
+Thanks to Rebeloper for creating this amazing [video tutorial](https://www.youtube.com/watch?v=Y4A_y29cy7Q) that shows how to use and customize Cosmos from code.
 
 <a href="https://www.youtube.com/watch?v=Y4A_y29cy7Q" target="_blank"><img src='https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Youtube/rebel_developer/rebel_developer_cosmos_2.jpg' width='450' alt='Cosmos rating video tutorial for Swift 4.2 (Xcode10)'></a>
 
@@ -212,6 +212,7 @@ We would like to thank the following people for their valuable contributions.
 * [danshevluk](https://github.com/danshevluk) for adding ability to reuse settings in multiple cosmos views.
 * [xrayman](https://github.com/xrayman) for reporting a table view reusability bug and improving the table view screen of the demo app.
 * [chlumik](https://github.com/chlumik) for updating to Swift 4.2.
+* [rebeloper](https://github.com/rebeloper) for creating a [video tutorial](https://www.youtube.com/watch?v=Y4A_y29cy7Q).
 
 
 
