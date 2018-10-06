@@ -22,6 +22,12 @@ This is a UI control for iOS and tvOS written in Swift. It shows a star rating a
 
 *Picture of binary star system of Sirius A and Sirius B by [NASA](http://www.nasa.gov), [ESA](http://www.esa.int/ESA) and G. Bacon ([STScI](http://www.stsci.edu/portal/)). Source: [spacetelescope.org](http://www.spacetelescope.org/images/heic0516b/).*
 
+## Video tutorial
+
+Thanks to [rebeloper](https://github.com/rebeloper) for creating this amazing video tutorial that shows how to use and customize Cosmos from code.
+
+<a href="https://www.youtube.com/watch?v=Y4A_y29cy7Q" target="_blank"><img src='https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Youtube/rebel_developer/rebel_developer_cosmos.jpg' width='500' alt='Cosmos rating video tutorial, Swift 4.2 (Xcode10)'></a>
+
 
 ## Setup
 
@@ -163,11 +169,6 @@ Images for the golden star used in the demo app are available in [here](https://
 
 [This manual](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-settings-in-Objective-C) describes how to set/read Cosmos settings in Objective-C apps.
 
-## Video tutorial
-
-Thanks to [rebeloper](https://github.com/rebeloper) for creating this amazing video tutorial that shows how to use and customize Cosmos from code.
-
-<a href="https://www.youtube.com/watch?v=Y4A_y29cy7Q" target="_blank"><img src='https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Youtube/rebel_developer/rebel_developer_cosmos.jpg' width='500' alt='Cosmos rating video tutorial, Swift 4.2 (Xcode10)'></a>
 
 ## Demo app
 
