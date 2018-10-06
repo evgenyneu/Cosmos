@@ -167,7 +167,7 @@ Images for the golden star used in the demo app are available in [here](https://
 
 Thanks to [rebeloper](https://github.com/rebeloper) for creating this amazing video tutorial that shows how to use and customize Cosmos from code.
 
-<a href="https://www.youtube.com/watch?v=Y4A_y29cy7Q" target="_blank"><img src='https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Youtube/rebel_developer/rebel_developer_cosmos.jpg' width='640' alt='Cosmos rating video tutorial, Swift 4.2 (Xcode10)'></a>
+<a href="https://www.youtube.com/watch?v=Y4A_y29cy7Q" target="_blank"><img src='https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Youtube/rebel_developer/rebel_developer_cosmos.jpg' width='500' alt='Cosmos rating video tutorial, Swift 4.2 (Xcode10)'></a>
 
 ## Demo app
 
