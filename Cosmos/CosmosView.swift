@@ -253,14 +253,18 @@ Shows: ★★★★☆ (123)
   
   /// Overriding the function to detect the first touch gesture.
   open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesBegan(touches, with: event)
+    if settings.passTouchesToSuperview {
+        super.touchesBegan(touches, with: event)
+    }
     guard let location = touchLocationFromBeginningOfRating(touches) else { return }
     onDidTouch(location)
   }
   
   /// Overriding the function to detect touch move.
   open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesMoved(touches, with: event)
+    if settings.passTouchesToSuperview {
+        super.touchesMoved(touches, with: event)
+    }
     guard let location = touchLocationFromBeginningOfRating(touches) else { return }
     onDidTouch(location)
   }
@@ -278,8 +282,9 @@ Shows: ★★★★☆ (123)
   
   /// Detecting event when the user lifts their finger.
   open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesEnded(touches, with: event)
-    
+    if settings.passTouchesToSuperview {
+        super.touchesEnded(touches, with: event)
+    }
     didFinishTouchingCosmos?(rating)
   }
 
@@ -290,8 +295,9 @@ Shows: ★★★★☆ (123)
    
    */
   open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesCancelled(touches, with: event)
-    
+    if settings.passTouchesToSuperview {
+        super.touchesCancelled(touches, with: event)
+    }
     didFinishTouchingCosmos?(rating)
   }
 
