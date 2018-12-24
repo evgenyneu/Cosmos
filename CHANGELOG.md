@@ -1,5 +1,9 @@
 # Cosmos version history
 
+## 18.0.0 (2018-12-24)
+
+* Add setting `passTouchesToSuperview` to prevent passing touches to superview ([yuravake](https://github.com/yuravake)).
+
 
 ## 17.0.0 (2018-09-19)
 
