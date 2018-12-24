@@ -11,5 +11,10 @@ class CosmosSettingsTests: XCTestCase {
     
     XCTAssertEqual(obj.settings.starSize, 142)
   }
+  
+  func testPassTouchesToSuperviewTrueByDefault() {
+    obj = CosmosView()
+    XCTAssertEqual(obj.settings.passTouchesToSuperview, true)
+  }
 }
 
