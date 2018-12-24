@@ -213,6 +213,7 @@ We would like to thank the following people for their valuable contributions.
 * [xrayman](https://github.com/xrayman) for reporting a table view reusability bug and improving the table view screen of the demo app.
 * [chlumik](https://github.com/chlumik) for updating to Swift 4.2.
 * [rebeloper](https://github.com/rebeloper) for creating a [video tutorial](https://www.youtube.com/watch?v=Y4A_y29cy7Q).
+* [yuravake](https://github.com/yuravake) for adding `passTouchesToSuperview` setting.
 
 
 
