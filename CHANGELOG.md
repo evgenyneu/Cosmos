@@ -2,12 +2,12 @@
 
 ## 18.0.0 (2018-12-24)
 
-* Add setting `passTouchesToSuperview` to prevent passing touches to superview ([yuravake](https://github.com/yuravake)).
+* Added `passTouchesToSuperview` setting to prevent passing touches to superview ([yuravake](https://github.com/yuravake)).
 
 
 ## 17.0.0 (2018-09-19)
 
-* Update for Swift 4.2 and Xcode 10.0 ([chlumik](https://github.com/chlumik)).
+* Updated for Swift 4.2 and Xcode 10.0 ([chlumik](https://github.com/chlumik)).
 
 
 ## 16.0.0 (2018-05-12)
