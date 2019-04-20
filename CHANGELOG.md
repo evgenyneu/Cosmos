@@ -1,5 +1,10 @@
 # Cosmos version history
 
+## 19.0.0 (2019-04-20)
+
+* Update to Swift 5.0.
+
+
 ## 18.0.0 (2018-12-24)
 
 * Added `passTouchesToSuperview` setting to prevent passing touches to superview ([yuravake](https://github.com/yuravake)).
