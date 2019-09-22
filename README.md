@@ -2,6 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/Cosmos.svg?style=flat)](http://cocoadocs.org/docsets/Cosmos)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![License](https://img.shields.io/cocoapods/l/Cosmos.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/Cosmos.svg?style=flat)](http://cocoadocs.org/docsets/Cosmos)
 
@@ -49,6 +50,15 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
     target 'Your target name'
     pod 'Cosmos', '~> 19.0'
 
+#### Setup with Swift Package Manager
+
+If you are using [Swift Package Manager](https://swift.org/package-manager/) add the following line:
+
+```swift
+.package(url: "https://github.com/evgenyneu/Cosmos.git", from: "19.0.4")
+```
+
+to the `dependencies` value of your `Package.swift` file and run `swift package resolve`.
 
 #### Legacy Swift versions
 
