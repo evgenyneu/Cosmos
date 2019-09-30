@@ -1,5 +1,11 @@
 # Cosmos version history
 
+
+## 20.0.0 (2019-10-01)
+
+* Added Swift Package Manager support ([gcharita](https://github.com/gcharita)).
+
+
 ## 19.0.0 (2019-04-20)
 
 * Update to Swift 5.0.
