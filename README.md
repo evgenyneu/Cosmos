@@ -177,6 +177,15 @@ Images for the golden star used in the demo app are available in [here](https://
 
 [Here](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-in-a-scroll-view) is how to use Cosmos in a scroll view or a table view.
 
+
+## Using Cosmos in a modal screen
+
+iOS 13 introduced swiping gesture for closing modal screens, which [prevents Cosmos from working properly](https://github.com/evgenyneu/Cosmos/issues/148). The following setting fixes this problem:
+
+```
+cosmosView.settings.disablePanGestures = true
+```
+
 ## Using Cosmos settings from Objective-C
 
 [This manual](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-settings-in-Objective-C) describes how to set/read Cosmos settings in Objective-C apps.
@@ -227,6 +236,7 @@ We would like to thank the following people for their valuable contributions.
 * [rebeloper](https://github.com/rebeloper) for creating a [video tutorial](https://www.youtube.com/watch?v=Y4A_y29cy7Q).
 * [yuravake](https://github.com/yuravake) for adding `passTouchesToSuperview` setting.
 * [gcharita](https://github.com/gcharita) for adding Swift Package Manager support.
+* [benpackard](https://github.com/benpackard) for fixing Cosmos when used in a modal screen on iOS 13.
 
 
 

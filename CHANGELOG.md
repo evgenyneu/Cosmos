@@ -1,5 +1,9 @@
 # Cosmos version history
 
+## 20.0.1 (2019-10-01)
+
+* Fixed Cosmos view when used in a modal screen on iOS 13 (https://github.com/evgenyneu/Cosmos/issues/148).
+
 
 ## 20.0.0 (2019-10-01)
 
