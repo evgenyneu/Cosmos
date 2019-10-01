@@ -99,6 +99,9 @@ public struct CosmosSettings {
   
   /// When `true` the star fill level is updated when user touches the cosmos view. When `false` the Cosmos view only shows the rating and does not act as the input control.
   public var updateOnTouch = CosmosDefaultSettings.updateOnTouch
+
+  /// Set to `true` if you want to ignore pan gestures (can be useful when presented modally with a `presentationStyle` of `pageSheet` to avoid competing with the dismiss gesture)
+  public var disablePanGestures = CosmosDefaultSettings.disablePanGestures
 }
 
 

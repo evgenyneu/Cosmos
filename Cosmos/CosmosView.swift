@@ -282,6 +282,14 @@ Shows: ★★★★☆ (123)
     didFinishTouchingCosmos?(rating)
   }
 
+  /// Deciding whether to recognize a gesture.
+  open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    if settings.disablePanGestures {
+      return !(gestureRecognizer is UIPanGestureRecognizer)
+    }
+      return true
+  }
+
   /**
    
    Detecting event when the touches are cancelled (can happen in a scroll view).
