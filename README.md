@@ -32,7 +32,7 @@ Thanks to Alex Nagy from [rebeloper.com](https://rebeloper.com/) for creating th
 
 ## Setup
 
-There are three ways you can add Cosmos to your Xcode project.
+There are various ways you can add Cosmos to your Xcode project.
 
 #### Add source (iOS 8+)
 
