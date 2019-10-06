@@ -53,13 +53,8 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
 #### Setup with Swift Package Manager
 
-If you are using [Swift Package Manager](https://swift.org/package-manager/) add the following line:
-
-```swift
-.package(url: "https://github.com/evgenyneu/Cosmos.git", from: "20.0.0")
-```
-
-to the `dependencies` value of your `Package.swift` file and run `swift package resolve`.
+* In Xcode 11+ select *File > Packages > Add Package Dependency...*.
+* Enter this project's URL: https://github.com/evgenyneu/Cosmos.git
 
 
 #### Legacy Swift versions
