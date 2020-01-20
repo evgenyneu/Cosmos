@@ -1,5 +1,11 @@
 # Cosmos version history
 
+
+## 21.0.0 (2020-01-20)
+
+* Set `APPLICATION_EXTENSION_API_ONLY` to `Yes` (https://github.com/evgenyneu/Cosmos/pull/155).
+
+
 ## 20.0.1 (2019-10-01)
 
 * Fixed Cosmos view when used in a modal screen on iOS 13 (https://github.com/evgenyneu/Cosmos/issues/148).
