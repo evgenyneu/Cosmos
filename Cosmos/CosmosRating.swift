@@ -47,6 +47,8 @@ struct CosmosRating {
       return Double(round(starFillLevel * 2) / 2)
     case .precise :
       return starFillLevel
+    case .quater:
+      return Double(round(starFillLevel * 4) / 4)
     }
   }
   
