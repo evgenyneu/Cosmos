@@ -9,6 +9,9 @@ class CosmosDisplayedRatingTests: XCTestCase {
     var result = CosmosRating.displayedRatingFromPreciseRating(4.6, fillMode: .half, totalStars: 5)
     XCTAssertEqual(4.5, result)
     
+    result = CosmosRating.displayedRatingFromPreciseRating(4.6, fillMode: .quater, totalStars: 5)
+    XCTAssertEqual(4.5, result)
+    
     result = CosmosRating.displayedRatingFromPreciseRating(4.6, fillMode: .full, totalStars: 5)
     XCTAssertEqual(5, result)
     
@@ -22,9 +25,15 @@ class CosmosDisplayedRatingTests: XCTestCase {
     var result = CosmosRating.displayedRatingFromPreciseRating(7, fillMode: .half, totalStars: 5)
     XCTAssertEqual(5, result)
     
+    result = CosmosRating.displayedRatingFromPreciseRating(7, fillMode: .quater, totalStars: 5)
+    XCTAssertEqual(5, result)
+    
     
     // Rating is less than zero
     result = CosmosRating.displayedRatingFromPreciseRating(-1, fillMode: .half, totalStars: 5)
+    XCTAssertEqual(0, result)
+    
+    result = CosmosRating.displayedRatingFromPreciseRating(-1, fillMode: .quater, totalStars: 5)
     XCTAssertEqual(0, result)
   }
   
@@ -53,6 +62,12 @@ class CosmosDisplayedRatingTests: XCTestCase {
     
     XCTAssertEqual(0.5, result)
   }
+    
+  func testStarFillLevel_partiallyFileldQuater() {
+    let result = CosmosRating.starFillLevel(ratingRemainder: 0.67, fillMode: .quater)
+      
+    XCTAssertEqual(0.75, result)
+  }
   
   func testStarFillLevel_partiallyFileldFull() {
     let result = CosmosRating.starFillLevel(ratingRemainder: 0.67, fillMode: .full)
@@ -79,6 +94,18 @@ class CosmosDisplayedRatingTests: XCTestCase {
     XCTAssertEqual(1,   CosmosRating.roundFillLevel(0.75, fillMode: .half))
     XCTAssertEqual(1,   CosmosRating.roundFillLevel(0.9,  fillMode: .half))
     XCTAssertEqual(1,   CosmosRating.roundFillLevel(1,    fillMode: .half))
+  }
+    
+  func testRoundFillLevel_quater() {
+    XCTAssertEqual(0,    CosmosRating.roundFillLevel(0,    fillMode: .quater))
+    XCTAssertEqual(0.0,  CosmosRating.roundFillLevel(0.1,  fillMode: .quater))
+    XCTAssertEqual(0.25, CosmosRating.roundFillLevel(0.25, fillMode: .quater))
+    XCTAssertEqual(0.25, CosmosRating.roundFillLevel(0.3,  fillMode: .quater))
+    XCTAssertEqual(0.5,  CosmosRating.roundFillLevel(0.5,  fillMode: .quater))
+    XCTAssertEqual(0.5,  CosmosRating.roundFillLevel(0.6,  fillMode: .quater))
+    XCTAssertEqual(0.75, CosmosRating.roundFillLevel(0.75, fillMode: .quater))
+    XCTAssertEqual(1,    CosmosRating.roundFillLevel(0.9,  fillMode: .quater))
+    XCTAssertEqual(1,    CosmosRating.roundFillLevel(1,    fillMode: .quater))
   }
   
   func testRoundFillLevel_precise() {
