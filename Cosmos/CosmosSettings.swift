@@ -16,7 +16,9 @@ public struct CosmosSettings {
   
   // MARK: - Star settings
   // -----------------------------
-    
+  /// Override RTL logic
+  public var isRTL: Bool?
+
   /// Border color of an empty star.
   public var emptyBorderColor = CosmosDefaultSettings.emptyBorderColor
   
