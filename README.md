@@ -124,7 +124,7 @@ cosmosView.settings.updateOnTouch = false
 
 // Show only fully filled stars
 cosmosView.settings.fillMode = .full
-// Other fill modes: .half, .precise, .quater
+// Other fill modes: .half, .precise, .quarter
 
 // Change the size of the stars
 cosmosView.settings.starSize = 30
