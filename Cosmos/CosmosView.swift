@@ -228,7 +228,7 @@ Shows: ★★★★☆ (123)
   open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     super.traitCollectionDidChange(previousTraitCollection)
         
-    if #available(iOS 13.0, *) {
+    if #available(iOS 13.0, tvOS 10.0, *) {
       if self.traitCollection.userInterfaceStyle != previousTraitCollection?.userInterfaceStyle {
         update()
       }
