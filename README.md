@@ -175,7 +175,7 @@ Images for the golden star used in the demo app are available in [here](https://
 
 ## Using Cosmos with SwiftUI
 
-[Here](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-with-SwiftUI) is how to shows a Cosmos view with SwiftUI.
+[Here](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-with-SwiftUI) is how to show a Cosmos view with SwiftUI.
 
 
 ## Using Cosmos in a modal screen
