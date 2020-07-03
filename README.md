@@ -173,6 +173,11 @@ Images for the golden star used in the demo app are available in [here](https://
 [Here](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-in-a-scroll-view) is how to use Cosmos in a scroll view or a table view.
 
 
+## Using Cosmos with SwiftUI
+
+[Here](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-with-SwiftUI) is how to shows a Cosmos view with SwiftUI.
+
+
 ## Using Cosmos in a modal screen
 
 iOS 13 introduced swiping gesture for closing modal screens, which [prevents Cosmos from working properly](https://github.com/evgenyneu/Cosmos/issues/148). The following setting fixes this problem:
