@@ -40,7 +40,7 @@ Simply add [CosmosDistrib.swift](https://github.com/evgenyneu/Cosmos/blob/master
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "evgenyneu/Cosmos" ~> 21.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "evgenyneu/Cosmos" ~> 23.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -48,7 +48,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Cosmos', '~> 21.0'
+    pod 'Cosmos', '~> 23.0'
 
 
 #### Setup with Swift Package Manager
@@ -173,6 +173,11 @@ Images for the golden star used in the demo app are available in [here](https://
 [Here](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-in-a-scroll-view) is how to use Cosmos in a scroll view or a table view.
 
 
+## Using Cosmos with SwiftUI
+
+[Here](https://github.com/evgenyneu/Cosmos/wiki/Using-Cosmos-with-SwiftUI) is how to show a Cosmos view with SwiftUI.
+
+
 ## Using Cosmos in a modal screen
 
 iOS 13 introduced swiping gesture for closing modal screens, which [prevents Cosmos from working properly](https://github.com/evgenyneu/Cosmos/issues/148). The following setting fixes this problem:
@@ -232,6 +237,7 @@ We would like to thank the following people for their valuable contributions.
 * [yuravake](https://github.com/yuravake) for adding `passTouchesToSuperview` setting.
 * [gcharita](https://github.com/gcharita) for adding Swift Package Manager support.
 * [benpackard](https://github.com/benpackard) for fixing Cosmos when used in a modal screen on iOS 13.
+* [dkk](https://github.com/dkk) for the dark mode update.
 
 
 
