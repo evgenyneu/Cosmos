@@ -34,6 +34,12 @@ public struct CosmosSettings {
   
   /// Background color of a filled star.
   public var filledColor = CosmosDefaultSettings.filledColor
+    
+  ///Color used when a custom image is used to set its tint color
+  public var filledImageTintColor = CosmosDefaultSettings.filledTintColor
+  
+  ///Color used when a custom image is used to set its tint color
+  public var emptyImageTintColor = CosmosDefaultSettings.emptyTintColor
   
   /**
   

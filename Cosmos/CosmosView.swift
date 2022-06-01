@@ -455,15 +455,15 @@ Shows: ★★★★☆ (123)
     }
   }
     
-  @IBInspectable var filledImageTintColor: UIColor? {
+    @IBInspectable var filledImageTintColor: UIColor = CosmosDefaultSettings.filledTintColor {
      didSet {
-       settings.emptyImage = emptyImage
+       settings.filledImageTintColor = filledImageTintColor
      }
   }
 
-  @IBInspectable var filledImageTintColor: UIColor? {
+    @IBInspectable var emptyImageTintColor: UIColor = CosmosDefaultSettings.emptyTintColor {
      didSet {
-       settings.emptyImage = emptyImage
+       settings.emptyImageTintColor = emptyImageTintColor
      }
   }
   

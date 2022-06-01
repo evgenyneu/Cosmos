@@ -31,6 +31,12 @@ struct CosmosDefaultSettings {
   
   /// Background color of a filled star.
   static let filledColor = defaultColor
+    
+  /// Tint color of an empty custom star.
+  static let emptyTintColor = UIColor.clear
+
+  /// Tint color of an filled custom star.
+  static let filledTintColor = defaultColor
   
   /**
 

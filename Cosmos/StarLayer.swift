@@ -46,20 +46,20 @@ struct StarLayer {
   - parameter size: The width and height of the layer. The image is scaled to fit the layer.
 
   */
-  static func create(image: UIImage, size: Double) -> CALayer {
-    let containerLayer = createContainerLayer(size)
-    let imageLayer = createContainerLayer(size)
-    let maskLayer = CALayer()
-
-    containerLayer.addSublayer(imageLayer)
-    maskLayer.contents = image.cgImage
-    maskLayer.frame = imageLayer.bounds
-    imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
-    imageLayer.mask = maskLayer
-    imageLayer.backgroundColor = UIColor.red.cgColor
-    
-    return containerLayer
-  }
+    static func create(image: UIImage, size: Double, tintColor: UIColor) -> CALayer {
+        let containerLayer = createContainerLayer(size)
+        let imageLayer = createContainerLayer(size)
+        let maskLayer = CALayer()
+        
+        containerLayer.addSublayer(imageLayer)
+        maskLayer.contents = image.cgImage
+        maskLayer.frame = imageLayer.bounds
+        imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
+        imageLayer.mask = maskLayer
+        imageLayer.backgroundColor = tintColor.cgColor
+        
+        return containerLayer
+    }
   
   /**
   

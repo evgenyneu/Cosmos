@@ -86,16 +86,20 @@ struct StarLayer {
   - parameter size: The width and height of the layer. The image is scaled to fit the layer.
 
   */
-  static func create(image: UIImage, size: Double) -> CALayer {
-    let containerLayer = createContainerLayer(size)
-    let imageLayer = createContainerLayer(size)
-
-    containerLayer.addSublayer(imageLayer)
-    imageLayer.contents = image.cgImage
-    imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
-    
-    return containerLayer
-  }
+    static func create(image: UIImage, size: Double, tintColor: UIColor) -> CALayer {
+        let containerLayer = createContainerLayer(size)
+        let imageLayer = createContainerLayer(size)
+        let maskLayer = CALayer()
+        
+        containerLayer.addSublayer(imageLayer)
+        maskLayer.contents = image.cgImage
+        maskLayer.frame = imageLayer.bounds
+        imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
+        imageLayer.mask = maskLayer
+        imageLayer.backgroundColor = tintColor.cgColor
+        
+        return containerLayer
+    }
   
   /**
   
@@ -379,6 +383,12 @@ struct CosmosDefaultSettings {
   
   /// Background color of a filled star.
   static let filledColor = defaultColor
+    
+  /// Tint color of an empty custom star.
+  static let emptyTintColor = UIColor.clear
+
+  /// Tint color of an filled custom star.
+  static let filledTintColor = defaultColor
   
   /**
 
@@ -604,7 +614,7 @@ class CosmosLayers {
   private class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings) -> CALayer {
     if let image = isFilled ? settings.filledImage : settings.emptyImage {
       // Create a layer that shows a star from an image
-      return StarLayer.create(image: image, size: settings.starSize)
+        return StarLayer.create(image: image, size: settings.starSize, tintColor: isFilled ? settings.filledImageTintColor : settings.emptyImageTintColor)
     }
     
     // Create a layer that draws a star from an array of points
@@ -1031,6 +1041,12 @@ public struct CosmosSettings {
   
   /// Background color of a filled star.
   public var filledColor = CosmosDefaultSettings.filledColor
+    
+  ///Color used when a custom image is used to set its tint color
+  public var filledImageTintColor = CosmosDefaultSettings.filledTintColor
+  
+  ///Color used when a custom image is used to set its tint color
+  public var emptyImageTintColor = CosmosDefaultSettings.emptyTintColor
   
   /**
   
@@ -1620,6 +1636,18 @@ Shows: ★★★★☆ (123)
     didSet {
       settings.emptyImage = emptyImage
     }
+  }
+    
+    @IBInspectable var filledImageTintColor: UIColor = CosmosDefaultSettings.filledTintColor {
+     didSet {
+       settings.filledImageTintColor = filledImageTintColor
+     }
+  }
+
+    @IBInspectable var emptyImageTintColor: UIColor = CosmosDefaultSettings.emptyTintColor {
+     didSet {
+       settings.emptyImageTintColor = emptyImageTintColor
+     }
   }
   
   /// Draw the stars in interface buidler

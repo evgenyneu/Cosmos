@@ -46,6 +46,8 @@ class ViewController: UIViewController {
     cosmosViewFull.rating = newRatingValue
     cosmosViewHalf.rating = newRatingValue
     cosmosViewPrecise.rating = newRatingValue
+    cosmosViewPrecise.filledImageTintColor = .cyan
+    cosmosViewPrecise.emptyImageTintColor = .red
     
     self.ratingLabel.text = ViewController.formatValue(newRatingValue)
   }
