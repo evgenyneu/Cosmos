@@ -462,7 +462,6 @@
 					};
 					2B622EEF1B37BC120090D81B = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = MR2BL5TS7K;
 						LastSwiftMigration = 1020;
 					};
 					2B622F091B37BD960090D81B = {
@@ -826,11 +825,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MR2BL5TS7K;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.arkon.cosmos;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.CosmosDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -840,11 +838,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MR2BL5TS7K;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.arkon.cosmos;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.CosmosDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
