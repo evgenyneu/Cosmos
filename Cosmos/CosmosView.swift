@@ -454,6 +454,18 @@ Shows: ★★★★☆ (123)
       settings.emptyImage = emptyImage
     }
   }
+    
+  @IBInspectable var filledImageTintColor: UIColor? {
+     didSet {
+       settings.emptyImage = emptyImage
+     }
+  }
+
+  @IBInspectable var filledImageTintColor: UIColor? {
+     didSet {
+       settings.emptyImage = emptyImage
+     }
+  }
   
   /// Draw the stars in interface buidler
   open override func prepareForInterfaceBuilder() {

@@ -49,10 +49,14 @@ struct StarLayer {
   static func create(image: UIImage, size: Double) -> CALayer {
     let containerLayer = createContainerLayer(size)
     let imageLayer = createContainerLayer(size)
+    let maskLayer = CALayer()
 
     containerLayer.addSublayer(imageLayer)
-    imageLayer.contents = image.cgImage
+    maskLayer.contents = image.cgImage
+    maskLayer.frame = imageLayer.bounds
     imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
+    imageLayer.mask = maskLayer
+    imageLayer.backgroundColor = UIColor.red.cgColor
     
     return containerLayer
   }
