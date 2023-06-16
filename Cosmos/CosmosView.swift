@@ -219,6 +219,22 @@ Shows: ★★★★☆ (123)
     previousRatingForDidTouchCallback = -123.192
   }
   
+  /**
+  
+  Makes sure that the right colors are used when the user switches between Light and Dark mode
+  while the app is running
+     
+  */
+  open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+        
+    if #available(iOS 13.0, tvOS 10.0, *) {
+      if self.traitCollection.userInterfaceStyle != previousTraitCollection?.userInterfaceStyle {
+        update()
+      }
+    }
+  }
+  
   // MARK: - Accessibility
   
   private func updateAccessibility() {

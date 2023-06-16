@@ -1,6 +1,16 @@
 # Cosmos version history
 
 
+## 23.0.0 (2020-09-19)
+
+* Fixed iOS version warning in Xcode 12 (https://github.com/evgenyneu/Cosmos/issues/171).
+
+
+## 22.0.0 (2020-05-23)
+
+* Allow switching between light/dark modes without restarting (https://github.com/evgenyneu/Cosmos/issues/162).
+
+
 ## 21.0.0 (2020-01-20)
 
 * Set `APPLICATION_EXTENSION_API_ONLY` to `Yes` (https://github.com/evgenyneu/Cosmos/pull/155).
