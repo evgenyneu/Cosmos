@@ -134,6 +134,7 @@
 		2BC473561B9D3F9400BDF89F /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLocalizedRating.swift; sourceTree = "<group>"; };
 		2BC696801BAF996F00576887 /* PerformanceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTableViewController.swift; sourceTree = "<group>"; };
 		2BC696831BAF9A4700576887 /* PerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTableViewCell.swift; sourceTree = "<group>"; };
+		39BFD9162B39785900C58702 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		7E089C6B1B9CF6AE00F11623 /* CosmosAccessibilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosAccessibilityTests.swift; sourceTree = "<group>"; };
 		7E089C6D1B9CF7AC00F11623 /* CosmosRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosRatingTests.swift; sourceTree = "<group>"; };
 		7E089C6F1B9CF8FC00F11623 /* CosmosRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosRating.swift; sourceTree = "<group>"; };
@@ -212,6 +213,7 @@
 		2B622EB11B37BAE50090D81B /* Cosmos */ = {
 			isa = PBXGroup;
 			children = (
+				39BFD9152B39785000C58702 /* Resources */,
 				2B622EDD1B37BB7F0090D81B /* Helpers */,
 				7EE834C01B9D0270007BFDD2 /* CosmosAccessibility.swift */,
 				2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */,
@@ -300,6 +302,14 @@
 				2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */,
 			);
 			path = Distrib;
+			sourceTree = "<group>";
+		};
+		39BFD9152B39785000C58702 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				39BFD9162B39785900C58702 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7E4295531B38C6FF00C66E9F /* graphics */ = {
