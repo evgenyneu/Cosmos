@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -8,7 +8,9 @@ let package = Package(
         .library(name: "Cosmos", targets: ["Cosmos"]),
     ],
     targets: [
-        .target(name: "Cosmos", path: "./Cosmos"),
+        .target(name: "Cosmos", 
+                path: "./Cosmos",
+                resources: [.copy("Resources/PrivacyInfo.xcprivacy")]),
         .testTarget(name: "CosmosTests", dependencies: ["Cosmos"], path: "./CosmosTests"),
     ]
 )
