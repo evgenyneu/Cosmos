@@ -21,4 +21,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "9.0"
   s.tvos.deployment_target = "9.0"
   s.swift_versions = ['4.2', '5.0']
+  
+  s.resource_bundles = {"Cosmos" => ["Cosmos/Resources/PrivacyInfo.xcprivacy"]}
 end
