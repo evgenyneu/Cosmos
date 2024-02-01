@@ -36,6 +36,8 @@
 		2BC473571B9D3F9400BDF89F /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC473561B9D3F9400BDF89F /* CosmosLocalizedRating.swift */; };
 		2BC696811BAF996F00576887 /* PerformanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC696801BAF996F00576887 /* PerformanceTableViewController.swift */; };
 		2BC696841BAF9A4700576887 /* PerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC696831BAF9A4700576887 /* PerformanceTableViewCell.swift */; };
+		39DB06212B6B608600AE776F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 39BFD9162B39785900C58702 /* PrivacyInfo.xcprivacy */; };
+		39DB06222B6B608600AE776F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 39BFD9162B39785900C58702 /* PrivacyInfo.xcprivacy */; };
 		7E089C6C1B9CF6AE00F11623 /* CosmosAccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E089C6B1B9CF6AE00F11623 /* CosmosAccessibilityTests.swift */; };
 		7E089C6E1B9CF7AC00F11623 /* CosmosRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E089C6D1B9CF7AC00F11623 /* CosmosRatingTests.swift */; };
 		7E089C701B9CF8FC00F11623 /* CosmosRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E089C6F1B9CF8FC00F11623 /* CosmosRating.swift */; };
@@ -510,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39DB06212B6B608600AE776F /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39DB06222B6B608600AE776F /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
