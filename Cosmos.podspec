@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "Cosmos"
-  s.version     = "25.0.0"
+  s.version     = "25.0.1"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/evgenyneu/Cosmos"
   s.summary     = "5-star rating control written in Swift"
@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
   s.source      = { :git => "https://github.com/evgenyneu/Cosmos.git", :tag => s.version }
   s.screenshots  = "https://raw.githubusercontent.com/evgenyneu/Cosmos/master/graphics/Screenshots/cosmos_star_rating_control_for_ios_swift_space.png"
   s.source_files = "Cosmos/**/*.swift"
-  s.ios.deployment_target = "9.0"
-  s.tvos.deployment_target = "9.0"
+  s.ios.deployment_target = "12.0"
+  s.tvos.deployment_target = "12.0"
   s.swift_versions = ['4.2', '5.0']
 
   s.resource_bundles = {"Cosmos" => ["Cosmos/Resources/PrivacyInfo.xcprivacy"]}
