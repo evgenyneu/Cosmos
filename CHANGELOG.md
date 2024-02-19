@@ -1,5 +1,9 @@
 # Cosmos version history
 
+## 25.0.0 (2024-02-20)
+
+* Added privacy manifest (https://github.com/evgenyneu/Cosmos/pull/200).
+
 
 ## 23.0.0 (2020-09-19)
 
