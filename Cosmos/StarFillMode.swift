@@ -14,4 +14,7 @@ public enum StarFillMode: Int {
   
   /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2.
   case precise = 2
+    
+  /// Show fully filled and half-filled , quarter-filled stars. For example, fourth star will be quarter filled for 3.75.
+  case quarter = 3
 }
