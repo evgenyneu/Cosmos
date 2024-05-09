@@ -101,6 +101,7 @@ Shows: ★★★★☆ (123)
   Updates the stars and optional text based on current values of `rating` and `text` properties.
   
   */
+  private var previousLayers: Array<CALayer> = []
   open func update() {
     
     // Create star layers
@@ -120,8 +121,9 @@ Shows: ★★★★☆ (123)
       layers = addTextLayer(textLayer: textLayer, layers: layers)
     }
     
-    layer.sublayers = layers
-    
+    for l in previousLayers { l.removeFromSuperlayer() }
+    for l in layers { layer.addSublayer(l) }
+    previousLayers = layers
     
     // Update size
     // ------------
