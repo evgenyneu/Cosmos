@@ -29,6 +29,9 @@ public enum StarFillMode: Int {
   
   /// Fill star according to decimal rating. For example, fourth star will be 20% filled for 3.2.
   case precise = 2
+    
+  /// Show fully filled and half-filled , quarter-filled stars. For example, fourth star will be quarter filled for 3.75.
+  case quarter = 3
 }
 
 
@@ -275,7 +278,7 @@ struct CosmosAccessibility {
       increment = ceil(rating) - rating
       if increment == 0 { increment = 1 }
 
-    case .half, .precise:
+    case .half, .precise, .quarter:
       increment = (ceil(rating * 2) - rating * 2) / 2
       if increment == 0 { increment = 0.5 }      
     }
@@ -294,7 +297,7 @@ struct CosmosAccessibility {
       increment = rating - floor(rating)
       if increment == 0 { increment = 1 }
       
-    case .half, .precise:
+    case .half, .precise, .quarter:
       increment = (rating * 2 - floor(rating * 2)) / 2
       if increment == 0 { increment = 0.5 }
     }
@@ -938,6 +941,8 @@ struct CosmosRating {
       return Double(round(starFillLevel * 2) / 2)
     case .precise :
       return starFillLevel
+    case .quarter:
+      return Double(round(starFillLevel * 4) / 4)
     }
   }
   
