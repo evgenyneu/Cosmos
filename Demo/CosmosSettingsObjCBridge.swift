@@ -1,4 +1,5 @@
 import UIKit
+import Cosmos
 
 /**
  
@@ -23,7 +24,7 @@ import UIKit
  [CosmosSettingsObjCBridge setUpdateOnTouch: NO inCosmosView:self.cosmosView];
  
  */
-@objc public class CosmosSettingsObjCBridge: NSObject {
+@objcMembers public class CosmosSettingsObjCBridge: NSObject {
   
   
   /**
